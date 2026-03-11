@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sustainability & Compliance Training — Akdo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'akdo-dark': '#02140d',
+            'akdo-green': '#2cc27d',
+            'akdo-lime': '#83e85a',
+            'akdo-cream': '#f5f6f4',
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Poppins', sans-serif; color: #02140d; background: #fff; overflow-x: hidden; }
+
+    .site-w { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #2cc27d; color: #02140d; font-family: 'Poppins', sans-serif;
+      font-weight: 600; font-size: 15px; padding: 15px 36px; border-radius: 50px;
+      text-decoration: none; transition: all 0.2s; border: none; cursor: pointer;
+    }
+    .btn-primary:hover { background: #83e85a; transform: translateY(-1px); }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: #02140d; font-family: 'Poppins', sans-serif;
+      font-weight: 600; font-size: 15px; padding: 15px 36px; border-radius: 50px;
+      border: 1.5px solid #02140d1a; text-decoration: none; transition: all 0.2s; cursor: pointer;
+      background: transparent;
+    }
+    .btn-ghost:hover { border-color: #02140d; }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-black/[0.04]">
+    <div class="site-w flex items-center justify-between h-16">
+      <a href="index.html">
+        <img src="assets/logo.png" alt="Akdo" class="h-7">
+      </a>
+      <div class="hidden md:flex items-center gap-7">
+        <a href="hse-training.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">HSE Training</a>
+        <a href="sustainability.html" class="text-[13px] font-semibold text-akdo-dark transition-colors">Sustainability</a>
+        <a href="training-library.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Training Library</a>
+        <a href="security.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Security</a>
+      </div>
+      <a href="book-demo.html" class="btn-primary !text-[13px] !py-2.5 !px-5">Book a Demo</a>
+    </div>
+  </nav>
+
+
+  <!-- ========== 1. HERO ========== -->
+  <section class="pt-36 pb-20">
+    <div class="site-w max-w-[760px] mx-auto text-center">
+      <p class="text-[12px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-4">Sustainability & Compliance</p>
+      <h1 class="font-bold text-[40px] md:text-[52px] leading-[1.06] tracking-tight text-akdo-dark mb-6">
+        Turn ESG commitments into<br><span class="text-akdo-green">company-wide action.</span>
+      </h1>
+      <p class="text-[16px] text-akdo-dark/50 leading-relaxed max-w-[540px] mx-auto mb-10">
+        AI-powered training that transforms your ESG strategy, compliance frameworks, and corporate policies into interactive learning — for employees, suppliers, and customers.
+      </p>
+      <a href="book-demo.html" class="btn-primary">
+        Book a Demo
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- Trusted by -->
+  <div class="pb-16 pt-2">
+    <div class="site-w text-center">
+      <p class="text-[11px] font-semibold text-akdo-dark/20 tracking-[0.12em] uppercase mb-5">Trusted by</p>
+      <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+        <span class="text-[14px] font-semibold text-akdo-dark/20">Henkel</span>
+        <span class="text-[14px] font-semibold text-akdo-dark/20">Huhtamaki</span>
+        <span class="text-[14px] font-semibold text-akdo-dark/20">JTI</span>
+        <span class="text-[14px] font-semibold text-akdo-dark/20">GE Vernova</span>
+        <span class="text-[14px] font-semibold text-akdo-dark/20">Essity</span>
+        <span class="text-[14px] font-semibold text-akdo-dark/20">Harmony Gold</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========== 2. THE PROBLEM — Dark section ========== -->
+  <section class="py-20 bg-akdo-dark">
+    <div class="site-w max-w-[960px] mx-auto">
+      <!-- Header -->
+      <div class="text-center max-w-[640px] mx-auto mb-12">
+        <p class="text-[12px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">The problem</p>
+        <h2 class="font-bold text-[28px] md:text-[36px] leading-[1.1] text-white">
+          Your ESG strategy exists.<br>Your workforce <span class="text-akdo-green">doesn't know it.</span>
+        </h2>
+        <p class="text-[14px] text-white/40 mt-4">Companies spend millions on sustainability reports, compliance frameworks, and codes of conduct — then deliver them through 90-slide decks nobody reads.</p>
+      </div>
+
+      <!-- Left-right split: symptoms | diagnosis -->
+      <div class="grid md:grid-cols-[1fr_380px] gap-6 items-stretch">
+
+        <!-- Left: The 4 symptoms -->
+        <div class="bg-white/[0.04] rounded-2xl p-6 border border-white/[0.06] flex flex-col justify-between">
+          <div class="flex gap-3 items-baseline">
+            <span class="font-bold text-akdo-green text-[13px] flex-shrink-0">01</span>
+            <div>
+              <h3 class="font-semibold text-[14px] text-white">Reports ≠ Action</h3>
+              <p class="text-[12px] text-white/35">ESG reports and policy docs satisfy auditors. They don't change behavior on the floor.</p>
+            </div>
+          </div>
+          <div class="border-t border-white/[0.06] my-3"></div>
+          <div class="flex gap-3 items-baseline">
+            <span class="font-bold text-akdo-green text-[13px] flex-shrink-0">02</span>
+            <div>
+              <h3 class="font-semibold text-[14px] text-white">Multiple Audiences, Zero Scale</h3>
+              <p class="text-[12px] text-white/35">Employees, suppliers, customers — each need different training. Most companies build none.</p>
+            </div>
+          </div>
+          <div class="border-t border-white/[0.06] my-3"></div>
+          <div class="flex gap-3 items-baseline">
+            <span class="font-bold text-akdo-green text-[13px] flex-shrink-0">03</span>
+            <div>
+              <h3 class="font-semibold text-[14px] text-white">Regulation Is Accelerating</h3>
+              <p class="text-[12px] text-white/35">CSRD, GDPR, anti-bribery directives — regulators demand proof that compliance is embedded, not just documented.</p>
+            </div>
+          </div>
+          <div class="border-t border-white/[0.06] my-3"></div>
+          <div class="flex gap-3 items-baseline">
+            <span class="font-bold text-akdo-green text-[13px] flex-shrink-0">04</span>
+            <div>
+              <h3 class="font-semibold text-[14px] text-white">Global Complexity</h3>
+              <p class="text-[12px] text-white/35">Every jurisdiction, language, and supplier tier needs localized content. One-size-fits-all doesn't comply.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: The diagnosis -->
+        <div class="bg-white/[0.04] rounded-2xl p-6 border border-white/[0.06] flex flex-col justify-between">
+          <div>
+            <p class="text-[10px] font-semibold text-akdo-green tracking-[0.1em] uppercase mb-4">Why it doesn't land</p>
+            <div class="space-y-4">
+              <div>
+                <div class="text-[22px] font-bold text-white/70 leading-none mb-0.5">90%</div>
+                <p class="text-[11px] text-white/30">of employees can't name their company's ESG targets</p>
+                <p class="text-[10px] text-akdo-green/60 mt-0.5">→ Role-specific learning</p>
+              </div>
+              <div>
+                <div class="text-[22px] font-bold text-white/70 leading-none mb-0.5">~20%</div>
+                <p class="text-[11px] text-white/30">completion rate on traditional compliance e-learning</p>
+                <p class="text-[10px] text-akdo-green/60 mt-0.5">→ Interactive, bite-sized formats</p>
+              </div>
+              <div>
+                <div class="text-[22px] font-bold text-white/70 leading-none mb-0.5">70%</div>
+                <p class="text-[11px] text-white/30">of Scope 3 emissions sit with suppliers</p>
+                <p class="text-[10px] text-akdo-green/60 mt-0.5">→ Supplier onboarding at scale</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="border-t border-white/[0.06] pt-4 mt-5">
+            <p class="text-[14px] font-semibold text-white/80 leading-snug">
+              The goal isn't more policies.<br>It's making them <span class="text-akdo-green">operational.</span>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== 3. USE CASES — Solution blocks ========== -->
+  <!-- Alternating white/cream, alternating L-R layout. Mirrors the 4 current website pages. -->
+
+  <!-- Use Case 1: Employee Engagement (text left, visual right) — white -->
+  <section class="py-20">
+    <div class="site-w max-w-[960px] mx-auto">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="text-[11px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">Employee Engagement</p>
+          <h2 class="font-bold text-[28px] md:text-[36px] leading-[1.08] text-akdo-dark mb-5">
+            Activate your workforce with training built from your own strategy.
+          </h2>
+          <p class="text-[14px] text-akdo-dark/45 leading-relaxed mb-7">
+            Your ESG report exists. Your code of conduct is signed. But the plant manager in Brazil hasn't read either. Akdo transforms your sustainability reports, compliance frameworks, and internal policies into hyper-personalized training — tailored by role, department, and skill level. Procurement sees different content than operations. Everyone sees content they trust.
+          </p>
+          <div class="space-y-3">
+            <div class="flex items-center gap-3">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="text-[13px] text-akdo-dark/55">Generated from your ESG reports, policies, and frameworks</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="text-[13px] text-akdo-dark/55">Personalized by role, department, and expertise level</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="text-[13px] text-akdo-dark/55">Video, scenarios, gamification — 99.6% completion</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="text-[13px] text-akdo-dark/55">Integrates with your LMS, Slack, Teams, or WhatsApp</span>
+            </div>
+          </div>
+        </div>
+        <!-- Visual: ESG report → training transformation -->
+        <div class="bg-akdo-cream/60 rounded-2xl border border-black/[0.04] p-6">
+          <div class="space-y-4">
+            <div class="bg-white rounded-xl p-4 border border-black/[0.04]">
+              <p class="text-[10px] font-semibold text-akdo-dark/25 uppercase tracking-wider mb-2">ESG Report — Page 47</p>
+              <p class="text-[12px] text-akdo-dark/35 italic">"The company aims to reduce Scope 1 and 2 emissions by 42% by 2030, aligned with SBTi 1.5°C pathway..."</p>
+            </div>
+            <div class="flex justify-center">
+              <div class="w-8 h-8 rounded-full bg-akdo-green/10 flex items-center justify-center">
+                <span class="text-akdo-green text-sm font-bold">↓</span>
+              </div>
+            </div>
+            <div class="bg-akdo-dark rounded-xl p-4">
+              <p class="text-[10px] font-semibold text-akdo-green uppercase tracking-wider mb-2">Training module</p>
+              <p class="text-[12px] text-white/60 italic">"Your site's energy consumption accounts for 18% of the company's Scope 1 emissions. Here are three actions your team can take this quarter to contribute to the 42% reduction target."</p>
+            </div>
+          </div>
+          <p class="text-[11px] text-akdo-dark/20 text-center mt-4">[ Product screenshot: AI generating a training module from an uploaded ESG report, or screen recording GIF of the chatbot intake flow ]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Case 2: Supplier Engagement (visual left, text right) — cream -->
+  <section class="py-20 bg-akdo-cream/60">
+    <div class="site-w max-w-[960px] mx-auto">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <!-- Visual: supplier tier onboarding -->
+        <div class="bg-white rounded-2xl border border-black/[0.04] p-6">
+          <div class="space-y-3">
+            <div class="flex items-center gap-3 bg-akdo-cream/60 rounded-lg px-4 py-3">
+              <div class="w-8 h-8 rounded-lg bg-akdo-green/15 flex items-center justify-center flex-shrink-0">
+                <span class="text-[11px] font-bold text-akdo-green">T1</span>
+              </div>
+              <div class="flex-1">
+                <p class="text-[11px] font-semibold text-akdo-dark">Tier 1 — Strategic suppliers</p>
+                <p class="text-[10px] text-akdo-dark/35">SBTi alignment · Carbon reporting · LCA basics</p>
+              </div>
+              <div class="w-5 h-5 rounded-full bg-akdo-green/15 flex items-center justify-center">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#2cc27d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 bg-akdo-cream/60 rounded-lg px-4 py-3">
+              <div class="w-8 h-8 rounded-lg bg-amber-500/15 flex items-center justify-center flex-shrink-0">
+                <span class="text-[11px] font-bold text-amber-600">T2</span>
+              </div>
+              <div class="flex-1">
+                <p class="text-[11px] font-semibold text-akdo-dark">Tier 2 — Mid-size suppliers</p>
+                <p class="text-[10px] text-akdo-dark/35">ESG foundations · Waste management · Code of conduct</p>
+              </div>
+              <div class="w-5 h-5 rounded-full bg-akdo-green/15 flex items-center justify-center">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#2cc27d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 bg-akdo-cream/60 rounded-lg px-4 py-3">
+              <div class="w-8 h-8 rounded-lg bg-blue-500/15 flex items-center justify-center flex-shrink-0">
+                <span class="text-[11px] font-bold text-blue-600">T3</span>
+              </div>
+              <div class="flex-1">
+                <p class="text-[11px] font-semibold text-akdo-dark">Tier 3 — Small suppliers</p>
+                <p class="text-[10px] text-akdo-dark/35">Sustainability awareness · Human rights · Basic compliance</p>
+              </div>
+              <div class="w-5 h-5 rounded-full bg-akdo-dark/5 flex items-center justify-center animate-pulse">
+                <span class="text-[8px] text-akdo-dark/30">···</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-[11px] text-akdo-dark/20 text-center mt-4">[ Product screenshot of supplier dashboard with tiered programs, or infographic: 5,000 suppliers → 3 tiers → customized programs → completion tracking ]</p>
+        </div>
+        <div>
+          <p class="text-[11px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">Supplier Engagement</p>
+          <h2 class="font-bold text-[26px] md:text-[32px] leading-[1.1] text-akdo-dark mb-5">
+            5,000 suppliers. Customized onboarding for every tier.
+          </h2>
+          <p class="text-[14px] text-akdo-dark/45 leading-relaxed mb-7">
+            70% of your emissions sit in the supply chain. Your suppliers range from global corporates to 10-person workshops — a single PDF onboarding doesn't scale. Akdo creates net-zero onboarding programs customized by supplier tier and maturity level, ensuring alignment with your sustainability goals and ethical standards.
+          </p>
+          <div class="space-y-3">
+            <div class="flex items-center gap-3">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="text-[13px] text-akdo-dark/55">Customized by supplier size and capability</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="text-[13px] text-akdo-dark/55">Drive Scope 3 reductions across the value chain</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="text-[13px] text-akdo-dark/55">Scalable from 10 to 10,000 suppliers · 200+ languages</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Case 3: Customer Engagement (text left, visual right) — white -->
+  <section class="py-20">
+    <div class="site-w max-w-[960px] mx-auto">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="text-[11px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">Customer Engagement</p>
+          <h2 class="font-bold text-[26px] md:text-[32px] leading-[1.1] text-akdo-dark mb-5">
+            Turn your customers into sustainability advocates.
+          </h2>
+          <p class="text-[14px] text-akdo-dark/45 leading-relaxed mb-7">
+            Your net-zero ambitions don't stop at your company's walls. Akdo creates content-driven onboarding journeys that guide your customers through an educational experience — driving faster adoption of sustainable products and positioning your company as a thought leader.
+          </p>
+          <div class="space-y-3">
+            <div class="flex items-center gap-3">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="text-[13px] text-akdo-dark/55">Content-driven product onboarding aligned to your strategy</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="text-[13px] text-akdo-dark/55">Branded learning journeys for demand centers of all sizes</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="text-[13px] text-akdo-dark/55">Drive sales for sustainable solutions with education, not just marketing</span>
+            </div>
+          </div>
+        </div>
+        <!-- Visual: Branded customer journey -->
+        <div class="bg-akdo-dark rounded-2xl p-6">
+          <p class="text-[10px] font-semibold text-akdo-green uppercase tracking-wider mb-4">Customer learning journey</p>
+          <div class="space-y-2.5">
+            <div class="flex items-center gap-3 bg-white/[0.06] rounded-lg px-4 py-3">
+              <span class="text-[10px] font-bold text-akdo-green bg-akdo-green/15 rounded px-1.5 py-0.5">01</span>
+              <div class="flex-1">
+                <p class="text-[11px] font-semibold text-white/80">Why net-zero matters for your business</p>
+                <p class="text-[10px] text-white/30">Video · 4 min</p>
+              </div>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#2cc27d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="flex items-center gap-3 bg-white/[0.06] rounded-lg px-4 py-3">
+              <span class="text-[10px] font-bold text-akdo-green bg-akdo-green/15 rounded px-1.5 py-0.5">02</span>
+              <div class="flex-1">
+                <p class="text-[11px] font-semibold text-white/80">Our sustainable product line</p>
+                <p class="text-[10px] text-white/30">Interactive · 6 min</p>
+              </div>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#2cc27d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="flex items-center gap-3 bg-akdo-green/10 rounded-lg px-4 py-3 border border-akdo-green/20">
+              <span class="text-[10px] font-bold text-akdo-green bg-akdo-green/15 rounded px-1.5 py-0.5">03</span>
+              <div class="flex-1">
+                <p class="text-[11px] font-semibold text-white/90">Switching guide + ROI calculator</p>
+                <p class="text-[10px] text-white/40">Scenario · 8 min — in progress</p>
+              </div>
+              <span class="text-[8px] text-white/30 animate-pulse">···</span>
+            </div>
+          </div>
+          <p class="text-[11px] text-white/10 text-center mt-4">[ Branded customer learning page mockup with client branding, or before/after: PDF product sheet → interactive learning module ]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Case 4: Compliance Training (visual left, text right) — cream -->
+  <section class="py-20 bg-akdo-cream/60">
+    <div class="site-w max-w-[960px] mx-auto">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <!-- Visual: Compliance scenario simulation -->
+        <div class="bg-akdo-dark rounded-2xl p-6">
+          <p class="text-[10px] font-semibold text-akdo-green uppercase tracking-wider mb-4">Scenario: Gifts & hospitality</p>
+          <div class="bg-white/[0.04] rounded-xl p-4 mb-3">
+            <p class="text-[12px] text-white/60 leading-relaxed">A supplier invites you to a weekend sports event. They're bidding on a contract your team is evaluating. The tickets are worth €800. What do you do?</p>
+          </div>
+          <div class="space-y-2">
+            <div class="bg-white/[0.06] hover:bg-akdo-green/20 rounded-lg px-4 py-2.5 border border-white/[0.06] cursor-pointer transition-colors">
+              <p class="text-[11px] text-white/70">A. Accept — it's a networking opportunity, not a bribe</p>
+            </div>
+            <div class="bg-akdo-green/15 rounded-lg px-4 py-2.5 border border-akdo-green/30">
+              <p class="text-[11px] text-white/90 font-medium">B. Decline and disclose per the gifts policy ✓</p>
+            </div>
+            <div class="bg-white/[0.06] hover:bg-akdo-green/20 rounded-lg px-4 py-2.5 border border-white/[0.06] cursor-pointer transition-colors">
+              <p class="text-[11px] text-white/70">C. Accept but don't mention it — it's personal, not work</p>
+            </div>
+          </div>
+          <p class="text-[11px] text-white/10 text-center mt-4">[ Real product screenshot of a compliance scenario simulation, or Loom-style screen recording with play button ]</p>
+        </div>
+        <div>
+          <p class="text-[11px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">Compliance Training</p>
+          <h2 class="font-bold text-[26px] md:text-[32px] leading-[1.1] text-akdo-dark mb-5">
+            Compliance that's actually engaging — aligned to daily operations.
+          </h2>
+          <p class="text-[14px] text-akdo-dark/45 leading-relaxed mb-7">
+            Anti-bribery, antitrust, GDPR, code of conduct — your employees sign off during onboarding and never think about them again. Akdo turns your compliance policies into scenario-based training where workers face realistic dilemmas, not abstract rules. Built from your actual documents, localized per jurisdiction.
+          </p>
+          <div class="space-y-3">
+            <div class="flex items-center gap-3">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="text-[13px] text-akdo-dark/55">HR compliance, anti-bribery, antitrust, supply chain</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="text-[13px] text-akdo-dark/55">Scenario-based — realistic dilemmas, not abstract rules</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="text-[13px] text-akdo-dark/55">Audit-ready completion tracking and reporting</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== 4. TOPIC COVERAGE — E, S, G + Compliance ========== -->
+  <section class="py-12 bg-akdo-dark">
+    <div class="site-w max-w-[960px] mx-auto">
+      <p class="text-[12px] font-semibold text-white/25 tracking-[0.12em] uppercase mb-6 text-center">Topics across E, S, G & Compliance</p>
+      <div class="grid md:grid-cols-4 gap-4">
+        <div>
+          <p class="text-[12px] font-semibold text-akdo-green mb-2.5">Environmental</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="text-[10px] text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-full px-3 py-1">Climate Change</span>
+            <span class="text-[10px] text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-full px-3 py-1">CSRD</span>
+            <span class="text-[10px] text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-full px-3 py-1">ISO 14001</span>
+            <span class="text-[10px] text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-full px-3 py-1">Scope 3</span>
+            <span class="text-[10px] text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-full px-3 py-1">Waste</span>
+            <span class="text-[10px] text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-full px-3 py-1">Pollution</span>
+          </div>
+        </div>
+        <div>
+          <p class="text-[12px] font-semibold text-akdo-green mb-2.5">Social</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="text-[10px] text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-full px-3 py-1">Human Rights</span>
+            <span class="text-[10px] text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-full px-3 py-1">DEI</span>
+            <span class="text-[10px] text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-full px-3 py-1">Labour Standards</span>
+            <span class="text-[10px] text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-full px-3 py-1">Supply Chain Due Diligence</span>
+            <span class="text-[10px] text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-full px-3 py-1">Community Impact</span>
+          </div>
+        </div>
+        <div>
+          <p class="text-[12px] font-semibold text-akdo-green mb-2.5">Governance</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="text-[10px] text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-full px-3 py-1">Anti-Bribery</span>
+            <span class="text-[10px] text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-full px-3 py-1">Code of Conduct</span>
+            <span class="text-[10px] text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-full px-3 py-1">Whistleblower</span>
+            <span class="text-[10px] text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-full px-3 py-1">Anti-Corruption</span>
+            <span class="text-[10px] text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-full px-3 py-1">Conflicts of Interest</span>
+          </div>
+        </div>
+        <div>
+          <p class="text-[12px] font-semibold text-akdo-green mb-2.5">Compliance</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="text-[10px] text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-full px-3 py-1">GDPR</span>
+            <span class="text-[10px] text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-full px-3 py-1">Antitrust</span>
+            <span class="text-[10px] text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-full px-3 py-1">Export Controls</span>
+            <span class="text-[10px] text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-full px-3 py-1">Sanctions</span>
+            <span class="text-[10px] text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-full px-3 py-1">Anti-Harassment</span>
+            <span class="text-[10px] text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-full px-3 py-1">+more</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== 5. HOW WE WORK TOGETHER ========== -->
+  <section class="py-20">
+    <div class="site-w max-w-[960px] mx-auto">
+      <div class="text-center max-w-[640px] mx-auto mb-14">
+        <p class="text-[12px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">How we work together</p>
+        <h2 class="font-bold text-[28px] md:text-[36px] leading-[1.1] text-akdo-dark">
+          Replace your 9-month cycle<br>with a <span class="text-akdo-green">12-week go-live.</span>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Left column: Classical process -->
+        <div class="relative">
+          <div class="flex items-center gap-3 mb-6">
+            <p class="text-[11px] font-semibold text-akdo-dark/30 tracking-[0.12em] uppercase">The classical process</p>
+            <div class="flex-1 h-px bg-akdo-dark/[0.06]"></div>
+          </div>
+
+          <!-- Vertical line -->
+          <div class="absolute left-[7px] top-[52px] bottom-[40px] w-[2px] bg-akdo-dark/[0.06]"></div>
+
+          <div class="space-y-5">
+            <div class="flex gap-4 relative">
+              <div class="flex-shrink-0 w-4 h-4 rounded-full bg-akdo-dark/10 mt-0.5 relative z-10"></div>
+              <div class="flex-1">
+                <p class="text-[12px] font-medium text-akdo-dark/40">Sustainability brief</p>
+                <p class="text-[10px] text-akdo-dark/20">Month 1</p>
+              </div>
+            </div>
+            <div class="flex gap-4 relative">
+              <div class="flex-shrink-0 w-4 h-4 rounded-full bg-akdo-dark/10 mt-0.5 relative z-10"></div>
+              <div class="flex-1">
+                <p class="text-[12px] font-medium text-akdo-dark/40">L&D scopes vendor</p>
+                <p class="text-[10px] text-akdo-dark/20">Month 2</p>
+              </div>
+            </div>
+            <div class="flex gap-4 relative">
+              <div class="flex-shrink-0 w-4 h-4 rounded-full bg-akdo-dark/10 mt-0.5 relative z-10"></div>
+              <div class="flex-1">
+                <p class="text-[12px] font-medium text-akdo-dark/40">Agency hired · €50K+</p>
+                <p class="text-[10px] text-akdo-dark/20">Month 3</p>
+              </div>
+            </div>
+            <!-- Empty gap to show wasted time -->
+            <div class="flex gap-4 relative py-3">
+              <div class="flex-shrink-0 w-4 flex items-center justify-center relative z-10">
+                <div class="text-akdo-dark/10 text-[10px]">⋮</div>
+              </div>
+              <div class="flex-1">
+                <p class="text-[11px] italic text-akdo-dark/15">waiting...</p>
+              </div>
+            </div>
+            <div class="flex gap-4 relative">
+              <div class="flex-shrink-0 w-4 h-4 rounded-full bg-akdo-dark/10 mt-0.5 relative z-10"></div>
+              <div class="flex-1">
+                <p class="text-[12px] font-medium text-akdo-dark/40">Content drafted</p>
+                <p class="text-[10px] text-akdo-dark/20">Month 5</p>
+              </div>
+            </div>
+            <!-- Another gap -->
+            <div class="flex gap-4 relative py-3">
+              <div class="flex-shrink-0 w-4 flex items-center justify-center relative z-10">
+                <div class="text-akdo-dark/10 text-[10px]">⋮</div>
+              </div>
+              <div class="flex-1">
+                <p class="text-[11px] italic text-akdo-dark/15">waiting...</p>
+              </div>
+            </div>
+            <div class="flex gap-4 relative">
+              <div class="flex-shrink-0 w-4 h-4 rounded-full bg-akdo-dark/10 mt-0.5 relative z-10"></div>
+              <div class="flex-1">
+                <p class="text-[12px] font-medium text-akdo-dark/40">Translations</p>
+                <p class="text-[10px] text-akdo-dark/20">Month 7</p>
+              </div>
+            </div>
+            <div class="flex gap-4 relative">
+              <div class="flex-shrink-0 w-4 h-4 rounded-full bg-akdo-dark/10 mt-0.5 relative z-10"></div>
+              <div class="flex-1">
+                <p class="text-[12px] font-medium text-akdo-dark/40">LMS upload</p>
+                <p class="text-[10px] text-akdo-dark/20">Month 8</p>
+              </div>
+            </div>
+            <div class="flex gap-4 relative">
+              <div class="flex-shrink-0 w-4 h-4 rounded-full bg-red-400 mt-0.5 relative z-10"></div>
+              <div class="flex-1">
+                <p class="text-[12px] font-semibold text-red-400">Already outdated</p>
+                <p class="text-[10px] text-akdo-dark/20">Month 9+</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pl-8 text-[11px] text-akdo-dark/25">
+            €50K+ per program · 200–720 hours · Repeat per audience
+          </div>
+        </div>
+
+        <!-- Right column: With Akdo -->
+        <div class="relative">
+          <div class="flex items-center gap-3 mb-6">
+            <p class="text-[11px] font-semibold text-akdo-green tracking-[0.12em] uppercase">With Akdo</p>
+            <div class="flex-1 h-px bg-akdo-green/15"></div>
+            <p class="text-[11px] font-semibold text-akdo-green">&lt;20 hrs</p>
+          </div>
+
+          <!-- Vertical line -->
+          <div class="absolute left-[7px] top-[52px] w-[2px] bg-akdo-green/15" style="height:260px"></div>
+
+          <div class="space-y-5">
+            <div class="flex gap-4 relative">
+              <div class="flex-shrink-0 w-4 h-4 rounded-full bg-akdo-green/20 border-2 border-akdo-green mt-0.5 relative z-10"></div>
+              <div class="flex-1">
+                <p class="text-[12px] font-semibold text-akdo-dark">Discovery + demo + pricing</p>
+                <p class="text-[10px] text-akdo-dark/35">Week 1–2 · Sustainability Lead + L&D · ~2 hrs</p>
+              </div>
+            </div>
+            <div class="flex gap-4 relative">
+              <div class="flex-shrink-0 w-4 h-4 rounded-full bg-akdo-green/20 border-2 border-akdo-green mt-0.5 relative z-10"></div>
+              <div class="flex-1">
+                <p class="text-[12px] font-semibold text-akdo-dark">Executive alignment + onboarding</p>
+                <p class="text-[10px] text-akdo-dark/35">Week 3–5 · VP Sustainability + L&D + Procurement · ~4 hrs</p>
+              </div>
+            </div>
+            <div class="flex gap-4 relative">
+              <div class="flex-shrink-0 w-4 h-4 rounded-full bg-akdo-green/20 border-2 border-akdo-green mt-0.5 relative z-10"></div>
+              <div class="flex-1">
+                <p class="text-[12px] font-semibold text-akdo-dark">Kickoff workshop + data room</p>
+                <p class="text-[10px] text-akdo-dark/35">Week 5–6 · Sustainability team · ~4 hrs</p>
+              </div>
+            </div>
+            <div class="flex gap-4 relative">
+              <div class="flex-shrink-0 w-4 h-4 rounded-full bg-akdo-green mt-0.5 relative z-10"></div>
+              <div class="flex-1 bg-akdo-green/[0.05] rounded-xl px-4 py-3 border border-akdo-green/10">
+                <p class="text-[12px] font-semibold text-akdo-dark">Akdo builds + 2 review cycles</p>
+                <p class="text-[10px] text-akdo-dark/35">Week 6–10 · Sustainability review · ~8 hrs — <span class="text-akdo-green font-semibold">Akdo does the heavy lifting</span></p>
+              </div>
+            </div>
+            <div class="flex gap-4 relative">
+              <div class="flex-shrink-0 w-4 h-4 rounded-full bg-akdo-green/20 border-2 border-akdo-green mt-0.5 relative z-10"></div>
+              <div class="flex-1">
+                <p class="text-[12px] font-semibold text-akdo-dark">IT integration + go live</p>
+                <p class="text-[10px] text-akdo-dark/35">Week 10–12 · L&D + IT · ~30 min</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pl-8 text-[11px] text-akdo-dark/30">
+            Akdo handles design, build, translations, and hosting.<br>
+            Ongoing: annual updates (4–8 hrs) + expand with further modules.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== 6. VS ALTERNATIVES — Comparison table ========== -->
+  <section class="py-16 bg-akdo-cream/60">
+    <div class="site-w max-w-[860px] mx-auto">
+      <div class="text-center max-w-[600px] mx-auto mb-10">
+        <h2 class="font-bold text-[28px] md:text-[36px] leading-[1.1] text-akdo-dark">
+          The only platform combining<br><span class="text-akdo-green">ESG depth</span> with <span class="text-akdo-green">AI speed.</span>
+        </h2>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-[13px]">
+          <thead>
+            <tr>
+              <th class="text-left p-3.5 font-semibold text-akdo-dark/30 text-[11px] uppercase tracking-wider"></th>
+              <th class="text-left p-3.5 font-semibold text-akdo-dark/30 text-[11px] uppercase tracking-wider">DIY AI Tools</th>
+              <th class="text-left p-3.5 font-semibold text-akdo-dark/30 text-[11px] uppercase tracking-wider">Agency</th>
+              <th class="text-left p-3.5 font-semibold text-white text-[11px] uppercase tracking-wider bg-akdo-green rounded-t-lg">Akdo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t border-black/[0.04]">
+              <td class="p-3.5 font-semibold text-akdo-dark">ESG Depth</td>
+              <td class="p-3.5 text-akdo-dark/35">Generic prompts, no domain knowledge</td>
+              <td class="p-3.5 text-akdo-dark/35">Expert but manual</td>
+              <td class="p-3.5 bg-akdo-green/5 font-semibold text-akdo-dark">28+ sustainability topics built in</td>
+            </tr>
+            <tr class="border-t border-black/[0.04]">
+              <td class="p-3.5 font-semibold text-akdo-dark">Speed</td>
+              <td class="p-3.5 text-akdo-dark/35">Weeks of DIY work</td>
+              <td class="p-3.5 text-akdo-dark/35">9+ months per program</td>
+              <td class="p-3.5 bg-akdo-green/5 font-semibold text-akdo-dark">Hours to days</td>
+            </tr>
+            <tr class="border-t border-black/[0.04]">
+              <td class="p-3.5 font-semibold text-akdo-dark">Cost</td>
+              <td class="p-3.5 text-akdo-dark/35">Cheap tools, expensive labor</td>
+              <td class="p-3.5 text-akdo-dark/35">€50K+ per program</td>
+              <td class="p-3.5 bg-akdo-green/5 font-semibold text-akdo-dark">60% cost reduction</td>
+            </tr>
+            <tr class="border-t border-black/[0.04]">
+              <td class="p-3.5 font-semibold text-akdo-dark">Audiences</td>
+              <td class="p-3.5 text-akdo-dark/35">One-size-fits-all output</td>
+              <td class="p-3.5 text-akdo-dark/35">Separate project per audience</td>
+              <td class="p-3.5 bg-akdo-green/5 font-semibold text-akdo-dark">Employees + suppliers + customers</td>
+            </tr>
+            <tr class="border-t border-black/[0.04]">
+              <td class="p-3.5 font-semibold text-akdo-dark">Global Scale</td>
+              <td class="p-3.5 text-akdo-dark/35">Basic translation</td>
+              <td class="p-3.5 text-akdo-dark/35">Outsourced region by region</td>
+              <td class="p-3.5 bg-akdo-green/5 font-semibold text-akdo-dark">200+ languages, locally compliant</td>
+            </tr>
+            <tr class="border-t border-black/[0.04]">
+              <td class="p-3.5 font-semibold text-akdo-dark">Maintenance</td>
+              <td class="p-3.5 text-akdo-dark/35">Manual rework per change</td>
+              <td class="p-3.5 text-akdo-dark/35">New project per update</td>
+              <td class="p-3.5 bg-akdo-green/5 font-semibold text-akdo-dark rounded-b-lg">Updates in minutes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== 7. RESULTS — Proof ========== -->
+  <section class="py-20">
+    <div class="site-w">
+      <div class="text-center max-w-[640px] mx-auto mb-14">
+        <p class="text-[12px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">Proven performance</p>
+        <h2 class="font-bold text-[28px] md:text-[36px] leading-[1.1] text-akdo-dark">
+          Trusted by global sustainability leaders.
+        </h2>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid md:grid-cols-3 gap-5 max-w-[800px] mx-auto mb-12">
+        <div class="text-center bg-akdo-cream/60 rounded-2xl p-8 border border-black/[0.04]">
+          <div class="text-[42px] font-bold text-akdo-dark leading-none">70–80%</div>
+          <p class="text-[13px] text-akdo-dark/45 mt-2 font-medium">Faster Creation</p>
+          <p class="text-[11px] text-akdo-dark/25 mt-1">From months to days per training.</p>
+        </div>
+        <div class="text-center bg-akdo-cream/60 rounded-2xl p-8 border border-black/[0.04]">
+          <div class="text-[42px] font-bold text-akdo-dark leading-none">99.6%</div>
+          <p class="text-[13px] text-akdo-dark/45 mt-2 font-medium">Completion Rate</p>
+          <p class="text-[11px] text-akdo-dark/25 mt-1">vs. ~20% industry average for traditional LMS.</p>
+        </div>
+        <div class="text-center bg-akdo-cream/60 rounded-2xl p-8 border border-black/[0.04]">
+          <div class="text-[42px] font-bold text-akdo-dark leading-none">450+</div>
+          <p class="text-[13px] text-akdo-dark/45 mt-2 font-medium">Courses Created</p>
+          <p class="text-[11px] text-akdo-dark/25 mt-1">Across safety, sustainability, and compliance.</p>
+        </div>
+      </div>
+
+      <!-- Essity case study -->
+      <div class="max-w-[700px] mx-auto mb-8">
+        <a href="#" class="block bg-white rounded-2xl border border-black/[0.04] p-6 md:p-8 hover:border-akdo-green/20 transition-colors group">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-[18px] font-bold text-akdo-dark/25">Essity</span>
+            <span class="text-[10px] font-semibold text-akdo-green bg-akdo-green/10 rounded-full px-2.5 py-0.5">Live training</span>
+          </div>
+          <h3 class="font-bold text-[18px] text-akdo-dark mb-2">See what Akdo-powered sustainability training looks like in practice.</h3>
+          <p class="text-[13px] text-akdo-dark/45 leading-relaxed mb-4">
+            Essity uses Akdo to train employees on sustainability fundamentals — built from their own ESG strategy, deployed globally. Explore the publicly available training.
+          </p>
+          <span class="inline-flex items-center gap-1.5 text-[13px] font-semibold text-akdo-green group-hover:gap-2.5 transition-all">
+            View the Essity training
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </a>
+      </div>
+
+      <!-- Customer proof -->
+      <div class="max-w-[700px] mx-auto">
+        <div class="bg-akdo-dark rounded-2xl p-7 md:p-9">
+          <div class="flex items-start gap-5">
+            <div class="w-12 h-12 rounded-full bg-white/[0.06] flex items-center justify-center flex-shrink-0 mt-1">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" stroke="#2cc27d" stroke-width="1.5"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" stroke="#2cc27d" stroke-width="1.5"/></svg>
+            </div>
+            <div>
+              <p class="text-[14px] text-white/70 leading-relaxed mb-4">
+                Sustainability training across 14 plants in 6 languages. Traditional approach: 9 months, €50K per region. With Akdo: first training live in 1 week, full global rollout in 2 months. 450+ courses created, 99.6% completion.
+              </p>
+              <p class="text-[12px] text-white/30">Director Sustainability Communications — Global CPG Enterprise</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== 8. CTA ========== -->
+  <section class="py-20 bg-akdo-cream/60">
+    <div class="site-w text-center max-w-[640px] mx-auto">
+      <h2 class="font-bold text-[32px] md:text-[44px] leading-[1.08] text-akdo-dark mb-5">
+        Share your ESG report.<br>We'll turn it into <span class="text-akdo-green">training.</span>
+      </h2>
+      <p class="text-[15px] text-akdo-dark/45 leading-relaxed mb-10">
+        30-minute demo. Bring your sustainability report or framework — we'll build a training module from it on the call. No slides, no pitch.
+      </p>
+      <a href="book-demo.html" class="btn-primary !text-base !py-4 !px-10">
+        Book a Demo
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <p class="text-[11px] text-akdo-dark/30 mt-6">Go live in 12 weeks — less than 20 hours of your team's time.</p>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="py-10 bg-akdo-dark border-t border-white/[0.05]">
+    <div class="site-w">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-5">
+        <img src="assets/logo.png" alt="Akdo" class="h-5 brightness-0 invert">
+        <div class="flex items-center gap-6">
+          <a href="careers.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Careers</a>
+          <a href="contact.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Contact</a>
+          <a href="#" class="text-[13px] text-white/60 hover:text-white transition-colors">Legal Notice</a>
+          <a href="#" class="text-[13px] text-white/60 hover:text-white transition-colors">Privacy Policy</a>
+        </div>
+        <p class="text-[12px] text-white/40">&copy; 2026 Akdo. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

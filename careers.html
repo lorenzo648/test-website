@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers — Akdo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: {
+        'akdo-dark': '#02140d', 'akdo-green': '#2cc27d',
+        'akdo-lime': '#83e85a', 'akdo-cream': '#f5f6f4',
+      }}}
+    }
+  </script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Poppins', sans-serif; color: #02140d; background: #fff; overflow-x: hidden; }
+    .site-w { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #2cc27d; color: #02140d; font-family: 'Poppins', sans-serif;
+      font-weight: 600; font-size: 15px; padding: 13px 30px; border-radius: 50px;
+      text-decoration: none; transition: all 0.2s; border: none; cursor: pointer;
+    }
+    .btn-primary:hover { background: #83e85a; transform: translateY(-1px); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-black/[0.04]">
+    <div class="site-w flex items-center justify-between h-16">
+      <a href="index.html">
+        <img src="assets/logo.png" alt="Akdo" class="h-7">
+      </a>
+      <div class="hidden md:flex items-center gap-7">
+        <a href="hse-training.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">HSE Training</a>
+        <a href="sustainability.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Sustainability</a>
+        <a href="training-library.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Training Library</a>
+        <a href="security.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Security</a>
+      </div>
+      <a href="book-demo.html" class="btn-primary !text-[13px] !py-2.5 !px-5">Book a Demo</a>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="pt-36 pb-16">
+    <div class="site-w max-w-[700px] mx-auto text-center">
+      <p class="text-[13px] font-semibold text-akdo-green tracking-wide uppercase mb-4">Careers</p>
+      <h1 class="font-bold text-[40px] md:text-[50px] leading-[1.08] tracking-tight text-akdo-dark mb-5">
+        Make workplaces<br><span class="text-akdo-green">safer with AI.</span>
+      </h1>
+      <p class="text-[16px] text-akdo-dark/55 leading-relaxed max-w-[480px] mx-auto">
+        Akdo is a Munich-based startup revolutionizing how enterprises train their teams on safety, sustainability, and compliance. Join us.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- MISSION -->
+  <section class="py-16 bg-akdo-cream/60">
+    <div class="site-w max-w-[800px] mx-auto">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="font-bold text-[28px] leading-tight text-akdo-dark mb-4">What we're building</h2>
+          <p class="text-[14px] text-akdo-dark/55 leading-relaxed mb-4">
+            Every year, $98 billion is spent on safety training that doesn't work. Generic slide decks, 9-month agency cycles, content that's outdated before it ships.
+          </p>
+          <p class="text-[14px] text-akdo-dark/55 leading-relaxed">
+            Akdo uses AI to turn a company's own incident reports, SOPs, and regulations into interactive training — in any language, in days instead of months. We're working with Fortune Global 2000 companies to make every workplace safer.
+          </p>
+        </div>
+        <div class="space-y-4">
+          <div class="bg-white rounded-xl p-5 border border-black/[0.04]">
+            <div class="font-bold text-[24px] text-akdo-green">450+</div>
+            <p class="text-[13px] text-akdo-dark/50">courses created</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 border border-black/[0.04]">
+            <div class="font-bold text-[24px] text-akdo-green">200+</div>
+            <p class="text-[13px] text-akdo-dark/50">languages supported</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 border border-black/[0.04]">
+            <div class="font-bold text-[24px] text-akdo-green">Munich</div>
+            <p class="text-[13px] text-akdo-dark/50">HQ — hybrid / remote friendly</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- VALUES -->
+  <section class="py-16">
+    <div class="site-w max-w-[800px] mx-auto">
+      <h2 class="font-bold text-[28px] leading-tight text-akdo-dark mb-8 text-center">How we work</h2>
+      <div class="grid md:grid-cols-3 gap-5">
+        <div class="text-center">
+          <div class="w-12 h-12 rounded-full bg-akdo-green/10 flex items-center justify-center mx-auto mb-4">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="font-semibold text-[15px] text-akdo-dark mb-2">Move fast, ship often</h3>
+          <p class="text-[12px] text-akdo-dark/45 leading-relaxed">We're a small team building for enterprise customers. Speed and quality aren't trade-offs — they're both non-negotiable.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 rounded-full bg-akdo-green/10 flex items-center justify-center mx-auto mb-4">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.27 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="font-semibold text-[15px] text-akdo-dark mb-2">Impact over output</h3>
+          <p class="text-[12px] text-akdo-dark/45 leading-relaxed">We measure success by what changes for our customers — fewer incidents, better compliance, safer teams.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 rounded-full bg-akdo-green/10 flex items-center justify-center mx-auto mb-4">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="#2cc27d" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="#2cc27d" stroke-width="2"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="#2cc27d" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="font-semibold text-[15px] text-akdo-dark mb-2">Own your domain</h3>
+          <p class="text-[12px] text-akdo-dark/45 leading-relaxed">Everyone owns their area end-to-end. No waiting for permission. High trust, high autonomy, high accountability.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- OPEN POSITIONS -->
+  <section class="py-16 bg-akdo-cream/60">
+    <div class="site-w max-w-[700px] mx-auto">
+      <h2 class="font-bold text-[28px] leading-tight text-akdo-dark mb-8 text-center">Open positions</h2>
+
+      <div class="space-y-3">
+        <a href="#" class="flex items-center justify-between bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/30 transition-colors group">
+          <div>
+            <h3 class="font-semibold text-[15px] text-akdo-dark mb-0.5">Full-Stack Engineer</h3>
+            <p class="text-[12px] text-akdo-dark/40">Munich / Remote · Full-time</p>
+          </div>
+          <svg class="text-akdo-dark/20 group-hover:text-akdo-green transition-colors" width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#" class="flex items-center justify-between bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/30 transition-colors group">
+          <div>
+            <h3 class="font-semibold text-[15px] text-akdo-dark mb-0.5">AI / ML Engineer</h3>
+            <p class="text-[12px] text-akdo-dark/40">Munich / Remote · Full-time</p>
+          </div>
+          <svg class="text-akdo-dark/20 group-hover:text-akdo-green transition-colors" width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#" class="flex items-center justify-between bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/30 transition-colors group">
+          <div>
+            <h3 class="font-semibold text-[15px] text-akdo-dark mb-0.5">Account Executive — Enterprise</h3>
+            <p class="text-[12px] text-akdo-dark/40">Munich · Full-time</p>
+          </div>
+          <svg class="text-akdo-dark/20 group-hover:text-akdo-green transition-colors" width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <!-- Open application -->
+      <div class="mt-10 pt-8 border-t border-black/[0.06] text-center">
+        <h3 class="font-bold text-[20px] text-akdo-dark mb-2">Don't see a role that fits?</h3>
+        <p class="text-[13px] text-akdo-dark/40 mb-5">We're always looking for people who care about real-world impact. Send us an open application.</p>
+        <a href="mailto:careers@akdo.ai" class="btn-primary !text-[14px] !py-3">
+          careers@akdo.ai
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="py-10 bg-akdo-dark border-t border-white/[0.05]">
+    <div class="site-w">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-5">
+        <img src="assets/logo.png" alt="Akdo" class="h-5 brightness-0 invert">
+        <div class="flex items-center gap-6">
+          <a href="careers.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Careers</a>
+          <a href="contact.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Contact</a>
+          <a href="#" class="text-[13px] text-white/60 hover:text-white transition-colors">Legal Notice</a>
+          <a href="#" class="text-[13px] text-white/60 hover:text-white transition-colors">Privacy Policy</a>
+        </div>
+        <p class="text-[12px] text-white/40">&copy; 2026 Akdo. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

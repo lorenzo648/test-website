@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akdo — Safety Training Built From Your Workplace</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'akdo-dark': '#02140d',
+            'akdo-green': '#2cc27d',
+            'akdo-lime': '#83e85a',
+            'akdo-cream': '#f5f6f4',
+            'akdo-peach': '#ffc091',
+            'akdo-yellow': '#fee581',
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Poppins', sans-serif; color: #02140d; background: #fff; overflow-x: hidden; }
+
+    .site-w { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #2cc27d; color: #02140d; font-family: 'Poppins', sans-serif;
+      font-weight: 600; font-size: 15px; padding: 15px 36px; border-radius: 50px;
+      text-decoration: none; transition: all 0.2s; border: none; cursor: pointer;
+    }
+    .btn-primary:hover { background: #83e85a; transform: translateY(-1px); }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: #02140d; font-family: 'Poppins', sans-serif;
+      font-weight: 600; font-size: 15px; padding: 15px 36px; border-radius: 50px;
+      border: 1.5px solid #02140d1a; text-decoration: none; transition: all 0.2s; cursor: pointer;
+      background: transparent;
+    }
+    .btn-ghost:hover { border-color: #02140d; }
+
+    /* Halo glow behind product image — soft green ambient light */
+    .hero-halo {
+      position: relative;
+    }
+    .hero-halo::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 110%;
+      height: 140%;
+      background: radial-gradient(ellipse at center top, rgba(44, 194, 125, 0.15) 0%, rgba(131, 232, 90, 0.08) 30%, rgba(44, 194, 125, 0.03) 55%, transparent 75%);
+      border-radius: 50%;
+      z-index: 0;
+      pointer-events: none;
+      filter: blur(20px);
+    }
+
+    /* Timeline connector */
+    .timeline-line {
+      position: absolute;
+      top: 28px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(to right, #2cc27d20, #2cc27d40, #2cc27d40, #2cc27d20);
+      z-index: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-black/[0.04]">
+    <div class="site-w flex items-center justify-between h-16">
+      <a href="/">
+        <img src="assets/logo.png" alt="Akdo" class="h-7">
+      </a>
+      <div class="hidden md:flex items-center gap-7">
+        <a href="hse-training.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">HSE Training</a>
+        <a href="sustainability.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Sustainability</a>
+        <a href="training-library.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Training Library</a>
+        <a href="security.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Security</a>
+      </div>
+      <a href="book-demo.html" class="btn-primary !text-[13px] !py-2.5 !px-5">Book a Demo</a>
+    </div>
+  </nav>
+
+
+  <!-- ========== 1. HERO — Bold headline + product image with halo ========== -->
+  <section class="pt-32 pb-0">
+    <div class="site-w text-center">
+      <h1 class="font-black text-[52px] md:text-[72px] leading-[1.02] tracking-[-0.02em] text-akdo-dark mb-6 max-w-[820px] mx-auto">
+        The AI safety training platform.
+      </h1>
+      <p class="text-[18px] md:text-[20px] text-akdo-dark/40 leading-relaxed max-w-[600px] mx-auto mb-10">
+        Turn your SOPs and incident reports into interactive, multilingual training — deployed in days, not months.
+      </p>
+      <div class="flex items-center justify-center gap-4 mb-16">
+        <a href="book-demo.html" class="btn-primary !py-4 !px-10 !text-[16px]">
+          Book a Demo
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#how" class="btn-ghost !py-4 !px-10 !text-[16px]">How It Works</a>
+      </div>
+
+      <!-- Product image with halo glow -->
+      <div class="hero-halo max-w-[1060px] mx-auto">
+        <div class="relative z-10 bg-akdo-dark rounded-t-[20px] overflow-hidden shadow-2xl shadow-black/20">
+          <div class="aspect-[16/9] flex items-center justify-center relative">
+            <!-- Subtle floating dots for depth -->
+            <div class="absolute top-[18%] left-[22%] w-1.5 h-1.5 rounded-full bg-akdo-green/15"></div>
+            <div class="absolute top-[40%] right-[28%] w-1 h-1 rounded-full bg-akdo-green/20"></div>
+            <div class="absolute bottom-[25%] right-[18%] w-1.5 h-1.5 rounded-full bg-akdo-green/15"></div>
+            <div class="absolute top-[60%] left-[35%] w-1 h-1 rounded-full bg-akdo-green/10"></div>
+            <!-- Placeholder -->
+            <div class="text-center">
+              <div class="w-14 h-14 rounded-xl bg-akdo-green/10 flex items-center justify-center mx-auto mb-4">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <p class="text-[13px] font-semibold text-akdo-green/60 tracking-wide uppercase">Product Visual / Platform Preview</p>
+              <p class="text-[11px] text-white/20 mt-1">This is the most important image on the site — show the product</p>
+            </div>
+          </div>
+          <!-- Bottom bar (browser chrome hint) -->
+          <div class="h-6 bg-akdo-dark border-t border-white/[0.04] flex items-center justify-center">
+            <div class="w-12 h-1 rounded-full bg-white/10"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== 2. LOGOS ========== -->
+  <section class="py-20">
+    <div class="site-w text-center">
+      <p class="text-[11px] font-semibold text-akdo-dark/30 tracking-[0.15em] uppercase mb-5">Trusted by safety leaders at</p>
+      <div class="flex flex-wrap items-center justify-center gap-x-9 gap-y-3">
+        <span class="font-semibold text-[15px] text-akdo-dark/25">GE Vernova</span>
+        <span class="font-semibold text-[15px] text-akdo-dark/25">JTI</span>
+        <span class="font-semibold text-[15px] text-akdo-dark/25">Henkel</span>
+        <span class="font-semibold text-[15px] text-akdo-dark/25">Essity</span>
+        <span class="font-semibold text-[15px] text-akdo-dark/25">Huhtamaki</span>
+        <span class="font-semibold text-[15px] text-akdo-dark/25">Harmony Gold</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== 3. WHAT CHANGES — Interactive tabs ========== -->
+  <section class="py-20 bg-akdo-cream/60">
+    <div class="site-w">
+      <!-- Header -->
+      <div class="text-center max-w-[650px] mx-auto mb-12">
+        <p class="text-[12px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">What makes this different</p>
+        <h2 class="font-bold text-[32px] md:text-[40px] leading-[1.1] text-akdo-dark">
+          Three things no other training platform does.
+        </h2>
+      </div>
+
+      <!-- 3 tab cards -->
+      <div class="grid md:grid-cols-3 gap-5 max-w-[960px] mx-auto mb-6">
+        <button onclick="switchTab(0)" id="tab-0" class="cap-tab active bg-white rounded-2xl p-7 text-left transition-all duration-200 cursor-pointer border-2 border-akdo-green/30">
+          <div class="w-11 h-11 rounded-xl bg-akdo-green/10 flex items-center justify-center mb-5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="font-bold text-[17px] text-akdo-dark mb-2">From your data</h3>
+          <p class="text-[13px] text-akdo-dark/45 leading-relaxed">
+            Training generated from your SOPs, incident reports, and site context.
+          </p>
+        </button>
+
+        <button onclick="switchTab(1)" id="tab-1" class="cap-tab bg-white rounded-2xl p-7 text-left transition-all duration-200 cursor-pointer border border-black/[0.04]">
+          <div class="w-11 h-11 rounded-xl bg-akdo-green/10 flex items-center justify-center mb-5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><polygon points="5 3 19 12 5 21 5 3" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="font-bold text-[17px] text-akdo-dark mb-2">Multiple formats</h3>
+          <p class="text-[13px] text-akdo-dark/45 leading-relaxed">
+            Video, interactive scenarios, microlearning, quizzes — the right format for the risk.
+          </p>
+        </button>
+
+        <button onclick="switchTab(2)" id="tab-2" class="cap-tab bg-white rounded-2xl p-7 text-left transition-all duration-200 cursor-pointer border border-black/[0.04]">
+          <div class="w-11 h-11 rounded-xl bg-akdo-green/10 flex items-center justify-center mb-5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2cc27d" stroke-width="2"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="#2cc27d" stroke-width="2"/></svg>
+          </div>
+          <h3 class="font-bold text-[17px] text-akdo-dark mb-2">Every language</h3>
+          <p class="text-[13px] text-akdo-dark/45 leading-relaxed">
+            200+ languages. Native AI voice. Create once, deploy everywhere.
+          </p>
+        </button>
+      </div>
+
+      <!-- Tab panels -->
+      <div class="max-w-[960px] mx-auto">
+
+        <!-- Panel 0: From your data -->
+        <div id="panel-0" class="cap-panel grid md:grid-cols-2 gap-0 rounded-2xl overflow-hidden">
+          <div class="bg-white p-10 flex flex-col justify-center">
+            <h3 class="font-bold text-[24px] md:text-[28px] leading-tight text-akdo-dark mb-4">
+              Your incident reports become training scenarios.
+            </h3>
+            <p class="text-[14px] text-akdo-dark/45 leading-relaxed mb-6">
+              Generic training gets tuned out because workers know it's not about their site, their machines, or their risks. Akdo ingests your actual safety documents and generates training that reflects your real workplace.
+            </p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-akdo-green/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="#2cc27d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <span class="text-[13px] text-akdo-dark/60">Every module traceable to source documents</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-akdo-green/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="#2cc27d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <span class="text-[13px] text-akdo-dark/60">No hallucinated safety procedures</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full bg-akdo-green/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="#2cc27d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <span class="text-[13px] text-akdo-dark/60">Human sign-off before any deployment</span>
+              </li>
+            </ul>
+            <a href="hse-training.html" class="inline-flex items-center gap-1.5 text-[13px] font-semibold text-akdo-green hover:gap-2.5 transition-all">
+              Learn more about HSE Training
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+          <div class="bg-akdo-cream p-8 flex items-center justify-center">
+            <div class="w-full max-w-[320px]">
+              <div class="bg-white rounded-xl p-5 shadow-sm border border-black/[0.04]">
+                <div class="flex items-center gap-3 mb-4">
+                  <div class="w-9 h-9 rounded-lg bg-akdo-green/10 flex items-center justify-center flex-shrink-0">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </div>
+                  <div>
+                    <p class="text-[12px] font-semibold text-akdo-dark">SOP_confined_space.pdf</p>
+                    <p class="text-[10px] text-akdo-dark/35">Uploaded 2 min ago</p>
+                  </div>
+                </div>
+                <div class="space-y-2">
+                  <div class="flex items-center gap-2">
+                    <div class="w-1.5 h-1.5 rounded-full bg-akdo-green"></div>
+                    <p class="text-[11px] text-akdo-dark/55">12 hazards extracted</p>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <div class="w-1.5 h-1.5 rounded-full bg-akdo-green"></div>
+                    <p class="text-[11px] text-akdo-dark/55">8 procedures mapped</p>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <div class="w-1.5 h-1.5 rounded-full bg-akdo-green"></div>
+                    <p class="text-[11px] text-akdo-dark/55">3 training modules generated</p>
+                  </div>
+                </div>
+              </div>
+              <p class="text-[10px] text-akdo-dark/25 text-center mt-3">[ Replace with real product UI ]</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 1: Multiple formats -->
+        <div id="panel-1" class="cap-panel hidden grid md:grid-cols-2 gap-0 rounded-2xl overflow-hidden">
+          <div class="bg-white p-10 flex flex-col justify-center">
+            <h3 class="font-bold text-[24px] md:text-[28px] leading-tight text-akdo-dark mb-4">
+              Not slides. Real training formats that work.
+            </h3>
+            <p class="text-[14px] text-akdo-dark/45 leading-relaxed mb-6">
+              Different risks need different approaches. Confined space entry needs simulation. New-hire orientation needs micro-video. Akdo generates the right format for the right moment — automatically.
+            </p>
+            <div class="grid grid-cols-2 gap-3">
+              <div class="bg-akdo-cream/80 rounded-xl p-4">
+                <h4 class="font-semibold text-[13px] text-akdo-dark mb-1">Video</h4>
+                <p class="text-[11px] text-akdo-dark/40 leading-relaxed">AI-narrated procedure walkthroughs</p>
+              </div>
+              <div class="bg-akdo-cream/80 rounded-xl p-4">
+                <h4 class="font-semibold text-[13px] text-akdo-dark mb-1">Scenarios</h4>
+                <p class="text-[11px] text-akdo-dark/40 leading-relaxed">Branching decisions from real incidents</p>
+              </div>
+              <div class="bg-akdo-cream/80 rounded-xl p-4">
+                <h4 class="font-semibold text-[13px] text-akdo-dark mb-1">Microlearning</h4>
+                <p class="text-[11px] text-akdo-dark/40 leading-relaxed">5-min daily via Slack/Teams/WhatsApp</p>
+              </div>
+              <div class="bg-akdo-cream/80 rounded-xl p-4">
+                <h4 class="font-semibold text-[13px] text-akdo-dark mb-1">Assessments</h4>
+                <p class="text-[11px] text-akdo-dark/40 leading-relaxed">Auto-generated, audit-ready records</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-akdo-dark p-8 flex items-center justify-center rounded-r-2xl">
+            <div class="grid grid-cols-2 gap-4 max-w-[240px]">
+              <div class="bg-white/[0.06] border border-white/[0.08] rounded-xl p-5 text-center">
+                <svg class="mx-auto mb-2" width="24" height="24" viewBox="0 0 24 24" fill="none"><polygon points="5 3 19 12 5 21 5 3" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <p class="text-[11px] font-medium text-white/50">Video</p>
+              </div>
+              <div class="bg-white/[0.06] border border-white/[0.08] rounded-xl p-5 text-center">
+                <svg class="mx-auto mb-2" width="24" height="24" viewBox="0 0 24 24" fill="none"><polyline points="9 18 15 12 9 6" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="15 18 21 12 15 6" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <p class="text-[11px] font-medium text-white/50">Interactive</p>
+              </div>
+              <div class="bg-white/[0.06] border border-white/[0.08] rounded-xl p-5 text-center">
+                <svg class="mx-auto mb-2" width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2cc27d" stroke-width="2"/><polyline points="12 6 12 12 16 14" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <p class="text-[11px] font-medium text-white/50">Micro</p>
+              </div>
+              <div class="bg-white/[0.06] border border-white/[0.08] rounded-xl p-5 text-center">
+                <svg class="mx-auto mb-2" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <p class="text-[11px] font-medium text-white/50">Quizzes</p>
+              </div>
+            </div>
+            <p class="absolute bottom-4 left-0 right-0 text-[10px] text-white/15 text-center">[ Replace with format showcase ]</p>
+          </div>
+        </div>
+
+        <!-- Panel 2: Every language -->
+        <div id="panel-2" class="cap-panel hidden rounded-2xl overflow-hidden">
+          <div class="grid md:grid-cols-1 gap-0">
+            <div class="bg-white p-10">
+              <h3 class="font-bold text-[24px] md:text-[28px] leading-tight text-akdo-dark mb-4 max-w-[500px]">
+                Create once. Deploy in 200+&nbsp;languages.
+              </h3>
+              <p class="text-[14px] text-akdo-dark/45 leading-relaxed mb-6 max-w-[520px]">
+                A safety procedure only works if the worker reading it understands it. Akdo auto-localizes everything — text, audio narration, and video — without rebuilding content per region.
+              </p>
+              <div class="flex flex-wrap gap-6 mb-8">
+                <div class="flex items-start gap-2.5">
+                  <div class="w-5 h-5 rounded-full bg-akdo-green/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="#2cc27d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </div>
+                  <div>
+                    <span class="text-[13px] font-medium text-akdo-dark/60">Native AI voice narration</span>
+                    <p class="text-[11px] text-akdo-dark/35">Not robotic TTS</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <div class="w-5 h-5 rounded-full bg-akdo-green/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="#2cc27d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </div>
+                  <div>
+                    <span class="text-[13px] font-medium text-akdo-dark/60">RTL support</span>
+                    <p class="text-[11px] text-akdo-dark/35">Arabic, Hebrew, Urdu</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <div class="w-5 h-5 rounded-full bg-akdo-green/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="#2cc27d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </div>
+                  <div>
+                    <span class="text-[13px] font-medium text-akdo-dark/60">No per-region rebuilds</span>
+                    <p class="text-[11px] text-akdo-dark/35">One source, every language</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Language preview -->
+              <div class="bg-akdo-dark rounded-xl p-6 max-w-[480px]">
+                <div class="flex items-center gap-2 mb-4">
+                  <span class="px-3 py-1.5 bg-white/[0.08] border border-white/[0.1] rounded-lg text-[11px] font-medium text-white/70">English</span>
+                  <span class="px-3 py-1.5 bg-white/[0.08] border border-white/[0.1] rounded-lg text-[11px] font-medium text-white/70">Deutsch</span>
+                  <span class="px-3 py-1.5 bg-white/[0.08] border border-white/[0.1] rounded-lg text-[11px] font-medium text-white/70">Fran&ccedil;ais</span>
+                  <span class="px-3 py-1.5 bg-white/[0.08] border border-white/[0.1] rounded-lg text-[11px] font-medium text-white/70">Portugu&ecirc;s</span>
+                  <span class="px-3 py-1.5 bg-white/[0.04] rounded-lg text-[11px] font-medium text-white/25">+196</span>
+                </div>
+                <div class="h-1 rounded-full bg-white/10 mb-3">
+                  <div class="h-full bg-akdo-green rounded-full w-2/3"></div>
+                </div>
+                <p class="text-[10px] text-white/25">Same training, every language — generated simultaneously</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function switchTab(index) {
+      // Update tab cards
+      document.querySelectorAll('.cap-tab').forEach((tab, i) => {
+        if (i === index) {
+          tab.classList.add('active');
+          tab.style.borderWidth = '2px';
+          tab.style.borderColor = 'rgba(44, 194, 125, 0.3)';
+          tab.style.borderStyle = 'solid';
+        } else {
+          tab.classList.remove('active');
+          tab.style.borderWidth = '1px';
+          tab.style.borderColor = 'rgba(0, 0, 0, 0.04)';
+          tab.style.borderStyle = 'solid';
+        }
+      });
+      // Update panels
+      document.querySelectorAll('.cap-panel').forEach((panel, i) => {
+        if (i === index) {
+          panel.classList.remove('hidden');
+          panel.style.display = 'grid';
+        } else {
+          panel.classList.add('hidden');
+          panel.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+
+  <!-- ========== 4. HOW IT WORKS — Timeline with 4 steps ========== -->
+  <section id="how" class="py-24">
+    <div class="site-w">
+      <div class="text-center max-w-[600px] mx-auto mb-16">
+        <p class="text-[12px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">How it works</p>
+        <h2 class="font-bold text-[32px] md:text-[40px] leading-[1.1] text-akdo-dark">
+          From a 30-minute call to live training. Four steps.
+        </h2>
+      </div>
+
+      <!-- Timeline -->
+      <div class="max-w-[960px] mx-auto">
+        <div class="relative">
+          <!-- Connector line -->
+          <div class="hidden md:block absolute top-7 left-[12.5%] right-[12.5%] h-[3px] bg-gradient-to-r from-akdo-green/10 via-akdo-green/30 to-akdo-green/10 rounded-full"></div>
+
+          <div class="grid md:grid-cols-4 gap-8 md:gap-6">
+            <!-- Step 1: Discovery call -->
+            <div class="text-center relative">
+              <div class="w-14 h-14 rounded-full bg-akdo-green flex items-center justify-center mx-auto mb-5 relative z-10 shadow-lg shadow-akdo-green/20">
+                <span class="font-bold text-akdo-dark text-lg">1</span>
+              </div>
+              <h3 class="font-semibold text-[15px] text-akdo-dark mb-2">Discovery call</h3>
+              <p class="text-[13px] text-akdo-dark/45 leading-relaxed">
+                30-minute call. We learn your industry, your sites, your hazards. You share SOPs and incident reports.
+              </p>
+              <div class="mt-4 inline-flex items-center gap-1.5 px-3 py-1.5 bg-akdo-cream rounded-full">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2cc27d" stroke-width="2"/><polyline points="12 6 12 12 16 14" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="text-[10px] font-semibold text-akdo-dark/50">30 min</span>
+              </div>
+            </div>
+
+            <!-- Step 2: Akdo builds -->
+            <div class="text-center relative">
+              <div class="w-14 h-14 rounded-full bg-akdo-green flex items-center justify-center mx-auto mb-5 relative z-10 shadow-lg shadow-akdo-green/20">
+                <span class="font-bold text-akdo-dark text-lg">2</span>
+              </div>
+              <h3 class="font-semibold text-[15px] text-akdo-dark mb-2">Akdo builds</h3>
+              <p class="text-[13px] text-akdo-dark/45 leading-relaxed">
+                AI generates videos, scenarios, and assessments from your documents. Every output cited to the source.
+              </p>
+              <div class="mt-4 inline-flex items-center gap-1.5 px-3 py-1.5 bg-akdo-cream rounded-full">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="text-[10px] font-semibold text-akdo-dark/50">Days, not months</span>
+              </div>
+            </div>
+
+            <!-- Step 3: You review — Human in the loop -->
+            <div class="text-center relative">
+              <div class="w-14 h-14 rounded-full bg-akdo-green flex items-center justify-center mx-auto mb-5 relative z-10 shadow-lg shadow-akdo-green/20">
+                <span class="font-bold text-akdo-dark text-lg">3</span>
+              </div>
+              <h3 class="font-semibold text-[15px] text-akdo-dark mb-2">You review & approve</h3>
+              <p class="text-[13px] text-akdo-dark/45 leading-relaxed">
+                Your HSE team reviews every module. Edit, adjust, request changes. Nothing goes live without your sign-off.
+              </p>
+              <div class="mt-4 inline-flex items-center gap-1.5 px-3 py-1.5 bg-akdo-cream rounded-full">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="text-[10px] font-semibold text-akdo-dark/50">Human in the loop</span>
+              </div>
+            </div>
+
+            <!-- Step 4: Deploy everywhere -->
+            <div class="text-center relative">
+              <div class="w-14 h-14 rounded-full bg-akdo-green flex items-center justify-center mx-auto mb-5 relative z-10 shadow-lg shadow-akdo-green/20">
+                <span class="font-bold text-akdo-dark text-lg">4</span>
+              </div>
+              <h3 class="font-semibold text-[15px] text-akdo-dark mb-2">Deploy everywhere</h3>
+              <p class="text-[13px] text-akdo-dark/45 leading-relaxed">
+                SCORM to your LMS, or push via Slack, Teams, WhatsApp. Every site, every language, every shift.
+              </p>
+              <div class="mt-4 inline-flex items-center gap-1.5 px-3 py-1.5 bg-akdo-cream rounded-full">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2cc27d" stroke-width="2"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="#2cc27d" stroke-width="2"/></svg>
+                <span class="text-[10px] font-semibold text-akdo-dark/50">200+ languages</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-14">
+          <p class="text-[13px] text-akdo-dark/35">Go live in 12 weeks — less than 20 hours of your team's time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== 5. WHAT WE COVER — Two pillars ========== -->
+  <section class="py-24 bg-akdo-cream/60">
+    <div class="site-w">
+      <div class="text-center max-w-[600px] mx-auto mb-14">
+        <p class="text-[12px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">What we cover</p>
+        <h2 class="font-bold text-[32px] md:text-[40px] leading-[1.1] text-akdo-dark">
+          Two pillars. One platform.
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 max-w-[900px] mx-auto">
+        <!-- HSE Training -->
+        <a href="hse-training.html" class="group block bg-white rounded-2xl overflow-hidden border border-black/[0.04] hover:border-akdo-green/30 transition-all">
+          <!-- Dark visual header -->
+          <div class="bg-akdo-dark aspect-[16/9] flex items-center justify-center p-8 relative overflow-hidden">
+            <!-- Subtle gradient glow -->
+            <div class="absolute inset-0 bg-gradient-to-br from-akdo-green/5 to-transparent"></div>
+            <div class="text-center relative z-10">
+              <svg class="mx-auto mb-3" width="48" height="48" viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <p class="text-[11px] font-semibold text-akdo-green/60 tracking-wide uppercase">Industrial Safety</p>
+            </div>
+          </div>
+          <div class="p-7">
+            <h3 class="font-bold text-[20px] text-akdo-dark mb-2">HSE Training</h3>
+            <p class="text-[13px] text-akdo-dark/50 leading-relaxed mb-5">
+              Incident response, operator safety, hazard awareness, contractor onboarding — built from your SOPs and site context.
+            </p>
+            <span class="inline-flex items-center gap-1.5 text-[13px] font-semibold text-akdo-green group-hover:gap-2.5 transition-all">
+              Explore HSE Training
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Sustainability -->
+        <a href="sustainability.html" class="group block bg-white rounded-2xl overflow-hidden border border-black/[0.04] hover:border-akdo-green/30 transition-all">
+          <!-- Dark visual header -->
+          <div class="bg-akdo-dark aspect-[16/9] flex items-center justify-center p-8 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-akdo-green/5 to-transparent"></div>
+            <div class="text-center relative z-10">
+              <svg class="mx-auto mb-3" width="48" height="48" viewBox="0 0 24 24" fill="none"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <p class="text-[11px] font-semibold text-akdo-green/60 tracking-wide uppercase">Environmental</p>
+            </div>
+          </div>
+          <div class="p-7">
+            <h3 class="font-bold text-[20px] text-akdo-dark mb-2">Sustainability</h3>
+            <p class="text-[13px] text-akdo-dark/50 leading-relaxed mb-5">
+              Environmental awareness, ESG compliance, climate action — help teams understand their impact and act on it.
+            </p>
+            <span class="inline-flex items-center gap-1.5 text-[13px] font-semibold text-akdo-green group-hover:gap-2.5 transition-all">
+              Explore Sustainability
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== 6. BUSINESS CASE — Compact dark strip ========== -->
+  <section class="py-14 bg-akdo-dark">
+    <div class="site-w">
+      <div class="max-w-[960px] mx-auto">
+        <!-- Header — inline with the grid -->
+        <div class="text-center max-w-[600px] mx-auto mb-8">
+          <p class="text-[11px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-2">The business case</p>
+          <h2 class="font-bold text-[24px] md:text-[30px] leading-[1.12] text-white">
+            The math behind better training.
+          </h2>
+          <p class="text-[13px] text-white/30 mt-2">10,000-employee enterprise in high-hazard industry</p>
+        </div>
+
+        <!-- Compact 3-column flow -->
+        <div class="grid md:grid-cols-3 gap-4 items-stretch mb-5">
+          <!-- Column 1: The cost today -->
+          <div class="bg-white/[0.04] border border-white/[0.06] rounded-xl p-5">
+            <p class="text-[10px] font-semibold text-white/25 tracking-wide uppercase mb-4">Today</p>
+            <div class="space-y-3">
+              <div class="flex items-baseline justify-between">
+                <span class="text-[11px] text-white/35">Cost per incident</span>
+                <span class="text-[18px] font-bold text-white/60">$43K</span>
+              </div>
+              <div class="flex items-baseline justify-between">
+                <span class="text-[11px] text-white/35">Annual incidents</span>
+                <span class="text-[18px] font-bold text-white/60">240</span>
+              </div>
+              <div class="pt-2 border-t border-white/[0.04] flex items-baseline justify-between">
+                <span class="text-[11px] text-white/35">True annual cost</span>
+                <span class="text-[20px] font-bold text-white/70">$20.6M</span>
+              </div>
+            </div>
+            <p class="text-[9px] text-white/15 mt-2">NSC 2023 · 2.4 TRIR · 2x indirect multiplier</p>
+          </div>
+
+          <!-- Column 2: The Akdo effect -->
+          <div class="bg-white/[0.04] border border-white/[0.06] rounded-xl p-5 relative">
+            <div class="hidden md:block absolute -left-2.5 top-1/2 -translate-y-1/2">
+              <svg width="10" height="10" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <p class="text-[10px] font-semibold text-akdo-green/50 tracking-wide uppercase mb-4">With Akdo</p>
+            <div class="text-center mb-4">
+              <div class="text-[28px] font-bold text-akdo-green leading-none">30&ndash;50%</div>
+              <p class="text-[11px] text-white/30 mt-1">fewer incidents</p>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-2">
+                <span class="text-akdo-green text-[12px] font-semibold">6x</span>
+                <span class="text-[11px] text-white/35">faster to deploy</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-akdo-green text-[12px] font-semibold">60%</span>
+                <span class="text-[11px] text-white/35">cheaper than agencies</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-akdo-green text-[12px] font-semibold">200+</span>
+                <span class="text-[11px] text-white/35">languages, one build</span>
+              </div>
+            </div>
+            <p class="text-[9px] text-white/15 mt-2">NSC, OSHA</p>
+          </div>
+
+          <!-- Column 3: The payoff -->
+          <div class="bg-akdo-green/10 border border-akdo-green/20 rounded-xl p-5 relative">
+            <div class="hidden md:block absolute -left-2.5 top-1/2 -translate-y-1/2">
+              <svg width="10" height="10" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <p class="text-[10px] font-semibold text-akdo-green tracking-wide uppercase mb-4">Year one</p>
+            <div class="text-center mb-4">
+              <div class="text-[32px] font-black text-akdo-green leading-none">$3.1M</div>
+              <p class="text-[11px] text-white/40 mt-1">saved</p>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-baseline justify-between">
+                <span class="text-[11px] text-white/35">Incidents prevented</span>
+                <span class="text-[13px] font-bold text-akdo-green">72</span>
+              </div>
+              <div class="flex items-baseline justify-between">
+                <span class="text-[11px] text-white/35">Return per $1</span>
+                <span class="text-[13px] font-bold text-akdo-green">6x</span>
+              </div>
+              <div class="flex items-baseline justify-between">
+                <span class="text-[11px] text-white/35">ROI</span>
+                <span class="text-[13px] font-bold text-akdo-green">519%</span>
+              </div>
+            </div>
+            <p class="text-[9px] text-white/20 mt-2">Excludes penalty avoidance &amp; insurance savings</p>
+          </div>
+        </div>
+
+        <!-- Source line -->
+        <p class="text-center text-[10px] text-white/15">Sources: NSC Injury Facts 2023 &middot; ASSP 2020 &middot; Liberty Mutual &middot; OSHA Safety Pays</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== 7. NUMBERS BAR ========== -->
+  <section class="py-16 bg-akdo-cream/60">
+    <div class="site-w">
+      <p class="text-center text-[11px] font-semibold text-akdo-dark/25 tracking-[0.15em] uppercase mb-10">Akdo in numbers</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-[860px] mx-auto text-center">
+        <div>
+          <div class="text-[36px] md:text-[42px] font-bold text-akdo-dark leading-none">450+</div>
+          <p class="text-[12px] text-akdo-dark/40 mt-2 font-medium">courses created</p>
+        </div>
+        <div>
+          <div class="text-[36px] md:text-[42px] font-bold text-akdo-dark leading-none">99.6%</div>
+          <p class="text-[12px] text-akdo-dark/40 mt-2 font-medium">completion rate</p>
+        </div>
+        <div>
+          <div class="text-[36px] md:text-[42px] font-bold text-akdo-dark leading-none">200+</div>
+          <p class="text-[12px] text-akdo-dark/40 mt-2 font-medium">languages</p>
+        </div>
+        <div>
+          <div class="text-[36px] md:text-[42px] font-bold text-akdo-dark leading-none">150+</div>
+          <p class="text-[12px] text-akdo-dark/40 mt-2 font-medium">HSE topics built in</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== 8. SECURITY STRIP ========== -->
+  <section class="py-16">
+    <div class="site-w">
+      <div class="max-w-[900px] mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-14">
+        <div class="flex items-center gap-5 flex-shrink-0">
+          <div class="w-16 h-16 rounded-xl bg-akdo-cream flex items-center justify-center border border-black/[0.04]">
+            <span class="text-[10px] font-bold text-akdo-dark/50 text-center leading-tight">ISO<br>27001</span>
+          </div>
+          <div class="w-16 h-16 rounded-xl bg-akdo-cream flex items-center justify-center border border-black/[0.04]">
+            <span class="text-[11px] font-bold text-akdo-dark/50 text-center leading-tight">GDPR</span>
+          </div>
+          <div class="w-16 h-16 rounded-xl bg-akdo-cream flex items-center justify-center border border-black/[0.04]">
+            <span class="text-[10px] font-bold text-akdo-dark/50 text-center leading-tight">SOC 2<br>Type II</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-bold text-[18px] text-akdo-dark mb-2">Enterprise-grade security. Your data, your IP.</h3>
+          <p class="text-[14px] text-akdo-dark/50 leading-relaxed">
+            Every output is cited to source documents — no hallucinated safety procedures. Your data never trains our models. Human sign-off on every module.
+          </p>
+          <a href="security.html" class="inline-flex items-center gap-1.5 text-[13px] font-semibold text-akdo-green hover:text-akdo-lime transition-colors mt-3">
+            Learn more about our security
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== 9. CTA ========== -->
+  <section class="py-20 bg-akdo-cream/60">
+    <div class="site-w text-center max-w-[700px] mx-auto">
+      <h2 class="font-bold text-[36px] md:text-[48px] leading-[1.08] text-akdo-dark mb-5">
+        Your next safety incident<br>is <span class="text-akdo-green">preventable.</span>
+      </h2>
+      <p class="text-[16px] text-akdo-dark/45 leading-relaxed mb-10">
+        30 minutes. A training built for your industry, with your company's context.<br>No slides, no pitch — just the product.
+      </p>
+      <a href="book-demo.html" class="btn-primary !text-base !py-4 !px-10">
+        Book a Demo
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <p class="text-[11px] text-akdo-dark/30 mt-6">Go live in 12 weeks — less than 20 hours of your team's time.</p>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="py-10 bg-akdo-dark border-t border-white/[0.05]">
+    <div class="site-w">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-5">
+        <img src="assets/logo.png" alt="Akdo" class="h-5 brightness-0 invert">
+        <div class="flex items-center gap-6">
+          <a href="careers.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Careers</a>
+          <a href="contact.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Contact</a>
+          <a href="#" class="text-[13px] text-white/60 hover:text-white transition-colors">Legal Notice</a>
+          <a href="#" class="text-[13px] text-white/60 hover:text-white transition-colors">Privacy Policy</a>
+        </div>
+        <p class="text-[12px] text-white/40">&copy; 2026 Akdo. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

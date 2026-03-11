@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confined Space Entry — Training Library — Akdo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'akdo-dark': '#02140d',
+            'akdo-green': '#2cc27d',
+            'akdo-lime': '#83e85a',
+            'akdo-cream': '#f5f6f4',
+            'akdo-peach': '#ffc091',
+            'akdo-yellow': '#fee581',
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Poppins', sans-serif; color: #02140d; background: #fff; overflow-x: hidden; }
+
+    .site-w { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #2cc27d; color: #02140d; font-family: 'Poppins', sans-serif;
+      font-weight: 600; font-size: 15px; padding: 13px 30px; border-radius: 50px;
+      text-decoration: none; transition: all 0.2s; border: none; cursor: pointer;
+    }
+    .btn-primary:hover { background: #83e85a; transform: translateY(-1px); }
+
+    .tag { font-size: 10px; padding: 2px 8px; border-radius: 50px; font-weight: 500; white-space: nowrap; }
+    .format-icon { font-size: 11px; color: #02140d50; display: inline-flex; align-items: center; gap: 3px; }
+
+    .check-item::before {
+      content: ''; display: inline-block; width: 18px; height: 18px; border-radius: 50%;
+      background: #2cc27d18; margin-right: 10px; flex-shrink: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4l3 3 5-6' stroke='%232cc27d' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: center;
+    }
+
+    .course-card { display: flex; flex-direction: column; text-decoration: none; color: inherit; }
+    .course-card:hover .card-title { color: #2cc27d; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-black/[0.04]">
+    <div class="site-w flex items-center justify-between h-16">
+      <a href="index.html">
+        <img src="assets/logo.png" alt="Akdo" class="h-7">
+      </a>
+      <div class="hidden md:flex items-center gap-7">
+        <a href="hse-training.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">HSE Training</a>
+        <a href="sustainability.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Sustainability</a>
+        <a href="training-library.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Training Library</a>
+        <a href="security.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Security</a>
+      </div>
+      <a href="book-demo.html" class="btn-primary !text-[13px] !py-2.5 !px-5">Book a Demo</a>
+    </div>
+  </nav>
+
+
+  <!-- BREADCRUMB -->
+  <div class="pt-24 pb-0">
+    <div class="site-w">
+      <div class="flex items-center gap-2 text-[12px] text-akdo-dark/40">
+        <a href="training-library.html" class="hover:text-akdo-dark transition-colors">Training Library</a>
+        <span>/</span>
+        <a href="training-library.html?cat=hse" class="hover:text-akdo-dark transition-colors">HSE</a>
+        <span>/</span>
+        <span class="text-akdo-dark/70">Confined Space Entry</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- COURSE HEADER -->
+  <section class="pt-8 pb-12">
+    <div class="site-w">
+      <div class="flex flex-col md:flex-row gap-10 md:gap-16">
+
+        <!-- Main content -->
+        <div class="flex-1 max-w-[660px]">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="tag text-white bg-red-400 !text-[11px] !px-3 !py-1">HSE</span>
+          </div>
+
+          <h1 class="font-bold text-[36px] md:text-[44px] leading-[1.1] tracking-tight text-akdo-dark mb-5">
+            Confined Space Entry
+          </h1>
+
+          <p class="text-[16px] text-akdo-dark/55 leading-relaxed mb-10">
+            A comprehensive training module covering the hazards, procedures, and emergency protocols for working in confined spaces. Built from real incident data and adapted to your site-specific permit-to-work systems.
+          </p>
+
+
+          <!-- WHAT THIS MODULE COVERS -->
+          <div class="mb-10">
+            <h2 class="font-semibold text-[18px] text-akdo-dark mb-5">What this module covers</h2>
+            <div class="grid md:grid-cols-2 gap-x-6 gap-y-3">
+              <div class="flex items-center text-[14px] text-akdo-dark/70 check-item">Confined space identification & classification</div>
+              <div class="flex items-center text-[14px] text-akdo-dark/70 check-item">Atmospheric testing & gas detection</div>
+              <div class="flex items-center text-[14px] text-akdo-dark/70 check-item">Permit-to-work procedures</div>
+              <div class="flex items-center text-[14px] text-akdo-dark/70 check-item">Ventilation requirements & monitoring</div>
+              <div class="flex items-center text-[14px] text-akdo-dark/70 check-item">Entry & exit protocols</div>
+              <div class="flex items-center text-[14px] text-akdo-dark/70 check-item">Rescue planning & emergency response</div>
+              <div class="flex items-center text-[14px] text-akdo-dark/70 check-item">PPE selection for confined spaces</div>
+              <div class="flex items-center text-[14px] text-akdo-dark/70 check-item">Communication systems & attendant duties</div>
+            </div>
+          </div>
+
+
+          <!-- LEARNING OBJECTIVES -->
+          <div class="mb-10">
+            <h2 class="font-semibold text-[18px] text-akdo-dark mb-5">Learning objectives</h2>
+            <div class="space-y-3">
+              <div class="flex gap-3 text-[14px] text-akdo-dark/70">
+                <span class="text-akdo-green font-semibold shrink-0">01</span>
+                <span>Identify confined spaces and assess the risks before entry, including atmospheric hazards, engulfment, and entrapment.</span>
+              </div>
+              <div class="flex gap-3 text-[14px] text-akdo-dark/70">
+                <span class="text-akdo-green font-semibold shrink-0">02</span>
+                <span>Execute a complete permit-to-work process from hazard assessment through to space sign-off.</span>
+              </div>
+              <div class="flex gap-3 text-[14px] text-akdo-dark/70">
+                <span class="text-akdo-green font-semibold shrink-0">03</span>
+                <span>Perform atmospheric testing using gas detection equipment and interpret results against safe entry thresholds.</span>
+              </div>
+              <div class="flex gap-3 text-[14px] text-akdo-dark/70">
+                <span class="text-akdo-green font-semibold shrink-0">04</span>
+                <span>Respond to confined space emergencies following rescue protocols without becoming a secondary casualty.</span>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- AVAILABLE FORMATS -->
+          <div class="mb-10">
+            <h2 class="font-semibold text-[18px] text-akdo-dark mb-5">Available formats</h2>
+            <div class="grid md:grid-cols-3 gap-3">
+              <div class="bg-akdo-cream/50 rounded-xl p-4 border border-black/[0.03]">
+                <div class="text-[20px] mb-2">📄</div>
+                <h3 class="font-semibold text-[13px] text-akdo-dark mb-1">Microlearning</h3>
+                <p class="text-[11px] text-akdo-dark/40 leading-relaxed">5-min modules delivered via Slack, Teams, WhatsApp, or LMS. Spaced repetition built in.</p>
+              </div>
+              <div class="bg-akdo-cream/50 rounded-xl p-4 border border-black/[0.03]">
+                <div class="text-[20px] mb-2">🎬</div>
+                <h3 class="font-semibold text-[13px] text-akdo-dark mb-1">AI Video</h3>
+                <p class="text-[11px] text-akdo-dark/40 leading-relaxed">Incident-to-video conversion with native AI voiceover in 200+ languages.</p>
+              </div>
+              <div class="bg-akdo-cream/50 rounded-xl p-4 border border-black/[0.03]">
+                <div class="text-[20px] mb-2">🎮</div>
+                <h3 class="font-semibold text-[13px] text-akdo-dark mb-1">Simulation</h3>
+                <p class="text-[11px] text-akdo-dark/40 leading-relaxed">Scenario-based decision-making. Workers practice high-stakes situations without the risk.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Sidebar -->
+        <div class="md:w-[300px] shrink-0">
+          <div class="md:sticky md:top-24 space-y-6">
+
+            <!-- Quick stats -->
+            <div class="bg-akdo-cream/50 rounded-xl p-6 border border-black/[0.03]">
+              <div class="space-y-4">
+                <div class="flex justify-between items-center">
+                  <span class="text-[12px] text-akdo-dark/40 font-medium">Category</span>
+                  <span class="text-[13px] text-akdo-dark font-medium">HSE</span>
+                </div>
+                <div class="h-px bg-black/[0.04]"></div>
+                <div class="flex justify-between items-center">
+                  <span class="text-[12px] text-akdo-dark/40 font-medium">Formats</span>
+                  <span class="text-[13px] text-akdo-dark font-medium">3 available</span>
+                </div>
+                <div class="h-px bg-black/[0.04]"></div>
+                <div class="flex justify-between items-center">
+                  <span class="text-[12px] text-akdo-dark/40 font-medium">Languages</span>
+                  <span class="text-[13px] text-akdo-dark font-medium">200+</span>
+                </div>
+                <div class="h-px bg-black/[0.04]"></div>
+                <div class="flex justify-between items-center">
+                  <span class="text-[12px] text-akdo-dark/40 font-medium">Customizable</span>
+                  <span class="text-[13px] text-akdo-green font-semibold">Yes</span>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- YOUR VERSION -->
+            <div class="bg-akdo-dark rounded-xl p-6">
+              <h3 class="font-bold text-[16px] text-white mb-4">Your version includes</h3>
+              <div class="space-y-3">
+                <div class="flex items-start gap-2.5">
+                  <svg class="shrink-0 mt-0.5 text-akdo-green" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span class="text-[13px] text-white/60 leading-snug">Your real incident data as case studies</span>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <svg class="shrink-0 mt-0.5 text-akdo-green" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span class="text-[13px] text-white/60 leading-snug">Site-specific procedures and photos</span>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <svg class="shrink-0 mt-0.5 text-akdo-green" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span class="text-[13px] text-white/60 leading-snug">Local regulatory requirements</span>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <svg class="shrink-0 mt-0.5 text-akdo-green" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span class="text-[13px] text-white/60 leading-snug">Native language delivery (200+)</span>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <svg class="shrink-0 mt-0.5 text-akdo-green" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span class="text-[13px] text-white/60 leading-snug">Your branding and terminology</span>
+                </div>
+              </div>
+              <div class="mt-6">
+                <a href="book-demo.html" class="btn-primary w-full justify-center !text-[13px] !py-3">
+                  Book a Demo
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              </div>
+              <p class="text-[11px] text-white/25 text-center mt-3">30 min · We build a sample live</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- RELATED MODULES -->
+  <section class="py-14 bg-akdo-cream/40 border-t border-black/[0.04]">
+    <div class="site-w">
+      <h2 class="font-semibold text-[18px] text-akdo-dark mb-6">Related modules</h2>
+      <div class="grid md:grid-cols-3 gap-4 max-w-[960px]">
+
+        <a href="#" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="tag text-white bg-red-400">HSE</span>
+          </div>
+          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Chemical Handling & HAZMAT</h3>
+          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">SDS interpretation, PPE selection, spill response, and storage requirements.</p>
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">SDS interpretation</span>
+            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">PPE selection</span>
+            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">spill response</span>
+          </div>
+          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
+            <span class="format-icon">📄 Microlearning</span>
+            <span class="format-icon">🎬 Video</span>
+            <span class="format-icon">🎮 Simulation</span>
+          </div>
+        </a>
+
+        <a href="#" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="tag text-white bg-red-400">HSE</span>
+          </div>
+          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Lockout/Tagout (LOTO)</h3>
+          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Energy isolation, verification procedures, group lockout, and machine-specific protocols.</p>
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">energy isolation</span>
+            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">verification procedures</span>
+            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">group lockout</span>
+          </div>
+          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
+            <span class="format-icon">📄 Microlearning</span>
+            <span class="format-icon">🎮 Simulation</span>
+          </div>
+        </a>
+
+        <a href="#" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="tag text-white bg-red-400">HSE</span>
+          </div>
+          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Working at Heights</h3>
+          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Fall prevention, harness inspection, scaffold safety, and emergency response at elevation.</p>
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">fall prevention</span>
+            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">harness inspection</span>
+            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">scaffold safety</span>
+          </div>
+          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
+            <span class="format-icon">📄 Microlearning</span>
+            <span class="format-icon">🎬 Video</span>
+            <span class="format-icon">🎮 Simulation</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="py-10 bg-akdo-dark border-t border-white/[0.05]">
+    <div class="site-w">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-5">
+        <img src="assets/logo.png" alt="Akdo" class="h-5 brightness-0 invert">
+        <div class="flex items-center gap-6">
+          <a href="careers.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Careers</a>
+          <a href="contact.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Contact</a>
+          <a href="#" class="text-[13px] text-white/60 hover:text-white transition-colors">Legal Notice</a>
+          <a href="#" class="text-[13px] text-white/60 hover:text-white transition-colors">Privacy Policy</a>
+        </div>
+        <p class="text-[12px] text-white/40">&copy; 2026 Akdo. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

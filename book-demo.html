@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Demo — Akdo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: {
+        'akdo-dark': '#02140d', 'akdo-green': '#2cc27d',
+        'akdo-lime': '#83e85a', 'akdo-cream': '#f5f6f4',
+      }}}
+    }
+  </script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Poppins', sans-serif; color: #02140d; background: #fff; overflow-x: hidden; }
+    .site-w { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #2cc27d; color: #02140d; font-family: 'Poppins', sans-serif;
+      font-weight: 600; font-size: 15px; padding: 13px 30px; border-radius: 50px;
+      text-decoration: none; transition: all 0.2s; border: none; cursor: pointer;
+    }
+    .btn-primary:hover { background: #83e85a; transform: translateY(-1px); }
+    input, select { font-family: 'Poppins', sans-serif; }
+    .form-input {
+      width: 100%; padding: 11px 14px; border: 1.5px solid #02140d15; border-radius: 10px;
+      font-size: 13px; outline: none; transition: border-color 0.15s;
+    }
+    .form-input:focus { border-color: #2cc27d; }
+    .form-input::placeholder { color: #02140d40; }
+    .cal-day { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.1s; }
+    .cal-day.available:hover { background: #2cc27d20; }
+    .cal-day.selected { background: #2cc27d; color: #02140d; font-weight: 600; }
+    .cal-day.disabled { color: #02140d20; cursor: default; }
+    .time-slot { padding: 10px 16px; border: 1.5px solid #02140d10; border-radius: 10px; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.1s; text-align: center; }
+    .time-slot:hover { border-color: #2cc27d; }
+    .time-slot.selected { background: #2cc27d; border-color: #2cc27d; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-black/[0.04]">
+    <div class="site-w flex items-center justify-between h-16">
+      <a href="index.html">
+        <img src="assets/logo.png" alt="Akdo" class="h-7">
+      </a>
+      <div class="hidden md:flex items-center gap-7">
+        <a href="hse-training.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">HSE Training</a>
+        <a href="sustainability.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Sustainability</a>
+        <a href="training-library.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Training Library</a>
+        <a href="security.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Security</a>
+      </div>
+      <a href="book-demo.html" class="btn-primary !text-[13px] !py-2.5 !px-5">Book a Demo</a>
+    </div>
+  </nav>
+
+
+  <!-- ========== VERSION 1: Gong-style two-column + calendar below ========== -->
+
+  <section class="pt-32 pb-16">
+    <div class="site-w">
+      <div class="max-w-[960px] mx-auto grid md:grid-cols-2 gap-12 items-start">
+
+        <!-- LEFT: Value prop -->
+        <div class="pt-4">
+          <h1 class="font-bold text-[34px] md:text-[40px] leading-[1.1] tracking-tight text-akdo-dark mb-4">
+            See Akdo in action.
+          </h1>
+          <p class="text-[15px] text-akdo-dark/50 leading-relaxed mb-8">
+            30 minutes. Personalized to your industry and team size. No slides, no pitch — just the product.
+          </p>
+
+          <div class="mb-8">
+            <p class="text-[12px] font-semibold text-akdo-dark/30 tracking-wide uppercase mb-3">What you'll see</p>
+            <div class="space-y-3">
+              <div class="flex items-start gap-3">
+                <svg class="mt-0.5 flex-shrink-0" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#2cc27d" stroke-width="1.5"/><path d="M5.5 8l2 2 3-3" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="text-[13px] text-akdo-dark/60">How Akdo creates training from your SOPs and incident reports</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="mt-0.5 flex-shrink-0" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#2cc27d" stroke-width="1.5"/><path d="M5.5 8l2 2 3-3" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="text-[13px] text-akdo-dark/60">Live demo of the AI content engine</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="mt-0.5 flex-shrink-0" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#2cc27d" stroke-width="1.5"/><path d="M5.5 8l2 2 3-3" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="text-[13px] text-akdo-dark/60">Integration with your LMS (SCORM, xAPI, Slack, Teams)</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="mt-0.5 flex-shrink-0" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#2cc27d" stroke-width="1.5"/><path d="M5.5 8l2 2 3-3" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="text-[13px] text-akdo-dark/60">Q&A with our HSE training team</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Logos -->
+          <div>
+            <p class="text-[10px] font-semibold text-akdo-dark/25 tracking-[0.12em] uppercase mb-3">Trusted by</p>
+            <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+              <span class="font-semibold text-[13px] text-akdo-dark/20">GE Vernova</span>
+              <span class="font-semibold text-[13px] text-akdo-dark/20">JTI</span>
+              <span class="font-semibold text-[13px] text-akdo-dark/20">Henkel</span>
+              <span class="font-semibold text-[13px] text-akdo-dark/20">Essity</span>
+              <span class="font-semibold text-[13px] text-akdo-dark/20">Huhtamaki</span>
+            </div>
+          </div>
+
+          <!-- Security badges -->
+          <div class="flex items-center gap-3 mt-6">
+            <div class="w-10 h-10 rounded-lg bg-akdo-cream flex items-center justify-center">
+              <span class="text-[8px] font-bold text-akdo-dark/50 text-center leading-tight">ISO<br>27001</span>
+            </div>
+            <div class="w-10 h-10 rounded-lg bg-akdo-cream flex items-center justify-center">
+              <span class="text-[8px] font-bold text-akdo-dark/50 text-center leading-tight">GDPR</span>
+            </div>
+            <div class="w-10 h-10 rounded-lg bg-akdo-cream flex items-center justify-center">
+              <span class="text-[8px] font-bold text-akdo-dark/50 text-center leading-tight">SOC 2</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Form -->
+        <div class="bg-white rounded-2xl p-7 border border-black/[0.06] shadow-sm">
+          <h2 class="font-semibold text-[18px] text-akdo-dark mb-5">Book your demo</h2>
+
+          <form id="demoFormV1" onsubmit="showCalendarV1(event)" class="space-y-3.5">
+            <div class="grid grid-cols-2 gap-3">
+              <input type="text" class="form-input" placeholder="First name" required>
+              <input type="text" class="form-input" placeholder="Last name" required>
+            </div>
+            <input type="email" class="form-input" placeholder="Work email" required>
+            <input type="text" class="form-input" placeholder="Company name" required>
+            <input type="text" class="form-input" placeholder="Job title" required>
+            <button type="submit" class="btn-primary w-full justify-center !text-[14px] !py-3 mt-2">
+              Book Your Demo
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </form>
+
+          <p class="text-[11px] text-akdo-dark/30 text-center mt-4">30-minute call · No commitment · Personalized to your industry</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CALENDAR (shown after form submit) -->
+  <section id="calendarSectionV1" class="py-12 bg-akdo-cream/40 hidden">
+    <div class="site-w max-w-[720px] mx-auto">
+      <div class="bg-white rounded-2xl p-7 border border-black/[0.06] shadow-sm">
+        <div class="text-center mb-6">
+          <div class="inline-flex items-center gap-2 bg-akdo-green/10 rounded-full px-4 py-1.5 mb-3">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#2cc27d" stroke-width="1.5"/><path d="M5.5 8l2 2 3-3" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="text-[12px] font-semibold text-akdo-green">Details received</span>
+          </div>
+          <h2 class="font-bold text-[22px] text-akdo-dark">Pick a time that works</h2>
+          <p class="text-[13px] text-akdo-dark/40 mt-1">30-minute product demo · CET timezone</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Calendar -->
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-semibold text-[15px] text-akdo-dark">March 2026</span>
+              <div class="flex items-center gap-1">
+                <button class="w-8 h-8 rounded-lg bg-akdo-cream/60 flex items-center justify-center text-akdo-dark/30 hover:text-akdo-dark/60 transition-colors">&larr;</button>
+                <button class="w-8 h-8 rounded-lg bg-akdo-cream/60 flex items-center justify-center text-akdo-dark/30 hover:text-akdo-dark/60 transition-colors">&rarr;</button>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-5 gap-1 text-center mb-2">
+              <span class="text-[10px] font-semibold text-akdo-dark/25 py-1">MON</span>
+              <span class="text-[10px] font-semibold text-akdo-dark/25 py-1">TUE</span>
+              <span class="text-[10px] font-semibold text-akdo-dark/25 py-1">WED</span>
+              <span class="text-[10px] font-semibold text-akdo-dark/25 py-1">THU</span>
+              <span class="text-[10px] font-semibold text-akdo-dark/25 py-1">FRI</span>
+            </div>
+            <div class="grid grid-cols-5 gap-1">
+              <!-- Week 1 (past) -->
+              <div class="cal-day disabled">9</div>
+              <div class="cal-day disabled">10</div>
+              <div class="cal-day disabled">11</div>
+              <div class="cal-day selected">12</div>
+              <div class="cal-day available">13</div>
+              <!-- Week 2 -->
+              <div class="cal-day available">16</div>
+              <div class="cal-day available">17</div>
+              <div class="cal-day available">18</div>
+              <div class="cal-day available">19</div>
+              <div class="cal-day available">20</div>
+              <!-- Week 3 -->
+              <div class="cal-day available">23</div>
+              <div class="cal-day available">24</div>
+              <div class="cal-day available">25</div>
+              <div class="cal-day available">26</div>
+              <div class="cal-day available">27</div>
+            </div>
+          </div>
+
+          <!-- Time slots -->
+          <div>
+            <p class="font-semibold text-[14px] text-akdo-dark mb-1">Thursday, March 12</p>
+            <p class="text-[12px] text-akdo-dark/35 mb-4">Available times (CET)</p>
+            <div class="grid grid-cols-2 gap-2">
+              <div class="time-slot">9:00 AM</div>
+              <div class="time-slot">10:00 AM</div>
+              <div class="time-slot selected">11:00 AM</div>
+              <div class="time-slot">1:00 PM</div>
+              <div class="time-slot">2:00 PM</div>
+              <div class="time-slot">3:00 PM</div>
+              <div class="time-slot">4:00 PM</div>
+            </div>
+
+            <button class="btn-primary w-full justify-center !text-[14px] !py-3 mt-5">
+              Confirm — Thu Mar 12, 11:00 AM
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="py-10 bg-akdo-dark border-t border-white/[0.05]">
+    <div class="site-w">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-5">
+        <img src="assets/logo.png" alt="Akdo" class="h-5 brightness-0 invert">
+        <div class="flex items-center gap-6">
+          <a href="careers.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Careers</a>
+          <a href="contact.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Contact</a>
+          <a href="#" class="text-[13px] text-white/60 hover:text-white transition-colors">Legal Notice</a>
+          <a href="#" class="text-[13px] text-white/60 hover:text-white transition-colors">Privacy Policy</a>
+        </div>
+        <p class="text-[12px] text-white/40">&copy; 2026 Akdo. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function showCalendarV1(e) {
+      e.preventDefault();
+      document.getElementById('calendarSectionV1').classList.remove('hidden');
+      document.getElementById('calendarSectionV1').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
