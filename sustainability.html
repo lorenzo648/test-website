@@ -26,6 +26,7 @@
       }
     }
   </script>
+  <link rel="stylesheet" href="assets/wireframe-review.css">
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -50,10 +51,83 @@
       background: transparent;
     }
     .btn-ghost:hover { border-color: #02140d; }
+
+    /* Review mode: flatten the page into a low-distraction wireframe */
+    body.wireframe-mode {
+      --wf-bg: #f5f5f2;
+      --wf-surface: #ecece7;
+      --wf-border: #bdbdb4;
+      --wf-ink: #151515;
+      --wf-muted: #6f6f68;
+      background: var(--wf-bg);
+      color: var(--wf-ink);
+    }
+    body.wireframe-mode,
+    body.wireframe-mode * {
+      animation: none !important;
+      transition: none !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+      backdrop-filter: none !important;
+      filter: none !important;
+    }
+    body.wireframe-mode section,
+    body.wireframe-mode footer,
+    body.wireframe-mode div[class*="bg-"] {
+      background: transparent !important;
+      border-color: var(--wf-border) !important;
+    }
+    body.wireframe-mode nav {
+      background: var(--wf-bg) !important;
+      border-color: var(--wf-border) !important;
+      border-bottom: 1px solid var(--wf-border) !important;
+    }
+    body.wireframe-mode [class*="bg-"] { background: var(--wf-surface) !important; }
+    body.wireframe-mode [class*="border-"] { border-color: var(--wf-border) !important; }
+    body.wireframe-mode [class*="text-white"],
+    body.wireframe-mode [class*="text-akdo-"],
+    body.wireframe-mode [class*="text-red-"],
+    body.wireframe-mode [class*="text-blue-"],
+    body.wireframe-mode [class*="text-green-"],
+    body.wireframe-mode [class*="text-sky-"],
+    body.wireframe-mode [class*="text-violet-"] {
+      color: var(--wf-ink) !important;
+      -webkit-text-fill-color: currentColor !important;
+    }
+    body.wireframe-mode p,
+    body.wireframe-mode span,
+    body.wireframe-mode li,
+    body.wireframe-mode td,
+    body.wireframe-mode th {
+      color: var(--wf-muted) !important;
+    }
+    body.wireframe-mode h1,
+    body.wireframe-mode h2,
+    body.wireframe-mode h3,
+    body.wireframe-mode h4,
+    body.wireframe-mode strong,
+    body.wireframe-mode b,
+    body.wireframe-mode a,
+    body.wireframe-mode button {
+      color: var(--wf-ink) !important;
+    }
+    body.wireframe-mode .btn-primary,
+    body.wireframe-mode .btn-ghost {
+      background: transparent !important;
+      color: var(--wf-ink) !important;
+      border: 1px solid var(--wf-border) !important;
+      border-radius: 12px !important;
+    }
+    body.wireframe-mode img { filter: grayscale(1) contrast(1) !important; }
+    body.wireframe-mode svg { opacity: 0.5; }
+    body.wireframe-mode svg * {
+      stroke: var(--wf-muted) !important;
+      fill: none !important;
+    }
   </style>
 </head>
 
-<body>
+<body class="wireframe-mode">
 
   <!-- NAV -->
   <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-black/[0.04]">
@@ -77,10 +151,10 @@
     <div class="site-w max-w-[760px] mx-auto text-center">
       <p class="text-[12px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-4">Sustainability & Compliance</p>
       <h1 class="font-bold text-[40px] md:text-[52px] leading-[1.06] tracking-tight text-akdo-dark mb-6">
-        Turn ESG commitments into<br><span class="text-akdo-green">company-wide action.</span>
+        Turn ESG commitments into<br><span class="text-akdo-green">company-wide training.</span>
       </h1>
       <p class="text-[16px] text-akdo-dark/50 leading-relaxed max-w-[560px] mx-auto mb-10">
-        The AI platform that automates creating and sharing sustainability &amp; compliance knowledge at scale. Turn your ESG strategy into interactive training for employees, suppliers, and customers.
+        Akdo is the sustainability path for teams that also need ESG, CSRD, and compliance training. Turn policies, frameworks, and reports into multilingual training for employees, suppliers, and customers.
       </p>
       <div class="flex items-center justify-center gap-4">
         <a href="book-demo.html" class="btn-primary">
@@ -773,7 +847,7 @@
 
       <!-- Essity case study -->
       <div class="max-w-[700px] mx-auto mb-8">
-        <a href="#" class="block bg-white rounded-2xl border border-black/[0.04] p-6 md:p-8 hover:border-akdo-green/20 transition-colors group">
+        <a href="training-library-course.html" class="block bg-white rounded-2xl border border-black/[0.04] p-6 md:p-8 hover:border-akdo-green/20 transition-colors group">
           <div class="flex items-center gap-3 mb-4">
             <span class="text-[18px] font-bold text-akdo-dark/25">Essity / Tork</span>
             <span class="text-[10px] font-semibold text-akdo-green bg-akdo-green/10 rounded-full px-2.5 py-0.5">Live training</span>
@@ -852,8 +926,8 @@
         <div class="flex items-center gap-6">
           <a href="careers.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Careers</a>
           <a href="contact.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Contact</a>
-          <a href="#" class="text-[13px] text-white/60 hover:text-white transition-colors">Legal Notice</a>
-          <a href="#" class="text-[13px] text-white/60 hover:text-white transition-colors">Privacy Policy</a>
+          <a href="legal-notice.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Legal Notice</a>
+          <a href="privacy-policy.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Privacy Policy</a>
         </div>
         <p class="text-[12px] text-white/40">&copy; 2026 Akdo. All rights reserved.</p>
       </div>

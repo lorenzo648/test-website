@@ -26,6 +26,7 @@
       }
     }
   </script>
+  <link rel="stylesheet" href="assets/wireframe-review.css">
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -68,10 +69,83 @@
     /* Format card hover */
     .format-card { transition: all 0.2s; }
     .format-card:hover { border-color: rgba(44, 194, 125, 0.25); transform: translateY(-2px); }
+
+    /* Review mode: flatten the page into a low-distraction wireframe */
+    body.wireframe-mode {
+      --wf-bg: #f5f5f2;
+      --wf-surface: #ecece7;
+      --wf-border: #bdbdb4;
+      --wf-ink: #151515;
+      --wf-muted: #6f6f68;
+      background: var(--wf-bg);
+      color: var(--wf-ink);
+    }
+    body.wireframe-mode,
+    body.wireframe-mode * {
+      animation: none !important;
+      transition: none !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+      backdrop-filter: none !important;
+      filter: none !important;
+    }
+    body.wireframe-mode section,
+    body.wireframe-mode footer,
+    body.wireframe-mode div[class*="bg-"] {
+      background: transparent !important;
+      border-color: var(--wf-border) !important;
+    }
+    body.wireframe-mode nav {
+      background: var(--wf-bg) !important;
+      border-color: var(--wf-border) !important;
+      border-bottom: 1px solid var(--wf-border) !important;
+    }
+    body.wireframe-mode [class*="bg-"] { background: var(--wf-surface) !important; }
+    body.wireframe-mode [class*="border-"] { border-color: var(--wf-border) !important; }
+    body.wireframe-mode [class*="text-white"],
+    body.wireframe-mode [class*="text-akdo-"],
+    body.wireframe-mode [class*="text-red-"],
+    body.wireframe-mode [class*="text-blue-"],
+    body.wireframe-mode [class*="text-green-"],
+    body.wireframe-mode [class*="text-purple-"],
+    body.wireframe-mode [class*="text-orange-"] {
+      color: var(--wf-ink) !important;
+      -webkit-text-fill-color: currentColor !important;
+    }
+    body.wireframe-mode p,
+    body.wireframe-mode span,
+    body.wireframe-mode li,
+    body.wireframe-mode td,
+    body.wireframe-mode th {
+      color: var(--wf-muted) !important;
+    }
+    body.wireframe-mode h1,
+    body.wireframe-mode h2,
+    body.wireframe-mode h3,
+    body.wireframe-mode h4,
+    body.wireframe-mode strong,
+    body.wireframe-mode b,
+    body.wireframe-mode a,
+    body.wireframe-mode button {
+      color: var(--wf-ink) !important;
+    }
+    body.wireframe-mode .btn-primary,
+    body.wireframe-mode .btn-ghost {
+      background: transparent !important;
+      color: var(--wf-ink) !important;
+      border: 1px solid var(--wf-border) !important;
+      border-radius: 12px !important;
+    }
+    body.wireframe-mode img { filter: grayscale(1) contrast(1) !important; }
+    body.wireframe-mode svg { opacity: 0.5; }
+    body.wireframe-mode svg * {
+      stroke: var(--wf-muted) !important;
+      fill: none !important;
+    }
   </style>
 </head>
 
-<body>
+<body class="wireframe-mode">
 
   <!-- NAV -->
   <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-black/[0.04]">
@@ -93,12 +167,12 @@
   <!-- ========== 1. HERO ========== -->
   <section class="pt-36 pb-20">
     <div class="site-w max-w-[760px] mx-auto text-center">
-      <p class="text-[12px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-4">HSE Training</p>
+      <p class="text-[12px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-4">HSE / EHS Training</p>
       <h1 class="font-bold text-[40px] md:text-[52px] leading-[1.06] tracking-tight text-akdo-dark mb-6">
-        Your incidents become<br>your best <span class="text-akdo-green">training.</span>
+        HSE / EHS training built from<br>your real <span class="text-akdo-green">incidents.</span>
       </h1>
       <p class="text-[16px] text-akdo-dark/50 leading-relaxed max-w-[540px] mx-auto mb-10">
-        Turn incident reports, near-misses, and SOPs into interactive, site-specific training — deployed across every site and language in days, not months.
+        Generic safety training misses local procedures, local hazards, and local languages. Akdo turns incident reports, near-misses, and SOPs into site-specific training that workers recognize, complete, and deploy across every site and language.
       </p>
       <a href="book-demo.html" class="btn-primary">
         Book a Demo
@@ -124,6 +198,52 @@
   </div>
 
 
+  <!-- ========== 2. SOURCE TO TRAINING EXAMPLE ========== -->
+  <section class="pb-20">
+    <div class="site-w max-w-[1080px] mx-auto">
+      <div class="rounded-3xl border border-black/[0.04] bg-akdo-cream/60 p-8 md:p-10">
+        <div class="text-center max-w-[720px] mx-auto mb-10">
+          <p class="text-[12px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">Source to training example</p>
+          <h2 class="font-bold text-[30px] md:text-[40px] leading-[1.08] text-akdo-dark mb-4">
+            Last month's near-miss becomes <span class="text-akdo-green">this week's training.</span>
+          </h2>
+          <p class="text-[15px] text-akdo-dark/45 leading-relaxed">
+            This is the core HSE / EHS workflow: one real incident becomes a reviewable, deployable training pack before the next incident happens.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-[1fr_auto_1fr] gap-5 items-stretch">
+          <div class="rounded-2xl border border-black/[0.05] bg-white p-6">
+            <p class="text-[11px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">Input</p>
+            <h3 class="font-bold text-[22px] text-akdo-dark mb-3">Forklift near-miss at the Dusseldorf plant</h3>
+            <div class="space-y-3 text-[14px] text-akdo-dark/45 leading-relaxed">
+              <p>Contractor reversed into a shared pedestrian zone during shift change.</p>
+              <p>Source material: near-miss report, SOP excerpt, local traffic rule, and supervisor note.</p>
+              <p>Risk gap: workers know the policy, but the real site sequence is not clear in the current training.</p>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-center">
+            <div class="w-14 h-14 rounded-full border border-black/[0.08] bg-white flex items-center justify-center">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m0 0l-4-4m4 4l-4 4" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+
+          <div class="rounded-2xl border border-black/[0.05] bg-akdo-dark p-6">
+            <p class="text-[11px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">Training created</p>
+            <h3 class="font-bold text-[22px] text-white mb-3">One approved rollout pack in days</h3>
+            <div class="space-y-3 text-[14px] text-white/45 leading-relaxed">
+              <p>4-minute incident reconstruction video showing what happened, what went wrong, and the correct procedure.</p>
+              <p>Supervisor micro-module for toolbox talks and contractor onboarding.</p>
+              <p>Knowledge check plus multilingual delivery through LMS, Teams, WhatsApp, or hosted link.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <!-- ========== 2. THE PROBLEM — Operational + Deeper ========== -->
   <section class="py-20 bg-akdo-dark">
     <div class="site-w max-w-[960px] mx-auto">
@@ -131,9 +251,9 @@
       <div class="text-center max-w-[640px] mx-auto mb-12">
         <p class="text-[12px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">The problem</p>
         <h2 class="font-bold text-[28px] md:text-[36px] leading-[1.1] text-white">
-          More training feeds the cycle.<br>Better training <span class="text-akdo-green">breaks it.</span>
+          Traditional HSE / EHS training <span class="text-akdo-green">breaks at scale.</span>
         </h2>
-        <p class="text-[14px] text-white/40 mt-4">$98B spent on safety training annually — yet 53% of companies see injury rates stagnate or increase.</p>
+        <p class="text-[14px] text-white/40 mt-4">It is too generic, too slow to update, too hard to localize, and too disconnected from the incidents your teams are actually trying to prevent.</p>
       </div>
 
       <!-- Left-right split: symptoms | diagnosis -->
@@ -174,34 +294,34 @@
           </div>
         </div>
 
-        <!-- Right: The diagnosis -->
+        <!-- Right: What better training requires -->
         <div class="bg-white/[0.04] rounded-2xl p-6 border border-white/[0.06] flex flex-col justify-between">
           <div>
-            <p class="text-[10px] font-semibold text-akdo-green tracking-[0.1em] uppercase mb-4">Why it doesn't stick</p>
+            <p class="text-[10px] font-semibold text-akdo-green tracking-[0.1em] uppercase mb-4">What better training requires</p>
             <div class="space-y-4">
               <div>
-                <div class="text-[22px] font-bold text-white/70 leading-none mb-0.5">90%</div>
-                <p class="text-[11px] text-white/30">forgotten in 30 days</p>
-                <p class="text-[10px] text-akdo-green/60 mt-0.5">→ Spaced repetition</p>
+                <div class="text-[13px] font-semibold text-white/80 leading-none mb-1">Built from real incidents and SOPs</div>
+                <p class="text-[11px] text-white/30">So workers recognize the hazards, procedures, and operating context immediately.</p>
               </div>
               <div>
-                <div class="text-[22px] font-bold text-white/70 leading-none mb-0.5">66 days</div>
-                <p class="text-[11px] text-white/30">to build a habit</p>
-                <p class="text-[10px] text-akdo-green/60 mt-0.5">→ 66-day habit engine</p>
+                <div class="text-[13px] font-semibold text-white/80 leading-none mb-1">Matched to the risk</div>
+                <p class="text-[11px] text-white/30">Video, simulation, microlearning, and assessments chosen for the task and hazard.</p>
               </div>
               <div>
-                <div class="text-[22px] font-bold text-white/70 leading-none mb-0.5">77%</div>
-                <p class="text-[11px] text-white/30">say passive training = useless</p>
-                <p class="text-[10px] text-akdo-green/60 mt-0.5">→ Active learning & simulation</p>
+                <div class="text-[13px] font-semibold text-white/80 leading-none mb-1">Reviewable and traceable</div>
+                <p class="text-[11px] text-white/30">Every output stays tied to source documents so the HSE team can review and approve it.</p>
+              </div>
+              <div>
+                <div class="text-[13px] font-semibold text-white/80 leading-none mb-1">Deployable globally</div>
+                <p class="text-[11px] text-white/30">One approved source set, rolled out across sites, contractors, languages, and systems.</p>
               </div>
             </div>
           </div>
 
           <div class="border-t border-white/[0.06] pt-4 mt-5">
             <p class="text-[14px] font-semibold text-white/80 leading-snug">
-              The goal isn't more training.<br>It's building <span class="text-akdo-green">muscle memory.</span>
+              The goal is not more content.<br>It is training that workers <span class="text-akdo-green">recognize and act on.</span>
             </p>
-            <p class="text-[9px] text-white/15 mt-2">Ebbinghaus · Lally et al. · Burke et al. · Gallup</p>
           </div>
         </div>
 
@@ -213,25 +333,25 @@
   <!-- ========== 3. PROBLEM → SOLUTION BLOCKS ========== -->
   <!-- Alternating white/cream, alternating L-R layout. Cohesive chapter between dark anchors. -->
 
-  <!-- Block 1: AI Incident Videos (text LEFT, visual RIGHT) — white -->
+  <!-- Block 1: Incident-to-training workflow (text LEFT, visual RIGHT) — white -->
   <section class="py-20">
     <div class="site-w max-w-[960px] mx-auto">
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <p class="text-[11px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">AI Incident Videos</p>
+          <p class="text-[11px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">Incident-to-training workflow</p>
           <h2 class="font-bold text-[28px] md:text-[36px] leading-[1.08] text-akdo-dark mb-5">
-            Last month's near-miss becomes this week's training.
+            One incident becomes a repeatable training asset.
           </h2>
           <p class="text-[14px] text-akdo-dark/45 leading-relaxed">
-            Upload an incident report or near-miss. Akdo generates a training video that reconstructs what happened, what went wrong, and what the correct procedure looks like — narrated in the worker's native language, traceable to the source document. Ready in days, not 9 months from an agency.
+            Once a near-miss or incident is turned into training, the lesson does not stay trapped in one report. Akdo helps your team reuse it across shifts, sites, contractors, and onboarding, so the same mistake does not have to happen twice before the organization learns from it.
           </p>
         </div>
         <!-- Video player placeholder -->
         <div class="bg-akdo-dark rounded-2xl overflow-hidden">
           <div class="aspect-video flex items-center justify-center relative">
             <div class="text-center">
-              <p class="text-[12px] text-white/20 mb-1">[ AI-generated incident training video ]</p>
-              <p class="text-[11px] text-white/10">Forklift near-miss · Düsseldorf Plant</p>
+              <p class="text-[12px] text-white/20 mb-1">[ Incident-based training video ]</p>
+              <p class="text-[11px] text-white/10">Recent near-miss module · Site example</p>
             </div>
             <div class="absolute inset-0 flex items-center justify-center">
               <div class="w-16 h-16 rounded-full bg-akdo-green flex items-center justify-center cursor-pointer hover:scale-105 transition-transform">
@@ -241,8 +361,8 @@
           </div>
           <div class="px-5 py-3.5 border-t border-white/[0.06] flex items-center justify-between">
             <div>
-              <p class="text-[13px] font-semibold text-white/80">Forklift Pedestrian Safety</p>
-              <p class="text-[11px] text-white/30">Generated from IR-2026-0847 · 3:12</p>
+              <p class="text-[13px] font-semibold text-white/80">Incident-based safety module</p>
+              <p class="text-[11px] text-white/30">Generated from approved source documents · 3:12</p>
             </div>
             <div class="flex items-center gap-1.5">
               <span class="text-[10px] text-white/40 border border-white/[0.1] rounded px-2 py-0.5">DE</span>
@@ -282,7 +402,7 @@
         <div>
           <p class="text-[11px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">Site-Specific Training</p>
           <h2 class="font-bold text-[26px] md:text-[32px] leading-[1.1] text-akdo-dark mb-5">
-            Your workers know this training wasn't made for them.
+            Workers can tell when the training was not built for their site.
           </h2>
           <p class="text-[14px] text-akdo-dark/45 leading-relaxed">
             Generic content gets ignored — workers clock stock footage from a different continent in seconds and check out. Akdo reads your SOPs and incident reports and generates training built around the procedures, equipment, and hazards your workers actually encounter. Every output cited to source. When workers recognize their own site, they pay attention.
@@ -302,7 +422,7 @@
             You can't rehearse a chemical spill in a classroom.
           </h2>
           <p class="text-[14px] text-akdo-dark/45 leading-relaxed">
-            Slides and quizzes don't prepare anyone for the moment a gas reading drops below threshold. Akdo builds interactive simulations from your actual scenarios — workers make decisions under pressure, see consequences, and build muscle memory for emergency response before they face it for real. 4x higher focus than passive video.
+            Slides and quizzes do not prepare anyone for the moment a gas reading drops below threshold. Akdo builds interactive simulations from your actual scenarios so workers make decisions under pressure, see consequences, and rehearse the correct response before they face it for real.
           </p>
         </div>
         <!-- Visual placeholder: simulation branching scenario -->
@@ -389,7 +509,7 @@
         <div>
           <p class="text-[11px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">Global Deployment</p>
           <h2 class="font-bold text-[26px] md:text-[32px] leading-[1.1] text-akdo-dark mb-5">
-            15 sites. 8 languages. One standard you can't enforce.
+            Create once. Roll out across every site and language.
           </h2>
           <p class="text-[14px] text-akdo-dark/45 leading-relaxed">
             Every mistranslation and outdated version is an incident waiting to happen. Akdo lets you create once and deploy in 200+ languages with native AI voice. New contractor Monday, onboarded Tuesday. New regulation in one region, updated across all sites in hours — one source of truth, every site, every shift.
@@ -448,8 +568,9 @@
       <div class="text-center max-w-[640px] mx-auto mb-14">
         <p class="text-[12px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">How we work together</p>
         <h2 class="font-bold text-[28px] md:text-[36px] leading-[1.1] text-akdo-dark">
-          Replace your 9-month cycle<br>with a <span class="text-akdo-green">12-week go-live.</span>
+          Replace your 9-month cycle<br>with a <span class="text-akdo-green">12-week enterprise rollout.</span>
         </h2>
+        <p class="text-[14px] text-akdo-dark/40 mt-4">First modules can launch earlier. This timeline shows a structured enterprise rollout with review, onboarding, and integration.</p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-8">
@@ -666,26 +787,31 @@
       <div class="text-center max-w-[640px] mx-auto mb-14">
         <p class="text-[12px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">Proven performance</p>
         <h2 class="font-bold text-[28px] md:text-[36px] leading-[1.1] text-akdo-dark">
-          Trusted by global industrial leaders.
+          Proof at rollout scale.
         </h2>
       </div>
 
       <!-- Stats -->
-      <div class="grid md:grid-cols-3 gap-5 max-w-[800px] mx-auto mb-12">
+      <div class="grid md:grid-cols-4 gap-5 max-w-[920px] mx-auto mb-12">
         <div class="text-center bg-akdo-cream/60 rounded-2xl p-8 border border-black/[0.04]">
-          <div class="text-[42px] font-bold text-akdo-dark leading-none">70–80%</div>
-          <p class="text-[13px] text-akdo-dark/45 mt-2 font-medium">Faster Creation</p>
-          <p class="text-[11px] text-akdo-dark/25 mt-1">From months to days per training.</p>
+          <div class="text-[42px] font-bold text-akdo-dark leading-none">14</div>
+          <p class="text-[13px] text-akdo-dark/45 mt-2 font-medium">Plants</p>
+          <p class="text-[11px] text-akdo-dark/25 mt-1">Included in the rollout</p>
+        </div>
+        <div class="text-center bg-akdo-cream/60 rounded-2xl p-8 border border-black/[0.04]">
+          <div class="text-[42px] font-bold text-akdo-dark leading-none">6</div>
+          <p class="text-[13px] text-akdo-dark/45 mt-2 font-medium">Languages</p>
+          <p class="text-[11px] text-akdo-dark/25 mt-1">Rolled out from one program</p>
+        </div>
+        <div class="text-center bg-akdo-cream/60 rounded-2xl p-8 border border-black/[0.04]">
+          <div class="text-[42px] font-bold text-akdo-dark leading-none">450+</div>
+          <p class="text-[13px] text-akdo-dark/45 mt-2 font-medium">Courses Created</p>
+          <p class="text-[11px] text-akdo-dark/25 mt-1">Built from the rollout content set</p>
         </div>
         <div class="text-center bg-akdo-cream/60 rounded-2xl p-8 border border-black/[0.04]">
           <div class="text-[42px] font-bold text-akdo-dark leading-none">99.6%</div>
           <p class="text-[13px] text-akdo-dark/45 mt-2 font-medium">Completion Rate</p>
-          <p class="text-[11px] text-akdo-dark/25 mt-1">vs. ~20% industry average for traditional LMS.</p>
-        </div>
-        <div class="text-center bg-akdo-cream/60 rounded-2xl p-8 border border-black/[0.04]">
-          <div class="text-[42px] font-bold text-akdo-dark leading-none">83%</div>
-          <p class="text-[13px] text-akdo-dark/45 mt-2 font-medium">Violation Reduction</p>
-          <p class="text-[11px] text-akdo-dark/25 mt-1">Drop in safety violations after implementation.</p>
+          <p class="text-[11px] text-akdo-dark/25 mt-1">Across the live program</p>
         </div>
       </div>
 
@@ -700,7 +826,7 @@
               <p class="text-[14px] text-white/70 leading-relaxed mb-4">
                 Hazardous materials training across 14 plants in 6 languages. Traditional approach: 9 months, €50K per region. With Akdo: first training live in 1 week, full global rollout in 2 months. 450+ courses created, 99.6% completion.
               </p>
-              <p class="text-[12px] text-white/30">Director Sustainability Communications — Global CPG Enterprise</p>
+              <p class="text-[12px] text-white/30">Global enterprise rollout example</p>
             </div>
           </div>
         </div>
@@ -723,7 +849,7 @@
         Book a Demo
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <p class="text-[11px] text-akdo-dark/30 mt-6">Go live in 12 weeks — less than 20 hours of your team's time.</p>
+      <p class="text-[11px] text-akdo-dark/30 mt-6">Pilot in days. Structured enterprise rollout in 12 weeks with less than 20 hours of your team's time.</p>
     </div>
   </section>
 
@@ -736,8 +862,8 @@
         <div class="flex items-center gap-6">
           <a href="careers.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Careers</a>
           <a href="contact.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Contact</a>
-          <a href="#" class="text-[13px] text-white/60 hover:text-white transition-colors">Legal Notice</a>
-          <a href="#" class="text-[13px] text-white/60 hover:text-white transition-colors">Privacy Policy</a>
+          <a href="legal-notice.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Legal Notice</a>
+          <a href="privacy-policy.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Privacy Policy</a>
         </div>
         <p class="text-[12px] text-white/40">&copy; 2026 Akdo. All rights reserved.</p>
       </div>

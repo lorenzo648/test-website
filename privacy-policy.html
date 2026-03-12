@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Akdo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: {
+        'akdo-dark': '#02140d', 'akdo-green': '#2cc27d',
+        'akdo-lime': '#83e85a', 'akdo-cream': '#f5f6f4'
+      }}}
+    }
+  </script>
+  <link rel="stylesheet" href="assets/wireframe-review.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Poppins', sans-serif; color: #02140d; background: #fff; overflow-x: hidden; }
+    .site-w { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #2cc27d; color: #02140d; font-family: 'Poppins', sans-serif;
+      font-weight: 600; font-size: 15px; padding: 13px 30px; border-radius: 50px;
+      text-decoration: none; transition: all 0.2s; border: none; cursor: pointer;
+    }
+  </style>
+</head>
+<body class="wireframe-mode">
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-black/[0.04]">
+    <div class="site-w flex items-center justify-between h-16">
+      <a href="index.html">
+        <img src="assets/logo.png" alt="Akdo" class="h-7">
+      </a>
+      <div class="hidden md:flex items-center gap-7">
+        <a href="hse-training.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">HSE Training</a>
+        <a href="sustainability.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Sustainability</a>
+        <a href="training-library.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Training Library</a>
+        <a href="security.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Security</a>
+      </div>
+      <a href="book-demo.html" class="btn-primary !text-[13px] !py-2.5 !px-5">Book a Demo</a>
+    </div>
+  </nav>
+
+  <section class="pt-32 pb-20">
+    <div class="site-w max-w-[760px] mx-auto">
+      <p class="text-[12px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-4">Privacy Policy</p>
+      <h1 class="font-bold text-[34px] md:text-[42px] leading-[1.08] tracking-tight text-akdo-dark mb-5">Privacy placeholder for the review build.</h1>
+      <p class="text-[15px] text-akdo-dark/55 leading-relaxed mb-8">
+        This prototype now has a working privacy destination. Replace the placeholder text with the final GDPR and product privacy language before launch.
+      </p>
+      <div class="bg-akdo-cream/60 rounded-2xl p-6 border border-black/[0.04] text-[14px] text-akdo-dark/55 leading-relaxed">
+        <p>Sections to add in the final version:</p>
+        <p>1. Data controller details</p>
+        <p>2. Website analytics and contact form processing</p>
+        <p>3. Product data processing and retention</p>
+        <p>4. Sub-processors and international transfers</p>
+        <p>5. Data subject rights and contact channels</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-10 bg-akdo-dark border-t border-white/[0.05]">
+    <div class="site-w">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-5">
+        <img src="assets/logo.png" alt="Akdo" class="h-5 brightness-0 invert">
+        <div class="flex items-center gap-6">
+          <a href="careers.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Careers</a>
+          <a href="contact.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Contact</a>
+          <a href="legal-notice.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Legal Notice</a>
+          <a href="privacy-policy.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Privacy Policy</a>
+        </div>
+        <p class="text-[12px] text-white/40">&copy; 2026 Akdo. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
