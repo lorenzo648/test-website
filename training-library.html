@@ -61,9 +61,111 @@
     .sub-btn:not(.active) { color: #02140d60; border-color: #02140d10; }
     .sub-btn:not(.active):hover { border-color: #02140d30; }
 
-    .course-card { display: flex; flex-direction: column; text-decoration: none; color: inherit; }
+    .course-card {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      padding: 0;
+      overflow: hidden;
+      min-height: 100%;
+      border-radius: 16px;
+    }
     .course-card.hidden { display: none; }
     .course-card:hover .card-title { color: #2cc27d; }
+
+    .course-media {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(2, 20, 13, 0.05);
+      background:
+        linear-gradient(135deg, rgba(2, 20, 13, 0.04), rgba(2, 20, 13, 0.08)),
+        linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(2,20,13,0.05) 100%);
+    }
+
+    .course-media::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(2, 20, 13, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(2, 20, 13, 0.06) 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: 0.35;
+    }
+
+    .course-media-note {
+      position: absolute;
+      left: 12px;
+      bottom: 10px;
+      font-size: 9px;
+      color: #02140d66;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      z-index: 1;
+    }
+
+    .course-chip-row {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      z-index: 1;
+    }
+
+    .course-chip {
+      font-size: 10px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(2, 20, 13, 0.12);
+      background: rgba(255, 255, 255, 0.8);
+      color: #02140d99;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .course-content {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 13px 13px 14px;
+    }
+
+    .course-desc {
+      font-size: 13px;
+      line-height: 1.65;
+      color: #02140d80;
+      margin-top: 6px;
+      margin-bottom: 14px;
+    }
+
+    .course-view {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: auto;
+      font-size: 13px;
+      font-weight: 500;
+      color: #02140d;
+    }
+
+    .course-view-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(2, 20, 13, 0.18);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
 
     .search-input {
       background: none; border: 1.5px solid #02140d15; border-radius: 50px;
@@ -74,7 +176,6 @@
     .search-input:focus { border-color: #2cc27d; width: 260px; }
 
     .tag { font-size: 10px; padding: 2px 8px; border-radius: 50px; font-weight: 500; white-space: nowrap; }
-    .format-icon { font-size: 11px; color: #02140d50; display: inline-flex; align-items: center; gap: 3px; }
   </style>
 </head>
 <body class="wireframe-mode">
@@ -152,11 +253,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">rescue planning</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">permit-to-work</span>
           </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
-            <span class="format-icon">🎬 Video</span>
-            <span class="format-icon">🎮 Simulation</span>
-          </div>
         </a>
 
         <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="safety" data-search="working at heights fall prevention harness inspection scaffold safety emergency response elevation">
@@ -169,11 +265,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">fall prevention</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">harness inspection</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">scaffold safety</span>
-          </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
-            <span class="format-icon">🎬 Video</span>
-            <span class="format-icon">🎮 Simulation</span>
           </div>
         </a>
 
@@ -188,10 +279,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">load calculation</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">rigging inspection</span>
           </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
-            <span class="format-icon">🎬 Video</span>
-          </div>
         </a>
 
         <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="safety" data-search="fire safety prevention fire triangle extinguisher types evacuation routes hot work permits">
@@ -205,10 +292,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">evacuation routes</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">hot work permits</span>
           </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
-            <span class="format-icon">🎬 Video</span>
-          </div>
         </a>
 
         <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="safety" data-search="lockout tagout loto energy isolation verification procedures group lockout machine-specific protocols">
@@ -221,10 +304,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">energy isolation</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">verification procedures</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">group lockout</span>
-          </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
-            <span class="format-icon">🎮 Simulation</span>
           </div>
         </a>
 
@@ -240,11 +319,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">PPE selection</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">spill response</span>
           </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
-            <span class="format-icon">🎬 Video</span>
-            <span class="format-icon">🎮 Simulation</span>
-          </div>
         </a>
 
         <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="health" data-search="noise hearing conservation audiometric testing noise mapping ppe hearing protection decibel exposure limits">
@@ -257,10 +331,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">audiometric testing</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">noise mapping</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">exposure limits</span>
-          </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
-            <span class="format-icon">🎬 Video</span>
           </div>
         </a>
 
@@ -275,10 +345,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">workstation assessment</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">injury prevention</span>
           </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
-            <span class="format-icon">🎬 Video</span>
-          </div>
         </a>
 
         <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="health" data-search="respiratory protection fit testing mask selection air quality monitoring supplied air scba programs">
@@ -291,10 +357,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">fit testing</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">air quality</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">SCBA</span>
-          </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
-            <span class="format-icon">🎮 Simulation</span>
           </div>
         </a>
 
@@ -310,10 +372,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">classification</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">regulatory compliance</span>
           </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
-            <span class="format-icon">🎬 Video</span>
-          </div>
         </a>
 
         <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="environment" data-search="spill prevention response containment bund management emergency procedures secondary containment environmental incident">
@@ -327,11 +385,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">bund management</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">emergency procedures</span>
           </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
-            <span class="format-icon">🎬 Video</span>
-            <span class="format-icon">🎮 Simulation</span>
-          </div>
         </a>
 
         <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="environment" data-search="water management discharge permits effluent monitoring water treatment stormwater pollution prevention">
@@ -344,9 +397,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">discharge permits</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">effluent monitoring</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">stormwater</span>
-          </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
           </div>
         </a>
 
@@ -362,10 +412,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">bow-tie methodology</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">near-miss reporting</span>
           </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
-            <span class="format-icon">🎬 Video</span>
-          </div>
         </a>
 
         <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-leadership" data-sub="management" data-search="safety culture leadership behavioral safety observation programs safety performance indicators leading lagging kpis">
@@ -378,10 +424,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">behavioral safety</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">observation programs</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">safety KPIs</span>
-          </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
-            <span class="format-icon">🎬 Video</span>
           </div>
         </a>
 
@@ -396,10 +438,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">hierarchy of controls</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">hazard register</span>
           </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
-            <span class="format-icon">🎬 Video</span>
-          </div>
         </a>
 
         <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-leadership" data-sub="audit" data-search="hse auditing inspection management system audit iso 45001 compliance verification audit planning corrective actions">
@@ -412,10 +450,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">ISO 45001</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">audit planning</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">corrective actions</span>
-          </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
-            <span class="format-icon">🎬 Video</span>
           </div>
         </a>
 
@@ -430,10 +464,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">prequalification</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">site induction</span>
           </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
-            <span class="format-icon">🎬 Video</span>
-          </div>
         </a>
 
         <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-leadership" data-sub="investigation" data-search="emergency response planning crisis management business continuity emergency drills evacuation command structure tabletop exercises">
@@ -446,10 +476,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">crisis management</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">business continuity</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">tabletop exercises</span>
-          </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
-            <span class="format-icon">🎬 Video</span>
           </div>
         </a>
 
@@ -465,10 +491,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">SBTi alignment</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">transition planning</span>
           </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
-            <span class="format-icon">🎬 Video</span>
-          </div>
         </a>
 
         <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="sustainability" data-sub="environmental" data-search="iso 14001 environmental management system plan do check act cycle continuous improvement">
@@ -481,9 +503,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">PDCA cycle</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">EMS</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">continuous improvement</span>
-          </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
           </div>
         </a>
 
@@ -498,10 +517,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">lifecycle design</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">closed-loop</span>
           </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
-            <span class="format-icon">🎬 Video</span>
-          </div>
         </a>
 
         <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="sustainability" data-sub="environmental" data-search="lca carbon accounting life cycle assessment methodology footprinting environmental cost">
@@ -514,9 +529,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">life cycle assessment</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">carbon footprinting</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">cost accounting</span>
-          </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
           </div>
         </a>
 
@@ -532,10 +544,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">ethical practices</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">procurement</span>
           </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
-            <span class="format-icon">🎬 Video</span>
-          </div>
         </a>
 
         <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="sustainability" data-sub="social" data-search="community engagement stakeholder relations social license to operate local impact assessment">
@@ -549,9 +557,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">social license</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">local impact</span>
           </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
-          </div>
         </a>
 
         <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="sustainability" data-sub="social" data-search="labor standards fair working conditions ilo conventions worker welfare living wage">
@@ -564,9 +569,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">ILO conventions</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">worker welfare</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">living wage</span>
-          </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
           </div>
         </a>
 
@@ -582,10 +584,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">social</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">governance</span>
           </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
-            <span class="format-icon">🎬 Video</span>
-          </div>
         </a>
 
         <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="sustainability" data-sub="governance" data-search="csrd esg reporting corporate sustainability reporting directive double materiality disclosure requirements">
@@ -599,9 +597,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">double materiality</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">disclosure</span>
           </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
-          </div>
         </a>
 
         <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="sustainability" data-sub="governance" data-search="climate risk tcfd disclosure scenario analysis physical transition risks financial impact">
@@ -614,9 +609,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">TCFD</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">scenario analysis</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">financial impact</span>
-          </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
           </div>
         </a>
 
@@ -632,10 +624,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">reporting channels</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">conflict of interest</span>
           </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
-            <span class="format-icon">🎬 Video</span>
-          </div>
         </a>
 
         <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="compliance" data-search="anti-bribery anti-corruption fcpa uk bribery act gift policies third-party due diligence red flags">
@@ -648,9 +636,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">FCPA</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">gift policies</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">due diligence</span>
-          </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
           </div>
         </a>
 
@@ -665,10 +650,6 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">inclusive leadership</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">belonging</span>
           </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
-            <span class="format-icon">🎬 Video</span>
-          </div>
         </a>
 
         <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="compliance" data-search="human rights supply chains due diligence obligations modern slavery forced labor transparency">
@@ -682,16 +663,13 @@
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">forced labor</span>
             <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">supply chain</span>
           </div>
-          <div class="flex items-center gap-3 mt-auto pt-2 border-t border-black/[0.03]">
-            <span class="format-icon">📄 Microlearning</span>
-          </div>
         </a>
 
       </div>
 
       <!-- More courses note -->
       <div class="text-center mt-10">
-        <p class="text-[13px] text-akdo-dark/40">Showing 16 of 113+ modules. Every module is customized to your company context.</p>
+        <p class="course-count text-[13px] text-akdo-dark/40">Showing 16 of 113+ modules. Every module is customized to your company context.</p>
       </div>
     </div>
   </section>
@@ -734,6 +712,13 @@
   <script>
     let activeTop = 'all';
     let activeSub = 'all';
+
+    const topLabels = {
+      'hse-operator': ['HSE', 'Operator'],
+      'hse-leadership': ['HSE', 'Leadership'],
+      sustainability: ['Sustainability'],
+      compliance: ['Compliance']
+    };
 
     const subFilters = {
       'hse-operator': [
@@ -787,6 +772,55 @@
     const interstitial = document.createElement('div');
     interstitial.className = 'interstitial md:col-span-3 bg-akdo-dark rounded-xl p-8 md:p-10 flex flex-col md:flex-row items-center gap-6 md:gap-10';
     interstitial.id = 'interstitial';
+
+    function escapeHtml(text) {
+      return text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function enhanceCourseCards() {
+      document.querySelectorAll('.course-card').forEach(card => {
+        if (card.dataset.enhanced === 'true') return;
+
+        const primaryTag = card.querySelector('.tag');
+        const title = card.querySelector('.card-title');
+        const description = Array.from(card.querySelectorAll('p')).find(p => !p.closest('.course-media'));
+
+        const chips = [
+          ...(topLabels[card.dataset.cat] || []),
+          primaryTag ? primaryTag.textContent.trim() : ''
+        ].filter(Boolean).slice(0, 3);
+
+        const mediaLabel = primaryTag ? `${primaryTag.textContent.trim()} topic visual` : 'Topic visual';
+
+        card.innerHTML = `
+          <div class="course-media">
+            <div class="course-chip-row">
+              ${chips.map(chip => `<span class="course-chip">${escapeHtml(chip)}</span>`).join('')}
+            </div>
+            <span class="course-media-note">[ ${escapeHtml(mediaLabel)} ]</span>
+          </div>
+          <div class="course-content">
+            <h3 class="card-title font-semibold text-[18px] leading-[1.35] text-akdo-dark transition-colors">${escapeHtml(title ? title.textContent.trim() : '')}</h3>
+            <p class="course-desc">${escapeHtml(description ? description.textContent.trim() : '')}</p>
+            <span class="course-view">
+              <span class="course-view-icon">
+                <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              View
+            </span>
+          </div>
+        `;
+
+        card.dataset.enhanced = 'true';
+      });
+    }
+
+    enhanceCourseCards();
 
     function filterTop(cat, btn) {
       activeTop = cat;
