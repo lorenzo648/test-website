@@ -26,7 +26,6 @@
       }
     }
   </script>
-  <link rel="stylesheet" href="assets/wireframe-review.css">
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -61,111 +60,34 @@
     .sub-btn:not(.active) { color: #02140d60; border-color: #02140d10; }
     .sub-btn:not(.active):hover { border-color: #02140d30; }
 
-    .course-card {
-      display: flex;
-      flex-direction: column;
-      text-decoration: none;
-      color: inherit;
-      padding: 0;
-      overflow: hidden;
-      min-height: 100%;
-      border-radius: 16px;
-    }
+    .course-card { display: flex; flex-direction: column; text-decoration: none; color: inherit; overflow: hidden; }
     .course-card.hidden { display: none; }
     .course-card:hover .card-title { color: #2cc27d; }
+    .course-card:hover .card-visual { transform: scale(1.03); }
 
-    .course-media {
-      position: relative;
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
-      border-bottom: 1px solid rgba(2, 20, 13, 0.05);
-      background:
-        linear-gradient(135deg, rgba(2, 20, 13, 0.04), rgba(2, 20, 13, 0.08)),
-        linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(2,20,13,0.05) 100%);
+    .card-visual {
+      height: 140px; display: flex; align-items: center; justify-content: center;
+      transition: transform 0.3s ease; position: relative;
+    }
+    .card-visual svg { opacity: 0.6; }
+    .card-tags {
+      position: absolute; bottom: 8px; left: 8px; right: 8px;
+      display: flex; flex-wrap: wrap; gap: 4px;
+    }
+    .card-tags .tag {
+      background: rgba(255,255,255,0.75); backdrop-filter: blur(4px);
+      color: #02140d99; font-size: 10px;
     }
 
-    .course-media::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(2, 20, 13, 0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(2, 20, 13, 0.06) 1px, transparent 1px);
-      background-size: 28px 28px;
-      opacity: 0.35;
-    }
-
-    .course-media-note {
-      position: absolute;
-      left: 12px;
-      bottom: 10px;
-      font-size: 9px;
-      color: #02140d66;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      z-index: 1;
-    }
-
-    .course-chip-row {
-      position: absolute;
-      left: 10px;
-      top: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-      z-index: 1;
-    }
-
-    .course-chip {
-      font-size: 10px;
-      padding: 3px 7px;
-      border-radius: 999px;
-      border: 1px solid rgba(2, 20, 13, 0.12);
-      background: rgba(255, 255, 255, 0.8);
-      color: #02140d99;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      line-height: 1;
-      white-space: nowrap;
-    }
-
-    .course-content {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      padding: 13px 13px 14px;
-    }
-
-    .course-desc {
-      font-size: 13px;
-      line-height: 1.65;
-      color: #02140d80;
-      margin-top: 6px;
-      margin-bottom: 14px;
-    }
-
-    .course-view {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      margin-top: auto;
-      font-size: 13px;
-      font-weight: 500;
-      color: #02140d;
-    }
-
-    .course-view-icon {
-      width: 22px;
-      height: 22px;
-      border-radius: 999px;
-      border: 1px solid rgba(2, 20, 13, 0.18);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
+    /* Category gradient backgrounds */
+    .visual-safety { background: linear-gradient(135deg, #fef2f2, #fee2e2, #fecaca); }
+    .visual-health { background: linear-gradient(135deg, #fff7ed, #fed7aa, #fdba74); }
+    .visual-environment { background: linear-gradient(135deg, #ecfdf5, #d1fae5, #a7f3d0); }
+    .visual-leadership { background: linear-gradient(135deg, #f5f3ff, #ede9fe, #ddd6fe); }
+    .visual-environmental { background: linear-gradient(135deg, #f0fdf4, #dcfce7, #bbf7d0); }
+    .visual-social { background: linear-gradient(135deg, #f0f9ff, #e0f2fe, #bae6fd); }
+    .visual-governance { background: linear-gradient(135deg, #faf5ff, #f3e8ff, #e9d5ff); }
+    .visual-compliance { background: linear-gradient(135deg, #f5f6f4, #e8ebe5, #dde0d8); }
 
     .search-input {
       background: none; border: 1.5px solid #02140d15; border-radius: 50px;
@@ -177,6 +99,7 @@
 
     .tag { font-size: 10px; padding: 2px 8px; border-radius: 50px; font-weight: 500; white-space: nowrap; }
   </style>
+  <link rel="stylesheet" href="assets/wireframe-review.css">
 </head>
 <body class="wireframe-mode">
 
@@ -202,10 +125,10 @@
     <div class="site-w max-w-[700px] mx-auto text-center">
       <p class="text-[13px] font-semibold text-akdo-green tracking-wide uppercase mb-4">Training Library</p>
       <h1 class="font-bold text-[40px] md:text-[50px] leading-[1.08] tracking-tight text-akdo-dark mb-5">
-        HSE / EHS topics for the risks your teams actually face.<br><span class="text-akdo-green">With sustainability and compliance alongside them.</span>
+        Safety, sustainability, compliance.<br><span class="text-akdo-green">All in one place.</span>
       </h1>
       <p class="text-[16px] text-akdo-dark/55 leading-relaxed max-w-[530px] mx-auto">
-        Start from proven topic areas, then adapt them using your incidents, SOPs, policies, language mix, and site context.
+        From frontline operators to boardroom leaders. Every module adapts to your context.
       </p>
     </div>
   </section>
@@ -214,7 +137,7 @@
   <!-- FILTERS + SEARCH + GRID -->
   <section class="py-10">
     <div class="site-w">
-      <!-- Filter bar: two layers -->
+      <!-- Filter bar -->
       <div class="max-w-[960px] mx-auto mb-10">
         <div class="flex flex-wrap items-center justify-between gap-4 mb-3">
           <div class="flex flex-wrap items-center gap-2">
@@ -239,429 +162,784 @@
       </div>
 
       <!-- Course grid -->
-      <div id="courseGrid" class="grid md:grid-cols-3 gap-4 max-w-[960px] mx-auto">
+      <div id="courseGrid" class="grid md:grid-cols-3 gap-5 max-w-[960px] mx-auto">
 
         <!-- ===== HSE / SAFETY ===== -->
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="safety" data-search="confined space entry hazard identification atmospheric testing rescue planning permit-to-work procedures">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-red-400">Safety</span>
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="safety" data-search="confined space entry hazard identification atmospheric testing rescue planning permit-to-work procedures">
+          <div class="card-visual visual-safety rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="14" y="30" width="28" height="14" rx="2"/>
+              <path d="M16 30V24a12 12 0 0 1 24 0v6"/>
+              <circle cx="28" cy="37" r="2"/>
+              <path d="M28 14v-4M18 18l-3-3M38 18l3-3"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">atmospheric testing</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">rescue planning</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">permit-to-work</span>
+            </div>
           </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Confined Space Entry</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Hazard identification, atmospheric testing, rescue planning, and permit-to-work procedures.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">atmospheric testing</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">rescue planning</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">permit-to-work</span>
-          </div>
-        </a>
-
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="safety" data-search="working at heights fall prevention harness inspection scaffold safety emergency response elevation">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-red-400">Safety</span>
-          </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Working at Heights</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Fall prevention, harness inspection, scaffold safety, and emergency response at elevation.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">fall prevention</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">harness inspection</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">scaffold safety</span>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-red-400">Safety</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Confined Space Entry</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Hazard identification, atmospheric testing, rescue planning, and permit-to-work procedures.</p>
           </div>
         </a>
 
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="safety" data-search="lifting operations crane signals load calculation rigging inspection lift plan procedures">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-red-400">Safety</span>
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="safety" data-search="working at heights fall prevention harness inspection scaffold safety emergency response elevation">
+          <div class="card-visual visual-safety rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 46V18l8-8 8 8v28"/>
+              <path d="M16 46h24"/>
+              <path d="M24 22h8M24 28h8M24 34h8"/>
+              <path d="M28 10V6"/>
+              <path d="M20 22h-4v6h4M36 22h4v6h-4"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">fall prevention</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">harness inspection</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">scaffold safety</span>
+            </div>
           </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Lifting Operations</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Crane signals, load calculation, rigging inspection, and lift plan procedures.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">crane signals</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">load calculation</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">rigging inspection</span>
-          </div>
-        </a>
-
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="safety" data-search="fire safety prevention fire triangle extinguisher types evacuation routes hot work permits">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-red-400">Safety</span>
-          </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Fire Safety & Prevention</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Fire triangle, extinguisher types, evacuation routes, and hot work permits.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">fire triangle</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">evacuation routes</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">hot work permits</span>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-red-400">Safety</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Working at Heights</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Fall prevention, harness inspection, scaffold safety, and emergency response at elevation.</p>
           </div>
         </a>
 
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="safety" data-search="lockout tagout loto energy isolation verification procedures group lockout machine-specific protocols">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-red-400">Safety</span>
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="safety" data-search="lifting operations crane signals load calculation rigging inspection lift plan procedures">
+          <div class="card-visual visual-safety rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 46V14h4v32"/>
+              <path d="M18 18h22"/>
+              <path d="M40 18v6"/>
+              <path d="M36 24h8"/>
+              <path d="M40 24v8"/>
+              <rect x="34" y="32" width="12" height="10" rx="1"/>
+              <path d="M14 14l4-4 4 4"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">crane signals</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">load calculation</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">rigging inspection</span>
+            </div>
           </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Lockout/Tagout (LOTO)</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Energy isolation, verification procedures, group lockout, and machine-specific protocols.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">energy isolation</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">verification procedures</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">group lockout</span>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-red-400">Safety</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Lifting Operations</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Crane signals, load calculation, rigging inspection, and lift plan procedures.</p>
+          </div>
+        </a>
+
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="safety" data-search="fire safety prevention fire triangle extinguisher types evacuation routes hot work permits">
+          <div class="card-visual visual-safety rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M28 8c0 8-10 14-10 24a14 14 0 0 0 20 0c0-10-10-16-10-24z"/>
+              <path d="M28 48c-4 0-6-3-6-6 0-6 6-8 6-14 0 6 6 8 6 14 0 3-2 6-6 6z"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">fire triangle</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">evacuation routes</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">hot work permits</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-red-400">Safety</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Fire Safety & Prevention</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Fire triangle, extinguisher types, evacuation routes, and hot work permits.</p>
+          </div>
+        </a>
+
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="safety" data-search="lockout tagout loto energy isolation verification procedures group lockout machine-specific protocols">
+          <div class="card-visual visual-safety rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="18" y="26" width="20" height="18" rx="3"/>
+              <path d="M22 26v-6a6 6 0 0 1 12 0v6"/>
+              <circle cx="28" cy="36" r="2.5"/>
+              <path d="M28 38.5V41"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">energy isolation</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">verification procedures</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">group lockout</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-red-400">Safety</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Lockout/Tagout (LOTO)</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Energy isolation, verification procedures, group lockout, and machine-specific protocols.</p>
           </div>
         </a>
 
         <!-- ===== HSE / HEALTH ===== -->
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="health" data-search="chemical handling hazmat sds interpretation ppe selection spill response storage requirements occupational exposure">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-orange-400">Health</span>
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="health" data-search="chemical handling hazmat sds interpretation ppe selection spill response storage requirements occupational exposure">
+          <div class="card-visual visual-health rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#f97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10h12v14l8 16a4 4 0 0 1-3.6 5.6H17.6A4 4 0 0 1 14 40l8-16V10z"/>
+              <path d="M22 10h12"/>
+              <path d="M18 36h20"/>
+              <circle cx="24" cy="40" r="1.5"/>
+              <circle cx="32" cy="38" r="1"/>
+              <circle cx="28" cy="42" r="1"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">SDS interpretation</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">PPE selection</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">spill response</span>
+            </div>
           </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Chemical Handling & HAZMAT</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">SDS interpretation, PPE selection, spill response, and storage requirements.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">SDS interpretation</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">PPE selection</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">spill response</span>
-          </div>
-        </a>
-
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="health" data-search="noise hearing conservation audiometric testing noise mapping ppe hearing protection decibel exposure limits">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-orange-400">Health</span>
-          </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Noise & Hearing Conservation</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Audiometric testing, noise mapping, hearing protection selection, and exposure limits.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">audiometric testing</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">noise mapping</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">exposure limits</span>
-          </div>
-        </a>
-
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="health" data-search="ergonomics manual handling musculoskeletal injury prevention lifting techniques workstation assessment repetitive strain">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-orange-400">Health</span>
-          </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Ergonomics & Manual Handling</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Musculoskeletal injury prevention, safe lifting techniques, and workstation assessment.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">lifting techniques</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">workstation assessment</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">injury prevention</span>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-orange-400">Health</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Chemical Handling & HAZMAT</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">SDS interpretation, PPE selection, spill response, and storage requirements.</p>
           </div>
         </a>
 
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="health" data-search="respiratory protection fit testing mask selection air quality monitoring supplied air scba programs">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-orange-400">Health</span>
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="health" data-search="noise hearing conservation audiometric testing noise mapping ppe hearing protection decibel exposure limits">
+          <div class="card-visual visual-health rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#f97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 22c0-4 2.7-8 6-8s6 4 6 8v8c0 4-2.7 6-6 6s-6-2-6-6v-8z"/>
+              <path d="M18 26a10 10 0 0 0 20 0"/>
+              <path d="M14 24c0 8 6.3 14 14 14s14-6 14-14"/>
+              <path d="M34 38l2 4M22 38l-2 4"/>
+              <path d="M28 14v-4"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">audiometric testing</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">noise mapping</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">exposure limits</span>
+            </div>
           </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Respiratory Protection</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Fit testing, mask selection, air quality monitoring, and supplied-air SCBA programs.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">fit testing</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">air quality</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">SCBA</span>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-orange-400">Health</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Noise & Hearing Conservation</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Audiometric testing, noise mapping, hearing protection selection, and exposure limits.</p>
+          </div>
+        </a>
+
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="health" data-search="ergonomics manual handling musculoskeletal injury prevention lifting techniques workstation assessment repetitive strain">
+          <div class="card-visual visual-health rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#f97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="28" cy="14" r="4"/>
+              <path d="M28 18v10"/>
+              <path d="M20 24l8 4 8-4"/>
+              <path d="M24 28l-4 16"/>
+              <path d="M32 28l4 16"/>
+              <path d="M22 44l-2 2M34 44l2 2"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">lifting techniques</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">workstation assessment</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">injury prevention</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-orange-400">Health</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Ergonomics & Manual Handling</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Musculoskeletal injury prevention, safe lifting techniques, and workstation assessment.</p>
+          </div>
+        </a>
+
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="health" data-search="respiratory protection fit testing mask selection air quality monitoring supplied air scba programs">
+          <div class="card-visual visual-health rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#f97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 28c0-6 4.5-12 10-12s10 6 10 12"/>
+              <path d="M16 28c0 8 5.4 14 12 14s12-6 14-14"/>
+              <path d="M22 32h12"/>
+              <path d="M20 36h16"/>
+              <circle cx="24" cy="24" r="2"/>
+              <circle cx="32" cy="24" r="2"/>
+              <path d="M14 28h4M38 28h4"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">fit testing</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">air quality</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">SCBA</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-orange-400">Health</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Respiratory Protection</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Fit testing, mask selection, air quality monitoring, and supplied-air SCBA programs.</p>
           </div>
         </a>
 
         <!-- ===== HSE / ENVIRONMENT ===== -->
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="environment" data-search="waste management segregation hazardous waste disposal classification labeling storage regulatory compliance">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-emerald-500">Environment</span>
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="environment" data-search="waste management segregation hazardous waste disposal classification labeling storage regulatory compliance">
+          <div class="card-visual visual-environment rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 16h16l-2 28H22L20 16z"/>
+              <path d="M16 16h24"/>
+              <path d="M24 12h8"/>
+              <path d="M26 22v16M30 22v16"/>
+              <path d="M22 22l2 16M34 22l-2 16"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">hazardous waste</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">classification</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">regulatory compliance</span>
+            </div>
           </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Waste Management & Segregation</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Hazardous waste disposal, classification & labeling, storage, and regulatory compliance.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">hazardous waste</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">classification</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">regulatory compliance</span>
-          </div>
-        </a>
-
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="environment" data-search="spill prevention response containment bund management emergency procedures secondary containment environmental incident">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-emerald-500">Environment</span>
-          </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Spill Prevention & Response</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Containment, bund management, emergency procedures, and secondary containment systems.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">containment</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">bund management</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">emergency procedures</span>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-emerald-500">Environment</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Waste Management & Segregation</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Hazardous waste disposal, classification & labeling, storage, and regulatory compliance.</p>
           </div>
         </a>
 
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="environment" data-search="water management discharge permits effluent monitoring water treatment stormwater pollution prevention">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-emerald-500">Environment</span>
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="environment" data-search="spill prevention response containment bund management emergency procedures secondary containment environmental incident">
+          <div class="card-visual visual-environment rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M28 10v16"/>
+              <path d="M28 26c-8 4-14 8-14 14a14 14 0 0 0 28 0c0-6-6-10-14-14z"/>
+              <path d="M22 38c0-2 2.7-4 6-4s6 2 6 4"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">containment</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">bund management</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">emergency procedures</span>
+            </div>
           </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Water Management & Discharge</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Discharge permits, effluent monitoring, water treatment, and stormwater pollution prevention.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">discharge permits</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">effluent monitoring</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">stormwater</span>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-emerald-500">Environment</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Spill Prevention & Response</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Containment, bund management, emergency procedures, and secondary containment systems.</p>
+          </div>
+        </a>
+
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-operator" data-sub="environment" data-search="water management discharge permits effluent monitoring water treatment stormwater pollution prevention">
+          <div class="card-visual visual-environment rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 32c4-2 6 2 10 0s6-2 10 0 6 2 10 0"/>
+              <path d="M12 38c4-2 6 2 10 0s6-2 10 0 6 2 10 0"/>
+              <path d="M12 44c4-2 6 2 10 0s6-2 10 0 6 2 10 0"/>
+              <path d="M28 12l-6 12h12l-6-12z"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">discharge permits</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">effluent monitoring</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">stormwater</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-emerald-500">Environment</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Water Management & Discharge</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Discharge permits, effluent monitoring, water treatment, and stormwater pollution prevention.</p>
           </div>
         </a>
 
         <!-- ===== HSE / LEADERSHIP ===== -->
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-leadership" data-sub="investigation" data-search="incident investigation root cause analysis bow-tie methodology corrective actions near-miss reporting lessons learned">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-violet-500">Leadership</span>
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-leadership" data-sub="investigation" data-search="incident investigation root cause analysis bow-tie methodology corrective actions near-miss reporting lessons learned">
+          <div class="card-visual visual-leadership rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="24" cy="24" r="10"/>
+              <path d="M31 31l12 12"/>
+              <path d="M20 24h8M24 20v8"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">root cause analysis</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">bow-tie methodology</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">near-miss reporting</span>
+            </div>
           </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Incident Investigation</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Root cause analysis, bow-tie methodology, corrective actions, and near-miss reporting.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">root cause analysis</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">bow-tie methodology</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">near-miss reporting</span>
-          </div>
-        </a>
-
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-leadership" data-sub="management" data-search="safety culture leadership behavioral safety observation programs safety performance indicators leading lagging kpis">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-violet-500">Leadership</span>
-          </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Safety Culture & Leadership</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Behavioral safety, observation programs, leading & lagging KPIs, and building a safety-first culture.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">behavioral safety</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">observation programs</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">safety KPIs</span>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-violet-500">Leadership</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Incident Investigation</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Root cause analysis, bow-tie methodology, corrective actions, and near-miss reporting.</p>
           </div>
         </a>
 
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-leadership" data-sub="management" data-search="risk assessment management hazard register risk matrix bow-tie hierarchy of controls risk appetite tolerance">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-violet-500">Leadership</span>
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-leadership" data-sub="management" data-search="safety culture leadership behavioral safety observation programs safety performance indicators leading lagging kpis">
+          <div class="card-visual visual-leadership rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="28" cy="16" r="5"/>
+              <circle cx="16" cy="28" r="4"/>
+              <circle cx="40" cy="28" r="4"/>
+              <path d="M28 21v6"/>
+              <path d="M20 28h4M32 28h4"/>
+              <path d="M16 32v6a4 4 0 0 0 4 4h16a4 4 0 0 0 4-4v-6"/>
+              <path d="M24 44h8"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">behavioral safety</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">observation programs</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">safety KPIs</span>
+            </div>
           </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Risk Assessment Management</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Hazard registers, risk matrices, hierarchy of controls, and risk appetite frameworks.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">risk matrix</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">hierarchy of controls</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">hazard register</span>
-          </div>
-        </a>
-
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-leadership" data-sub="audit" data-search="hse auditing inspection management system audit iso 45001 compliance verification audit planning corrective actions">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-violet-500">Leadership</span>
-          </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">HSE Auditing & Inspection</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Management system audits, ISO 45001 compliance, audit planning, and corrective action tracking.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">ISO 45001</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">audit planning</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">corrective actions</span>
-          </div>
-        </a>
-
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-leadership" data-sub="management" data-search="contractor management permit to work ptw safe systems of work contractor safety prequalification site induction">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-violet-500">Leadership</span>
-          </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Contractor Safety Management</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Contractor prequalification, permit-to-work systems, site inductions, and safe systems of work.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">permit-to-work</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">prequalification</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">site induction</span>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-violet-500">Leadership</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Safety Culture & Leadership</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Behavioral safety, observation programs, leading & lagging KPIs, and building a safety-first culture.</p>
           </div>
         </a>
 
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-leadership" data-sub="investigation" data-search="emergency response planning crisis management business continuity emergency drills evacuation command structure tabletop exercises">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-violet-500">Leadership</span>
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-leadership" data-sub="management" data-search="risk assessment management hazard register risk matrix bow-tie hierarchy of controls risk appetite tolerance">
+          <div class="card-visual visual-leadership rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M28 8l16 8v12c0 10-6.7 18-16 22-9.3-4-16-12-16-22V16l16-8z"/>
+              <path d="M22 28l4 4 8-8"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">risk matrix</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">hierarchy of controls</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">hazard register</span>
+            </div>
           </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Emergency Response Planning</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Crisis management, business continuity, emergency drills, command structures, and tabletop exercises.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">crisis management</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">business continuity</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">tabletop exercises</span>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-violet-500">Leadership</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Risk Assessment Management</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Hazard registers, risk matrices, hierarchy of controls, and risk appetite frameworks.</p>
+          </div>
+        </a>
+
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-leadership" data-sub="audit" data-search="hse auditing inspection management system audit iso 45001 compliance verification audit planning corrective actions">
+          <div class="card-visual visual-leadership rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="16" y="10" width="24" height="34" rx="2"/>
+              <path d="M22 10V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/>
+              <path d="M22 20h12M22 26h12M22 32h8"/>
+              <path d="M22 38l2 2 4-4"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">ISO 45001</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">audit planning</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">corrective actions</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-violet-500">Leadership</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">HSE Auditing & Inspection</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Management system audits, ISO 45001 compliance, audit planning, and corrective action tracking.</p>
+          </div>
+        </a>
+
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-leadership" data-sub="management" data-search="contractor management permit to work ptw safe systems of work contractor safety prequalification site induction">
+          <div class="card-visual visual-leadership rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 44v-4a6 6 0 0 1 6-6h8a6 6 0 0 1 6 6v4"/>
+              <circle cx="28" cy="24" r="6"/>
+              <path d="M40 44v-4a6 6 0 0 0-3-5.2"/>
+              <path d="M35 18.8a6 6 0 0 1 0 10.4"/>
+              <path d="M16 44v-4a6 6 0 0 1 3-5.2"/>
+              <path d="M21 18.8a6 6 0 0 0 0 10.4"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">permit-to-work</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">prequalification</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">site induction</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-violet-500">Leadership</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Contractor Safety Management</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Contractor prequalification, permit-to-work systems, site inductions, and safe systems of work.</p>
+          </div>
+        </a>
+
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="hse-leadership" data-sub="investigation" data-search="emergency response planning crisis management business continuity emergency drills evacuation command structure tabletop exercises">
+          <div class="card-visual visual-leadership rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M28 8v6"/>
+              <path d="M28 14l-8 8v12h16V22l-8-8z"/>
+              <path d="M24 34h8v10h-8z"/>
+              <path d="M20 22h-4l-4 6h8"/>
+              <path d="M36 22h4l4 6h-8"/>
+              <circle cx="28" cy="24" r="2"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">crisis management</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">business continuity</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">tabletop exercises</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-violet-500">Leadership</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Emergency Response Planning</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Crisis management, business continuity, emergency drills, command structures, and tabletop exercises.</p>
           </div>
         </a>
 
         <!-- ===== SUSTAINABILITY / ENVIRONMENTAL ===== -->
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="sustainability" data-sub="environmental" data-search="net zero decarbonization strategies emission scopes sbti alignment transition planning climate">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-akdo-green">Environmental</span>
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="sustainability" data-sub="environmental" data-search="net zero decarbonization strategies emission scopes sbti alignment transition planning climate">
+          <div class="card-visual visual-environmental rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="28" cy="28" r="16"/>
+              <path d="M12 28h32"/>
+              <path d="M28 12c-6 4-10 10-10 16s4 12 10 16"/>
+              <path d="M28 12c6 4 10 10 10 16s-4 12-10 16"/>
+              <path d="M16 18h24M16 38h24"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">emission scopes</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">SBTi alignment</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">transition planning</span>
+            </div>
           </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Net Zero & Decarbonization</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Decarbonization strategies, emission scopes, SBTi alignment, and transition planning.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">emission scopes</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">SBTi alignment</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">transition planning</span>
-          </div>
-        </a>
-
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="sustainability" data-sub="environmental" data-search="iso 14001 environmental management system plan do check act cycle continuous improvement">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-akdo-green">Environmental</span>
-          </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">ISO 14001</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Environmental management system: Plan-Do-Check-Act cycle for continuous improvement.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">PDCA cycle</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">EMS</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">continuous improvement</span>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-akdo-green">Environmental</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Net Zero & Decarbonization</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Decarbonization strategies, emission scopes, SBTi alignment, and transition planning.</p>
           </div>
         </a>
 
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="sustainability" data-sub="environmental" data-search="circular economy circularity principles waste reduction product lifecycle design closed-loop systems">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-akdo-green">Environmental</span>
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="sustainability" data-sub="environmental" data-search="iso 14001 environmental management system plan do check act cycle continuous improvement">
+          <div class="card-visual visual-environmental rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="14" y="14" width="28" height="28" rx="4"/>
+              <path d="M14 22h28"/>
+              <path d="M20 18v0M24 18v0M28 18v0"/>
+              <path d="M22 30l4 4 8-8"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">PDCA cycle</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">EMS</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">continuous improvement</span>
+            </div>
           </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Circular Economy</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Circularity principles, waste reduction, product lifecycle design, and closed-loop systems.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">waste reduction</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">lifecycle design</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">closed-loop</span>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-akdo-green">Environmental</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">ISO 14001</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Environmental management system: Plan-Do-Check-Act cycle for continuous improvement.</p>
           </div>
         </a>
 
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="sustainability" data-sub="environmental" data-search="lca carbon accounting life cycle assessment methodology footprinting environmental cost">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-akdo-green">Environmental</span>
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="sustainability" data-sub="environmental" data-search="circular economy circularity principles waste reduction product lifecycle design closed-loop systems">
+          <div class="card-visual visual-environmental rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M28 12a16 16 0 0 1 13.9 8"/>
+              <path d="M41.9 20l-4-6h6"/>
+              <path d="M41.9 36a16 16 0 0 1-13.9 8"/>
+              <path d="M28 44l2 6-6-2"/>
+              <path d="M14.1 20a16 16 0 0 1 0 16"/>
+              <path d="M14.1 36l2-6-6 2"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">waste reduction</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">lifecycle design</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">closed-loop</span>
+            </div>
           </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">LCA & Carbon Accounting</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Life cycle assessment methodology, carbon footprinting, and environmental cost accounting.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">life cycle assessment</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">carbon footprinting</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">cost accounting</span>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-akdo-green">Environmental</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Circular Economy</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Circularity principles, waste reduction, product lifecycle design, and closed-loop systems.</p>
+          </div>
+        </a>
+
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="sustainability" data-sub="environmental" data-search="lca carbon accounting life cycle assessment methodology footprinting environmental cost">
+          <div class="card-visual visual-environmental rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="14" y="14" width="28" height="28" rx="2"/>
+              <path d="M14 36h6v6"/>
+              <path d="M24 30h6v12"/>
+              <path d="M34 24h8v18"/>
+              <path d="M18 26l6-6 6 4 6-8"/>
+              <path d="M32 16l4 0 0 4"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">life cycle assessment</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">carbon footprinting</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">cost accounting</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-akdo-green">Environmental</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">LCA & Carbon Accounting</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Life cycle assessment methodology, carbon footprinting, and environmental cost accounting.</p>
           </div>
         </a>
 
         <!-- ===== SUSTAINABILITY / SOCIAL ===== -->
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="sustainability" data-sub="social" data-search="sustainable sourcing supplier evaluation ethical practices environmental impact responsible procurement">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-sky-400">Social</span>
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="sustainability" data-sub="social" data-search="sustainable sourcing supplier evaluation ethical practices environmental impact responsible procurement">
+          <div class="card-visual visual-social rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 34l14-14 14 14"/>
+              <path d="M18 42h20"/>
+              <path d="M22 42v-8h12v8"/>
+              <path d="M28 20v-6"/>
+              <path d="M24 26h8"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">supplier evaluation</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">ethical practices</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">procurement</span>
+            </div>
           </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Sustainable Sourcing</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Supplier evaluation, ethical practices, environmental impact, and responsible procurement.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">supplier evaluation</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">ethical practices</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">procurement</span>
-          </div>
-        </a>
-
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="sustainability" data-sub="social" data-search="community engagement stakeholder relations social license to operate local impact assessment">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-sky-400">Social</span>
-          </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Community Engagement</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Stakeholder relations, social license to operate, and local impact assessment.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">stakeholder relations</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">social license</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">local impact</span>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-sky-400">Social</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Sustainable Sourcing</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Supplier evaluation, ethical practices, environmental impact, and responsible procurement.</p>
           </div>
         </a>
 
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="sustainability" data-sub="social" data-search="labor standards fair working conditions ilo conventions worker welfare living wage">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-sky-400">Social</span>
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="sustainability" data-sub="social" data-search="community engagement stakeholder relations social license to operate local impact assessment">
+          <div class="card-visual visual-social rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 30c-4 0-8 2-8 6v4h8"/>
+              <circle cx="20" cy="22" r="4"/>
+              <path d="M36 30c4 0 8 2 8 6v4h-8"/>
+              <circle cx="36" cy="22" r="4"/>
+              <path d="M22 34c0-4 2.7-6 6-6s6 2 6 6v6H22v-6z"/>
+              <circle cx="28" cy="22" r="5"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">stakeholder relations</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">social license</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">local impact</span>
+            </div>
           </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Labor Standards & Fair Work</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">ILO conventions, worker welfare, living wage requirements, and fair working conditions.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">ILO conventions</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">worker welfare</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">living wage</span>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-sky-400">Social</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Community Engagement</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Stakeholder relations, social license to operate, and local impact assessment.</p>
+          </div>
+        </a>
+
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="sustainability" data-sub="social" data-search="labor standards fair working conditions ilo conventions worker welfare living wage">
+          <div class="card-visual visual-social rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M28 14v28"/>
+              <path d="M18 20h20"/>
+              <path d="M20 20l-4 12h12"/>
+              <path d="M36 20l4 12H28"/>
+              <circle cx="24" cy="32" r="4"/>
+              <circle cx="32" cy="32" r="4"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">ILO conventions</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">worker welfare</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">living wage</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-sky-400">Social</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Labor Standards & Fair Work</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">ILO conventions, worker welfare, living wage requirements, and fair working conditions.</p>
           </div>
         </a>
 
         <!-- ===== SUSTAINABILITY / GOVERNANCE ===== -->
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="sustainability" data-sub="governance" data-search="esg foundations environmental social governance fundamentals organization reporting">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-violet-400">Governance</span>
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="sustainability" data-sub="governance" data-search="esg foundations environmental social governance fundamentals organization reporting">
+          <div class="card-visual visual-governance rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#a855f7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 42h24"/>
+              <path d="M18 42V22"/>
+              <path d="M26 42V22"/>
+              <path d="M34 42V22"/>
+              <path d="M14 22h28"/>
+              <path d="M28 10l16 12H12l16-12z"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">environmental</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">social</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">governance</span>
+            </div>
           </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">ESG Foundations</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Environmental, Social, and Governance fundamentals. What ESG means for your organization.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">environmental</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">social</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">governance</span>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-violet-400">Governance</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">ESG Foundations</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Environmental, Social, and Governance fundamentals. What ESG means for your organization.</p>
           </div>
         </a>
 
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="sustainability" data-sub="governance" data-search="csrd esg reporting corporate sustainability reporting directive double materiality disclosure requirements">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-violet-400">Governance</span>
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="sustainability" data-sub="governance" data-search="csrd esg reporting corporate sustainability reporting directive double materiality disclosure requirements">
+          <div class="card-visual visual-governance rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#a855f7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="16" y="12" width="24" height="32" rx="2"/>
+              <path d="M22 20h12M22 26h12M22 32h8"/>
+              <path d="M30 38h6"/>
+              <path d="M16 38h6"/>
+              <path d="M34 12l-6 6-6-6"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">CSRD</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">double materiality</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">disclosure</span>
+            </div>
           </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">CSRD & ESG Reporting</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Corporate Sustainability Reporting Directive, double materiality, and disclosure requirements.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">CSRD</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">double materiality</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">disclosure</span>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-violet-400">Governance</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">CSRD & ESG Reporting</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Corporate Sustainability Reporting Directive, double materiality, and disclosure requirements.</p>
           </div>
         </a>
 
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="sustainability" data-sub="governance" data-search="climate risk tcfd disclosure scenario analysis physical transition risks financial impact">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-white bg-violet-400">Governance</span>
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="sustainability" data-sub="governance" data-search="climate risk tcfd disclosure scenario analysis physical transition risks financial impact">
+          <div class="card-visual visual-governance rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#a855f7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M28 10v4M28 42v4"/>
+              <path d="M16 28h-4M44 28h-4"/>
+              <circle cx="28" cy="28" r="10"/>
+              <path d="M28 18v10l6 4"/>
+              <path d="M20 14l-2-2M38 14l2-2"/>
+              <path d="M20 42l-2 2M38 42l2 2"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">TCFD</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">scenario analysis</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">financial impact</span>
+            </div>
           </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Climate Risk & TCFD</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">TCFD disclosure, scenario analysis, physical & transition risks, and financial impact.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">TCFD</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">scenario analysis</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">financial impact</span>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-white bg-violet-400">Governance</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Climate Risk & TCFD</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">TCFD disclosure, scenario analysis, physical & transition risks, and financial impact.</p>
           </div>
         </a>
 
         <!-- ===== COMPLIANCE ===== -->
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="compliance" data-search="code of conduct workplace ethics reporting channels conflict of interest expected behavior standards">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-akdo-dark bg-akdo-cream">Compliance</span>
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="compliance" data-search="code of conduct workplace ethics reporting channels conflict of interest expected behavior standards">
+          <div class="card-visual visual-compliance rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#57635a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="14" y="10" width="28" height="36" rx="2"/>
+              <path d="M22 18h12M22 24h12M22 30h8"/>
+              <path d="M20 38l3 3 6-6"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">workplace ethics</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">reporting channels</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">conflict of interest</span>
+            </div>
           </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Code of Conduct</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Workplace ethics, reporting channels, conflict of interest, and expected behavior standards.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">workplace ethics</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">reporting channels</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">conflict of interest</span>
-          </div>
-        </a>
-
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="compliance" data-search="anti-bribery anti-corruption fcpa uk bribery act gift policies third-party due diligence red flags">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-akdo-dark bg-akdo-cream">Compliance</span>
-          </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Anti-Bribery & Anti-Corruption</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">FCPA, UK Bribery Act, gift policies, third-party due diligence, and red flags.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">FCPA</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">gift policies</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">due diligence</span>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-akdo-dark bg-akdo-cream">Compliance</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Code of Conduct</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Workplace ethics, reporting channels, conflict of interest, and expected behavior standards.</p>
           </div>
         </a>
 
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="compliance" data-search="dei diversity equity inclusion unconscious bias inclusive leadership equitable practices fostering belonging">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-akdo-dark bg-akdo-cream">Compliance</span>
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="compliance" data-search="anti-bribery anti-corruption fcpa uk bribery act gift policies third-party due diligence red flags">
+          <div class="card-visual visual-compliance rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#57635a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M28 10v6"/>
+              <path d="M20 16h16"/>
+              <rect x="22" y="16" width="12" height="20" rx="1"/>
+              <path d="M26 22h4M26 26h4M26 30h4"/>
+              <path d="M16 42h24"/>
+              <path d="M22 36v6M34 36v6"/>
+              <circle cx="28" cy="40" r="2"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">FCPA</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">gift policies</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">due diligence</span>
+            </div>
           </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">DEI — Diversity, Equity & Inclusion</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Unconscious bias, inclusive leadership, equitable practices, and fostering belonging.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">unconscious bias</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">inclusive leadership</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">belonging</span>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-akdo-dark bg-akdo-cream">Compliance</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Anti-Bribery & Anti-Corruption</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">FCPA, UK Bribery Act, gift policies, third-party due diligence, and red flags.</p>
           </div>
         </a>
 
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl p-5 border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="compliance" data-search="human rights supply chains due diligence obligations modern slavery forced labor transparency">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="tag text-akdo-dark bg-akdo-cream">Compliance</span>
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="compliance" data-search="dei diversity equity inclusion unconscious bias inclusive leadership equitable practices fostering belonging">
+          <div class="card-visual visual-compliance rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#57635a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="20" cy="20" r="4"/>
+              <circle cx="36" cy="20" r="4"/>
+              <circle cx="28" cy="18" r="4"/>
+              <path d="M14 38c0-6 4-10 8-10"/>
+              <path d="M42 38c0-6-4-10-8-10"/>
+              <path d="M20 38c0-6 3.6-10 8-10s8 4 8 10"/>
+              <path d="M14 38h28"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">unconscious bias</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">inclusive leadership</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">belonging</span>
+            </div>
           </div>
-          <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Human Rights in Supply Chains</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Due diligence obligations, modern slavery, forced labor, and supply chain transparency.</p>
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">modern slavery</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">forced labor</span>
-            <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">supply chain</span>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-akdo-dark bg-akdo-cream">Compliance</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">DEI — Diversity, Equity & Inclusion</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Unconscious bias, inclusive leadership, equitable practices, and fostering belonging.</p>
+          </div>
+        </a>
+
+        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm" data-cat="compliance" data-search="human rights supply chains due diligence obligations modern slavery forced labor transparency">
+          <div class="card-visual visual-compliance rounded-t-xl">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#57635a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M28 12v4"/>
+              <path d="M28 16c-6 0-12 4-12 10 0 4 2 6 4 8l8 12 8-12c2-2 4-4 4-8 0-6-6-10-12-10z"/>
+              <path d="M24 28l4 4 4-4"/>
+              <path d="M28 32v-8"/>
+              <path d="M22 24h12"/>
+            </svg>
+            <div class="card-tags">
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">modern slavery</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">forced labor</span>
+              <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50">supply chain</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="tag text-akdo-dark bg-akdo-cream">Compliance</span>
+            </div>
+            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Human Rights in Supply Chains</h3>
+            <p class="text-[12px] text-akdo-dark/45 leading-relaxed mb-3">Due diligence obligations, modern slavery, forced labor, and supply chain transparency.</p>
           </div>
         </a>
 
@@ -669,7 +947,7 @@
 
       <!-- More courses note -->
       <div class="text-center mt-10">
-        <p class="course-count text-[13px] text-akdo-dark/40">Showing 16 of 113+ modules. Every module is customized to your company context.</p>
+        <p class="text-[13px] text-akdo-dark/40">Showing 16 of 113+ modules. Every module is customized to your company context.</p>
       </div>
     </div>
   </section>
@@ -712,13 +990,6 @@
   <script>
     let activeTop = 'all';
     let activeSub = 'all';
-
-    const topLabels = {
-      'hse-operator': ['HSE', 'Operator'],
-      'hse-leadership': ['HSE', 'Leadership'],
-      sustainability: ['Sustainability'],
-      compliance: ['Compliance']
-    };
 
     const subFilters = {
       'hse-operator': [
@@ -772,55 +1043,6 @@
     const interstitial = document.createElement('div');
     interstitial.className = 'interstitial md:col-span-3 bg-akdo-dark rounded-xl p-8 md:p-10 flex flex-col md:flex-row items-center gap-6 md:gap-10';
     interstitial.id = 'interstitial';
-
-    function escapeHtml(text) {
-      return text
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;');
-    }
-
-    function enhanceCourseCards() {
-      document.querySelectorAll('.course-card').forEach(card => {
-        if (card.dataset.enhanced === 'true') return;
-
-        const primaryTag = card.querySelector('.tag');
-        const title = card.querySelector('.card-title');
-        const description = Array.from(card.querySelectorAll('p')).find(p => !p.closest('.course-media'));
-
-        const chips = [
-          ...(topLabels[card.dataset.cat] || []),
-          primaryTag ? primaryTag.textContent.trim() : ''
-        ].filter(Boolean).slice(0, 3);
-
-        const mediaLabel = primaryTag ? `${primaryTag.textContent.trim()} topic visual` : 'Topic visual';
-
-        card.innerHTML = `
-          <div class="course-media">
-            <div class="course-chip-row">
-              ${chips.map(chip => `<span class="course-chip">${escapeHtml(chip)}</span>`).join('')}
-            </div>
-            <span class="course-media-note">[ ${escapeHtml(mediaLabel)} ]</span>
-          </div>
-          <div class="course-content">
-            <h3 class="card-title font-semibold text-[18px] leading-[1.35] text-akdo-dark transition-colors">${escapeHtml(title ? title.textContent.trim() : '')}</h3>
-            <p class="course-desc">${escapeHtml(description ? description.textContent.trim() : '')}</p>
-            <span class="course-view">
-              <span class="course-view-icon">
-                <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-              View
-            </span>
-          </div>
-        `;
-
-        card.dataset.enhanced = 'true';
-      });
-    }
-
-    enhanceCourseCards();
 
     function filterTop(cat, btn) {
       activeTop = cat;
@@ -878,7 +1100,6 @@
         }
       });
 
-      // Insert interstitial strip — after 9th card, or after the last one if fewer
       const visibleCards = document.querySelectorAll('.course-card:not(.hidden)');
       if (visibleCards.length >= 1 && !searchQuery) {
         const copy = interstitialCopy[activeTop] || interstitialCopy.all;
@@ -895,7 +1116,6 @@
         insertAfter.parentNode.insertBefore(interstitial, insertAfter.nextSibling);
       }
 
-      // Update count
       const countEl = document.querySelector('.course-count');
       if (countEl) countEl.textContent = `Showing ${visibleCards.length} of 113+ modules`;
     }
