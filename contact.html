@@ -6,148 +6,116 @@
   <title>Contact — Akdo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: { extend: { colors: {
-        'akdo-dark': '#02140d', 'akdo-green': '#2cc27d',
-        'akdo-lime': '#83e85a', 'akdo-cream': '#f5f6f4',
-      }}}
-    }
-  </script>
-  <link rel="stylesheet" href="assets/wireframe-review.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-    body { font-family: 'Poppins', sans-serif; color: #02140d; background: #fff; overflow-x: hidden; }
-    .site-w { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: #2cc27d; color: #02140d; font-family: 'Poppins', sans-serif;
-      font-weight: 600; font-size: 15px; padding: 13px 30px; border-radius: 50px;
-      text-decoration: none; transition: all 0.2s; border: none; cursor: pointer;
-    }
-    .btn-primary:hover { background: #83e85a; transform: translateY(-1px); }
-    input, select, textarea { font-family: 'Poppins', sans-serif; }
-    .form-input {
-      width: 100%; padding: 11px 14px; border: 1.5px solid #02140d15; border-radius: 10px;
-      font-size: 13px; outline: none; transition: border-color 0.15s;
-    }
-    .form-input:focus { border-color: #2cc27d; }
-    .form-input::placeholder { color: #02140d40; }
+    body { font-family: 'Poppins', sans-serif; color: #0D2626; background: #FFFFFF; }
   </style>
 </head>
-<body class="wireframe-mode">
+<body>
 
   <!-- NAV -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-black/[0.04]">
-    <div class="site-w flex items-center justify-between h-16">
+  <nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: #FFFFFF; border-bottom: 1px solid #E0E5E0; height: 64px; display: flex; align-items: center;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px; width: 100%; display: flex; align-items: center; justify-content: space-between;">
       <a href="index.html">
-        <img src="assets/logo.png" alt="Akdo" class="h-7">
+        <img src="assets/logo.png" alt="Akdo" style="height: 28px;">
       </a>
-      <div class="hidden md:flex items-center gap-7">
-        <a href="hse-training.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">HSE Training</a>
-        <a href="sustainability.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Sustainability</a>
-        <a href="training-library.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Training Library</a>
-        <a href="security.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Security</a>
+      <div style="display: flex; align-items: center; gap: 32px;">
+        <a href="hse-training.html" style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #6B7B6B; text-decoration: none;">HSE Training</a>
+        <a href="sustainability.html" style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #6B7B6B; text-decoration: none;">Sustainability</a>
+        <a href="training-library.html" style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #6B7B6B; text-decoration: none;">Training Library</a>
+        <a href="security.html" style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #6B7B6B; text-decoration: none;">Security</a>
       </div>
-      <a href="book-demo.html" class="btn-primary !text-[13px] !py-2.5 !px-5">Book a Demo</a>
+      <a href="book-demo.html" style="display: inline-flex; align-items: center; gap: 8px; background: #83E85A; color: #113333; font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; padding: 10px 20px; border-radius: 8px; text-decoration: none; border: none;">Book a Demo</a>
     </div>
   </nav>
 
+  <!-- CONTACT SECTION -->
+  <section style="display: flex; flex-direction: column; align-items: center; padding: 120px 24px 80px 24px; background: #FFFFFF;">
+    <div style="display: flex; flex-direction: column; max-width: 960px; width: 100%; gap: 48px;">
 
-  <!-- ========== VERSION 1: Classic two-column (form + info sidebar) ========== -->
+      <!-- Heading (full width) -->
+      <h1 style="font-family: Poppins; font-size: 64px; font-weight: 700; color: #0D2626; line-height: 1.15; letter-spacing: -1px; margin: 0; max-width: 860px;">
+        Talk to the team behind <span style="color: #2CC27D;">Akdo.</span>
+      </h1>
 
-  <section class="pt-32 pb-20">
-    <div class="site-w">
-      <div class="max-w-[900px] mx-auto grid md:grid-cols-5 gap-12">
+      <!-- Two-column: form + sidebar -->
+      <div style="display: flex; gap: 64px; align-items: flex-start;">
 
-        <!-- LEFT: Form (3 cols) -->
-        <div class="md:col-span-3">
-          <h1 class="font-bold text-[34px] md:text-[40px] leading-[1.1] tracking-tight text-akdo-dark mb-3">
-            Talk to the team behind Akdo.
-          </h1>
-          <p class="text-[15px] text-akdo-dark/45 mb-8">
-            Use this page for enterprise questions, procurement, partnerships, or anything that doesn’t fit the demo flow.
-          </p>
+      <!-- LEFT: Form -->
+      <div style="display: flex; flex-direction: column; flex: 1.2;">
+        <form style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="display: flex; gap: 16px;">
+            <input type="text" placeholder="Name" required style="flex: 1; height: 48px; padding: 0 12px; border: 1px solid #E0E5E0; border-radius: 8px; font-family: Poppins; font-size: 17px; font-weight: 400; color: #0D2626; outline: none;">
+            <input type="email" placeholder="Work email" required style="flex: 1; height: 48px; padding: 0 12px; border: 1px solid #E0E5E0; border-radius: 8px; font-family: Poppins; font-size: 17px; font-weight: 400; color: #0D2626; outline: none;">
+          </div>
+          <input type="text" placeholder="Company" required style="width: 100%; height: 48px; padding: 0 12px; border: 1px solid #E0E5E0; border-radius: 8px; font-family: Poppins; font-size: 17px; font-weight: 400; color: #0D2626; outline: none;">
+          <select style="width: 100%; height: 48px; padding: 0 12px; border: 1px solid #E0E5E0; border-radius: 8px; font-family: Poppins; font-size: 17px; font-weight: 400; color: #6B7B6B; outline: none; background: #FFFFFF;">
+            <option value="" disabled selected>Reason for contact</option>
+            <option value="demo">Product demo</option>
+            <option value="partnership">Partnership</option>
+            <option value="press">Press / Media</option>
+            <option value="support">Support</option>
+            <option value="procurement">Procurement / Legal</option>
+            <option value="other">Other</option>
+          </select>
+          <textarea placeholder="Your message" rows="5" required style="width: 100%; padding: 12px; border: 1px solid #E0E5E0; border-radius: 8px; font-family: Poppins; font-size: 17px; font-weight: 400; color: #0D2626; line-height: 1.6; outline: none; resize: vertical;"></textarea>
+          <button type="submit" style="display: inline-flex; align-items: center; gap: 8px; background: #83E85A; color: #113333; font-family: Poppins; font-size: 15px; font-weight: 600; padding: 14px 28px; border-radius: 8px; border: none; cursor: pointer;">
+            Send Message
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </form>
 
-          <form class="space-y-3.5">
-            <div class="grid grid-cols-2 gap-3">
-              <input type="text" class="form-input" placeholder="Name" required>
-              <input type="email" class="form-input" placeholder="Work email" required>
-            </div>
-            <input type="text" class="form-input" placeholder="Company" required>
-            <select class="form-input text-akdo-dark/40">
-              <option value="" disabled selected>Reason for contact</option>
-              <option value="demo">Product demo</option>
-              <option value="partnership">Partnership</option>
-              <option value="press">Press / Media</option>
-              <option value="support">Support</option>
-              <option value="procurement">Procurement / Legal</option>
-              <option value="other">Other</option>
-            </select>
-            <textarea class="form-input" rows="4" placeholder="Your message" required></textarea>
-            <button type="submit" class="btn-primary !text-[14px] !py-3">
-              Send Message
-              <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-          </form>
+        <p style="font-family: Poppins; font-size: 13px; font-weight: 500; color: #6B7B6B; margin: 16px 0 0 0;">We typically respond within 1 business day.</p>
+      </div>
 
-          <p class="text-[11px] text-akdo-dark/30 mt-4">We typically respond within 1 business day.</p>
+      <!-- RIGHT: Info sidebar -->
+      <div style="display: flex; flex-direction: column; flex: 1; padding-top: 8px;">
+        <!-- Demo CTA -->
+        <div style="background: #FFFFFF; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; padding: 24px; margin-bottom: 32px; box-shadow: 0 2px 8px rgba(17,51,51,0.06);">
+          <p style="font-family: Poppins; font-size: 17px; font-weight: 600; color: #0D2626; margin: 0 0 8px 0;">Looking for a product demo?</p>
+          <p style="font-family: Poppins; font-size: 15px; font-weight: 400; color: #6B7B6B; line-height: 1.6; margin: 0 0 16px 0;">Book a 30-minute personalized walkthrough instead.</p>
+          <a href="book-demo.html" class="link-arrow" style="display: inline-flex; align-items: center; gap: 8px; font-family: Poppins; font-size: 15px; font-weight: 600; color: #2CC27D; text-decoration: none;">
+            Book a Demo
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </div>
 
-        <!-- RIGHT: Info sidebar (2 cols) -->
-        <div class="md:col-span-2 pt-2">
-          <!-- Demo CTA -->
-          <div class="bg-akdo-green/5 rounded-xl p-5 border border-akdo-green/10 mb-6">
-            <p class="font-semibold text-[14px] text-akdo-dark mb-1">Looking for a product demo?</p>
-            <p class="text-[12px] text-akdo-dark/45 mb-3">Book a 30-minute personalized walkthrough instead.</p>
-            <a href="book-demo.html" class="inline-flex items-center gap-1.5 text-[13px] font-semibold text-akdo-green hover:gap-2.5 transition-all">
-              Book a Demo
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
+        <!-- Contact info -->
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          <div>
+            <p style="font-family: Poppins; font-size: 12px; font-weight: 600; color: #6B7B6B; text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 8px 0;">Email</p>
+            <a href="mailto:hello@akdo.ai" style="font-family: Poppins; font-size: 17px; font-weight: 500; color: #0D2626; text-decoration: none;">hello@akdo.ai</a>
           </div>
-
-          <!-- Contact info -->
-          <div class="space-y-5">
-            <div>
-              <p class="text-[11px] font-semibold text-akdo-dark/25 tracking-wide uppercase mb-2">Email</p>
-              <a href="mailto:hello@akdo.ai" class="text-[14px] font-medium text-akdo-dark hover:text-akdo-green transition-colors">hello@akdo.ai</a>
-            </div>
-            <div>
-              <p class="text-[11px] font-semibold text-akdo-dark/25 tracking-wide uppercase mb-2">Office</p>
-              <p class="text-[14px] text-akdo-dark/60 leading-relaxed">
-                Akdo GmbH<br>
-                Munich, Germany
-              </p>
-            </div>
-            <div>
-              <p class="text-[11px] font-semibold text-akdo-dark/25 tracking-wide uppercase mb-2">Social</p>
-              <div class="flex items-center gap-3">
-                <a href="mailto:hello@akdo.ai?subject=LinkedIn%20Request" class="text-[13px] font-medium text-akdo-dark/40 hover:text-akdo-green transition-colors">LinkedIn</a>
-              </div>
-            </div>
+          <div>
+            <p style="font-family: Poppins; font-size: 12px; font-weight: 600; color: #6B7B6B; text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 8px 0;">Office</p>
+            <p style="font-family: Poppins; font-size: 17px; font-weight: 400; color: #0D2626; line-height: 1.6; margin: 0;">
+              Akdo GmbH<br>
+              Munich, Germany
+            </p>
+          </div>
+          <div>
+            <p style="font-family: Poppins; font-size: 12px; font-weight: 600; color: #6B7B6B; text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 8px 0;">Social</p>
+            <a href="#" style="font-family: Poppins; font-size: 17px; font-weight: 500; color: #0D2626; text-decoration: none;">LinkedIn</a>
           </div>
         </div>
+      </div>
+
       </div>
     </div>
   </section>
 
-
   <!-- FOOTER -->
-  <footer class="py-10 bg-akdo-dark border-t border-white/[0.05]">
-    <div class="site-w">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-5">
-        <img src="assets/logo.png" alt="Akdo" class="h-5 brightness-0 invert">
-        <div class="flex items-center gap-6">
-          <a href="careers.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Careers</a>
-          <a href="contact.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Contact</a>
-          <a href="legal-notice.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Legal Notice</a>
-          <a href="privacy-policy.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Privacy Policy</a>
-        </div>
-        <p class="text-[12px] text-white/40">&copy; 2026 Akdo. All rights reserved.</p>
+  <footer style="display: flex; flex-direction: column; align-items: center; padding: 64px 24px; background: #0E2B2B;">
+    <div style="display: flex; align-items: center; justify-content: space-between; max-width: 1200px; width: 1200px;">
+      <img src="assets/logo-white.png" alt="Akdo" style="height: 20px;">
+      <div style="display: flex; align-items: center; gap: 24px;">
+        <a href="careers.html" style="font-family: Poppins; font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.65); text-decoration: none;">Careers</a>
+        <a href="contact.html" style="font-family: Poppins; font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.65); text-decoration: none;">Contact</a>
+        <a href="legal-notice.html" style="font-family: Poppins; font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.65); text-decoration: none;">Legal Notice</a>
+        <a href="privacy-policy.html" style="font-family: Poppins; font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.65); text-decoration: none;">Privacy Policy</a>
       </div>
+      <p style="font-family: Poppins; font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.65); margin: 0;">&copy; 2026 Akdo. All rights reserved.</p>
     </div>
   </footer>
 

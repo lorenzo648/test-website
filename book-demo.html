@@ -3,219 +3,214 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book a Demo - Akdo</title>
+  <title>Book a Demo — Akdo</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: { extend: { colors: {
-        'akdo-dark': '#02140d', 'akdo-green': '#2cc27d',
-        'akdo-lime': '#83e85a', 'akdo-cream': '#f5f6f4',
-      }}}
-    }
-  </script>
+
   <link rel="stylesheet" href="assets/wireframe-review.css">
+
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-    body { font-family: 'Poppins', sans-serif; color: #02140d; background: #fff; overflow-x: hidden; }
-    .site-w { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: #2cc27d; color: #02140d; font-family: 'Poppins', sans-serif;
-      font-weight: 600; font-size: 15px; padding: 13px 30px; border-radius: 50px;
-      text-decoration: none; transition: all 0.2s; border: none; cursor: pointer;
-    }
-    .btn-primary:hover { background: #83e85a; transform: translateY(-1px); }
-    input, select { font-family: 'Poppins', sans-serif; }
-    .form-input {
-      width: 100%; padding: 11px 14px; border: 1.5px solid #02140d15; border-radius: 10px;
-      font-size: 13px; outline: none; transition: border-color 0.15s;
-    }
-    .form-input:focus { border-color: #2cc27d; }
-    .form-input::placeholder { color: #02140d40; }
-    .cal-day { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.1s; }
-    .cal-day.available:hover { background: #2cc27d20; }
-    .cal-day.selected { background: #2cc27d; color: #02140d; font-weight: 600; }
-    .cal-day.disabled { color: #02140d20; cursor: default; }
-    .time-slot { padding: 10px 16px; border: 1.5px solid #02140d10; border-radius: 10px; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.1s; text-align: center; }
-    .time-slot:hover { border-color: #2cc27d; }
-    .time-slot.selected { background: #2cc27d; border-color: #2cc27d; font-weight: 600; }
+    body { font-family: 'Poppins', sans-serif; color: #0D2626; background: #fff; overflow-x: hidden; }
+
+    /* Hover classes */
+    .btn-inline-gradient { transition: filter 0.2s ease, transform 0.2s ease; }
+    .btn-inline-gradient:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+    /* Form focus */
+    .form-input:focus { border-color: #2CC27D; outline: none; }
+    .form-input::placeholder { color: rgba(13,38,38,0.35); }
   </style>
 </head>
-<body class="wireframe-mode">
+
+<body>
 
   <!-- NAV -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-black/[0.04]">
-    <div class="site-w flex items-center justify-between h-16">
+  <nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: #FFFFFF; border-bottom: 1px solid #E0E5E0; height: 64px; display: flex; align-items: center;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px; width: 100%; display: flex; align-items: center; justify-content: space-between;">
       <a href="index.html">
-        <img src="assets/logo.png" alt="Akdo" class="h-7">
+        <img src="assets/logo.png" alt="Akdo" style="height: 28px;">
       </a>
-      <div class="hidden md:flex items-center gap-7">
-        <a href="hse-training.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">HSE Training</a>
-        <a href="sustainability.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Sustainability</a>
-        <a href="training-library.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Training Library</a>
-        <a href="security.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Security</a>
+      <div style="display: flex; align-items: center; gap: 32px;">
+        <a href="hse-training.html" style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #6B7B6B; text-decoration: none;">HSE Training</a>
+        <a href="sustainability.html" style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #6B7B6B; text-decoration: none;">Sustainability</a>
+        <a href="training-library.html" style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #6B7B6B; text-decoration: none;">Training Library</a>
+        <a href="security.html" style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #6B7B6B; text-decoration: none;">Security</a>
       </div>
-      <a href="book-demo.html" class="btn-primary !text-[13px] !py-2.5 !px-5">Book a Demo</a>
+      <a href="book-demo.html" class="btn-inline-gradient" style="display: inline-flex; align-items: center; gap: 8px; background: #83E85A; color: #113333; font-family: Poppins, sans-serif; font-weight: 600; font-size: 13px; padding: 10px 20px; border-radius: 8px; text-decoration: none; border: none;">Book a Demo</a>
     </div>
   </nav>
 
 
-  <!-- ========== VERSION 1: Gong-style two-column + calendar below ========== -->
+  <!-- ========== MAIN: Two-column form layout ========== -->
+  <section style="display: flex; flex-direction: column; align-items: center; padding: 140px 24px 80px 24px; background: #FFFFFF;">
+    <div style="display: flex; gap: 64px; align-items: flex-start; max-width: 960px; width: 100%;">
 
-  <section class="pt-32 pb-16">
-    <div class="site-w">
-      <div class="max-w-[960px] mx-auto grid md:grid-cols-2 gap-12 items-start">
+      <!-- LEFT: Value prop -->
+      <div style="flex: 1; padding: 8px 0 0 0;">
+        <h1 style="font-family: Poppins, sans-serif; font-size: 64px; font-weight: 700; line-height: 1.15; letter-spacing: -1px; color: #0D2626; margin: 0 0 16px 0; max-width: 460px;">
+          Stop building training from <span style="color: #2cc27d;">scratch.</span>
+        </h1>
+        <p style="font-family: Poppins, sans-serif; font-size: 17px; font-weight: 400; color: #6B7B6B; line-height: 1.6; margin: 0 0 40px 0; max-width: 420px;">
+          30 minutes. We'll show you how teams like yours use Akdo to turn SOPs and incident reports into ready-to-deploy training.
+        </p>
 
-        <!-- LEFT: Value prop -->
-        <div class="pt-4">
-          <h1 class="font-bold text-[34px] md:text-[40px] leading-[1.1] tracking-tight text-akdo-dark mb-4">
-            Stop building training from scratch.
-          </h1>
-          <p class="text-[15px] text-akdo-dark/50 leading-relaxed mb-8">
-            30 minutes. We’ll show you how teams like yours use Akdo to turn SOPs and incident reports into ready-to-deploy training.
-
-          <div class="mb-8">
-            <p class="text-[12px] font-semibold text-akdo-dark/30 tracking-wide uppercase mb-3">You’ll walk away knowing</p>
-            <div class="space-y-3">
-              <div class="flex items-start gap-3">
-                <svg class="mt-0.5 flex-shrink-0" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#2cc27d" stroke-width="1.5"/><path d="M5.5 8l2 2 3-3" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span class="text-[13px] text-akdo-dark/60">What your training could look like, built from your own materials</span>
+        <!-- Checklist -->
+        <div style="margin: 0 0 40px 0;">
+          <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #6B7B6B; text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 16px 0;">You'll walk away knowing</p>
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div style="display: flex; align-items: flex-start; gap: 12px;">
+              <div style="width: 20px; height: 20px; border-radius: 100px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin: 2px 0 0 0;">
+                <span style="font-size: 11px; color: #2CC27D;">✓</span>
               </div>
-              <div class="flex items-start gap-3">
-                <svg class="mt-0.5 flex-shrink-0" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#2cc27d" stroke-width="1.5"/><path d="M5.5 8l2 2 3-3" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span class="text-[13px] text-akdo-dark/60">How fast you go from document to deployed course</span>
+              <span style="font-family: Poppins, sans-serif; font-size: 15px; font-weight: 400; color: #0D2626; line-height: 1.5;">What your training could look like, built from your own materials</span>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 12px;">
+              <div style="width: 20px; height: 20px; border-radius: 100px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin: 2px 0 0 0;">
+                <span style="font-size: 11px; color: #2CC27D;">✓</span>
               </div>
-              <div class="flex items-start gap-3">
-                <svg class="mt-0.5 flex-shrink-0" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#2cc27d" stroke-width="1.5"/><path d="M5.5 8l2 2 3-3" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span class="text-[13px] text-akdo-dark/60">Whether Akdo fits your LMS, your languages, and your rollout needs</span>
+              <span style="font-family: Poppins, sans-serif; font-size: 15px; font-weight: 400; color: #0D2626; line-height: 1.5;">How fast you go from document to deployed course</span>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 12px;">
+              <div style="width: 20px; height: 20px; border-radius: 100px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin: 2px 0 0 0;">
+                <span style="font-size: 11px; color: #2CC27D;">✓</span>
               </div>
-            </div>
-          </div>
-
-          <!-- Logos -->
-          <div>
-            <p class="text-[10px] font-semibold text-akdo-dark/25 tracking-[0.12em] uppercase mb-3">Trusted by</p>
-            <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
-              <span class="font-semibold text-[13px] text-akdo-dark/20">GE Vernova</span>
-              <span class="font-semibold text-[13px] text-akdo-dark/20">JTI</span>
-              <span class="font-semibold text-[13px] text-akdo-dark/20">Henkel</span>
-              <span class="font-semibold text-[13px] text-akdo-dark/20">Essity</span>
-              <span class="font-semibold text-[13px] text-akdo-dark/20">Huhtamaki</span>
-            </div>
-          </div>
-
-          <!-- Security badges -->
-          <div class="flex items-center gap-3 mt-6">
-            <div class="w-10 h-10 rounded-lg bg-akdo-cream flex items-center justify-center">
-              <span class="text-[8px] font-bold text-akdo-dark/50 text-center leading-tight">ISO<br>27001</span>
-            </div>
-            <div class="w-10 h-10 rounded-lg bg-akdo-cream flex items-center justify-center">
-              <span class="text-[8px] font-bold text-akdo-dark/50 text-center leading-tight">GDPR</span>
-            </div>
-            <div class="w-10 h-10 rounded-lg bg-akdo-cream flex items-center justify-center">
-              <span class="text-[8px] font-bold text-akdo-dark/50 text-center leading-tight">SOC 2</span>
+              <span style="font-family: Poppins, sans-serif; font-size: 15px; font-weight: 400; color: #0D2626; line-height: 1.5;">Whether Akdo fits your LMS, your languages, and your rollout needs</span>
             </div>
           </div>
         </div>
 
-        <!-- RIGHT: Form -->
-        <div class="bg-white rounded-2xl p-7 border border-black/[0.06] shadow-sm">
-          <h2 class="font-semibold text-[18px] text-akdo-dark mb-5">Book your demo</h2>
-
-          <form id="demoFormV1" onsubmit="showCalendarV1(event)" class="space-y-3.5">
-            <div class="grid grid-cols-2 gap-3">
-              <input type="text" class="form-input" placeholder="First name" required>
-              <input type="text" class="form-input" placeholder="Last name" required>
-            </div>
-            <input type="email" class="form-input" placeholder="Work email" required>
-            <input type="text" class="form-input" placeholder="Company name" required>
-            <input type="text" class="form-input" placeholder="Job title" required>
-            <button type="submit" class="btn-primary w-full justify-center !text-[14px] !py-3 mt-2">
-              See How It Works
-              <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-          </form>
-
-          <p class="text-[11px] text-akdo-dark/30 text-center mt-4">30-minute walkthrough · No commitment · Tailored to your industry</p>
+        <!-- Trusted by -->
+        <div style="margin: 0 0 24px 0;">
+          <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #6B7B6B; text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 12px 0;">Trusted by</p>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 24px;">
+            <span style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: rgba(13,38,38,0.25);">GE Vernova</span>
+            <span style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: rgba(13,38,38,0.25);">JTI</span>
+            <span style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: rgba(13,38,38,0.25);">Henkel</span>
+            <span style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: rgba(13,38,38,0.25);">Essity</span>
+            <span style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: rgba(13,38,38,0.25);">Huhtamaki</span>
+          </div>
         </div>
+
+        <!-- Security badges -->
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 40px; height: 40px; border-radius: 8px; background: #F5F7F5; display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: Poppins, sans-serif; font-size: 8px; font-weight: 700; color: #6B7B6B; text-align: center; line-height: 1.2;">ISO<br>27001</span>
+          </div>
+          <div style="width: 40px; height: 40px; border-radius: 8px; background: #F5F7F5; display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: Poppins, sans-serif; font-size: 8px; font-weight: 700; color: #6B7B6B; text-align: center; line-height: 1.2;">GDPR</span>
+          </div>
+          <div style="width: 40px; height: 40px; border-radius: 8px; background: #F5F7F5; display: flex; align-items: center; justify-content: center;">
+            <span style="font-family: Poppins, sans-serif; font-size: 8px; font-weight: 700; color: #6B7B6B; text-align: center; line-height: 1.2;">SOC 2</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Form card -->
+      <div style="flex: 0.85; background: #FFFFFF; border: 1px solid #E0E5E0; border-radius: 12px; padding: 32px;">
+        <h2 style="font-family: Poppins, sans-serif; font-size: 22px; font-weight: 600; color: #0D2626; margin: 0 0 24px 0;">Book your demo</h2>
+
+        <form id="demoForm" onsubmit="showCalendar(event)" style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="display: flex; gap: 12px;">
+            <input type="text" class="form-input" placeholder="First name" required style="flex: 1; height: 48px; padding: 0 12px; border: 1px solid #E0E5E0; border-radius: 8px; font-family: Poppins, sans-serif; font-size: 15px; font-weight: 400; color: #0D2626;">
+            <input type="text" class="form-input" placeholder="Last name" required style="flex: 1; height: 48px; padding: 0 12px; border: 1px solid #E0E5E0; border-radius: 8px; font-family: Poppins, sans-serif; font-size: 15px; font-weight: 400; color: #0D2626;">
+          </div>
+          <input type="email" class="form-input" placeholder="Work email" required style="width: 100%; height: 48px; padding: 0 12px; border: 1px solid #E0E5E0; border-radius: 8px; font-family: Poppins, sans-serif; font-size: 15px; font-weight: 400; color: #0D2626;">
+          <input type="text" class="form-input" placeholder="Company name" required style="width: 100%; height: 48px; padding: 0 12px; border: 1px solid #E0E5E0; border-radius: 8px; font-family: Poppins, sans-serif; font-size: 15px; font-weight: 400; color: #0D2626;">
+          <input type="text" class="form-input" placeholder="Job title" required style="width: 100%; height: 48px; padding: 0 12px; border: 1px solid #E0E5E0; border-radius: 8px; font-family: Poppins, sans-serif; font-size: 15px; font-weight: 400; color: #0D2626;">
+
+          <button type="submit" class="btn-inline-gradient" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; background: #83E85A; color: #113333; font-family: Poppins, sans-serif; font-weight: 600; font-size: 15px; padding: 14px 28px; border-radius: 8px; border: none; cursor: pointer; margin: 8px 0 0 0;">
+            See How It Works
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </form>
+
+        <p style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 400; color: #6B7B6B; text-align: center; margin: 16px 0 0 0;">30-minute walkthrough · No commitment · Tailored to your industry</p>
       </div>
     </div>
   </section>
 
 
   <!-- CALENDAR (shown after form submit) -->
-  <section id="calendarSectionV1" class="py-12 bg-akdo-cream/40 hidden">
-    <div class="site-w max-w-[720px] mx-auto">
-      <div class="bg-white rounded-2xl p-7 border border-black/[0.06] shadow-sm">
-        <div class="text-center mb-6">
-          <div class="inline-flex items-center gap-2 bg-akdo-green/10 rounded-full px-4 py-1.5 mb-3">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#2cc27d" stroke-width="1.5"/><path d="M5.5 8l2 2 3-3" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="text-[12px] font-semibold text-akdo-green">Details received</span>
+  <section id="calendarSection" style="display: none; padding: 80px 24px; background: #F5F7F5;">
+    <div style="max-width: 720px; margin: 0 auto;">
+      <div style="background: #FFFFFF; border: 1px solid #E0E5E0; border-radius: 12px; padding: 32px;">
+
+        <div style="text-align: center; margin: 0 0 32px 0;">
+          <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(44,194,125,0.1); border-radius: 100px; padding: 6px 16px; margin: 0 0 12px 0;">
+            <span style="font-size: 12px; color: #2CC27D;">✓</span>
+            <span style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: #2CC27D;">Details received</span>
           </div>
-          <h2 class="font-bold text-[22px] text-akdo-dark">Pick a time that works</h2>
-          <p class="text-[13px] text-akdo-dark/40 mt-1">30-minute product demo · CET timezone</p>
+          <h2 style="font-family: Poppins, sans-serif; font-size: 28px; font-weight: 700; color: #0D2626; margin: 0 0 4px 0;">Pick a time that works</h2>
+          <p style="font-family: Poppins, sans-serif; font-size: 15px; font-weight: 400; color: #6B7B6B; margin: 0;">30-minute product demo · CET timezone</p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-6">
-          <!-- Calendar -->
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="font-semibold text-[15px] text-akdo-dark">March 2026</span>
-              <div class="flex items-center gap-1">
-                <button class="w-8 h-8 rounded-lg bg-akdo-cream/60 flex items-center justify-center text-akdo-dark/30 hover:text-akdo-dark/60 transition-colors">&larr;</button>
-                <button class="w-8 h-8 rounded-lg bg-akdo-cream/60 flex items-center justify-center text-akdo-dark/30 hover:text-akdo-dark/60 transition-colors">&rarr;</button>
+        <div style="display: flex; gap: 32px;">
+          <!-- Calendar grid -->
+          <div style="flex: 1;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin: 0 0 16px 0;">
+              <span style="font-family: Poppins, sans-serif; font-size: 15px; font-weight: 600; color: #0D2626;">March 2026</span>
+              <div style="display: flex; align-items: center; gap: 4px;">
+                <button style="width: 32px; height: 32px; border-radius: 8px; background: #F5F7F5; border: none; cursor: pointer; font-family: Poppins, sans-serif; font-size: 14px; color: #6B7B6B;">&larr;</button>
+                <button style="width: 32px; height: 32px; border-radius: 8px; background: #F5F7F5; border: none; cursor: pointer; font-family: Poppins, sans-serif; font-size: 14px; color: #6B7B6B;">&rarr;</button>
               </div>
             </div>
 
-            <div class="grid grid-cols-5 gap-1 text-center mb-2">
-              <span class="text-[10px] font-semibold text-akdo-dark/25 py-1">MON</span>
-              <span class="text-[10px] font-semibold text-akdo-dark/25 py-1">TUE</span>
-              <span class="text-[10px] font-semibold text-akdo-dark/25 py-1">WED</span>
-              <span class="text-[10px] font-semibold text-akdo-dark/25 py-1">THU</span>
-              <span class="text-[10px] font-semibold text-akdo-dark/25 py-1">FRI</span>
+            <!-- Day headers -->
+            <div style="display: flex; margin: 0 0 8px 0;">
+              <span style="flex: 1; text-align: center; font-family: Poppins, sans-serif; font-size: 11px; font-weight: 600; color: #6B7B6B; text-transform: uppercase;">Mon</span>
+              <span style="flex: 1; text-align: center; font-family: Poppins, sans-serif; font-size: 11px; font-weight: 600; color: #6B7B6B; text-transform: uppercase;">Tue</span>
+              <span style="flex: 1; text-align: center; font-family: Poppins, sans-serif; font-size: 11px; font-weight: 600; color: #6B7B6B; text-transform: uppercase;">Wed</span>
+              <span style="flex: 1; text-align: center; font-family: Poppins, sans-serif; font-size: 11px; font-weight: 600; color: #6B7B6B; text-transform: uppercase;">Thu</span>
+              <span style="flex: 1; text-align: center; font-family: Poppins, sans-serif; font-size: 11px; font-weight: 600; color: #6B7B6B; text-transform: uppercase;">Fri</span>
             </div>
-            <div class="grid grid-cols-5 gap-1">
-              <!-- Week 1 (past) -->
-              <div class="cal-day disabled">9</div>
-              <div class="cal-day disabled">10</div>
-              <div class="cal-day disabled">11</div>
-              <div class="cal-day selected">12</div>
-              <div class="cal-day available">13</div>
-              <!-- Week 2 -->
-              <div class="cal-day available">16</div>
-              <div class="cal-day available">17</div>
-              <div class="cal-day available">18</div>
-              <div class="cal-day available">19</div>
-              <div class="cal-day available">20</div>
-              <!-- Week 3 -->
-              <div class="cal-day available">23</div>
-              <div class="cal-day available">24</div>
-              <div class="cal-day available">25</div>
-              <div class="cal-day available">26</div>
-              <div class="cal-day available">27</div>
+
+            <!-- Week 1 -->
+            <div style="display: flex; margin: 0 0 4px 0;">
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center; height: 44px; border-radius: 8px; font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: rgba(13,38,38,0.2);">9</div>
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center; height: 44px; border-radius: 8px; font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: rgba(13,38,38,0.2);">10</div>
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center; height: 44px; border-radius: 8px; font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: rgba(13,38,38,0.2);">11</div>
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center; height: 44px; border-radius: 8px; font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: #113333; background: #2CC27D;">12</div>
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center; height: 44px; border-radius: 8px; font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #0D2626; cursor: pointer;">13</div>
+            </div>
+            <!-- Week 2 -->
+            <div style="display: flex; margin: 0 0 4px 0;">
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center; height: 44px; border-radius: 8px; font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #0D2626; cursor: pointer;">16</div>
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center; height: 44px; border-radius: 8px; font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #0D2626; cursor: pointer;">17</div>
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center; height: 44px; border-radius: 8px; font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #0D2626; cursor: pointer;">18</div>
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center; height: 44px; border-radius: 8px; font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #0D2626; cursor: pointer;">19</div>
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center; height: 44px; border-radius: 8px; font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #0D2626; cursor: pointer;">20</div>
+            </div>
+            <!-- Week 3 -->
+            <div style="display: flex;">
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center; height: 44px; border-radius: 8px; font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #0D2626; cursor: pointer;">23</div>
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center; height: 44px; border-radius: 8px; font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #0D2626; cursor: pointer;">24</div>
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center; height: 44px; border-radius: 8px; font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #0D2626; cursor: pointer;">25</div>
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center; height: 44px; border-radius: 8px; font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #0D2626; cursor: pointer;">26</div>
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center; height: 44px; border-radius: 8px; font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #0D2626; cursor: pointer;">27</div>
             </div>
           </div>
 
           <!-- Time slots -->
-          <div>
-            <p class="font-semibold text-[14px] text-akdo-dark mb-1">Thursday, March 12</p>
-            <p class="text-[12px] text-akdo-dark/35 mb-4">Available times (CET)</p>
-            <div class="grid grid-cols-2 gap-2">
-              <div class="time-slot">9:00 AM</div>
-              <div class="time-slot">10:00 AM</div>
-              <div class="time-slot selected">11:00 AM</div>
-              <div class="time-slot">1:00 PM</div>
-              <div class="time-slot">2:00 PM</div>
-              <div class="time-slot">3:00 PM</div>
-              <div class="time-slot">4:00 PM</div>
+          <div style="flex: 1;">
+            <p style="font-family: Poppins, sans-serif; font-size: 15px; font-weight: 600; color: #0D2626; margin: 0 0 4px 0;">Thursday, March 12</p>
+            <p style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 400; color: #6B7B6B; margin: 0 0 16px 0;">Available times (CET)</p>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              <div style="flex: 1 0 120px; padding: 10px 16px; border: 1px solid #E0E5E0; border-radius: 8px; font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #0D2626; text-align: center; cursor: pointer;">9:00 AM</div>
+              <div style="flex: 1 0 120px; padding: 10px 16px; border: 1px solid #E0E5E0; border-radius: 8px; font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #0D2626; text-align: center; cursor: pointer;">10:00 AM</div>
+              <div style="flex: 1 0 120px; padding: 10px 16px; border: 1px solid #2CC27D; border-radius: 8px; font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: #113333; text-align: center; cursor: pointer; background: #2CC27D;">11:00 AM</div>
+              <div style="flex: 1 0 120px; padding: 10px 16px; border: 1px solid #E0E5E0; border-radius: 8px; font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #0D2626; text-align: center; cursor: pointer;">1:00 PM</div>
+              <div style="flex: 1 0 120px; padding: 10px 16px; border: 1px solid #E0E5E0; border-radius: 8px; font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #0D2626; text-align: center; cursor: pointer;">2:00 PM</div>
+              <div style="flex: 1 0 120px; padding: 10px 16px; border: 1px solid #E0E5E0; border-radius: 8px; font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #0D2626; text-align: center; cursor: pointer;">3:00 PM</div>
+              <div style="flex: 1 0 120px; padding: 10px 16px; border: 1px solid #E0E5E0; border-radius: 8px; font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #0D2626; text-align: center; cursor: pointer;">4:00 PM</div>
             </div>
 
-            <button class="btn-primary w-full justify-center !text-[14px] !py-3 mt-5">
-              Confirm - Thu Mar 12, 11:00 AM
+            <button class="btn-inline-gradient" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; background: #83E85A; color: #113333; font-family: Poppins, sans-serif; font-weight: 600; font-size: 15px; padding: 14px 28px; border-radius: 8px; border: none; cursor: pointer; margin: 24px 0 0 0;">
+              Confirm — Thu Mar 12, 11:00 AM
             </button>
           </div>
         </div>
@@ -225,26 +220,24 @@
 
 
   <!-- FOOTER -->
-  <footer class="py-10 bg-akdo-dark border-t border-white/[0.05]">
-    <div class="site-w">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-5">
-        <img src="assets/logo.png" alt="Akdo" class="h-5 brightness-0 invert">
-        <div class="flex items-center gap-6">
-          <a href="careers.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Careers</a>
-          <a href="contact.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Contact</a>
-          <a href="legal-notice.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Legal Notice</a>
-          <a href="privacy-policy.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Privacy Policy</a>
-        </div>
-        <p class="text-[12px] text-white/40">&copy; 2026 Akdo. All rights reserved.</p>
+  <footer style="padding: 40px 24px; background: #0E2B2B; border-top: 1px solid rgba(255,255,255,0.05);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
+      <img src="assets/logo.png" alt="Akdo" style="height: 20px; filter: brightness(0) invert(1);">
+      <div style="display: flex; align-items: center; gap: 24px;">
+        <a href="careers.html" style="font-family: Poppins, sans-serif; font-size: 13px; color: rgba(255,255,255,0.65); text-decoration: none;">Careers</a>
+        <a href="contact.html" style="font-family: Poppins, sans-serif; font-size: 13px; color: rgba(255,255,255,0.65); text-decoration: none;">Contact</a>
+        <a href="legal-notice.html" style="font-family: Poppins, sans-serif; font-size: 13px; color: rgba(255,255,255,0.65); text-decoration: none;">Legal Notice</a>
+        <a href="privacy-policy.html" style="font-family: Poppins, sans-serif; font-size: 13px; color: rgba(255,255,255,0.65); text-decoration: none;">Privacy Policy</a>
       </div>
+      <p style="font-family: Poppins, sans-serif; font-size: 12px; color: rgba(255,255,255,0.65); margin: 0;">&copy; 2026 Akdo. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
-    function showCalendarV1(e) {
+    function showCalendar(e) {
       e.preventDefault();
-      document.getElementById('calendarSectionV1').classList.remove('hidden');
-      document.getElementById('calendarSectionV1').scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('calendarSection').style.display = 'flex';
+      document.getElementById('calendarSection').scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 

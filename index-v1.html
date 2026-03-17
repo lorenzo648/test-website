@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akdo — Safety Training Built From Your Workplace</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'akdo-dark': '#02140d',
+            'akdo-green': '#2cc27d',
+            'akdo-lime': '#83e85a',
+            'akdo-cream': '#f5f6f4',
+            'akdo-peach': '#ffc091',
+            'akdo-yellow': '#fee581',
+          },
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/wireframe-review.css">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Poppins', sans-serif; color: #02140d; background: #fff; overflow-x: hidden; }
+
+    .site-w { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .site-wide { max-width: 1360px; margin: 0 auto; padding: 0 32px; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #2cc27d; color: #02140d; font-family: 'Poppins', sans-serif;
+      font-weight: 600; font-size: 16px; padding: 18px 42px; border-radius: 8px;
+      text-decoration: none; transition: all 0.25s; border: none; cursor: pointer;
+    }
+    .btn-primary:hover { background: #83e85a; transform: translateY(-2px); box-shadow: 0 12px 40px rgba(44, 194, 125, 0.3); }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 10px;
+      color: #02140d; font-family: 'Poppins', sans-serif;
+      font-weight: 600; font-size: 16px; padding: 18px 42px; border-radius: 8px;
+      border: 2px solid rgba(2, 20, 13, 0.12); text-decoration: none; transition: all 0.25s; cursor: pointer;
+      background: transparent;
+    }
+    .btn-ghost:hover { border-color: #02140d; }
+
+    /* Floating animation */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    .float-1 { animation: float 5s ease-in-out infinite; }
+    .float-2 { animation: float 5s ease-in-out infinite 1.2s; }
+    .float-3 { animation: float 5s ease-in-out infinite 2.4s; }
+
+    /* Pulse ring */
+    @keyframes pulse-ring {
+      0% { transform: scale(1); opacity: 0.4; }
+      100% { transform: scale(1.8); opacity: 0; }
+    }
+
+    /* Gradient text */
+    .gradient-text {
+      color: #2cc27d;
+    }
+
+    /* Inline button hovers (nav + hero sections) */
+    .btn-inline-gradient { transition: filter 0.2s ease, transform 0.2s ease; }
+    .btn-inline-gradient:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .btn-inline-ghost-light { transition: background 0.2s ease, border-color 0.2s ease; }
+    .btn-inline-ghost-light:hover { background: rgba(255,255,255,0.1) !important; border-color: rgba(255,255,255,0.4) !important; }
+    .btn-inline-ghost-green { transition: background 0.2s ease, border-color 0.2s ease; }
+    .btn-inline-ghost-green:hover { background: rgba(131,232,90,0.1) !important; border-color: rgba(131,232,90,0.5) !important; }
+    .link-arrow svg { transition: transform 0.2s ease; }
+    .link-arrow:hover svg { transform: translateX(5px); }
+    .card-link .card-link-arrow { transition: transform 0.2s ease; }
+    .card-link:hover .card-link-arrow { transform: translateX(6px); }
+
+    /* Card hover lift */
+    .card-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .card-lift:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(2, 20, 13, 0.1); }
+
+    /* Scroll fade-in */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Staggered reveals */
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* Marquee */
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track { animation: marquee 25s linear infinite; }
+
+    /* Glow orb behind hero */
+    .hero-glow {
+      position: absolute;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(44, 194, 125, 0.15) 0%, rgba(131, 232, 90, 0.06) 40%, transparent 70%);
+      filter: blur(80px);
+      pointer-events: none;
+    }
+
+    /* Subtle grain overlay */
+    .grain::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Animated gradient border */
+    @keyframes gradient-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Counter animation */
+    @keyframes count-up {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Statement section */
+    .statement-text {
+      font-size: clamp(28px, 4vw, 52px);
+      line-height: 1.1;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    /* Icon containers */
+    .icon-lg {
+      width: 72px; height: 72px;
+      border-radius: 20px;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* Horizontal rule accent */
+    .accent-line {
+      width: 48px; height: 3px;
+      background: linear-gradient(90deg, #2cc27d, #83e85a);
+      border-radius: 2px;
+    }
+
+    /* Warm glow */
+    .hero-glow-warm {
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 192, 145, 0.08) 0%, rgba(254, 229, 129, 0.04) 40%, transparent 70%);
+      filter: blur(80px);
+      pointer-events: none;
+    }
+
+    /* Avatar stack */
+    .avatar-stack { display: flex; align-items: center; }
+    .avatar-stack .avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      margin-left: -10px;
+      border: 2.5px solid;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 600; font-size: 13px;
+    }
+    .avatar-stack .avatar:first-child { margin-left: 0; }
+
+    /* Photo placeholder */
+    .photo-placeholder {
+      background: linear-gradient(145deg, #e8f5ee 0%, #d4edda 50%, #c3e6cb 100%);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; position: relative;
+    }
+
+    /* Review mode: flatten the page into a low-distraction wireframe */
+    body.wireframe-mode {
+      --wf-bg: #f5f5f2;
+      --wf-surface: #ecece7;
+      --wf-border: #bdbdb4;
+      --wf-ink: #151515;
+      --wf-muted: #6f6f68;
+      background: var(--wf-bg);
+      color: var(--wf-ink);
+    }
+
+    body.wireframe-mode,
+    body.wireframe-mode * {
+      animation: none !important;
+      transition: none !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+      backdrop-filter: none !important;
+      filter: none !important;
+    }
+
+    body.wireframe-mode .reveal,
+    body.wireframe-mode .reveal.visible {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    body.wireframe-mode .gradient-text {
+      background: none !important;
+      color: var(--wf-ink) !important;
+      -webkit-text-fill-color: currentColor !important;
+      background-clip: border-box !important;
+    }
+
+    body.wireframe-mode .hero-glow,
+    body.wireframe-mode .hero-glow-warm,
+    body.wireframe-mode .grain::before,
+    body.wireframe-mode .accent-line,
+    body.wireframe-mode .float-1,
+    body.wireframe-mode .float-2,
+    body.wireframe-mode .float-3,
+    body.wireframe-mode [style*="radial-gradient"] {
+      display: none !important;
+    }
+
+    body.wireframe-mode .marquee-track {
+      animation: none !important;
+      transform: none !important;
+    }
+
+    body.wireframe-mode section,
+    body.wireframe-mode footer {
+      background: transparent !important;
+      border-color: var(--wf-border) !important;
+    }
+
+    body.wireframe-mode nav {
+      background: var(--wf-bg) !important;
+      border-color: var(--wf-border) !important;
+      border-bottom: 1px solid var(--wf-border) !important;
+    }
+
+    body.wireframe-mode [class*="bg-"] {
+      background: var(--wf-surface) !important;
+    }
+
+    body.wireframe-mode [class*="border-"] {
+      border-color: var(--wf-border) !important;
+    }
+
+    body.wireframe-mode [class*="text-white"],
+    body.wireframe-mode [class*="text-akdo-"],
+    body.wireframe-mode [class*="text-blue-"],
+    body.wireframe-mode [class*="text-green-"],
+    body.wireframe-mode [class*="text-purple-"],
+    body.wireframe-mode [class*="text-amber-"],
+    body.wireframe-mode [class*="text-cyan-"],
+    body.wireframe-mode [class*="text-indigo-"],
+    body.wireframe-mode [class*="text-red-"] {
+      color: var(--wf-ink) !important;
+      -webkit-text-fill-color: currentColor !important;
+    }
+
+    body.wireframe-mode p,
+    body.wireframe-mode span,
+    body.wireframe-mode li {
+      color: var(--wf-muted) !important;
+    }
+
+    body.wireframe-mode h1,
+    body.wireframe-mode h2,
+    body.wireframe-mode h3,
+    body.wireframe-mode h4,
+    body.wireframe-mode h5,
+    body.wireframe-mode h6,
+    body.wireframe-mode strong,
+    body.wireframe-mode b {
+      color: var(--wf-ink) !important;
+    }
+
+    body.wireframe-mode .btn-primary,
+    body.wireframe-mode .btn-ghost {
+      background: transparent !important;
+      color: var(--wf-ink) !important;
+      border: 1px solid var(--wf-border) !important;
+      border-radius: 12px !important;
+    }
+
+    body.wireframe-mode img {
+      filter: grayscale(1) contrast(1) !important;
+    }
+
+    body.wireframe-mode svg {
+      opacity: 0.5;
+    }
+
+    body.wireframe-mode svg * {
+      stroke: var(--wf-muted) !important;
+      fill: none !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="main-nav" style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: transparent; border-bottom: 1px solid transparent; transition: background 0.3s ease, border-color 0.3s ease;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 64px;">
+      <a href="index.html">
+        <img id="nav-logo" src="assets/logo.png" alt="Akdo" style="height: 28px; filter: brightness(0) invert(1); transition: filter 0.3s ease;">
+      </a>
+      <div style="display: flex; align-items: center; gap: 32px;">
+        <a href="hse-training.html" class="nav-link" style="font-family: Poppins, sans-serif; font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.3s ease;">HSE Training</a>
+        <a href="sustainability.html" class="nav-link" style="font-family: Poppins, sans-serif; font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.3s ease;">Sustainability</a>
+        <a href="training-library.html" class="nav-link" style="font-family: Poppins, sans-serif; font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.3s ease;">Training Library</a>
+        <a href="security.html" class="nav-link" style="font-family: Poppins, sans-serif; font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.3s ease;">Security</a>
+      </div>
+      <a href="book-demo.html" class="btn-inline-gradient" style="display: inline-flex; align-items: center; background: #83E85A; color: #113333; font-family: Poppins, sans-serif; font-size: 14px; font-weight: 600; padding: 10px 24px; border-radius: 8px; text-decoration: none;">Book a Demo</a>
+    </div>
+  </nav>
+
+  <script>
+    (function() {
+      var nav = document.getElementById('main-nav');
+      var logo = document.getElementById('nav-logo');
+      var links = document.querySelectorAll('.nav-link');
+      var scrolled = false;
+      window.addEventListener('scroll', function() {
+        var shouldBeWhite = window.scrollY > 60;
+        if (shouldBeWhite === scrolled) return;
+        scrolled = shouldBeWhite;
+        if (shouldBeWhite) {
+          nav.style.background = '#FFFFFF';
+          nav.style.borderBottomColor = '#E0E5E0';
+          logo.style.filter = 'none';
+          for (var i = 0; i < links.length; i++) { links[i].style.color = '#6B7B6B'; }
+        } else {
+          nav.style.background = 'transparent';
+          nav.style.borderBottomColor = 'transparent';
+          logo.style.filter = 'brightness(0) invert(1)';
+          for (var i = 0; i < links.length; i++) { links[i].style.color = 'rgba(255,255,255,0.85)'; }
+        }
+      });
+    })();
+  </script>
+
+
+  <!-- ========== 1. HERO — Full-bleed dark, visual-first ========== -->
+  <section style="display: flex; flex-direction: column; align-items: center; background: radial-gradient(ellipse at 50% 0%, #153d30 0%, #0E2B2B 60%, #091E1E 100%); padding: 160px 24px 0px 24px; min-height: 800px; overflow: hidden;">
+    <div style="display: flex; flex-direction: column; align-items: center; max-width: 1200px; width: 1200px; flex: 1;">
+
+      <!-- Top: text content -->
+      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 48px;">
+        <div style="display: inline-flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.12); border-radius: 100px; padding: 8px 20px; margin-bottom: 32px;">
+          <div style="width: 8px; height: 8px; border-radius: 100px; background: #2CC27D;"></div>
+          <span style="font-family: Poppins, sans-serif; font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.85);">AI-powered HSE and sustainability training</span>
+        </div>
+
+        <h1 style="font-family: Poppins, sans-serif; font-size: 64px; font-weight: 700; line-height: 1.15; letter-spacing: -1px; color: #FFFFFF; margin: 0 0 24px 0; max-width: 860px;">
+          Your incidents become your best <span style="color: #83E85A;">HSE training.</span>
+        </h1>
+
+        <p style="font-family: Poppins, sans-serif; font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.85); max-width: 540px; margin: 0 0 32px 0; line-height: 1.6;">
+          Akdo turns your incident reports, SOPs, and high potential incidents into training your frontline teams recognize. Ready to deploy in days.
+        </p>
+
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <a href="book-demo.html" class="btn-inline-gradient" style="display: inline-flex; align-items: center; background: #83E85A; color: #113333; font-family: Poppins, sans-serif; font-size: 17px; font-weight: 600; padding: 16px 32px; border-radius: 8px; text-decoration: none;">
+            Book a Demo
+          </a>
+          <a href="#how" class="btn-inline-ghost-light" style="display: inline-flex; align-items: center; background: transparent; color: rgba(255,255,255,0.85); font-family: Poppins, sans-serif; font-size: 17px; font-weight: 500; padding: 16px 32px; border-radius: 8px; text-decoration: none; border: 1px solid rgba(255,255,255,0.2);">
+            How It Works
+          </a>
+        </div>
+      </div>
+
+      <!-- Product mockup — floating window -->
+      <div style="width: 960px; margin-top: 16px; margin-bottom: -120px;">
+        <div style="background: #1a2e2e; border-radius: 12px; border: 1px solid rgba(255,255,255,0.12); overflow: hidden; box-shadow: 0 24px 80px rgba(0,0,0,0.4), 0 8px 32px rgba(44,194,125,0.06);">
+          <!-- App window top bar -->
+          <div style="display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.06);">
+            <div style="width: 12px; height: 12px; border-radius: 100px; background: rgba(255,255,255,0.15);"></div>
+            <div style="width: 12px; height: 12px; border-radius: 100px; background: rgba(255,255,255,0.15);"></div>
+            <div style="width: 12px; height: 12px; border-radius: 100px; background: rgba(255,255,255,0.15);"></div>
+          </div>
+          <img src="assets/product-screenshot.png" alt="Akdo training platform — safety training module" style="display: block; width: 960px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== 2. LOGOS — Static strip ========== -->
+  <section style="display: flex; flex-direction: column; align-items: center; padding: 48px 24px; border-bottom: 1px solid #E0E5E0;">
+    <p style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: #6B7B6B; letter-spacing: 0.15em; text-transform: uppercase; margin: 0 0 24px 0; text-align: center;">Trusted by safety leaders at</p>
+    <div style="display: flex; align-items: center; flex-wrap: wrap; justify-content: center; gap: 12px;">
+      <span style="font-family: Poppins, sans-serif; font-size: 14px; font-weight: 500; color: #0D2626; background: #F5F7F5; border: 1px solid #E0E5E0; border-radius: 100px; padding: 8px 20px;">GE Vernova</span>
+      <span style="font-family: Poppins, sans-serif; font-size: 14px; font-weight: 500; color: #0D2626; background: #F5F7F5; border: 1px solid #E0E5E0; border-radius: 100px; padding: 8px 20px;">JTI</span>
+      <span style="font-family: Poppins, sans-serif; font-size: 14px; font-weight: 500; color: #0D2626; background: #F5F7F5; border: 1px solid #E0E5E0; border-radius: 100px; padding: 8px 20px;">Henkel</span>
+      <span style="font-family: Poppins, sans-serif; font-size: 14px; font-weight: 500; color: #0D2626; background: #F5F7F5; border: 1px solid #E0E5E0; border-radius: 100px; padding: 8px 20px;">Essity</span>
+      <span style="font-family: Poppins, sans-serif; font-size: 14px; font-weight: 500; color: #0D2626; background: #F5F7F5; border: 1px solid #E0E5E0; border-radius: 100px; padding: 8px 20px;">Huhtamaki</span>
+      <span style="font-family: Poppins, sans-serif; font-size: 14px; font-weight: 500; color: #0D2626; background: #F5F7F5; border: 1px solid #E0E5E0; border-radius: 100px; padding: 8px 20px;">Harmony Gold</span>
+    </div>
+  </section>
+
+
+  <!-- ========== 3. SUSTAINABILITY BANNER ========== -->
+  <section style="display: flex; flex-direction: column; align-items: center; padding: 40px 24px;">
+    <div style="max-width: 1200px; width: 1200px;">
+      <a href="sustainability.html" style="text-decoration: none;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 48px; background: radial-gradient(ellipse at 70% 50%, #153d30 0%, #0E2B2B 60%, #091E1E 100%); border-radius: 12px; padding: 32px 40px; border: 1px solid rgba(255,255,255,0.08);">
+          <div style="flex: 1;">
+            <h3 style="font-family: Poppins, sans-serif; font-size: 22px; font-weight: 700; color: #FFFFFF; line-height: 1.2; margin: 0 0 8px 0;">
+              Interested in sustainability? Head this way.
+            </h3>
+            <p style="font-family: Poppins, sans-serif; font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.85); max-width: 440px; line-height: 1.6; margin: 0;">
+              Turn your ESG policies and CSRD frameworks into multilingual courses your workforce completes.
+            </p>
+          </div>
+          <div class="btn-inline-ghost-green" style="display: inline-flex; align-items: center; background: transparent; border: 1px solid rgba(44,194,125,0.3); border-radius: 8px; padding: 14px 28px;">
+            <span style="font-family: Poppins, sans-serif; font-size: 15px; font-weight: 500; color: #2cc27d;">Explore sustainability</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ========== STATEMENT: Why Akdo ========== -->
+  <section class="py-16 reveal">
+    <div class="site-w text-center">
+      <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 12px 0;">Why Akdo</p>
+      <p class="statement-text text-akdo-dark max-w-[860px] mx-auto">
+        Most safety training is too generic to <span class="gradient-text">change behavior.</span>
+      </p>
+      <p class="text-[17px] text-akdo-dark/40 mt-5 max-w-[760px] mx-auto">Regulations change, incidents happen, sites evolve. The gap between what's happening on the floor and what workers are trained on widens every quarter.</p>
+    </div>
+  </section>
+
+  <!-- ========== 4. THREE PILLARS — Visual icon cards ========== -->
+  <section class="pb-24 reveal">
+    <div class="site-w">
+      <div class="grid md:grid-cols-3 gap-6 max-w-[1080px] mx-auto">
+
+        <!-- Card 1: From your data — incident report → training -->
+        <div class="bg-white rounded-xl border border-black/[0.08] text-left overflow-hidden reveal reveal-delay-1">
+          <div style="height: 200px; background: #F5F7F5; padding: 24px; display: flex; align-items: flex-end; gap: 12px;">
+            <!-- Incident report doc -->
+            <div style="width: 110px; height: 140px; background: #FFFFFF; border: 1px solid #E0E5E0; border-radius: 6px; padding: 12px; box-shadow: 0 2px 8px rgba(17,51,51,0.06);">
+              <div style="font-family: Poppins, sans-serif; font-size: 8px; font-weight: 700; color: #0D2626; margin-bottom: 6px;">INCIDENT #247</div>
+              <div style="width: 70px; height: 3px; background: #E0E5E0; border-radius: 2px; margin-bottom: 5px;"></div>
+              <div style="width: 55px; height: 3px; background: #E0E5E0; border-radius: 2px; margin-bottom: 5px;"></div>
+              <div style="width: 65px; height: 3px; background: #E0E5E0; border-radius: 2px; margin-bottom: 8px;"></div>
+              <div style="display: flex; gap: 4px; margin-bottom: 6px;">
+                <div style="padding: 2px 6px; background: rgba(220,60,60,0.1); border-radius: 100px; font-family: Poppins, sans-serif; font-size: 7px; font-weight: 600; color: #dc3c3c;">High</div>
+                <div style="padding: 2px 6px; background: rgba(44,194,125,0.1); border-radius: 100px; font-family: Poppins, sans-serif; font-size: 7px; font-weight: 600; color: #2cc27d;">Crane</div>
+              </div>
+              <div style="width: 50px; height: 3px; background: #E0E5E0; border-radius: 2px; margin-bottom: 4px;"></div>
+              <div style="width: 60px; height: 3px; background: #E0E5E0; border-radius: 2px;"></div>
+            </div>
+            <!-- Arrow -->
+            <div style="display: flex; align-items: center; margin-bottom: 60px;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m0 0l-4-4m4 4l-4 4" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <!-- Training module -->
+            <div style="width: 130px; height: 150px; background: #FFFFFF; border: 1px solid rgba(44,194,125,0.25); border-radius: 6px; padding: 10px; box-shadow: 0 2px 8px rgba(44,194,125,0.1);">
+              <div style="width: 100%; height: 55px; background: #113333; border-radius: 4px; margin-bottom: 8px; display: flex; align-items: center; justify-content: center;">
+                <div style="font-family: Poppins, sans-serif; font-size: 7px; font-weight: 600; color: rgba(255,255,255,0.7); text-align: center; line-height: 1.3;">CRANE SAFETY<br>MODULE</div>
+              </div>
+              <div style="font-family: Poppins, sans-serif; font-size: 7px; font-weight: 600; color: #0D2626; margin-bottom: 4px;">Crane Operations</div>
+              <div style="width: 80px; height: 3px; background: #E0E5E0; border-radius: 2px; margin-bottom: 4px;"></div>
+              <div style="width: 60px; height: 3px; background: #E0E5E0; border-radius: 2px; margin-bottom: 8px;"></div>
+              <div style="display: flex; gap: 4px;">
+                <div style="width: 20px; height: 20px; border-radius: 100px; background: rgba(44,194,125,0.15); display: flex; align-items: center; justify-content: center;">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polygon points="5 3 19 12 5 21 5 3" fill="#2cc27d"/></svg>
+                </div>
+                <div style="width: 20px; height: 20px; border-radius: 100px; background: #F5F7F5; display: flex; align-items: center; justify-content: center;">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" stroke="#6B7B6B" stroke-width="1.5"/><path d="M9 12l2 2 4-4" stroke="#6B7B6B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 28px;">
+            <h3 class="font-bold text-[22px] text-akdo-dark mb-3">Built from your incidents and SOPs</h3>
+            <p class="text-[16px] text-akdo-dark/45 leading-relaxed">
+              Training is built around the hazards and procedures each role and site needs.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2: Multi-format — video scenario -->
+        <div class="bg-white rounded-xl border border-black/[0.08] text-left overflow-hidden reveal reveal-delay-2">
+          <div style="height: 200px; background: #113333; padding: 0; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden;">
+            <!-- Crane scene placeholder -->
+            <div style="position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 40%, #1a4a3a 0%, #113333 70%); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+              <!-- Crane sketch -->
+              <svg width="120" height="80" viewBox="0 0 120 80" fill="none" style="margin-bottom: 8px;">
+                <!-- Crane tower -->
+                <rect x="25" y="15" width="6" height="55" fill="rgba(255,255,255,0.15)"/>
+                <!-- Crane arm -->
+                <rect x="25" y="15" width="70" height="4" fill="rgba(255,255,255,0.2)"/>
+                <!-- Cable -->
+                <line x1="80" y1="19" x2="80" y2="45" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+                <!-- Hook/load -->
+                <rect x="74" y="45" width="12" height="10" rx="2" fill="rgba(44,194,125,0.3)" stroke="rgba(44,194,125,0.4)" stroke-width="1"/>
+                <!-- Ground -->
+                <line x1="10" y1="70" x2="110" y2="70" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                <!-- Worker -->
+                <circle cx="60" cy="62" r="4" fill="rgba(255,194,145,0.4)"/>
+                <rect x="57" y="66" width="6" height="3" rx="1" fill="rgba(44,194,125,0.3)"/>
+              </svg>
+              <div style="font-family: Poppins, sans-serif; font-size: 9px; font-weight: 500; color: rgba(255,255,255,0.35);">Crane safety — overhead lift scenario</div>
+            </div>
+            <!-- Play button overlay -->
+            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;">
+              <div style="width: 44px; height: 44px; border-radius: 100px; background: rgba(44,194,125,0.25); border: 1.5px solid rgba(44,194,125,0.4); display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><polygon points="5 3 19 12 5 21 5 3" fill="#2cc27d"/></svg>
+              </div>
+            </div>
+            <!-- Video progress bar -->
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: rgba(255,255,255,0.08);">
+              <div style="width: 35%; height: 100%; background: #2cc27d;"></div>
+            </div>
+          </div>
+          <div style="padding: 28px;">
+            <h3 class="font-bold text-[22px] text-akdo-dark mb-3">Real scenarios your teams can practice on</h3>
+            <p class="text-[16px] text-akdo-dark/45 leading-relaxed">
+              Video, interactive scenarios, microlearning, and assessments.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3: Global — globe with plant markers -->
+        <div class="bg-white rounded-xl border border-black/[0.08] text-left overflow-hidden reveal reveal-delay-3">
+          <div style="height: 200px; background: #F5F7F5; padding: 24px; display: flex; align-items: center; justify-content: center;">
+            <!-- Globe with plant markers -->
+            <div style="position: relative; width: 160px; height: 160px;">
+              <!-- Globe circle -->
+              <svg width="160" height="160" viewBox="0 0 160 160" fill="none" style="position: absolute; inset: 0;">
+                <circle cx="80" cy="80" r="70" stroke="#E0E5E0" stroke-width="1.5" fill="none"/>
+                <!-- Longitude lines -->
+                <ellipse cx="80" cy="80" rx="35" ry="70" stroke="#E0E5E0" stroke-width="0.8" fill="none"/>
+                <ellipse cx="80" cy="80" rx="58" ry="70" stroke="#E0E5E0" stroke-width="0.8" fill="none"/>
+                <!-- Latitude lines -->
+                <ellipse cx="80" cy="55" rx="65" ry="12" stroke="#E0E5E0" stroke-width="0.8" fill="none"/>
+                <ellipse cx="80" cy="80" rx="70" ry="14" stroke="#E0E5E0" stroke-width="0.8" fill="none"/>
+                <ellipse cx="80" cy="105" rx="65" ry="12" stroke="#E0E5E0" stroke-width="0.8" fill="none"/>
+              </svg>
+              <!-- Plant marker 1: Europe -->
+              <div style="position: absolute; top: 32px; left: 82px; display: flex; flex-direction: column; align-items: center;">
+                <div style="width: 24px; height: 24px; border-radius: 100px; background: #2cc27d; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(44,194,125,0.3);">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V7l8-4v18M13 21V3l6 4v14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+              </div>
+              <!-- Plant marker 2: Americas -->
+              <div style="position: absolute; top: 58px; left: 22px; display: flex; flex-direction: column; align-items: center;">
+                <div style="width: 20px; height: 20px; border-radius: 100px; background: rgba(44,194,125,0.2); border: 1.5px solid #2cc27d; display: flex; align-items: center; justify-content: center;">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V7l8-4v18M13 21V3l6 4v14" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+              </div>
+              <!-- Plant marker 3: Asia -->
+              <div style="position: absolute; top: 50px; right: 18px; display: flex; flex-direction: column; align-items: center;">
+                <div style="width: 20px; height: 20px; border-radius: 100px; background: rgba(44,194,125,0.2); border: 1.5px solid #2cc27d; display: flex; align-items: center; justify-content: center;">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V7l8-4v18M13 21V3l6 4v14" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+              </div>
+              <!-- Plant marker 4: Africa -->
+              <div style="position: absolute; bottom: 38px; left: 72px; display: flex; flex-direction: column; align-items: center;">
+                <div style="width: 18px; height: 18px; border-radius: 100px; background: rgba(44,194,125,0.15); border: 1.5px solid rgba(44,194,125,0.5); display: flex; align-items: center; justify-content: center;">
+                  <svg width="9" height="9" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V7l8-4v18M13 21V3l6 4v14" stroke="rgba(44,194,125,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+              </div>
+              <!-- Connection lines from main marker -->
+              <svg width="160" height="160" viewBox="0 0 160 160" fill="none" style="position: absolute; inset: 0;">
+                <line x1="94" y1="44" x2="34" y2="68" stroke="rgba(44,194,125,0.2)" stroke-width="1" stroke-dasharray="3 3"/>
+                <line x1="94" y1="44" x2="130" y2="60" stroke="rgba(44,194,125,0.2)" stroke-width="1" stroke-dasharray="3 3"/>
+                <line x1="94" y1="44" x2="82" y2="110" stroke="rgba(44,194,125,0.2)" stroke-width="1" stroke-dasharray="3 3"/>
+              </svg>
+            </div>
+          </div>
+          <div style="padding: 28px;">
+            <h3 class="font-bold text-[22px] text-akdo-dark mb-3">Create once. Roll out everywhere.</h3>
+            <p class="text-[16px] text-akdo-dark/45 leading-relaxed">
+              One source of truth, adapted for local languages, site rules, and workforce channels.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== POSITIONING STRIP ========== -->
+  <section style="display: flex; flex-direction: column; align-items: center; padding: 80px 24px; background: #F5F7F5;">
+    <div style="max-width: 880px; text-align: center;">
+      <p style="font-family: Poppins, sans-serif; font-size: 36px; font-weight: 700; color: #0D2626; line-height: 1.2; letter-spacing: -0.5px; margin: 0 0 20px 0;">
+        Not a video tool. Not a Copilot agent.<br>A purpose-built <span style="color: #2cc27d;">HSE training engine.</span>
+      </p>
+      <p style="font-family: Poppins, sans-serif; font-size: 17px; font-weight: 400; color: #6B7B6B; line-height: 1.6; margin: 0 0 20px 0;">
+        AI avatars still need you to script everything · General AI still needs your team to build from scratch · Agencies still take 9 months
+      </p>
+      <a href="hse-training.html#comparison" class="link-arrow" style="display: inline-flex; align-items: center; gap: 6px; font-family: Poppins, sans-serif; font-size: 15px; font-weight: 600; color: #2cc27d; text-decoration: none;">
+        See how we compare
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ========== 5. HOW IT WORKS — Visual 4-step flow ========== -->
+  <section id="how" style="display: flex; flex-direction: column; align-items: center; background: radial-gradient(ellipse at 50% 0%, #153d30 0%, #0E2B2B 60%, #091E1E 100%); padding: 112px 24px; overflow: hidden;">
+    <div style="max-width: 1200px; width: 1200px;">
+      <div style="text-align: center; max-width: 660px; margin: 0 auto 80px auto;">
+        <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #83E85A; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 12px 0;">How It Works</p>
+        <h2 style="font-family: Poppins, sans-serif; font-size: 52px; font-weight: 700; line-height: 1.04; color: #FFFFFF; margin: 0;">
+          From incident report to <span style="color: #83E85A;">live training.</span> Four steps.
+        </h2>
+      </div>
+
+      <div style="display: flex; gap: 24px; max-width: 1020px; margin: 0 auto; position: relative; align-items: stretch;">
+        <!-- Connector line -->
+        <div style="position: absolute; top: 68px; left: 12%; right: 12%; height: 2px; background: linear-gradient(90deg, rgba(44,194,125,0.2), rgba(44,194,125,0.4), rgba(44,194,125,0.2));"></div>
+
+        <!-- Step 1 -->
+        <div style="flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 12px; position: relative; gap: 16px;">
+          <div style="position: relative; width: 130px; height: 130px; margin-bottom: 28px;">
+            <div style="position: absolute; inset: 0; border-radius: 100px; background: rgba(44,194,125,0.06);"></div>
+            <div style="position: absolute; inset: 12px; border-radius: 100px; background: rgba(44,194,125,0.08); display: flex; align-items: center; justify-content: center;">
+              <div style="width: 64px; height: 64px; border-radius: 100px; background: rgba(44,194,125,0.15); display: flex; align-items: center; justify-content: center;">
+                <span style="font-family: Poppins, sans-serif; font-size: 24px; font-weight: 700; color: #2cc27d;">1</span>
+              </div>
+            </div>
+          </div>
+          <h3 style="font-family: Poppins, sans-serif; font-size: 18px; font-weight: 700; color: #FFFFFF; margin: 0 0 8px 0; min-height: 48px;">Share your source material</h3>
+          <p style="font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0;">
+            You share incident reports, SOPs, high potential incidents, and the training goals that matter.
+          </p>
+          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(255,255,255,0.04); border-radius: 100px; border: 1px solid rgba(255,255,255,0.08); margin-top: auto;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2cc27d" stroke-width="1.5"/><polyline points="12 6 12 12 16 14" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65);">30 min</span>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div style="flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 12px; position: relative; gap: 16px;">
+          <div style="position: relative; width: 130px; height: 130px; margin-bottom: 28px;">
+            <div style="position: absolute; inset: 0; border-radius: 100px; background: rgba(44,194,125,0.06);"></div>
+            <div style="position: absolute; inset: 12px; border-radius: 100px; background: rgba(44,194,125,0.08); display: flex; align-items: center; justify-content: center;">
+              <div style="width: 64px; height: 64px; border-radius: 100px; background: rgba(44,194,125,0.15); display: flex; align-items: center; justify-content: center;">
+                <span style="font-family: Poppins, sans-serif; font-size: 24px; font-weight: 700; color: #2cc27d;">2</span>
+              </div>
+            </div>
+          </div>
+          <h3 style="font-family: Poppins, sans-serif; font-size: 18px; font-weight: 700; color: #FFFFFF; margin: 0 0 8px 0; min-height: 48px;">Akdo builds the training</h3>
+          <p style="font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0;">
+            Akdo turns your documents into an interactive training.
+          </p>
+          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(255,255,255,0.04); border-radius: 100px; border: 1px solid rgba(255,255,255,0.08); margin-top: auto;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65);">Days, not months</span>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div style="flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 12px; position: relative; gap: 16px;">
+          <div style="position: relative; width: 130px; height: 130px; margin-bottom: 28px;">
+            <div style="position: absolute; inset: 0; border-radius: 100px; background: rgba(44,194,125,0.06);"></div>
+            <div style="position: absolute; inset: 12px; border-radius: 100px; background: rgba(44,194,125,0.08); display: flex; align-items: center; justify-content: center;">
+              <div style="width: 64px; height: 64px; border-radius: 100px; background: rgba(44,194,125,0.15); display: flex; align-items: center; justify-content: center;">
+                <span style="font-family: Poppins, sans-serif; font-size: 24px; font-weight: 700; color: #2cc27d;">3</span>
+              </div>
+            </div>
+          </div>
+          <h3 style="font-family: Poppins, sans-serif; font-size: 18px; font-weight: 700; color: #FFFFFF; margin: 0 0 8px 0; min-height: 48px;">Your HSE team reviews</h3>
+          <p style="font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0;">
+            Your HSE team checks every module, and signs off before anything goes live.
+          </p>
+          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(255,255,255,0.04); border-radius: 100px; border: 1px solid rgba(255,255,255,0.08); margin-top: auto;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65);">Human in the loop</span>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div style="flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 12px; position: relative; gap: 16px;">
+          <div style="position: relative; width: 130px; height: 130px; margin-bottom: 28px;">
+            <div style="position: absolute; inset: 0; border-radius: 100px; background: rgba(44,194,125,0.06);"></div>
+            <div style="position: absolute; inset: 12px; border-radius: 100px; background: rgba(44,194,125,0.08); display: flex; align-items: center; justify-content: center;">
+              <div style="width: 64px; height: 64px; border-radius: 100px; background: rgba(44,194,125,0.15); display: flex; align-items: center; justify-content: center;">
+                <span style="font-family: Poppins, sans-serif; font-size: 24px; font-weight: 700; color: #2cc27d;">4</span>
+              </div>
+            </div>
+          </div>
+          <h3 style="font-family: Poppins, sans-serif; font-size: 18px; font-weight: 700; color: #FFFFFF; margin: 0 0 8px 0; min-height: 48px;">Deploy across sites and systems</h3>
+          <p style="font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0;">
+            Export as SCORM to your LMS, or let Akdo host it. Your team chooses the setup.
+          </p>
+          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(255,255,255,0.04); border-radius: 100px; border: 1px solid rgba(255,255,255,0.08); margin-top: auto;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2cc27d" stroke-width="1.5"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="#2cc27d" stroke-width="1.5"/></svg>
+            <span style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65);">Plug and play</span>
+          </div>
+        </div>
+      </div>
+
+      <p style="text-align: center; font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.5); margin-top: 64px;">Full enterprise rollout in weeks, not months. Less than 20 hours of your team's time.</p>
+    </div>
+  </section>
+
+
+
+
+  <!-- ========== 7. ENTERPRISE ROLLOUT — Proof and buying criteria ========== -->
+  <section class="py-24 reveal" style="background: #F5F7F5;">
+    <div class="site-w">
+      <div style="display: flex; gap: 48px; max-width: 1120px; margin: 0 auto; align-items: stretch;">
+        <div style="flex: 1; display: flex; flex-direction: column;">
+          <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 12px 0;">Enterprise Ready</p>
+          <h2 style="font-family: Poppins, sans-serif; font-size: 46px; font-weight: 700; line-height: 1.06; color: #0D2626; margin: 0 0 32px 0;">
+            Built for <span style="color: #2cc27d;">enterprise rollout</span> from day one.
+          </h2>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 20px; flex: 1;">
+            <div style="flex: 1; min-width: 45%; background: #FFFFFF; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); padding: 24px; box-shadow: 0 2px 8px rgba(17,51,51,0.06); display: flex; flex-direction: column; justify-content: flex-end;">
+              <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; margin: 0 0 14px 0; font-size: 18px;">🔌</div>
+              <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 8px 0;">Integration</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 17px; font-weight: 500; color: #0D2626; margin: 0; line-height: 1.5;">Plugs into any existing systems, or we host.</p>
+            </div>
+            <div style="flex: 1; min-width: 45%; background: #FFFFFF; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); padding: 24px; box-shadow: 0 2px 8px rgba(17,51,51,0.06); display: flex; flex-direction: column; justify-content: flex-end;">
+              <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; margin: 0 0 14px 0; font-size: 18px;">🌐</div>
+              <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 8px 0;">Rollout model</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 17px; font-weight: 500; color: #0D2626; margin: 0; line-height: 1.5;">Start with one site, scale globally.</p>
+            </div>
+            <div style="flex: 1; min-width: 45%; background: #FFFFFF; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); padding: 24px; box-shadow: 0 2px 8px rgba(17,51,51,0.06); display: flex; flex-direction: column; justify-content: flex-end;">
+              <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; margin: 0 0 14px 0; font-size: 18px;">🔄</div>
+              <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 8px 0;">Ongoing updates</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 17px; font-weight: 500; color: #0D2626; margin: 0; line-height: 1.5;">Update once, retrain instantly. No new budget cycle.</p>
+            </div>
+            <div style="flex: 1; min-width: 45%; background: #FFFFFF; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); padding: 24px; box-shadow: 0 2px 8px rgba(17,51,51,0.06); display: flex; flex-direction: column; justify-content: flex-end;">
+              <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; margin: 0 0 14px 0; font-size: 18px;">📊</div>
+              <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 8px 0;">Analytics</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 17px; font-weight: 500; color: #0D2626; margin: 0; line-height: 1.5;">Track completion, flag gaps, export audit trails.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="width: 340px; display: flex; flex-direction: column; gap: 16px; flex-shrink: 0;">
+          <div style="background: #FFFFFF; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); padding: 28px; box-shadow: 0 2px 8px rgba(17,51,51,0.06);">
+            <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 12px 0;">Global deployment</p>
+            <div style="font-family: Poppins, sans-serif; font-size: 42px; font-weight: 700; color: #0D2626; line-height: 1; margin: 0 0 8px 0;">200+</div>
+            <p style="font-family: Poppins, sans-serif; font-size: 15px; color: #6B7B6B; line-height: 1.5; margin: 0;">Languages from one source set, managed centrally.</p>
+          </div>
+          <div style="background: #FFFFFF; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); padding: 28px; box-shadow: 0 2px 8px rgba(17,51,51,0.06);">
+            <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 12px 0;">Time to live</p>
+            <div style="font-family: Poppins, sans-serif; font-size: 42px; font-weight: 700; color: #0D2626; line-height: 1; margin: 0 0 8px 0;">&lt; 12 week</div>
+            <p style="font-family: Poppins, sans-serif; font-size: 15px; color: #6B7B6B; line-height: 1.5; margin: 0;">From source material upload to live, reviewed training modules.</p>
+          </div>
+          <div style="background: #FFFFFF; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); padding: 28px; box-shadow: 0 2px 8px rgba(17,51,51,0.06);">
+            <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 12px 0;">Governance</p>
+            <div style="font-family: Poppins, sans-serif; font-size: 42px; font-weight: 700; color: #0D2626; line-height: 1; margin: 0 0 8px 0;">Traceable</div>
+            <p style="font-family: Poppins, sans-serif; font-size: 15px; color: #6B7B6B; line-height: 1.5; margin: 0;">Outputs stay tied to source documents and HSE best practices.</p>
+          </div>
+        </div>
+      </div>
+      <div style="max-width: 1120px; margin: 24px auto 0 auto; text-align: right;">
+        <a href="hse-training.html" class="link-arrow" style="display: inline-flex; align-items: center; gap: 8px; font-family: Poppins, sans-serif; font-size: 15px; font-weight: 600; color: #2cc27d; text-decoration: none;">
+          Explore the HSE / EHS page
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== 8. SECURITY STRIP ========== -->
+  <section class="reveal" style="padding: 40px 24px; background: #F5F7F5;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <a href="security.html" class="card-link" style="display: flex; align-items: center; gap: 48px; background: radial-gradient(ellipse at 70% 50%, #153d30 0%, #0E2B2B 60%, #091E1E 100%); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 40px 48px; text-decoration: none; position: relative; overflow: hidden;">
+
+        <!-- Background shield watermark -->
+        <svg style="position: absolute; right: 80px; bottom: -30px; opacity: 0.08;" width="200" height="200" viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" stroke="#FFFFFF" stroke-width="0.5"/><path d="M9 12l2 2 4-4" stroke="#FFFFFF" stroke-width="0.5"/></svg>
+
+        <div style="flex: 1; position: relative; z-index: 1;">
+          <h3 style="font-family: Poppins, sans-serif; font-size: 24px; font-weight: 700; color: #FFFFFF; margin: 0 0 8px 0; line-height: 1.2;">Enterprise-grade security for your training content and workforce data.</h3>
+          <p style="font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0; max-width: 480px;">ISO 27001 certified. SOC 2 compliant. Your data never trains our models.</p>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 20px; flex-shrink: 0; position: relative; z-index: 1;">
+          <!-- ISO 27001 -->
+          <div style="width: 80px; height: 80px; border-radius: 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+              <circle cx="14" cy="14" r="12" stroke="#2cc27d" stroke-width="1.2"/>
+              <circle cx="14" cy="14" r="8" stroke="#2cc27d" stroke-width="0.8" stroke-dasharray="2 2"/>
+              <path d="M10 14.5l2.5 2.5 5.5-5.5" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.7); letter-spacing: 0.02em; line-height: 1;">ISO 27001</span>
+          </div>
+          <!-- GDPR -->
+          <div style="width: 80px; height: 80px; border-radius: 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+              <circle cx="14" cy="14" r="10" stroke="#2cc27d" stroke-width="1.2"/>
+              <circle cx="14" cy="14" r="4" fill="#2cc27d" opacity="0.3"/>
+              <path d="M14 4v20M4 14h20" stroke="#2cc27d" stroke-width="0.6" opacity="0.4"/>
+              <path d="M6.2 6.2l15.6 15.6M21.8 6.2L6.2 21.8" stroke="#2cc27d" stroke-width="0.6" opacity="0.3"/>
+              <rect x="10" y="11" width="8" height="6" rx="1" stroke="#2cc27d" stroke-width="1.2"/>
+              <path d="M12 11V9a2 2 0 0 1 4 0v2" stroke="#2cc27d" stroke-width="1.2"/>
+            </svg>
+            <span style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.7); letter-spacing: 0.02em; line-height: 1;">GDPR</span>
+          </div>
+          <!-- SOC 2 -->
+          <div style="width: 80px; height: 80px; border-radius: 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+              <path d="M14 3L5 7.5v7c0 5.25 3.84 10.15 9 11.5 5.16-1.35 9-6.25 9-11.5v-7L14 3z" stroke="#2cc27d" stroke-width="1.2" stroke-linejoin="round"/>
+              <path d="M10 14l2.5 2.5 5.5-5.5" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.7); letter-spacing: 0.02em; line-height: 1;">SOC 2</span>
+          </div>
+        </div>
+
+        <div style="flex-shrink: 0; position: relative; z-index: 1;">
+          <svg class="card-link-arrow" width="48" height="48" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ========== 9. CUSTOMER PROOF ========== -->
+  <section class="reveal" style="padding: 80px 24px; background: #F5F7F5;">
+    <div style="max-width: 1080px; margin: 0 auto;">
+      <div style="text-align: center; max-width: 720px; margin: 0 auto 48px auto;">
+        <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 12px 0;">Case Study</p>
+        <h2 style="font-family: Poppins, sans-serif; font-size: 48px; font-weight: 700; line-height: 1.06; color: #0D2626; margin: 0; letter-spacing: -0.5px;">
+          Proof from a <span style="color: #2cc27d;">live enterprise rollout.</span>
+        </h2>
+        <p style="font-family: Poppins, sans-serif; font-size: 17px; color: #6B7B6B; margin: 20px 0 0 0; line-height: 1.6;">One rollout example shows the model clearly: fast launch, multilingual delivery, and real operational scale.</p>
+      </div>
+
+      <div style="background: radial-gradient(ellipse at 50% 0%, #153d30 0%, #0E2B2B 60%, #091E1E 100%); border-radius: 12px; padding: 48px;">
+        <div style="position: relative; margin: 0 0 40px 0;">
+          <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.16em; margin: 0 0 16px 0;">Customer rollout example</p>
+          <span style="font-family: Georgia, serif; font-size: 160px; color: rgba(44,194,125,0.12); line-height: 0.5; display: block; margin: 40px 0 -56px 0; pointer-events: none;">"</span>
+          <p style="font-family: Poppins, sans-serif; font-size: 28px; color: rgba(255,255,255,0.85); line-height: 1.5; font-weight: 300; margin: 0 0 24px 0;">
+            Hazardous materials training across 14 plants in 6 languages. Traditional approach: 9 months, €50K per region. With Akdo: first training live in 1 week, full global rollout in 2 months.
+          </p>
+          <p style="font-family: Poppins, sans-serif; font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0;">The result is faster launch, multilingual delivery, and one rollout model that can scale across plants without rebuilding the program region by region.</p>
+        </div>
+
+        <div style="display: flex; gap: 12px;">
+          <div style="flex: 1; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); padding: 24px;">
+            <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 8px 0;">Plants</p>
+            <div style="font-family: Poppins, sans-serif; font-size: 38px; font-weight: 700; color: #FFFFFF; line-height: 1;">14</div>
+          </div>
+          <div style="flex: 1; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); padding: 24px;">
+            <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 8px 0;">Languages</p>
+            <div style="font-family: Poppins, sans-serif; font-size: 38px; font-weight: 700; color: #FFFFFF; line-height: 1;">6</div>
+          </div>
+          <div style="flex: 1; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); padding: 24px;">
+            <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 8px 0;">Courses created</p>
+            <div style="font-family: Poppins, sans-serif; font-size: 38px; font-weight: 700; color: #FFFFFF; line-height: 1;">450+</div>
+          </div>
+          <div style="flex: 1; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); padding: 24px;">
+            <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 8px 0;">Completion</p>
+            <div style="font-family: Poppins, sans-serif; font-size: 38px; font-weight: 700; color: #FFFFFF; line-height: 1;">99.6%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== 10. BUSINESS CASE — ROI calculator (placeholder) ========== -->
+  <section class="reveal" style="padding: 80px 24px; background: radial-gradient(ellipse at 50% 0%, #153d30 0%, #0E2B2B 60%, #091E1E 100%);">
+    <div style="max-width: 1020px; margin: 0 auto;">
+      <div style="text-align: center; max-width: 640px; margin: 0 auto 56px auto;">
+        <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #83E85A; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 12px 0;">ROI</p>
+        <h2 style="font-family: Poppins, sans-serif; font-size: 48px; font-weight: 700; line-height: 1.06; color: #FFFFFF; margin: 0; letter-spacing: -0.5px;">
+          The business case for <span style="color: #83E85A;">better HSE / EHS training.</span>
+        </h2>
+      </div>
+
+      <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 32px;">
+        <div style="display: flex; gap: 20px; align-items: stretch;">
+          <!-- Calculator Inputs -->
+          <div style="flex: 1; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 28px;">
+            <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 24px 0;">Calculator Inputs</p>
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div>
+                <label style="display: block; font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.65); margin: 0 0 8px 0;">Employees</label>
+                <div style="border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); padding: 12px 16px; font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.85);">10,000</div>
+              </div>
+              <div>
+                <label style="display: block; font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.65); margin: 0 0 8px 0;">Annual incidents</label>
+                <div style="border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); padding: 12px 16px; font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.85);">240</div>
+              </div>
+              <div>
+                <label style="display: block; font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.65); margin: 0 0 8px 0;">Average cost per incident</label>
+                <div style="border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); padding: 12px 16px; font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.85);">$43,000</div>
+              </div>
+              <div>
+                <label style="display: block; font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.65); margin: 0 0 8px 0;">Rollout scope</label>
+                <div style="border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); padding: 12px 16px; font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.85);">15 sites / 8 languages</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Projected Output -->
+          <div style="flex: 1; background: rgba(44,194,125,0.06); border: 1px solid rgba(44,194,125,0.15); border-radius: 12px; padding: 28px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin: 0 0 24px 0;">
+              <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.15em; margin: 0;">Projected Output</p>
+              <span style="font-family: Poppins, sans-serif; font-size: 11px; color: rgba(255,255,255,0.65); border: 1px solid rgba(255,255,255,0.08); border-radius: 100px; padding: 4px 12px;">Static mockup</span>
+            </div>
+            <div style="border-radius: 12px; border: 1px solid rgba(44,194,125,0.12); background: rgba(255,255,255,0.03); padding: 24px; margin: 0 0 24px 0;">
+              <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 8px 0;">Estimated annual impact</p>
+              <div style="font-family: Poppins, sans-serif; font-size: 42px; font-weight: 700; color: #2cc27d; line-height: 1; margin: 0 0 8px 0;">$3.1M</div>
+              <p style="font-family: Poppins, sans-serif; font-size: 14px; color: rgba(255,255,255,0.65); margin: 0;">illustrative savings range for enterprise rollout</p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div style="display: flex; align-items: baseline; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 0 0 12px 0;">
+                <span style="font-family: Poppins, sans-serif; font-size: 14px; color: rgba(255,255,255,0.65);">Estimated incidents avoided</span>
+                <span style="font-family: Poppins, sans-serif; font-size: 16px; font-weight: 700; color: #2cc27d;">72</span>
+              </div>
+              <div style="display: flex; align-items: baseline; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 0 0 12px 0;">
+                <span style="font-family: Poppins, sans-serif; font-size: 14px; color: rgba(255,255,255,0.65);">Return per $1</span>
+                <span style="font-family: Poppins, sans-serif; font-size: 16px; font-weight: 700; color: #2cc27d;">6x</span>
+              </div>
+              <div style="display: flex; align-items: baseline; justify-content: space-between;">
+                <span style="font-family: Poppins, sans-serif; font-size: 14px; color: rgba(255,255,255,0.65);">Payback window</span>
+                <span style="font-family: Poppins, sans-serif; font-size: 16px; font-weight: 700; color: #2cc27d;">&lt; 12 months</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== CTA — Bold and clean ========== -->
+  <section class="reveal" style="padding: 120px 24px; background: #F5F7F5;">
+    <div style="max-width: 760px; margin: 0 auto; text-align: center;">
+      <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 12px 0;">Get Started</p>
+      <h2 style="font-family: Poppins, sans-serif; font-size: 56px; font-weight: 700; line-height: 1.06; letter-spacing: -0.5px; color: #0D2626; margin: 0 0 24px 0;">
+        Share an incident report. We’ll show you the <span style="color: #2cc27d;">training</span> it becomes.
+      </h2>
+      <p style="font-family: Poppins, sans-serif; font-size: 18px; color: #6B7B6B; max-width: 540px; margin: 0 auto 48px auto; line-height: 1.6;">
+        Bring a real incident report, HPI, or SOP. We’ll show you the training it becomes.
+      </p>
+      <a href="book-demo.html" class="btn-inline-gradient" style="display: inline-flex; align-items: center; gap: 8px; background: #83E85A; color: #113333; font-family: Poppins, sans-serif; font-size: 18px; font-weight: 500; padding: 18px 40px; border-radius: 8px; text-decoration: none;">
+        Book a Demo
+        <svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <p style="font-family: Poppins, sans-serif; font-size: 14px; color: #6B7B6B; margin: 32px 0 0 0;">See the workflow in 30 minutes. Launch first modules in weeks.</p>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer style="padding: 48px 24px; background: #0E2B2B; border-top: 1px solid rgba(255,255,255,0.06);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
+      <img src="assets/logo.png" alt="Akdo" width="80" height="24" style="filter: brightness(0) invert(1);">
+      <div style="display: flex; align-items: center; gap: 32px;">
+        <a href="careers.html" style="font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.65); text-decoration: none;">Careers</a>
+        <a href="contact.html" style="font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.65); text-decoration: none;">Contact</a>
+        <a href="legal-notice.html" style="font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.65); text-decoration: none;">Legal Notice</a>
+        <a href="privacy-policy.html" style="font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.65); text-decoration: none;">Privacy Policy</a>
+      </div>
+      <p style="font-family: Poppins, sans-serif; font-size: 14px; color: rgba(255,255,255,0.65); margin: 0;">&copy; 2026 Akdo. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scroll reveal -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

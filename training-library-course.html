@@ -4,147 +4,93 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Confined Space Entry — Training Library — Akdo</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'akdo-dark': '#02140d',
-            'akdo-green': '#2cc27d',
-            'akdo-lime': '#83e85a',
-            'akdo-cream': '#f5f6f4',
-            'akdo-peach': '#ffc091',
-            'akdo-yellow': '#fee581',
-          },
-        }
-      }
-    }
-  </script>
-
-  <link rel="stylesheet" href="assets/wireframe-review.css">
-
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-    body { font-family: 'Poppins', sans-serif; color: #02140d; background: #fff; overflow-x: hidden; }
-
-    .site-w { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
-
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: #2cc27d; color: #02140d; font-family: 'Poppins', sans-serif;
-      font-weight: 600; font-size: 15px; padding: 13px 30px; border-radius: 50px;
-      text-decoration: none; transition: all 0.2s; border: none; cursor: pointer;
-    }
-    .btn-primary:hover { background: #83e85a; transform: translateY(-1px); }
-
-    .btn-outline {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: none; color: #02140d; font-family: 'Poppins', sans-serif;
-      font-weight: 600; font-size: 15px; padding: 12px 30px; border-radius: 50px;
-      text-decoration: none; transition: all 0.2s; border: 1.5px solid #02140d20; cursor: pointer;
-    }
-    .btn-outline:hover { border-color: #2cc27d; color: #2cc27d; }
-
-    .tag { font-size: 10px; padding: 2px 8px; border-radius: 50px; font-weight: 500; white-space: nowrap; }
-    .format-icon { font-size: 11px; color: #02140d50; display: inline-flex; align-items: center; gap: 3px; }
-
-    .check-item::before {
-      content: ''; display: inline-block; width: 18px; height: 18px; border-radius: 50%;
-      background: #2cc27d18; margin-right: 10px; flex-shrink: 0;
-      background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4l3 3 5-6' stroke='%232cc27d' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: center;
-    }
-
-    .course-card { display: flex; flex-direction: column; text-decoration: none; color: inherit; }
-    .course-card:hover .card-title { color: #2cc27d; }
+    body { font-family: 'Poppins', sans-serif; color: #0D2626; background: #FFFFFF; }
   </style>
 </head>
-<body class="wireframe-mode">
+<body>
 
   <!-- NAV -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-black/[0.04]">
-    <div class="site-w flex items-center justify-between h-16">
+  <nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: #FFFFFF; border-bottom: 1px solid #E0E5E0; height: 64px; display: flex; align-items: center;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px; width: 100%; display: flex; align-items: center; justify-content: space-between;">
       <a href="index.html">
-        <img src="assets/logo.png" alt="Akdo" class="h-7">
+        <img src="assets/logo.png" alt="Akdo" style="height: 28px;">
       </a>
-      <div class="hidden md:flex items-center gap-7">
-        <a href="hse-training.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">HSE Training</a>
-        <a href="sustainability.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Sustainability</a>
-        <a href="training-library.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Training Library</a>
-        <a href="security.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Security</a>
+      <div style="display: flex; align-items: center; gap: 32px;">
+        <a href="hse-training.html" style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #6B7B6B; text-decoration: none;">HSE Training</a>
+        <a href="sustainability.html" style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #6B7B6B; text-decoration: none;">Sustainability</a>
+        <a href="training-library.html" style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #6B7B6B; text-decoration: none;">Training Library</a>
+        <a href="security.html" style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #6B7B6B; text-decoration: none;">Security</a>
       </div>
-      <a href="book-demo.html" class="btn-primary !text-[13px] !py-2.5 !px-5">Book a Demo</a>
+      <a href="book-demo.html" style="display: inline-flex; align-items: center; gap: 8px; background: #83E85A; color: #113333; font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; padding: 10px 20px; border-radius: 8px; text-decoration: none; border: none;">Book a Demo</a>
     </div>
   </nav>
 
 
   <!-- HERO -->
-  <section class="pt-24 pb-0">
-    <div class="site-w">
+  <section style="display: flex; flex-direction: column; align-items: center; padding: 120px 24px 80px 24px; background: #FFFFFF;">
+    <div style="display: flex; flex-direction: column; max-width: 960px; width: 100%;">
 
       <!-- Breadcrumb -->
-      <div class="flex items-center gap-2 text-[12px] text-akdo-dark/40 mb-8">
-        <a href="training-library.html" class="hover:text-akdo-dark transition-colors">Training Library</a>
+      <div style="display: flex; align-items: center; gap: 8px; font-family: Poppins; font-size: 13px; font-weight: 500; color: #6B7B6B; margin-bottom: 32px;">
+        <a href="training-library.html" style="color: #6B7B6B; text-decoration: none;">Training Library</a>
         <span>/</span>
-        <a href="training-library.html?cat=hse" class="hover:text-akdo-dark transition-colors">HSE</a>
+        <a href="training-library.html?cat=hse" style="color: #6B7B6B; text-decoration: none;">HSE</a>
         <span>/</span>
-        <span class="text-akdo-dark/70">Confined Space Entry</span>
+        <span style="color: #0D2626;">Confined Space Entry</span>
       </div>
 
       <!-- Hero visual + intro -->
-      <div class="flex flex-col md:flex-row gap-10 md:gap-14 items-start">
+      <div style="display: flex; gap: 64px; align-items: flex-start;">
 
         <!-- Left: visual placeholder -->
-        <div class="w-full md:w-[480px] shrink-0 rounded-2xl overflow-hidden bg-gradient-to-br from-red-50 via-red-100 to-orange-100 aspect-[16/10] flex items-center justify-center relative">
-          <div class="text-center">
-            <svg class="mx-auto mb-3 opacity-30" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#02140d" stroke-width="1"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-            <p class="text-[12px] text-akdo-dark/30 font-medium">Module preview</p>
+        <div style="width: 480px; flex-shrink: 0; border-radius: 12px; overflow: hidden; background: #F5F7F5; aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center; position: relative;">
+          <div style="text-align: center;">
+            <svg style="margin: 0 auto 12px auto; opacity: 0.3; display: block;" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#0D2626" stroke-width="1"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <p style="font-family: Poppins; font-size: 13px; font-weight: 500; color: #6B7B6B;">Module preview</p>
           </div>
           <!-- Metadata overlay -->
-          <div class="absolute bottom-0 left-0 right-0 bg-white/80 backdrop-blur-md px-5 py-3 flex items-center gap-6">
-            <div class="flex items-center gap-2">
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" class="text-akdo-dark/40"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 4.5V8l2.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-              <span class="text-[12px] font-medium text-akdo-dark/60">5 – 15 min per lesson</span>
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.9); padding: 12px 20px; display: flex; align-items: center; gap: 24px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#6B7B6B" stroke-width="1.5"/><path d="M8 4.5V8l2.5 1.5" stroke="#6B7B6B" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <span style="font-family: Poppins; font-size: 13px; font-weight: 500; color: #6B7B6B;">5 – 15 min per lesson</span>
             </div>
-            <div class="flex items-center gap-2">
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" class="text-akdo-dark/40"><path d="M8 1a7 7 0 100 14A7 7 0 008 1z" stroke="currentColor" stroke-width="1.5"/><path d="M5.5 8.5l2 2 3-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span class="text-[12px] font-medium text-akdo-dark/60">3 formats</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1a7 7 0 100 14A7 7 0 008 1z" stroke="#6B7B6B" stroke-width="1.5"/><path d="M5.5 8.5l2 2 3-4" stroke="#6B7B6B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span style="font-family: Poppins; font-size: 13px; font-weight: 500; color: #6B7B6B;">3 formats</span>
             </div>
-            <div class="flex items-center gap-2">
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" class="text-akdo-dark/40"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M4 8h8M8 4v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-              <span class="text-[12px] font-medium text-akdo-dark/60">200+ languages</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#6B7B6B" stroke-width="1.5"/><path d="M4 8h8M8 4v8" stroke="#6B7B6B" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <span style="font-family: Poppins; font-size: 13px; font-weight: 500; color: #6B7B6B;">200+ languages</span>
             </div>
           </div>
         </div>
 
         <!-- Right: title + description -->
-        <div class="flex-1 pt-2">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="tag text-white bg-red-400 !text-[11px] !px-3 !py-1">HSE</span>
-            <span class="tag bg-akdo-dark/[0.05] text-akdo-dark/50 !text-[11px] !px-3 !py-1">Safety</span>
+        <div style="flex: 1; padding-top: 8px;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+            <span style="font-family: Poppins; font-size: 13px; font-weight: 500; padding: 6px 16px; border-radius: 100px; background: rgba(44,194,125,0.1); color: #2CC27D;">HSE</span>
+            <span style="font-family: Poppins; font-size: 13px; font-weight: 500; padding: 6px 16px; border-radius: 100px; background: rgba(44,194,125,0.1); color: #2CC27D;">Safety</span>
           </div>
 
-          <h1 class="font-bold text-[36px] md:text-[44px] leading-[1.1] tracking-tight text-akdo-dark mb-5">
+          <h1 style="font-family: Poppins; font-size: 64px; font-weight: 700; color: #0D2626; line-height: 1.15; letter-spacing: -1px; margin: 0 0 24px 0; max-width: 860px;">
             Confined Space Entry
           </h1>
 
-          <p class="text-[16px] text-akdo-dark/55 leading-relaxed mb-8">
+          <p style="font-family: Poppins; font-size: 17px; font-weight: 400; color: #0D2626; line-height: 1.6; margin: 0 0 32px 0; max-width: 600px;">
             Confined space incidents are among the deadliest in industrial workplaces — often claiming multiple lives in a single event. This module covers the hazards, procedures, and emergency protocols for working in confined spaces, built from real incident data and adapted to your site-specific permit-to-work systems.
           </p>
 
-          <div class="flex items-center gap-4">
-            <a href="book-demo.html" class="btn-primary">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <a href="book-demo.html" style="display: inline-flex; align-items: center; gap: 8px; background: #83E85A; color: #113333; font-family: Poppins; font-size: 15px; font-weight: 600; padding: 14px 28px; border-radius: 8px; text-decoration: none; border: none;">
               Book a Demo
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
-            <span class="text-[12px] text-akdo-dark/30">30 min · We build a sample live</span>
+            <span style="font-family: Poppins; font-size: 13px; font-weight: 500; color: #6B7B6B;">30 min · We build a sample live</span>
           </div>
         </div>
 
@@ -153,230 +99,236 @@
   </section>
 
 
-  <!-- WHO THIS IS FOR (full-width) -->
-  <section class="pt-16 pb-14">
-    <div class="site-w">
-      <h2 class="font-semibold text-[18px] text-akdo-dark mb-5">Who this is for</h2>
-      <div class="grid md:grid-cols-4 gap-4">
-        <div class="bg-white rounded-xl p-5 border border-black/[0.04] border-t-[3px] border-t-akdo-green">
-          <div class="w-11 h-11 rounded-full bg-akdo-green/10 flex items-center justify-center mb-4">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2cc27d" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          </div>
-          <h3 class="font-semibold text-[14px] text-akdo-dark mb-1.5">Entrants & Operators</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed">Workers who physically enter confined spaces — tanks, vessels, manholes, silos, or pipelines — to perform maintenance, inspection, or cleaning tasks.</p>
+  <!-- WHO THIS IS FOR -->
+  <section style="display: flex; flex-direction: column; align-items: center; padding: 80px 24px; background: #F5F7F5;">
+    <div style="display: flex; flex-direction: column; max-width: 960px; width: 100%; gap: 32px;">
+      <h2 style="font-family: Poppins; font-size: 28px; font-weight: 600; color: #0D2626; line-height: 1.2; letter-spacing: -0.5px; margin: 0;">Who this is for</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 24px;">
+        <div style="width: 468px; background: #FFFFFF; border-radius: 12px; padding: 24px; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 2px 8px rgba(17,51,51,0.06);">
+          <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; font-size: 18px;">🔧</div>
+          <h3 style="font-family: Poppins; font-size: 17px; font-weight: 600; color: #0D2626; margin: 0 0 8px 0;">Entrants &amp; Operators</h3>
+          <p style="font-family: Poppins; font-size: 15px; font-weight: 400; color: #0D2626; line-height: 1.6; margin: 0;">Workers who physically enter confined spaces — tanks, vessels, manholes, silos, or pipelines — to perform maintenance, inspection, or cleaning tasks.</p>
         </div>
-        <div class="bg-white rounded-xl p-5 border border-black/[0.04] border-t-[3px] border-t-akdo-lime">
-          <div class="w-11 h-11 rounded-full bg-akdo-lime/10 flex items-center justify-center mb-4">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#83e85a" stroke-width="2" stroke-linecap="round"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6m3-3h-6"/></svg>
-          </div>
-          <h3 class="font-semibold text-[14px] text-akdo-dark mb-1.5">Attendants & Hole Watch</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed">Personnel stationed outside the confined space to monitor conditions, maintain communication, and initiate emergency response if needed.</p>
+        <div style="width: 468px; background: #FFFFFF; border-radius: 12px; padding: 24px; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 2px 8px rgba(17,51,51,0.06);">
+          <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; font-size: 18px;">👁️</div>
+          <h3 style="font-family: Poppins; font-size: 17px; font-weight: 600; color: #0D2626; margin: 0 0 8px 0;">Attendants &amp; Hole Watch</h3>
+          <p style="font-family: Poppins; font-size: 15px; font-weight: 400; color: #0D2626; line-height: 1.6; margin: 0;">Personnel stationed outside the confined space to monitor conditions, maintain communication, and initiate emergency response if needed.</p>
         </div>
-        <div class="bg-white rounded-xl p-5 border border-black/[0.04] border-t-[3px] border-t-akdo-peach">
-          <div class="w-11 h-11 rounded-full bg-akdo-peach/10 flex items-center justify-center mb-4">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffc091" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-          </div>
-          <h3 class="font-semibold text-[14px] text-akdo-dark mb-1.5">Supervisors & Permit Issuers</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed">Team leads responsible for issuing confined space permits, verifying atmospheric conditions, and authorizing entry and rescue plans.</p>
+        <div style="width: 468px; background: #FFFFFF; border-radius: 12px; padding: 24px; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 2px 8px rgba(17,51,51,0.06);">
+          <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; font-size: 18px;">📋</div>
+          <h3 style="font-family: Poppins; font-size: 17px; font-weight: 600; color: #0D2626; margin: 0 0 8px 0;">Supervisors &amp; Permit Issuers</h3>
+          <p style="font-family: Poppins; font-size: 15px; font-weight: 400; color: #0D2626; line-height: 1.6; margin: 0;">Team leads responsible for issuing confined space permits, verifying atmospheric conditions, and authorizing entry and rescue plans.</p>
         </div>
-        <div class="bg-white rounded-xl p-5 border border-black/[0.04] border-t-[3px] border-t-akdo-yellow">
-          <div class="w-11 h-11 rounded-full bg-akdo-yellow/10 flex items-center justify-center mb-4">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fee581" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-          </div>
-          <h3 class="font-semibold text-[14px] text-akdo-dark mb-1.5">Rescue Teams</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed">On-site emergency response personnel who need to execute confined space rescue without becoming secondary casualties themselves.</p>
+        <div style="width: 468px; background: #FFFFFF; border-radius: 12px; padding: 24px; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 2px 8px rgba(17,51,51,0.06);">
+          <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; font-size: 18px;">🚨</div>
+          <h3 style="font-family: Poppins; font-size: 17px; font-weight: 600; color: #0D2626; margin: 0 0 8px 0;">Rescue Teams</h3>
+          <p style="font-family: Poppins; font-size: 15px; font-weight: 400; color: #0D2626; line-height: 1.6; margin: 0;">On-site emergency response personnel who need to execute confined space rescue without becoming secondary casualties themselves.</p>
         </div>
       </div>
-      <div class="mt-4 flex flex-wrap gap-2">
-        <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50 !text-[11px] !py-1 !px-3">Oil & Gas</span>
-        <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50 !text-[11px] !py-1 !px-3">Chemical & Petrochemical</span>
-        <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50 !text-[11px] !py-1 !px-3">Water & Wastewater</span>
-        <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50 !text-[11px] !py-1 !px-3">Manufacturing</span>
-        <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50 !text-[11px] !py-1 !px-3">Mining</span>
-        <span class="tag bg-akdo-dark/[0.04] text-akdo-dark/50 !text-[11px] !py-1 !px-3">Construction</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <span style="font-family: Poppins; font-size: 13px; font-weight: 500; padding: 6px 16px; border-radius: 100px; background: rgba(44,194,125,0.1); color: #2CC27D;">Oil &amp; Gas</span>
+        <span style="font-family: Poppins; font-size: 13px; font-weight: 500; padding: 6px 16px; border-radius: 100px; background: rgba(44,194,125,0.1); color: #2CC27D;">Chemical &amp; Petrochemical</span>
+        <span style="font-family: Poppins; font-size: 13px; font-weight: 500; padding: 6px 16px; border-radius: 100px; background: rgba(44,194,125,0.1); color: #2CC27D;">Water &amp; Wastewater</span>
+        <span style="font-family: Poppins; font-size: 13px; font-weight: 500; padding: 6px 16px; border-radius: 100px; background: rgba(44,194,125,0.1); color: #2CC27D;">Manufacturing</span>
+        <span style="font-family: Poppins; font-size: 13px; font-weight: 500; padding: 6px 16px; border-radius: 100px; background: rgba(44,194,125,0.1); color: #2CC27D;">Mining</span>
+        <span style="font-family: Poppins; font-size: 13px; font-weight: 500; padding: 6px 16px; border-radius: 100px; background: rgba(44,194,125,0.1); color: #2CC27D;">Construction</span>
       </div>
     </div>
   </section>
 
 
   <!-- MAIN CONTENT + SIDEBAR -->
-  <section class="pb-16">
-    <div class="site-w">
-      <div class="flex flex-col md:flex-row items-start gap-10 md:gap-16">
+  <section style="display: flex; flex-direction: column; align-items: center; padding: 80px 24px; background: #FFFFFF;">
+    <div style="display: flex; max-width: 960px; width: 100%; gap: 64px; align-items: flex-start;">
 
-        <!-- Main content -->
-        <div class="flex-1 max-w-[660px]">
+      <!-- Main content -->
+      <div style="flex: 1; display: flex; flex-direction: column;">
 
-          <!-- WHAT THIS MODULE COVERS -->
-          <div class="mb-14">
-            <h2 class="font-semibold text-[18px] text-akdo-dark mb-5">What this module covers</h2>
-            <div class="grid md:grid-cols-2 gap-x-6 gap-y-3">
-              <div class="flex items-center text-[14px] text-akdo-dark/70 check-item">Confined space identification & classification</div>
-              <div class="flex items-center text-[14px] text-akdo-dark/70 check-item">Atmospheric testing & gas detection</div>
-              <div class="flex items-center text-[14px] text-akdo-dark/70 check-item">Permit-to-work procedures</div>
-              <div class="flex items-center text-[14px] text-akdo-dark/70 check-item">Ventilation requirements & monitoring</div>
-              <div class="flex items-center text-[14px] text-akdo-dark/70 check-item">Entry & exit protocols</div>
-              <div class="flex items-center text-[14px] text-akdo-dark/70 check-item">Rescue planning & emergency response</div>
-              <div class="flex items-center text-[14px] text-akdo-dark/70 check-item">PPE selection for confined spaces</div>
-              <div class="flex items-center text-[14px] text-akdo-dark/70 check-item">Communication systems & attendant duties</div>
-            </div>
-          </div>
-
-
-          <!-- LEARNING OBJECTIVES -->
-          <div class="mb-14">
-            <h2 class="font-semibold text-[18px] text-akdo-dark mb-5">Learning objectives</h2>
-            <div class="space-y-3">
-              <div class="flex gap-3 text-[14px] text-akdo-dark/70">
-                <span class="text-akdo-green font-semibold shrink-0">01</span>
-                <span>Identify confined spaces and assess the risks before entry, including atmospheric hazards, engulfment, and entrapment.</span>
+        <!-- WHAT THIS MODULE COVERS -->
+        <div style="margin-bottom: 64px;">
+          <h2 style="font-family: Poppins; font-size: 28px; font-weight: 600; color: #0D2626; line-height: 1.2; letter-spacing: -0.5px; margin: 0 0 24px 0;">What this module covers</h2>
+          <div style="display: flex; gap: 32px;">
+            <div style="flex: 1; display: flex; flex-direction: column; gap: 16px;">
+              <div style="display: flex; align-items: flex-start; gap: 12px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #0D2626; line-height: 1.5;">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink: 0; margin-top: 2px;"><circle cx="10" cy="10" r="10" fill="rgba(44,194,125,0.1)"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#2CC27D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Confined space identification &amp; classification
               </div>
-              <div class="flex gap-3 text-[14px] text-akdo-dark/70">
-                <span class="text-akdo-green font-semibold shrink-0">02</span>
-                <span>Execute a complete permit-to-work process from hazard assessment through to space sign-off, including atmospheric testing and ventilation checks.</span>
+              <div style="display: flex; align-items: flex-start; gap: 12px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #0D2626; line-height: 1.5;">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink: 0; margin-top: 2px;"><circle cx="10" cy="10" r="10" fill="rgba(44,194,125,0.1)"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#2CC27D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Permit-to-work procedures
               </div>
-              <div class="flex gap-3 text-[14px] text-akdo-dark/70">
-                <span class="text-akdo-green font-semibold shrink-0">03</span>
-                <span>Respond to confined space emergencies following rescue protocols without becoming a secondary casualty.</span>
+              <div style="display: flex; align-items: flex-start; gap: 12px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #0D2626; line-height: 1.5;">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink: 0; margin-top: 2px;"><circle cx="10" cy="10" r="10" fill="rgba(44,194,125,0.1)"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#2CC27D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Entry &amp; exit protocols
+              </div>
+              <div style="display: flex; align-items: flex-start; gap: 12px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #0D2626; line-height: 1.5;">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink: 0; margin-top: 2px;"><circle cx="10" cy="10" r="10" fill="rgba(44,194,125,0.1)"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#2CC27D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                PPE selection for confined spaces
               </div>
             </div>
-          </div>
-
-
-        </div>
-
-
-        <!-- Sidebar -->
-        <div class="md:w-[300px] shrink-0">
-          <div class="space-y-6">
-
-            <!-- YOUR VERSION -->
-            <div class="bg-akdo-dark rounded-xl p-6">
-              <h3 class="font-bold text-[16px] text-white mb-4">Your version includes</h3>
-              <div class="space-y-3">
-                <div class="flex items-start gap-2.5">
-                  <svg class="shrink-0 mt-0.5 text-akdo-green" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  <span class="text-[13px] text-white/60 leading-snug">Your real incident data as case studies</span>
-                </div>
-                <div class="flex items-start gap-2.5">
-                  <svg class="shrink-0 mt-0.5 text-akdo-green" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  <span class="text-[13px] text-white/60 leading-snug">Site-specific procedures and photos</span>
-                </div>
-                <div class="flex items-start gap-2.5">
-                  <svg class="shrink-0 mt-0.5 text-akdo-green" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  <span class="text-[13px] text-white/60 leading-snug">Local regulatory requirements</span>
-                </div>
-                <div class="flex items-start gap-2.5">
-                  <svg class="shrink-0 mt-0.5 text-akdo-green" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  <span class="text-[13px] text-white/60 leading-snug">Native language delivery (200+)</span>
-                </div>
-                <div class="flex items-start gap-2.5">
-                  <svg class="shrink-0 mt-0.5 text-akdo-green" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  <span class="text-[13px] text-white/60 leading-snug">Your branding and terminology</span>
-                </div>
+            <div style="flex: 1; display: flex; flex-direction: column; gap: 16px;">
+              <div style="display: flex; align-items: flex-start; gap: 12px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #0D2626; line-height: 1.5;">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink: 0; margin-top: 2px;"><circle cx="10" cy="10" r="10" fill="rgba(44,194,125,0.1)"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#2CC27D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Atmospheric testing &amp; gas detection
               </div>
-              <div class="mt-6">
-                <a href="book-demo.html" class="btn-primary w-full justify-center !text-[13px] !py-3">
-                  Book a Demo
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </a>
+              <div style="display: flex; align-items: flex-start; gap: 12px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #0D2626; line-height: 1.5;">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink: 0; margin-top: 2px;"><circle cx="10" cy="10" r="10" fill="rgba(44,194,125,0.1)"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#2CC27D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Ventilation requirements &amp; monitoring
               </div>
-              <p class="text-[11px] text-white/25 text-center mt-3">30 min · We build a sample live</p>
+              <div style="display: flex; align-items: flex-start; gap: 12px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #0D2626; line-height: 1.5;">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink: 0; margin-top: 2px;"><circle cx="10" cy="10" r="10" fill="rgba(44,194,125,0.1)"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#2CC27D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Rescue planning &amp; emergency response
+              </div>
+              <div style="display: flex; align-items: flex-start; gap: 12px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #0D2626; line-height: 1.5;">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="flex-shrink: 0; margin-top: 2px;"><circle cx="10" cy="10" r="10" fill="rgba(44,194,125,0.1)"/><path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="#2CC27D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Communication systems &amp; attendant duties
+              </div>
             </div>
-
           </div>
         </div>
 
+        <!-- LEARNING OBJECTIVES -->
+        <div>
+          <h2 style="font-family: Poppins; font-size: 28px; font-weight: 600; color: #0D2626; line-height: 1.2; letter-spacing: -0.5px; margin: 0 0 24px 0;">Learning objectives</h2>
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div style="display: flex; gap: 12px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #0D2626; line-height: 1.6;">
+              <span style="font-weight: 600; color: #2CC27D; flex-shrink: 0;">01</span>
+              <span>Identify confined spaces and assess the risks before entry, including atmospheric hazards, engulfment, and entrapment.</span>
+            </div>
+            <div style="display: flex; gap: 12px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #0D2626; line-height: 1.6;">
+              <span style="font-weight: 600; color: #2CC27D; flex-shrink: 0;">02</span>
+              <span>Execute a complete permit-to-work process from hazard assessment through to space sign-off, including atmospheric testing and ventilation checks.</span>
+            </div>
+            <div style="display: flex; gap: 12px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #0D2626; line-height: 1.6;">
+              <span style="font-weight: 600; color: #2CC27D; flex-shrink: 0;">03</span>
+              <span>Respond to confined space emergencies following rescue protocols without becoming a secondary casualty.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <div style="width: 340px; flex-shrink: 0;">
+        <div style="background: radial-gradient(ellipse at 50% 0%, #153d30 0%, #0E2B2B 60%, #091E1E 100%); border-radius: 12px; padding: 32px;">
+          <h3 style="font-family: Poppins; font-size: 22px; font-weight: 600; color: #FFFFFF; margin: 0 0 24px 0;">Your version includes</h3>
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div style="display: flex; align-items: flex-start; gap: 12px;">
+              <svg style="flex-shrink: 0; margin-top: 2px;" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7.5" stroke="#83E85A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span style="font-family: Poppins; font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.85); line-height: 1.5;">Your real incident data as case studies</span>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 12px;">
+              <svg style="flex-shrink: 0; margin-top: 2px;" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7.5" stroke="#83E85A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span style="font-family: Poppins; font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.85); line-height: 1.5;">Site-specific procedures and photos</span>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 12px;">
+              <svg style="flex-shrink: 0; margin-top: 2px;" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7.5" stroke="#83E85A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span style="font-family: Poppins; font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.85); line-height: 1.5;">Local regulatory requirements</span>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 12px;">
+              <svg style="flex-shrink: 0; margin-top: 2px;" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7.5" stroke="#83E85A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span style="font-family: Poppins; font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.85); line-height: 1.5;">Native language delivery (200+)</span>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 12px;">
+              <svg style="flex-shrink: 0; margin-top: 2px;" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7.5" stroke="#83E85A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span style="font-family: Poppins; font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.85); line-height: 1.5;">Your branding and terminology</span>
+            </div>
+          </div>
+          <div style="margin-top: 24px;">
+            <a href="book-demo.html" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; background: #83E85A; color: #113333; font-family: Poppins; font-size: 15px; font-weight: 600; padding: 14px 28px; border-radius: 8px; text-decoration: none; border: none;">
+              Book a Demo
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+          <p style="font-family: Poppins; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.65); text-align: center; margin: 12px 0 0 0;">30 min · We build a sample live</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- AVAILABLE FORMATS -->
+  <section style="display: flex; flex-direction: column; align-items: center; padding: 80px 24px; background: #F5F7F5;">
+    <div style="display: flex; flex-direction: column; max-width: 960px; width: 100%; gap: 32px;">
+      <h2 style="font-family: Poppins; font-size: 28px; font-weight: 600; color: #0D2626; line-height: 1.2; letter-spacing: -0.5px; margin: 0;">Available formats</h2>
+      <div style="display: flex; gap: 24px;">
+        <div style="flex: 1; background: #FFFFFF; border-radius: 12px; padding: 32px; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 2px 8px rgba(17,51,51,0.06);">
+          <div style="font-size: 18px; margin-bottom: 14px;">📄</div>
+          <h3 style="font-family: Poppins; font-size: 17px; font-weight: 600; color: #0D2626; margin: 0 0 8px 0;">Microlearning</h3>
+          <p style="font-family: Poppins; font-size: 15px; font-weight: 400; color: #0D2626; line-height: 1.6; margin: 0;">5-min lessons delivered via Slack, Teams, WhatsApp, or your LMS. Spaced repetition built in to lock knowledge over time.</p>
+        </div>
+        <div style="flex: 1; background: #FFFFFF; border-radius: 12px; padding: 32px; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 2px 8px rgba(17,51,51,0.06);">
+          <div style="font-size: 18px; margin-bottom: 14px;">🎬</div>
+          <h3 style="font-family: Poppins; font-size: 17px; font-weight: 600; color: #0D2626; margin: 0 0 8px 0;">AI Video</h3>
+          <p style="font-family: Poppins; font-size: 15px; font-weight: 400; color: #0D2626; line-height: 1.6; margin: 0;">Your real incidents turned into training videos with native AI voiceover in 200+ languages. Updated automatically as new incidents are reported.</p>
+        </div>
+        <div style="flex: 1; background: #FFFFFF; border-radius: 12px; padding: 32px; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 2px 8px rgba(17,51,51,0.06);">
+          <div style="font-size: 18px; margin-bottom: 14px;">🎮</div>
+          <h3 style="font-family: Poppins; font-size: 17px; font-weight: 600; color: #0D2626; margin: 0 0 8px 0;">Simulation</h3>
+          <p style="font-family: Poppins; font-size: 15px; font-weight: 400; color: #0D2626; line-height: 1.6; margin: 0;">Scenario-based decision-making where workers practice confined space entry decisions — gas readings, ventilation checks, emergency extraction.</p>
+        </div>
       </div>
     </div>
   </section>
 
 
-  <!-- AVAILABLE FORMATS (full-width) -->
-  <section class="py-14">
-    <div class="site-w">
-      <h2 class="font-semibold text-[18px] text-akdo-dark mb-5">Available formats</h2>
-      <div class="grid md:grid-cols-3 gap-4">
-        <div class="bg-akdo-cream/50 rounded-xl p-6 border border-black/[0.03]">
-          <div class="text-[22px] mb-2">📄</div>
-          <h3 class="font-semibold text-[14px] text-akdo-dark mb-1.5">Microlearning</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed">5-min lessons delivered via Slack, Teams, WhatsApp, or your LMS. Spaced repetition built in to lock knowledge over time.</p>
+  <!-- TRADITIONAL VS AKDO -->
+  <section style="display: flex; flex-direction: column; align-items: center; padding: 80px 24px; background: #FFFFFF;">
+    <div style="display: flex; flex-direction: column; max-width: 960px; width: 100%; gap: 32px;">
+      <h2 style="font-family: Poppins; font-size: 28px; font-weight: 600; color: #0D2626; line-height: 1.2; letter-spacing: -0.5px; margin: 0;">Why this works better than traditional training</h2>
+      <div style="background: #FFFFFF; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); overflow: hidden;">
+        <!-- Header row -->
+        <div style="display: flex;">
+          <div style="flex: 1; padding: 16px 24px; font-family: Poppins; font-size: 13px; font-weight: 600; background: #0D2626;"></div>
+          <div style="flex: 1.5; padding: 16px 24px; font-family: Poppins; font-size: 13px; font-weight: 600; color: #83E85A; background: #0D2626;">Traditional</div>
+          <div style="flex: 1.5; padding: 16px 24px; font-family: Poppins; font-size: 13px; font-weight: 600; color: #83E85A; background: #0D2626;">With Akdo</div>
         </div>
-        <div class="bg-akdo-cream/50 rounded-xl p-6 border border-black/[0.03]">
-          <div class="text-[22px] mb-2">🎬</div>
-          <h3 class="font-semibold text-[14px] text-akdo-dark mb-1.5">AI Video</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed">Your real incidents turned into training videos with native AI voiceover in 200+ languages. Updated automatically as new incidents are reported.</p>
+        <!-- Rows -->
+        <div style="display: flex; border-bottom: 1px solid rgba(0,0,0,0.08);">
+          <div style="flex: 1; padding: 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 500; color: #0D2626;">Content</div>
+          <div style="flex: 1.5; padding: 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #6B7B6B;">Generic slides, same for every company</div>
+          <div style="flex: 1.5; padding: 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #0D2626;">Built from your incidents, your sites, your procedures</div>
         </div>
-        <div class="bg-akdo-cream/50 rounded-xl p-6 border border-black/[0.03]">
-          <div class="text-[22px] mb-2">🎮</div>
-          <h3 class="font-semibold text-[14px] text-akdo-dark mb-1.5">Simulation</h3>
-          <p class="text-[12px] text-akdo-dark/45 leading-relaxed">Scenario-based decision-making where workers practice confined space entry decisions — gas readings, ventilation checks, emergency extraction.</p>
+        <div style="display: flex; border-bottom: 1px solid rgba(0,0,0,0.08); background: #F5F7F5;">
+          <div style="flex: 1; padding: 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 500; color: #0D2626;">Language</div>
+          <div style="flex: 1.5; padding: 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #6B7B6B;">English-only or limited translations</div>
+          <div style="flex: 1.5; padding: 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #0D2626;">Native delivery in 200+ languages</div>
+        </div>
+        <div style="display: flex; border-bottom: 1px solid rgba(0,0,0,0.08);">
+          <div style="flex: 1; padding: 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 500; color: #0D2626;">Delivery</div>
+          <div style="flex: 1.5; padding: 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #6B7B6B;">Classroom session, one-time event</div>
+          <div style="flex: 1.5; padding: 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #0D2626;">Microlearning, video, and simulation — on any device</div>
+        </div>
+        <div style="display: flex; border-bottom: 1px solid rgba(0,0,0,0.08); background: #F5F7F5;">
+          <div style="flex: 1; padding: 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 500; color: #0D2626;">Retention</div>
+          <div style="flex: 1.5; padding: 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #6B7B6B;">Forgotten within weeks</div>
+          <div style="flex: 1.5; padding: 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #0D2626;">Spaced repetition keeps knowledge fresh</div>
+        </div>
+        <div style="display: flex; border-bottom: 1px solid rgba(0,0,0,0.08);">
+          <div style="flex: 1; padding: 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 500; color: #0D2626;">Updates</div>
+          <div style="flex: 1.5; padding: 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #6B7B6B;">Manual revision, months to update</div>
+          <div style="flex: 1.5; padding: 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #0D2626;">AI-powered — new incidents become training within days</div>
+        </div>
+        <div style="display: flex;">
+          <div style="flex: 1; padding: 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 500; color: #0D2626;">Tracking</div>
+          <div style="flex: 1.5; padding: 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #6B7B6B;">Sign-in sheet, no insight into comprehension</div>
+          <div style="flex: 1.5; padding: 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #0D2626;">Real-time completion, comprehension scores, gap analysis</div>
         </div>
       </div>
     </div>
   </section>
 
 
-  <!-- TRADITIONAL VS AKDO (full-width) -->
-  <section class="py-14 bg-akdo-cream/40 border-t border-black/[0.04]">
-    <div class="site-w">
-      <h2 class="font-semibold text-[18px] text-akdo-dark mb-5">Why this works better than traditional training</h2>
-      <div class="rounded-xl border border-black/[0.05] overflow-hidden bg-white">
-        <table class="w-full text-[13px]">
-          <thead>
-            <tr class="bg-akdo-cream/50">
-              <th class="text-left py-3 px-5 font-medium text-akdo-dark/40 w-[28%]"></th>
-              <th class="text-left py-3 px-5 font-medium text-akdo-dark/40">Traditional</th>
-              <th class="text-left py-3 px-5 font-medium text-akdo-green">With Akdo</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-t border-black/[0.04]">
-              <td class="py-3 px-5 font-medium text-akdo-dark/70">Content</td>
-              <td class="py-3 px-5 text-akdo-dark/45">Generic slides, same for every company</td>
-              <td class="py-3 px-5 text-akdo-dark/70">Built from your incidents, your sites, your procedures</td>
-            </tr>
-            <tr class="border-t border-black/[0.04] bg-akdo-cream/20">
-              <td class="py-3 px-5 font-medium text-akdo-dark/70">Language</td>
-              <td class="py-3 px-5 text-akdo-dark/45">English-only or limited translations</td>
-              <td class="py-3 px-5 text-akdo-dark/70">Native delivery in 200+ languages</td>
-            </tr>
-            <tr class="border-t border-black/[0.04]">
-              <td class="py-3 px-5 font-medium text-akdo-dark/70">Delivery</td>
-              <td class="py-3 px-5 text-akdo-dark/45">Classroom session, one-time event</td>
-              <td class="py-3 px-5 text-akdo-dark/70">Microlearning, video, and simulation — on any device</td>
-            </tr>
-            <tr class="border-t border-black/[0.04] bg-akdo-cream/20">
-              <td class="py-3 px-5 font-medium text-akdo-dark/70">Retention</td>
-              <td class="py-3 px-5 text-akdo-dark/45">Forgotten within weeks</td>
-              <td class="py-3 px-5 text-akdo-dark/70">Spaced repetition keeps knowledge fresh</td>
-            </tr>
-            <tr class="border-t border-black/[0.04]">
-              <td class="py-3 px-5 font-medium text-akdo-dark/70">Updates</td>
-              <td class="py-3 px-5 text-akdo-dark/45">Manual revision, months to update</td>
-              <td class="py-3 px-5 text-akdo-dark/70">AI-powered — new incidents become training within days</td>
-            </tr>
-            <tr class="border-t border-black/[0.04] bg-akdo-cream/20">
-              <td class="py-3 px-5 font-medium text-akdo-dark/70">Tracking</td>
-              <td class="py-3 px-5 text-akdo-dark/45">Sign-in sheet, no insight into comprehension</td>
-              <td class="py-3 px-5 text-akdo-dark/70">Real-time completion, comprehension scores, gap analysis</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- MID-PAGE CTA (full-width) -->
-  <section class="py-14">
-    <div class="site-w">
-      <div class="bg-akdo-dark rounded-2xl p-8 flex flex-col md:flex-row items-center gap-6">
-        <div class="flex-1">
-          <h3 class="font-bold text-[18px] text-white mb-2">See how it looks with your data</h3>
-          <p class="text-[14px] text-white/50 leading-relaxed">In a 30-minute demo, we build a sample module using your real incidents, procedures, and branding — live.</p>
+  <!-- MID-PAGE CTA -->
+  <section style="display: flex; flex-direction: column; align-items: center; padding: 80px 24px; background: #F5F7F5;">
+    <div style="display: flex; max-width: 960px; width: 100%;">
+      <div style="display: flex; align-items: center; gap: 48px; width: 100%; background: radial-gradient(ellipse at 70% 50%, #153d30 0%, #0E2B2B 60%, #091E1E 100%); border-radius: 16px; padding: 48px;">
+        <div style="flex: 1;">
+          <h3 style="font-family: Poppins; font-size: 28px; font-weight: 600; color: #FFFFFF; line-height: 1.2; letter-spacing: -0.5px; margin: 0 0 12px 0;">See how it looks with your data</h3>
+          <p style="font-family: Poppins; font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.85); line-height: 1.6; margin: 0;">In a 30-minute demo, we build a sample module using your real incidents, procedures, and branding — live.</p>
         </div>
-        <a href="book-demo.html" class="btn-primary shrink-0">
+        <a href="book-demo.html" style="display: inline-flex; align-items: center; gap: 8px; background: #83E85A; color: #113333; font-family: Poppins; font-size: 15px; font-weight: 600; padding: 14px 28px; border-radius: 8px; text-decoration: none; border: none; flex-shrink: 0;">
           Book a Demo
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
@@ -385,68 +337,68 @@
   </section>
 
 
-  <!-- FAQ (full-width) -->
-  <section class="py-14 border-t border-black/[0.04]">
-    <div class="site-w max-w-[800px]">
-      <h2 class="font-semibold text-[18px] text-akdo-dark mb-5">Frequently asked questions</h2>
-      <div class="space-y-0 border border-black/[0.05] rounded-xl overflow-hidden">
+  <!-- FAQ -->
+  <section style="display: flex; flex-direction: column; align-items: center; padding: 80px 24px; background: #FFFFFF;">
+    <div style="display: flex; flex-direction: column; max-width: 800px; width: 100%; gap: 32px;">
+      <h2 style="font-family: Poppins; font-size: 28px; font-weight: 600; color: #0D2626; line-height: 1.2; letter-spacing: -0.5px; margin: 0;">Frequently asked questions</h2>
+      <div style="border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; overflow: hidden;">
 
-        <details class="group border-b border-black/[0.04] last:border-b-0">
-          <summary class="flex items-center justify-between cursor-pointer py-4 px-5 text-[14px] font-medium text-akdo-dark hover:bg-akdo-cream/30 transition-colors">
+        <details>
+          <summary style="display: flex; align-items: center; justify-content: space-between; cursor: pointer; padding: 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 500; color: #0D2626; border-bottom: 1px solid rgba(0,0,0,0.08); list-style: none;">
             Does this replace in-person confined space training?
-            <svg class="shrink-0 ml-3 text-akdo-dark/30 group-open:rotate-180 transition-transform" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg style="flex-shrink: 0; margin-left: 12px;" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="#6B7B6B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </summary>
-          <div class="px-5 pb-4 text-[13px] text-akdo-dark/55 leading-relaxed">
+          <div style="padding: 0 24px 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #6B7B6B; line-height: 1.6;">
             It depends on your regulatory context. In most jurisdictions, Akdo modules cover the theory and procedural knowledge required for confined space entry, while practical assessments (equipment handling, rescue drills) still happen on site. We help you map our content to your local regulations so you know exactly what's covered.
           </div>
         </details>
 
-        <details class="group border-b border-black/[0.04] last:border-b-0">
-          <summary class="flex items-center justify-between cursor-pointer py-4 px-5 text-[14px] font-medium text-akdo-dark hover:bg-akdo-cream/30 transition-colors">
+        <details>
+          <summary style="display: flex; align-items: center; justify-content: space-between; cursor: pointer; padding: 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 500; color: #0D2626; border-bottom: 1px solid rgba(0,0,0,0.08); list-style: none;">
             How is the content customized to our company?
-            <svg class="shrink-0 ml-3 text-akdo-dark/30 group-open:rotate-180 transition-transform" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg style="flex-shrink: 0; margin-left: 12px;" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="#6B7B6B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </summary>
-          <div class="px-5 pb-4 text-[13px] text-akdo-dark/55 leading-relaxed">
+          <div style="padding: 0 24px 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #6B7B6B; line-height: 1.6;">
             We use your actual incident reports, near-miss data, site photos, and standard operating procedures to build the training. Your workers see their own confined spaces, their own permit systems, and their own gas detection equipment — not generic stock content.
           </div>
         </details>
 
-        <details class="group border-b border-black/[0.04] last:border-b-0">
-          <summary class="flex items-center justify-between cursor-pointer py-4 px-5 text-[14px] font-medium text-akdo-dark hover:bg-akdo-cream/30 transition-colors">
+        <details>
+          <summary style="display: flex; align-items: center; justify-content: space-between; cursor: pointer; padding: 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 500; color: #0D2626; border-bottom: 1px solid rgba(0,0,0,0.08); list-style: none;">
             What happens when we have a new confined space incident?
-            <svg class="shrink-0 ml-3 text-akdo-dark/30 group-open:rotate-180 transition-transform" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg style="flex-shrink: 0; margin-left: 12px;" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="#6B7B6B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </summary>
-          <div class="px-5 pb-4 text-[13px] text-akdo-dark/55 leading-relaxed">
+          <div style="padding: 0 24px 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #6B7B6B; line-height: 1.6;">
             Share the investigation report and we generate new training content within days — a safety alert video, updated microlearning lessons, or a new simulation scenario. No waiting months for a vendor to revise a PowerPoint.
           </div>
         </details>
 
-        <details class="group border-b border-black/[0.04] last:border-b-0">
-          <summary class="flex items-center justify-between cursor-pointer py-4 px-5 text-[14px] font-medium text-akdo-dark hover:bg-akdo-cream/30 transition-colors">
+        <details>
+          <summary style="display: flex; align-items: center; justify-content: space-between; cursor: pointer; padding: 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 500; color: #0D2626; border-bottom: 1px solid rgba(0,0,0,0.08); list-style: none;">
             Can workers access this on mobile or offline?
-            <svg class="shrink-0 ml-3 text-akdo-dark/30 group-open:rotate-180 transition-transform" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg style="flex-shrink: 0; margin-left: 12px;" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="#6B7B6B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </summary>
-          <div class="px-5 pb-4 text-[13px] text-akdo-dark/55 leading-relaxed">
+          <div style="padding: 0 24px 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #6B7B6B; line-height: 1.6;">
             Yes. Microlearning lessons are delivered through Slack, Teams, WhatsApp, or your LMS — wherever your workforce already is. Video content works on any device. For remote sites with limited connectivity, modules can be pre-loaded for offline access.
           </div>
         </details>
 
-        <details class="group border-b border-black/[0.04] last:border-b-0">
-          <summary class="flex items-center justify-between cursor-pointer py-4 px-5 text-[14px] font-medium text-akdo-dark hover:bg-akdo-cream/30 transition-colors">
+        <details>
+          <summary style="display: flex; align-items: center; justify-content: space-between; cursor: pointer; padding: 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 500; color: #0D2626; border-bottom: 1px solid rgba(0,0,0,0.08); list-style: none;">
             How do we track who has completed the training?
-            <svg class="shrink-0 ml-3 text-akdo-dark/30 group-open:rotate-180 transition-transform" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg style="flex-shrink: 0; margin-left: 12px;" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="#6B7B6B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </summary>
-          <div class="px-5 pb-4 text-[13px] text-akdo-dark/55 leading-relaxed">
+          <div style="padding: 0 24px 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #6B7B6B; line-height: 1.6;">
             Akdo provides real-time dashboards showing completion rates, comprehension scores, and knowledge gaps across teams, sites, and individuals. We integrate with your existing LMS via SCORM/xAPI, or you can use our built-in tracking if you prefer.
           </div>
         </details>
 
-        <details class="group border-b border-black/[0.04] last:border-b-0">
-          <summary class="flex items-center justify-between cursor-pointer py-4 px-5 text-[14px] font-medium text-akdo-dark hover:bg-akdo-cream/30 transition-colors">
+        <details>
+          <summary style="display: flex; align-items: center; justify-content: space-between; cursor: pointer; padding: 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 500; color: #0D2626; list-style: none;">
             Which regulations does this cover?
-            <svg class="shrink-0 ml-3 text-akdo-dark/30 group-open:rotate-180 transition-transform" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg style="flex-shrink: 0; margin-left: 12px;" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="#6B7B6B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </summary>
-          <div class="px-5 pb-4 text-[13px] text-akdo-dark/55 leading-relaxed">
+          <div style="padding: 0 24px 16px 24px; font-family: Poppins; font-size: 15px; font-weight: 400; color: #6B7B6B; line-height: 1.6;">
             The module is aligned to OSHA 1910.146 (US), the Confined Spaces Regulations 2014 (UK), EN 547 (EU), and IOGP Life-Saving Rules. We adapt the content to your specific regulatory requirements — whether that's local legislation, client standards, or internal policies.
           </div>
         </details>
@@ -457,71 +409,65 @@
 
 
   <!-- RELATED MODULES -->
-  <section class="py-14 bg-akdo-cream/40 border-t border-black/[0.04]">
-    <div class="site-w">
-      <div class="flex items-center justify-between mb-6">
-        <h2 class="font-semibold text-[18px] text-akdo-dark">Related modules</h2>
-        <a href="training-library.html" class="text-[13px] font-medium text-akdo-green hover:text-akdo-lime transition-colors">View all →</a>
+  <section style="display: flex; flex-direction: column; align-items: center; padding: 80px 24px; background: #F5F7F5;">
+    <div style="display: flex; flex-direction: column; max-width: 960px; width: 100%; gap: 32px;">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <h2 style="font-family: Poppins; font-size: 28px; font-weight: 600; color: #0D2626; line-height: 1.2; letter-spacing: -0.5px; margin: 0;">Related modules</h2>
+        <a href="training-library.html" class="link-arrow" style="display: inline-flex; align-items: center; gap: 8px; font-family: Poppins; font-size: 15px; font-weight: 600; color: #2CC27D; text-decoration: none;">
+          View all
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
-      <div class="grid md:grid-cols-3 gap-5 max-w-[960px]">
+      <div style="display: flex; gap: 24px;">
 
-        <a href="training-library-course-v2.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm">
-          <div class="card-visual visual-safety rounded-t-xl" style="height:140px;display:flex;align-items:center;justify-content:center;position:relative;background:linear-gradient(135deg,#fef2f2,#fee2e2,#fecaca);">
-            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6">
-              <path d="M20 46V18l8-8 8 8v28"/><path d="M16 46h24"/><path d="M24 22h8M24 28h8M24 34h8"/><path d="M28 10V6"/><path d="M20 22h-4v6h4M36 22h4v6h-4"/>
-            </svg>
-            <div style="position:absolute;bottom:8px;left:8px;right:8px;display:flex;flex-wrap:wrap;gap:4px;">
-              <span class="tag" style="background:rgba(255,255,255,0.75);backdrop-filter:blur(4px);color:#02140d99;font-size:10px;">fall prevention</span>
-              <span class="tag" style="background:rgba(255,255,255,0.75);backdrop-filter:blur(4px);color:#02140d99;font-size:10px;">harness inspection</span>
-              <span class="tag" style="background:rgba(255,255,255,0.75);backdrop-filter:blur(4px);color:#02140d99;font-size:10px;">scaffold safety</span>
+        <a href="training-library-course-v2.html" style="flex: 1; display: flex; flex-direction: column; text-decoration: none; color: inherit; background: #FFFFFF; border-radius: 12px; border: 1px solid #E0E5E0; overflow: hidden; box-shadow: 0 2px 8px rgba(17,51,51,0.08);">
+          <div style="height: 140px; background: linear-gradient(135deg, #fef2f2, #fee2e2, #fecaca); display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; border-radius: 12px 12px 0 0;">
+            <div style="width: 48px; height: 48px; border-radius: 8px; background: rgba(255,255,255,0.65); border: 1px solid rgba(0,0,0,0.06);"></div>
+            <div style="position: absolute; bottom: 8px; left: 12px; right: 12px; display: flex; flex-wrap: wrap; gap: 4px;">
+              <span style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 500; color: rgba(13,38,38,0.5); background: rgba(255,255,255,0.75); padding: 3px 8px; border-radius: 100px;">fall prevention</span>
+              <span style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 500; color: rgba(13,38,38,0.5); background: rgba(255,255,255,0.75); padding: 3px 8px; border-radius: 100px;">harness inspection</span>
+              <span style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 500; color: rgba(13,38,38,0.5); background: rgba(255,255,255,0.75); padding: 3px 8px; border-radius: 100px;">scaffold safety</span>
             </div>
           </div>
-          <div class="p-5">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="tag text-white bg-red-400">Safety</span>
-            </div>
-            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Working at Heights</h3>
-            <p class="text-[12px] text-akdo-dark/45 leading-relaxed">Fall prevention, harness inspection, scaffold safety, and emergency response at elevation.</p>
+          <div style="padding: 16px 20px 20px 20px; display: flex; flex-direction: column; gap: 8px;">
+            <span style="display: inline-flex; align-self: flex-start; font-family: Poppins, sans-serif; font-size: 11px; font-weight: 600; color: #FFFFFF; background: #ef4444; border-radius: 100px; padding: 4px 12px;">Safety</span>
+            <h3 style="font-family: Poppins, sans-serif; font-size: 17px; font-weight: 600; color: #0D2626; line-height: 1.3; margin: 0;">Working at Heights</h3>
+            <p style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 400; color: #6B7B6B; line-height: 1.5; margin: 0;">Fall prevention, harness inspection, scaffold safety, and emergency response at elevation.</p>
+            <p style="font-family: Poppins, sans-serif; font-size: 11px; font-weight: 400; color: #6B7B6B; margin: 4px 0 0 0;">Construction · Telecom · Wind Energy · Shipbuilding</p>
           </div>
         </a>
 
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm">
-          <div class="card-visual visual-safety rounded-t-xl" style="height:140px;display:flex;align-items:center;justify-content:center;position:relative;background:linear-gradient(135deg,#fef2f2,#fee2e2,#fecaca);">
-            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6">
-              <path d="M18 42V20h20v22"/><rect x="22" y="14" width="12" height="6" rx="1"/><path d="M28 14v-4"/><circle cx="28" cy="30" r="4"/><path d="M28 34v4"/><path d="M14 42h28"/>
-            </svg>
-            <div style="position:absolute;bottom:8px;left:8px;right:8px;display:flex;flex-wrap:wrap;gap:4px;">
-              <span class="tag" style="background:rgba(255,255,255,0.75);backdrop-filter:blur(4px);color:#02140d99;font-size:10px;">SDS interpretation</span>
-              <span class="tag" style="background:rgba(255,255,255,0.75);backdrop-filter:blur(4px);color:#02140d99;font-size:10px;">PPE selection</span>
-              <span class="tag" style="background:rgba(255,255,255,0.75);backdrop-filter:blur(4px);color:#02140d99;font-size:10px;">spill response</span>
+        <a href="training-library-course.html" style="flex: 1; display: flex; flex-direction: column; text-decoration: none; color: inherit; background: #FFFFFF; border-radius: 12px; border: 1px solid #E0E5E0; overflow: hidden; box-shadow: 0 2px 8px rgba(17,51,51,0.08);">
+          <div style="height: 140px; background: linear-gradient(135deg, #fef2f2, #fee2e2, #fecaca); display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; border-radius: 12px 12px 0 0;">
+            <div style="width: 48px; height: 48px; border-radius: 8px; background: rgba(255,255,255,0.65); border: 1px solid rgba(0,0,0,0.06);"></div>
+            <div style="position: absolute; bottom: 8px; left: 12px; right: 12px; display: flex; flex-wrap: wrap; gap: 4px;">
+              <span style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 500; color: rgba(13,38,38,0.5); background: rgba(255,255,255,0.75); padding: 3px 8px; border-radius: 100px;">SDS interpretation</span>
+              <span style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 500; color: rgba(13,38,38,0.5); background: rgba(255,255,255,0.75); padding: 3px 8px; border-radius: 100px;">PPE selection</span>
+              <span style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 500; color: rgba(13,38,38,0.5); background: rgba(255,255,255,0.75); padding: 3px 8px; border-radius: 100px;">spill response</span>
             </div>
           </div>
-          <div class="p-5">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="tag text-white bg-red-400">Safety</span>
-            </div>
-            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Chemical Handling & HAZMAT</h3>
-            <p class="text-[12px] text-akdo-dark/45 leading-relaxed">SDS interpretation, PPE selection, spill response, and storage requirements.</p>
+          <div style="padding: 16px 20px 20px 20px; display: flex; flex-direction: column; gap: 8px;">
+            <span style="display: inline-flex; align-self: flex-start; font-family: Poppins, sans-serif; font-size: 11px; font-weight: 600; color: #FFFFFF; background: #ef4444; border-radius: 100px; padding: 4px 12px;">Safety</span>
+            <h3 style="font-family: Poppins, sans-serif; font-size: 17px; font-weight: 600; color: #0D2626; line-height: 1.3; margin: 0;">Chemical Handling &amp; HAZMAT</h3>
+            <p style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 400; color: #6B7B6B; line-height: 1.5; margin: 0;">SDS interpretation, PPE selection, spill response, and storage requirements.</p>
+            <p style="font-family: Poppins, sans-serif; font-size: 11px; font-weight: 400; color: #6B7B6B; margin: 4px 0 0 0;">Chemical · Pharma · Manufacturing · Logistics</p>
           </div>
         </a>
 
-        <a href="training-library-course.html" class="course-card bg-white rounded-xl border border-black/[0.04] hover:border-akdo-green/20 transition-all hover:shadow-sm">
-          <div class="card-visual visual-safety rounded-t-xl" style="height:140px;display:flex;align-items:center;justify-content:center;position:relative;background:linear-gradient(135deg,#fef2f2,#fee2e2,#fecaca);">
-            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6">
-              <rect x="20" y="16" width="16" height="24" rx="2"/><path d="M24 22h8"/><path d="M24 28h8"/><circle cx="28" cy="46" r="4"/><path d="M28 40v2"/><path d="M16 20h-4v16h4M40 20h4v16h-4"/>
-            </svg>
-            <div style="position:absolute;bottom:8px;left:8px;right:8px;display:flex;flex-wrap:wrap;gap:4px;">
-              <span class="tag" style="background:rgba(255,255,255,0.75);backdrop-filter:blur(4px);color:#02140d99;font-size:10px;">energy isolation</span>
-              <span class="tag" style="background:rgba(255,255,255,0.75);backdrop-filter:blur(4px);color:#02140d99;font-size:10px;">verification procedures</span>
-              <span class="tag" style="background:rgba(255,255,255,0.75);backdrop-filter:blur(4px);color:#02140d99;font-size:10px;">group lockout</span>
+        <a href="training-library-course.html" style="flex: 1; display: flex; flex-direction: column; text-decoration: none; color: inherit; background: #FFFFFF; border-radius: 12px; border: 1px solid #E0E5E0; overflow: hidden; box-shadow: 0 2px 8px rgba(17,51,51,0.08);">
+          <div style="height: 140px; background: linear-gradient(135deg, #fef2f2, #fee2e2, #fecaca); display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; border-radius: 12px 12px 0 0;">
+            <div style="width: 48px; height: 48px; border-radius: 8px; background: rgba(255,255,255,0.65); border: 1px solid rgba(0,0,0,0.06);"></div>
+            <div style="position: absolute; bottom: 8px; left: 12px; right: 12px; display: flex; flex-wrap: wrap; gap: 4px;">
+              <span style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 500; color: rgba(13,38,38,0.5); background: rgba(255,255,255,0.75); padding: 3px 8px; border-radius: 100px;">energy isolation</span>
+              <span style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 500; color: rgba(13,38,38,0.5); background: rgba(255,255,255,0.75); padding: 3px 8px; border-radius: 100px;">verification procedures</span>
+              <span style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 500; color: rgba(13,38,38,0.5); background: rgba(255,255,255,0.75); padding: 3px 8px; border-radius: 100px;">group lockout</span>
             </div>
           </div>
-          <div class="p-5">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="tag text-white bg-red-400">Safety</span>
-            </div>
-            <h3 class="card-title font-semibold text-[15px] text-akdo-dark mb-1.5 transition-colors">Lockout/Tagout (LOTO)</h3>
-            <p class="text-[12px] text-akdo-dark/45 leading-relaxed">Energy isolation, verification procedures, group lockout, and machine-specific protocols.</p>
+          <div style="padding: 16px 20px 20px 20px; display: flex; flex-direction: column; gap: 8px;">
+            <span style="display: inline-flex; align-self: flex-start; font-family: Poppins, sans-serif; font-size: 11px; font-weight: 600; color: #FFFFFF; background: #ef4444; border-radius: 100px; padding: 4px 12px;">Safety</span>
+            <h3 style="font-family: Poppins, sans-serif; font-size: 17px; font-weight: 600; color: #0D2626; line-height: 1.3; margin: 0;">Lockout/Tagout (LOTO)</h3>
+            <p style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 400; color: #6B7B6B; line-height: 1.5; margin: 0;">Energy isolation, verification procedures, group lockout, and machine-specific protocols.</p>
+            <p style="font-family: Poppins, sans-serif; font-size: 11px; font-weight: 400; color: #6B7B6B; margin: 4px 0 0 0;">Manufacturing · Oil &amp; Gas · Mining · Utilities</p>
           </div>
         </a>
 
@@ -531,11 +477,11 @@
 
 
   <!-- BOTTOM CTA -->
-  <section class="py-16 bg-akdo-dark">
-    <div class="site-w text-center">
-      <h2 class="font-bold text-[28px] text-white mb-3">Ready to see your training?</h2>
-      <p class="text-[15px] text-white/40 mb-8 max-w-[480px] mx-auto">We'll build a working sample using your incidents, your procedures, and your branding in 30 minutes.</p>
-      <a href="book-demo.html" class="btn-primary !text-[16px] !py-4 !px-10">
+  <section style="display: flex; flex-direction: column; align-items: center; padding: 80px 24px; background: radial-gradient(ellipse at 50% 0%, #153d30 0%, #0E2B2B 60%, #091E1E 100%);">
+    <div style="display: flex; flex-direction: column; align-items: center; max-width: 600px; text-align: center; gap: 24px;">
+      <h2 style="font-family: Poppins; font-size: 40px; font-weight: 700; color: #FFFFFF; line-height: 1.2; letter-spacing: -0.5px; margin: 0;">Ready to see your training?</h2>
+      <p style="font-family: Poppins; font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.85); line-height: 1.6; margin: 0; max-width: 480px;">We'll build a working sample using your incidents, your procedures, and your branding in 30 minutes.</p>
+      <a href="book-demo.html" style="display: inline-flex; align-items: center; gap: 8px; background: #83E85A; color: #113333; font-family: Poppins; font-size: 15px; font-weight: 600; padding: 14px 28px; border-radius: 8px; text-decoration: none; border: none;">
         Book a Demo
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
@@ -544,18 +490,16 @@
 
 
   <!-- FOOTER -->
-  <footer class="py-10 bg-akdo-dark border-t border-white/[0.05]">
-    <div class="site-w">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-5">
-        <img src="assets/logo.png" alt="Akdo" class="h-5 brightness-0 invert">
-        <div class="flex items-center gap-6">
-          <a href="careers.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Careers</a>
-          <a href="contact.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Contact</a>
-          <a href="legal-notice.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Legal Notice</a>
-          <a href="privacy-policy.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Privacy Policy</a>
-        </div>
-        <p class="text-[12px] text-white/40">&copy; 2026 Akdo. All rights reserved.</p>
+  <footer style="display: flex; flex-direction: column; align-items: center; padding: 64px 24px; background: #0E2B2B;">
+    <div style="display: flex; align-items: center; justify-content: space-between; max-width: 1200px; width: 100%;">
+      <img src="assets/logo-white.png" alt="Akdo" style="height: 20px;">
+      <div style="display: flex; align-items: center; gap: 24px;">
+        <a href="careers.html" style="font-family: Poppins; font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.65); text-decoration: none;">Careers</a>
+        <a href="contact.html" style="font-family: Poppins; font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.65); text-decoration: none;">Contact</a>
+        <a href="legal-notice.html" style="font-family: Poppins; font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.65); text-decoration: none;">Legal Notice</a>
+        <a href="privacy-policy.html" style="font-family: Poppins; font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.65); text-decoration: none;">Privacy Policy</a>
       </div>
+      <p style="font-family: Poppins; font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.65); margin: 0;">&copy; 2026 Akdo. All rights reserved.</p>
     </div>
   </footer>
 

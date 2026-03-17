@@ -39,7 +39,7 @@
     .btn-primary {
       display: inline-flex; align-items: center; gap: 10px;
       background: #2cc27d; color: #02140d; font-family: 'Poppins', sans-serif;
-      font-weight: 600; font-size: 16px; padding: 18px 42px; border-radius: 60px;
+      font-weight: 600; font-size: 16px; padding: 18px 42px; border-radius: 8px;
       text-decoration: none; transition: all 0.25s; border: none; cursor: pointer;
     }
     .btn-primary:hover { background: #83e85a; transform: translateY(-2px); box-shadow: 0 12px 40px rgba(44, 194, 125, 0.3); }
@@ -47,7 +47,7 @@
     .btn-ghost {
       display: inline-flex; align-items: center; gap: 10px;
       color: #02140d; font-family: 'Poppins', sans-serif;
-      font-weight: 600; font-size: 16px; padding: 18px 42px; border-radius: 60px;
+      font-weight: 600; font-size: 16px; padding: 18px 42px; border-radius: 8px;
       border: 2px solid rgba(2, 20, 13, 0.12); text-decoration: none; transition: all 0.25s; cursor: pointer;
       background: transparent;
     }
@@ -70,25 +70,101 @@
 
     /* Gradient text */
     .gradient-text {
-      background: linear-gradient(135deg, #2cc27d 0%, #83e85a 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #2cc27d;
     }
+
+    /* Inline button hovers (nav + hero sections) */
+    .btn-inline-gradient { transition: filter 0.2s ease, transform 0.2s ease; }
+    .btn-inline-gradient:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .btn-inline-ghost-light { transition: background 0.2s ease, border-color 0.2s ease; }
+    .btn-inline-ghost-light:hover { background: rgba(255,255,255,0.1) !important; border-color: rgba(255,255,255,0.4) !important; }
+    .btn-inline-ghost-green { transition: background 0.2s ease, border-color 0.2s ease; }
+    .btn-inline-ghost-green:hover { background: rgba(131,232,90,0.1) !important; border-color: rgba(131,232,90,0.5) !important; }
+    .link-arrow svg { transition: transform 0.2s ease; }
+    .link-arrow:hover svg { transform: translateX(5px); }
+    .card-link .card-link-arrow { transition: transform 0.2s ease; }
+    .card-link:hover .card-link-arrow { transform: translateX(6px); }
 
     /* Card hover lift */
     .card-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
     .card-lift:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(2, 20, 13, 0.1); }
 
     /* Scroll fade-in */
-    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 1s ease, transform 1s cubic-bezier(0.16, 1, 0.3, 1); }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* Staggered reveals */
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-1 { transition-delay: 0.15s; }
+    .reveal-delay-2 { transition-delay: 0.3s; }
+    .reveal-delay-3 { transition-delay: 0.45s; }
+    .reveal-delay-4 { transition-delay: 0.6s; }
+
+    /* Hero entrance sequence */
+    @keyframes hero-fade-up {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes hero-scale-up {
+      from { opacity: 0; transform: translateY(32px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .hero-pill { opacity: 0; animation: hero-fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards; }
+    .hero-h1 { opacity: 0; animation: hero-fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards; }
+    .hero-sub { opacity: 0; animation: hero-fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards; }
+    .hero-buttons { opacity: 0; animation: hero-fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards; }
+    .hero-mockup { opacity: 0; animation: hero-scale-up 1.1s cubic-bezier(0.16, 1, 0.3, 1) 1.1s forwards; }
+
+    /* How It Works staggered steps */
+    .step-reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
+    .step-reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Counter animation for stats */
+    .stat-number { opacity: 0; transform: translateY(16px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .stat-number.visible { opacity: 1; transform: translateY(0); }
+
+    /* Logo strip fade in */
+    .logo-pill { opacity: 0; transform: translateY(8px); transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+    .logo-pill.visible { opacity: 1; transform: translateY(0); }
+
+    /* Security strip slide */
+    .security-slide { opacity: 0; transform: translateX(-16px); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
+    .security-slide.visible { opacity: 1; transform: translateX(0); }
+
+    /* Hero mockup gentle float after entrance */
+    .hero-mockup-float { opacity: 1; animation: float 6s ease-in-out infinite; }
+
+    /* Pillar cards scale entrance */
+    .pillar-card { opacity: 0; transform: translateY(24px) scale(0.97); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
+    .pillar-card.visible { opacity: 1; transform: translateY(0) scale(1); }
+
+    /* Enterprise feature cards stagger */
+    .feature-card { opacity: 0; transform: translateY(16px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .feature-card.visible { opacity: 1; transform: translateY(0); }
+
+    /* Quote slide up */
+    .quote-reveal { opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s cubic-bezier(0.16, 1, 0.3, 1); }
+    .quote-reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Proof stat cards stagger */
+    .proof-stat { opacity: 0; transform: translateY(12px) scale(0.98); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .proof-stat.visible { opacity: 1; transform: translateY(0) scale(1); }
+
+    /* ROI panels slide in from sides */
+    .roi-left { opacity: 0; transform: translateX(-20px); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
+    .roi-left.visible { opacity: 1; transform: translateX(0); }
+    .roi-right { opacity: 0; transform: translateX(20px); transition: opacity 1s ease, transform 1s cubic-bezier(0.16, 1, 0.3, 1); transition-delay: 0.3s; }
+    .roi-right.visible { opacity: 1; transform: translateX(0); }
+
+    /* CTA scale entrance */
+    .cta-reveal { opacity: 0; transform: scale(0.96); transition: opacity 1s ease, transform 1s cubic-bezier(0.16, 1, 0.3, 1); }
+    .cta-reveal.visible { opacity: 1; transform: scale(1); }
+
+    /* Sustainability banner slide up */
+    .banner-reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
+    .banner-reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Counter count-up text */
+    .count-up { display: inline-block; }
 
     /* Marquee */
     @keyframes marquee {
@@ -305,185 +381,124 @@
   </style>
 </head>
 
-<body class="wireframe-mode">
+<body>
 
   <!-- NAV -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-black/[0.04]">
-    <div class="site-w flex items-center justify-between h-[72px]">
+  <nav id="main-nav" style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: transparent; border-bottom: 1px solid transparent; transition: background 0.3s ease, border-color 0.3s ease;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 64px;">
       <a href="index.html">
-        <img src="assets/logo.png" alt="Akdo" class="h-8">
+        <img id="nav-logo" src="assets/logo.png" alt="Akdo" style="height: 28px; filter: brightness(0) invert(1); transition: filter 0.3s ease;">
       </a>
-      <div class="hidden md:flex items-center gap-8">
-        <a href="hse-training.html" class="text-[15px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">HSE Training</a>
-        <a href="sustainability.html" class="text-[15px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Sustainability</a>
-        <a href="training-library.html" class="text-[15px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Training Library</a>
-        <a href="security.html" class="text-[15px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Security</a>
+      <div style="display: flex; align-items: center; gap: 32px;">
+        <a href="hse-training.html" class="nav-link" style="font-family: Poppins, sans-serif; font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.3s ease;">HSE Training</a>
+        <a href="sustainability.html" class="nav-link" style="font-family: Poppins, sans-serif; font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.3s ease;">Sustainability</a>
+        <a href="training-library.html" class="nav-link" style="font-family: Poppins, sans-serif; font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.3s ease;">Training Library</a>
+        <a href="security.html" class="nav-link" style="font-family: Poppins, sans-serif; font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.3s ease;">Security</a>
       </div>
-      <a href="book-demo.html" class="btn-primary !text-[14px] !py-3 !px-6">Book a Demo</a>
+      <a href="book-demo.html" class="btn-inline-gradient" style="display: inline-flex; align-items: center; background: #83E85A; color: #113333; font-family: Poppins, sans-serif; font-size: 14px; font-weight: 600; padding: 10px 24px; border-radius: 8px; text-decoration: none;">Book a Demo</a>
     </div>
   </nav>
 
+  <script>
+    (function() {
+      var nav = document.getElementById('main-nav');
+      var logo = document.getElementById('nav-logo');
+      var links = document.querySelectorAll('.nav-link');
+      var scrolled = false;
+      window.addEventListener('scroll', function() {
+        var shouldBeWhite = window.scrollY > 60;
+        if (shouldBeWhite === scrolled) return;
+        scrolled = shouldBeWhite;
+        if (shouldBeWhite) {
+          nav.style.background = '#FFFFFF';
+          nav.style.borderBottomColor = '#E0E5E0';
+          logo.style.filter = 'none';
+          for (var i = 0; i < links.length; i++) { links[i].style.color = '#6B7B6B'; }
+        } else {
+          nav.style.background = 'transparent';
+          nav.style.borderBottomColor = 'transparent';
+          logo.style.filter = 'brightness(0) invert(1)';
+          for (var i = 0; i < links.length; i++) { links[i].style.color = 'rgba(255,255,255,0.85)'; }
+        }
+      });
+    })();
+  </script>
+
 
   <!-- ========== 1. HERO — Full-bleed dark, visual-first ========== -->
-  <section class="relative bg-akdo-dark pt-32 pb-0 overflow-hidden min-h-[94vh] flex flex-col grain">
-    <!-- Background glow orbs -->
-    <div class="hero-glow top-[-100px] left-[10%]"></div>
-    <div class="hero-glow bottom-[-200px] right-[5%] opacity-50"></div>
-    <div class="hero-glow-warm top-[20%] right-[15%]"></div>
+  <section style="display: flex; flex-direction: column; align-items: center; background: radial-gradient(ellipse at 50% 0%, #153d30 0%, #0E2B2B 60%, #091E1E 100%); padding: 160px 24px 0px 24px; min-height: 800px; overflow: hidden;">
+    <div style="display: flex; flex-direction: column; align-items: center; max-width: 1200px; width: 1200px; flex: 1;">
 
-    <!-- Floating grid dots for texture -->
-    <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 48px 48px;"></div>
-
-    <div class="site-w relative z-10 flex-1 flex flex-col">
-      <!-- Top: minimal text -->
-      <div class="text-center pt-10 mb-12">
-        <div class="inline-flex items-center gap-2.5 bg-white/[0.06] border border-white/[0.08] rounded-full px-5 py-2 mb-10">
-          <div class="w-2 h-2 rounded-full bg-akdo-green animate-pulse"></div>
-          <span class="text-[14px] font-medium text-white/50 tracking-wide">AI-powered HSE and sustainability training</span>
+      <!-- Top: text content -->
+      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 48px;">
+        <div class="hero-pill" style="display: inline-flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.12); border-radius: 100px; padding: 8px 20px; margin-bottom: 32px;">
+          <div style="width: 8px; height: 8px; border-radius: 100px; background: #2CC27D;"></div>
+          <span style="font-family: Poppins, sans-serif; font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.85);">AI-powered HSE and sustainability training</span>
         </div>
-        
-        <h1 class="font-bold text-[52px] md:text-[76px] leading-[1.0] tracking-tight text-white mb-7 max-w-[860px] mx-auto">
-          Your incidents become your best<br><span class="gradient-text">HSE training.</span>
+
+        <h1 class="hero-h1" style="font-family: Poppins, sans-serif; font-size: 64px; font-weight: 700; line-height: 1.15; letter-spacing: -1px; color: #FFFFFF; margin: 0 0 24px 0; max-width: 860px;">
+          Your incidents become your best <span style="color: #83E85A;">HSE training.</span>
         </h1>
-        <p class="text-[19px] md:text-[21px] text-white/40 max-w-[560px] mx-auto mb-10 leading-relaxed font-light">
+
+        <p class="hero-sub" style="font-family: Poppins, sans-serif; font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.85); max-width: 540px; margin: 0 0 32px 0; line-height: 1.6;">
           Akdo turns your incident reports, SOPs, and high potential incidents into training your frontline teams recognize. Ready to deploy in days.
         </p>
-        <div class="flex items-center justify-center gap-5">
-          <a href="book-demo.html" class="btn-primary !py-5 !px-12 !text-[17px]">
+
+        <div class="hero-buttons" style="display: flex; align-items: center; gap: 16px;">
+          <a href="book-demo.html" class="btn-inline-gradient" style="display: inline-flex; align-items: center; background: #83E85A; color: #113333; font-family: Poppins, sans-serif; font-size: 17px; font-weight: 600; padding: 16px 32px; border-radius: 8px; text-decoration: none;">
             Book a Demo
-            <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <a href="#how" class="btn-ghost !py-5 !px-12 !text-[17px] !text-white/60 !border-white/10 hover:!border-white/30 hover:!text-white">How It Works</a>
+          <a href="#how" class="btn-inline-ghost-light" style="display: inline-flex; align-items: center; background: transparent; color: rgba(255,255,255,0.85); font-family: Poppins, sans-serif; font-size: 17px; font-weight: 500; padding: 16px 32px; border-radius: 8px; text-decoration: none; border: 1px solid rgba(255,255,255,0.2);">
+            How It Works
+          </a>
         </div>
       </div>
 
-      <!-- Product mockup — large visual centerpiece -->
-      <div class="flex-1 flex items-end justify-center mt-auto">
-        <div class="relative w-full max-w-[1060px] mx-auto">
-          <!-- Floating accent cards — people-oriented -->
-          <div class="absolute -left-6 md:left-2 top-6 float-1 z-20">
-            <div class="bg-white/[0.08] backdrop-blur-xl border border-white/[0.1] rounded-2xl px-5 py-4 shadow-2xl">
-              <div class="flex items-center gap-3">
-                <div class="w-11 h-11 rounded-full bg-akdo-green/20 flex items-center justify-center text-[14px] font-semibold text-akdo-green">M</div>
-                <div>
-                  <p class="text-[14px] font-semibold text-white/90">Maria completed training</p>
-                  <p class="text-[12px] text-white/35">Confined Space Entry — PT</p>
-                </div>
-              </div>
-            </div>
+      <!-- Product mockup — floating window -->
+      <div class="hero-mockup" style="width: 960px; margin-top: 16px; margin-bottom: -120px;">
+        <div style="background: #1a2e2e; border-radius: 12px; border: 1px solid rgba(255,255,255,0.12); overflow: hidden; box-shadow: 0 24px 80px rgba(0,0,0,0.4), 0 8px 32px rgba(44,194,125,0.06);">
+          <!-- App window top bar -->
+          <div style="display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.06);">
+            <div style="width: 12px; height: 12px; border-radius: 100px; background: rgba(255,255,255,0.15);"></div>
+            <div style="width: 12px; height: 12px; border-radius: 100px; background: rgba(255,255,255,0.15);"></div>
+            <div style="width: 12px; height: 12px; border-radius: 100px; background: rgba(255,255,255,0.15);"></div>
           </div>
-
-          <div class="absolute -right-6 md:right-6 top-16 float-2 z-20">
-            <div class="bg-white/[0.08] backdrop-blur-xl border border-white/[0.1] rounded-2xl px-5 py-4 shadow-2xl">
-              <div class="flex items-center gap-3">
-                <div class="w-11 h-11 rounded-full bg-akdo-peach/20 flex items-center justify-center text-[14px] font-semibold text-akdo-peach">K</div>
-                <div>
-                  <p class="text-[14px] font-semibold text-white/90">Karim scored 96%</p>
-                  <p class="text-[12px] text-white/35">Fire Safety Quiz — AR</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="absolute left-12 md:left-20 bottom-[30%] float-3 z-20">
-            <div class="bg-white/[0.08] backdrop-blur-xl border border-white/[0.1] rounded-2xl px-5 py-4 shadow-2xl">
-              <div class="flex items-center gap-3">
-                <div class="w-11 h-11 rounded-full bg-akdo-lime/20 flex items-center justify-center text-[14px] font-semibold text-akdo-lime">L</div>
-                <div>
-                  <p class="text-[14px] font-semibold text-white/90">Leipzig site — 100%</p>
-                  <p class="text-[12px] text-white/35">All 340 workers certified</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Main product frame -->
-          <div class="bg-[#0a1f14] rounded-t-[24px] overflow-hidden border border-white/[0.06] border-b-0 shadow-2xl shadow-black/40">
-            <div class="aspect-[16/8.5] flex items-center justify-center relative">
-              <!-- Abstract visual: connected nodes representing the platform -->
-              <svg class="absolute inset-0 w-full h-full opacity-[0.04]" viewBox="0 0 800 425">
-                <line x1="200" y1="100" x2="400" y2="200" stroke="#2cc27d" stroke-width="1"/>
-                <line x1="400" y1="200" x2="600" y2="120" stroke="#2cc27d" stroke-width="1"/>
-                <line x1="400" y1="200" x2="350" y2="350" stroke="#2cc27d" stroke-width="1"/>
-                <line x1="400" y1="200" x2="550" y2="320" stroke="#2cc27d" stroke-width="1"/>
-                <line x1="200" y1="100" x2="150" y2="280" stroke="#2cc27d" stroke-width="1"/>
-                <line x1="600" y1="120" x2="650" y2="300" stroke="#2cc27d" stroke-width="1"/>
-                <circle cx="200" cy="100" r="5" fill="#2cc27d"/>
-                <circle cx="400" cy="200" r="7" fill="#2cc27d"/>
-                <circle cx="600" cy="120" r="5" fill="#2cc27d"/>
-                <circle cx="350" cy="350" r="4" fill="#2cc27d"/>
-                <circle cx="550" cy="320" r="4" fill="#2cc27d"/>
-                <circle cx="150" cy="280" r="4" fill="#2cc27d"/>
-                <circle cx="650" cy="300" r="4" fill="#2cc27d"/>
-              </svg>
-
-              <div class="text-center relative z-10">
-                <div class="w-20 h-20 rounded-2xl bg-akdo-green/10 flex items-center justify-center mx-auto mb-5">
-                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </div>
-                <p class="text-[15px] font-semibold text-akdo-green/50 tracking-wide uppercase">Product Screenshot</p>
-                <p class="text-[13px] text-white/15 mt-1">Replace with real platform UI</p>
-              </div>
-            </div>
-          </div>
+          <img src="assets/product-screenshot.png" alt="Akdo training platform — safety training module" style="display: block; width: 960px;">
         </div>
       </div>
     </div>
   </section>
 
 
-  <!-- ========== 2. LOGOS — Marquee ========== -->
-  <section class="py-12 border-b border-black/[0.04] overflow-hidden">
-    <p class="text-[13px] font-semibold text-akdo-dark/30 tracking-[0.15em] uppercase mb-6 text-center">Trusted by safety leaders at</p>
-    <div class="relative">
-      <div class="flex whitespace-nowrap marquee-track">
-        <div class="flex items-center gap-20 px-10">
-          <span class="font-semibold text-[20px] text-akdo-dark/20">GE Vernova</span>
-          <span class="font-semibold text-[20px] text-akdo-dark/20">JTI</span>
-          <span class="font-semibold text-[20px] text-akdo-dark/20">Henkel</span>
-          <span class="font-semibold text-[20px] text-akdo-dark/20">Essity</span>
-          <span class="font-semibold text-[20px] text-akdo-dark/20">Huhtamaki</span>
-          <span class="font-semibold text-[20px] text-akdo-dark/20">Harmony Gold</span>
-        </div>
-        <div class="flex items-center gap-20 px-10">
-          <span class="font-semibold text-[20px] text-akdo-dark/20">GE Vernova</span>
-          <span class="font-semibold text-[20px] text-akdo-dark/20">JTI</span>
-          <span class="font-semibold text-[20px] text-akdo-dark/20">Henkel</span>
-          <span class="font-semibold text-[20px] text-akdo-dark/20">Essity</span>
-          <span class="font-semibold text-[20px] text-akdo-dark/20">Huhtamaki</span>
-          <span class="font-semibold text-[20px] text-akdo-dark/20">Harmony Gold</span>
-        </div>
-      </div>
+  <!-- ========== 2. LOGOS — Static strip ========== -->
+  <section style="display: flex; flex-direction: column; align-items: center; padding: 48px 24px; border-bottom: 1px solid #E0E5E0;">
+    <p style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: #6B7B6B; letter-spacing: 0.15em; text-transform: uppercase; margin: 0 0 24px 0; text-align: center;">Trusted by safety leaders at</p>
+    <div id="logo-strip" style="display: flex; align-items: center; flex-wrap: wrap; justify-content: center; gap: 12px;">
+      <span class="logo-pill" style="font-family: Poppins, sans-serif; font-size: 14px; font-weight: 500; color: #0D2626; background: #F5F7F5; border: 1px solid #E0E5E0; border-radius: 100px; padding: 8px 20px;">GE Vernova</span>
+      <span class="logo-pill" style="font-family: Poppins, sans-serif; font-size: 14px; font-weight: 500; color: #0D2626; background: #F5F7F5; border: 1px solid #E0E5E0; border-radius: 100px; padding: 8px 20px;">JTI</span>
+      <span class="logo-pill" style="font-family: Poppins, sans-serif; font-size: 14px; font-weight: 500; color: #0D2626; background: #F5F7F5; border: 1px solid #E0E5E0; border-radius: 100px; padding: 8px 20px;">Henkel</span>
+      <span class="logo-pill" style="font-family: Poppins, sans-serif; font-size: 14px; font-weight: 500; color: #0D2626; background: #F5F7F5; border: 1px solid #E0E5E0; border-radius: 100px; padding: 8px 20px;">Essity</span>
+      <span class="logo-pill" style="font-family: Poppins, sans-serif; font-size: 14px; font-weight: 500; color: #0D2626; background: #F5F7F5; border: 1px solid #E0E5E0; border-radius: 100px; padding: 8px 20px;">Huhtamaki</span>
+      <span class="logo-pill" style="font-family: Poppins, sans-serif; font-size: 14px; font-weight: 500; color: #0D2626; background: #F5F7F5; border: 1px solid #E0E5E0; border-radius: 100px; padding: 8px 20px;">Harmony Gold</span>
     </div>
   </section>
 
 
   <!-- ========== 3. SUSTAINABILITY BANNER ========== -->
-  <section class="py-10 reveal">
-    <div class="site-w">
-      <a href="sustainability.html" class="block group">
-        <div class="relative overflow-hidden rounded-2xl bg-akdo-dark p-6 md:p-8 border border-white/[0.06]">
-          <!-- Ambient glow -->
-          <div class="absolute -top-32 -right-32 w-[400px] h-[400px] bg-akdo-green/[0.08] rounded-full blur-[100px]"></div>
-
-          <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12">
-            <!-- Left: headline + copy -->
-            <div class="flex-1">
-              <h3 class="font-bold text-[20px] md:text-[24px] text-white leading-[1.2] mb-2">
-                Interested in sustainability? Head this way.
-              </h3>
-              <p class="text-[14px] text-white/50 max-w-[440px] leading-relaxed">
-                Turn your ESG policies and CSRD frameworks into multilingual courses your workforce completes.
-              </p>
-            </div>
-
-            <!-- Right: CTA button -->
-            <div class="flex-shrink-0">
-              <div class="flex items-center gap-3 bg-akdo-green/10 border border-akdo-green/20 rounded-full px-5 py-2.5 transition-all group-hover:bg-akdo-green/20 group-hover:border-akdo-green/40">
-                <span class="text-[14px] font-semibold text-akdo-green whitespace-nowrap">Explore sustainability</span>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="group-hover:translate-x-1 transition-transform"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-            </div>
+  <section style="display: flex; flex-direction: column; align-items: center; padding: 40px 24px;">
+    <div class="banner-reveal" style="max-width: 1200px; width: 1200px;">
+      <a href="sustainability.html" style="text-decoration: none;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 48px; background: radial-gradient(ellipse at 70% 50%, #153d30 0%, #0E2B2B 60%, #091E1E 100%); border-radius: 12px; padding: 32px 40px; border: 1px solid rgba(255,255,255,0.08);">
+          <div style="flex: 1;">
+            <h3 style="font-family: Poppins, sans-serif; font-size: 22px; font-weight: 700; color: #FFFFFF; line-height: 1.2; margin: 0 0 8px 0;">
+              Interested in sustainability? Head this way.
+            </h3>
+            <p style="font-family: Poppins, sans-serif; font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.85); max-width: 440px; line-height: 1.6; margin: 0;">
+              Turn your ESG policies and CSRD frameworks into multilingual courses your workforce completes.
+            </p>
+          </div>
+          <div class="btn-inline-ghost-green" style="display: inline-flex; align-items: center; background: transparent; border: 1px solid rgba(44,194,125,0.3); border-radius: 8px; padding: 14px 28px;">
+            <span style="font-family: Poppins, sans-serif; font-size: 15px; font-weight: 500; color: #2cc27d;">Explore sustainability</span>
           </div>
         </div>
       </a>
@@ -494,6 +509,7 @@
   <!-- ========== STATEMENT: Why Akdo ========== -->
   <section class="py-16 reveal">
     <div class="site-w text-center">
+      <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 12px 0;">Why Akdo</p>
       <p class="statement-text text-akdo-dark max-w-[860px] mx-auto">
         Most safety training is too generic to <span class="gradient-text">change behavior.</span>
       </p>
@@ -505,141 +521,269 @@
   <section class="pb-24 reveal">
     <div class="site-w">
       <div class="grid md:grid-cols-3 gap-6 max-w-[1080px] mx-auto">
-        <!-- Card 1: From your data -->
-        <div class="card-lift bg-akdo-cream/60 rounded-3xl p-10 border border-black/[0.04] text-center reveal reveal-delay-1">
-          <div class="icon-lg bg-akdo-green/10 mx-auto mb-7">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 15l2 2 4-4" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+        <!-- Card 1: From your data — incident report → training -->
+        <div class="bg-white rounded-xl border border-black/[0.08] text-left overflow-hidden pillar-card" style="transition-delay: 0.1s;">
+          <div style="height: 200px; background: #F5F7F5; padding: 24px; display: flex; align-items: flex-end; gap: 12px;">
+            <!-- Incident report doc -->
+            <div style="width: 110px; height: 140px; background: #FFFFFF; border: 1px solid #E0E5E0; border-radius: 6px; padding: 12px; box-shadow: 0 2px 8px rgba(17,51,51,0.06);">
+              <div style="font-family: Poppins, sans-serif; font-size: 8px; font-weight: 700; color: #0D2626; margin-bottom: 6px;">INCIDENT #247</div>
+              <div style="width: 70px; height: 3px; background: #E0E5E0; border-radius: 2px; margin-bottom: 5px;"></div>
+              <div style="width: 55px; height: 3px; background: #E0E5E0; border-radius: 2px; margin-bottom: 5px;"></div>
+              <div style="width: 65px; height: 3px; background: #E0E5E0; border-radius: 2px; margin-bottom: 8px;"></div>
+              <div style="display: flex; gap: 4px; margin-bottom: 6px;">
+                <div style="padding: 2px 6px; background: rgba(220,60,60,0.1); border-radius: 100px; font-family: Poppins, sans-serif; font-size: 7px; font-weight: 600; color: #dc3c3c;">High</div>
+                <div style="padding: 2px 6px; background: rgba(44,194,125,0.1); border-radius: 100px; font-family: Poppins, sans-serif; font-size: 7px; font-weight: 600; color: #2cc27d;">Crane</div>
+              </div>
+              <div style="width: 50px; height: 3px; background: #E0E5E0; border-radius: 2px; margin-bottom: 4px;"></div>
+              <div style="width: 60px; height: 3px; background: #E0E5E0; border-radius: 2px;"></div>
+            </div>
+            <!-- Arrow -->
+            <div style="display: flex; align-items: center; margin-bottom: 60px;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m0 0l-4-4m4 4l-4 4" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <!-- Training module -->
+            <div style="width: 130px; height: 150px; background: #FFFFFF; border: 1px solid rgba(44,194,125,0.25); border-radius: 6px; padding: 10px; box-shadow: 0 2px 8px rgba(44,194,125,0.1);">
+              <div style="width: 100%; height: 55px; background: #113333; border-radius: 4px; margin-bottom: 8px; display: flex; align-items: center; justify-content: center;">
+                <div style="font-family: Poppins, sans-serif; font-size: 7px; font-weight: 600; color: rgba(255,255,255,0.7); text-align: center; line-height: 1.3;">CRANE SAFETY<br>MODULE</div>
+              </div>
+              <div style="font-family: Poppins, sans-serif; font-size: 7px; font-weight: 600; color: #0D2626; margin-bottom: 4px;">Crane Operations</div>
+              <div style="width: 80px; height: 3px; background: #E0E5E0; border-radius: 2px; margin-bottom: 4px;"></div>
+              <div style="width: 60px; height: 3px; background: #E0E5E0; border-radius: 2px; margin-bottom: 8px;"></div>
+              <div style="display: flex; gap: 4px;">
+                <div style="width: 20px; height: 20px; border-radius: 100px; background: rgba(44,194,125,0.15); display: flex; align-items: center; justify-content: center;">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polygon points="5 3 19 12 5 21 5 3" fill="#2cc27d"/></svg>
+                </div>
+                <div style="width: 20px; height: 20px; border-radius: 100px; background: #F5F7F5; display: flex; align-items: center; justify-content: center;">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" stroke="#6B7B6B" stroke-width="1.5"/><path d="M9 12l2 2 4-4" stroke="#6B7B6B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+              </div>
+            </div>
           </div>
-          <h3 class="font-bold text-[22px] text-akdo-dark mb-3">Built from your incidents, and SOPs</h3>
-          <p class="text-[16px] text-akdo-dark/45 leading-relaxed mb-5">
-            Training is built around the hazards and procedures each role and site needs.
-          </p>
+          <div style="padding: 28px;">
+            <h3 class="font-bold text-[22px] text-akdo-dark mb-3">Built from your incidents and SOPs</h3>
+            <p class="text-[16px] text-akdo-dark/45 leading-relaxed">
+              Training is built around the hazards and procedures each role and site needs.
+            </p>
+          </div>
         </div>
 
-        <!-- Card 2: Multi-format -->
-        <div class="card-lift bg-akdo-cream/60 rounded-3xl p-10 border border-black/[0.04] text-center reveal reveal-delay-2">
-          <div class="icon-lg bg-akdo-peach/15 mx-auto mb-7">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><polygon points="5 3 19 12 5 21 5 3" stroke="#ffc091" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <!-- Card 2: Multi-format — video scenario -->
+        <div class="bg-white rounded-xl border border-black/[0.08] text-left overflow-hidden pillar-card" style="transition-delay: 0.25s;">
+          <div style="height: 200px; background: #113333; padding: 0; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden;">
+            <!-- Crane scene placeholder -->
+            <div style="position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 40%, #1a4a3a 0%, #113333 70%); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+              <!-- Crane sketch -->
+              <svg width="120" height="80" viewBox="0 0 120 80" fill="none" style="margin-bottom: 8px;">
+                <!-- Crane tower -->
+                <rect x="25" y="15" width="6" height="55" fill="rgba(255,255,255,0.15)"/>
+                <!-- Crane arm -->
+                <rect x="25" y="15" width="70" height="4" fill="rgba(255,255,255,0.2)"/>
+                <!-- Cable -->
+                <line x1="80" y1="19" x2="80" y2="45" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+                <!-- Hook/load -->
+                <rect x="74" y="45" width="12" height="10" rx="2" fill="rgba(44,194,125,0.3)" stroke="rgba(44,194,125,0.4)" stroke-width="1"/>
+                <!-- Ground -->
+                <line x1="10" y1="70" x2="110" y2="70" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                <!-- Worker -->
+                <circle cx="60" cy="62" r="4" fill="rgba(255,194,145,0.4)"/>
+                <rect x="57" y="66" width="6" height="3" rx="1" fill="rgba(44,194,125,0.3)"/>
+              </svg>
+              <div style="font-family: Poppins, sans-serif; font-size: 9px; font-weight: 500; color: rgba(255,255,255,0.35);">Crane safety — overhead lift scenario</div>
+            </div>
+            <!-- Play button overlay -->
+            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;">
+              <div style="width: 44px; height: 44px; border-radius: 100px; background: rgba(44,194,125,0.25); border: 1.5px solid rgba(44,194,125,0.4); display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><polygon points="5 3 19 12 5 21 5 3" fill="#2cc27d"/></svg>
+              </div>
+            </div>
+            <!-- Video progress bar -->
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: rgba(255,255,255,0.08);">
+              <div style="width: 35%; height: 100%; background: #2cc27d;"></div>
+            </div>
           </div>
-          <h3 class="font-bold text-[22px] text-akdo-dark mb-3">Real scenarios your teams can practice on</h3>
-          <p class="text-[16px] text-akdo-dark/45 leading-relaxed mb-5">
-            Video, interactive scenarios, microlearning, and assessments.
-          </p>
-      
+          <div style="padding: 28px;">
+            <h3 class="font-bold text-[22px] text-akdo-dark mb-3">Real scenarios your teams can practice on</h3>
+            <p class="text-[16px] text-akdo-dark/45 leading-relaxed">
+              Video, interactive scenarios, microlearning, and assessments.
+            </p>
+          </div>
         </div>
 
-        <!-- Card 3: Global -->
-        <div class="card-lift bg-akdo-cream/60 rounded-3xl p-10 border border-black/[0.04] text-center reveal reveal-delay-3">
-          <div class="icon-lg bg-akdo-yellow/20 mx-auto mb-7">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#fee581" stroke-width="1.5"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="#fee581" stroke-width="1.5"/></svg>
+        <!-- Card 3: Global — globe with plant markers -->
+        <div class="bg-white rounded-xl border border-black/[0.08] text-left overflow-hidden pillar-card" style="transition-delay: 0.4s;">
+          <div style="height: 200px; background: #F5F7F5; padding: 24px; display: flex; align-items: center; justify-content: center;">
+            <!-- Globe with plant markers -->
+            <div style="position: relative; width: 160px; height: 160px;">
+              <!-- Globe circle -->
+              <svg width="160" height="160" viewBox="0 0 160 160" fill="none" style="position: absolute; inset: 0;">
+                <circle cx="80" cy="80" r="70" stroke="#E0E5E0" stroke-width="1.5" fill="none"/>
+                <!-- Longitude lines -->
+                <ellipse cx="80" cy="80" rx="35" ry="70" stroke="#E0E5E0" stroke-width="0.8" fill="none"/>
+                <ellipse cx="80" cy="80" rx="58" ry="70" stroke="#E0E5E0" stroke-width="0.8" fill="none"/>
+                <!-- Latitude lines -->
+                <ellipse cx="80" cy="55" rx="65" ry="12" stroke="#E0E5E0" stroke-width="0.8" fill="none"/>
+                <ellipse cx="80" cy="80" rx="70" ry="14" stroke="#E0E5E0" stroke-width="0.8" fill="none"/>
+                <ellipse cx="80" cy="105" rx="65" ry="12" stroke="#E0E5E0" stroke-width="0.8" fill="none"/>
+              </svg>
+              <!-- Plant marker 1: Europe -->
+              <div style="position: absolute; top: 32px; left: 82px; display: flex; flex-direction: column; align-items: center;">
+                <div style="width: 24px; height: 24px; border-radius: 100px; background: #2cc27d; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(44,194,125,0.3);">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V7l8-4v18M13 21V3l6 4v14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+              </div>
+              <!-- Plant marker 2: Americas -->
+              <div style="position: absolute; top: 58px; left: 22px; display: flex; flex-direction: column; align-items: center;">
+                <div style="width: 20px; height: 20px; border-radius: 100px; background: rgba(44,194,125,0.2); border: 1.5px solid #2cc27d; display: flex; align-items: center; justify-content: center;">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V7l8-4v18M13 21V3l6 4v14" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+              </div>
+              <!-- Plant marker 3: Asia -->
+              <div style="position: absolute; top: 50px; right: 18px; display: flex; flex-direction: column; align-items: center;">
+                <div style="width: 20px; height: 20px; border-radius: 100px; background: rgba(44,194,125,0.2); border: 1.5px solid #2cc27d; display: flex; align-items: center; justify-content: center;">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V7l8-4v18M13 21V3l6 4v14" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+              </div>
+              <!-- Plant marker 4: Africa -->
+              <div style="position: absolute; bottom: 38px; left: 72px; display: flex; flex-direction: column; align-items: center;">
+                <div style="width: 18px; height: 18px; border-radius: 100px; background: rgba(44,194,125,0.15); border: 1.5px solid rgba(44,194,125,0.5); display: flex; align-items: center; justify-content: center;">
+                  <svg width="9" height="9" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V7l8-4v18M13 21V3l6 4v14" stroke="rgba(44,194,125,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+              </div>
+              <!-- Connection lines from main marker -->
+              <svg width="160" height="160" viewBox="0 0 160 160" fill="none" style="position: absolute; inset: 0;">
+                <line x1="94" y1="44" x2="34" y2="68" stroke="rgba(44,194,125,0.2)" stroke-width="1" stroke-dasharray="3 3"/>
+                <line x1="94" y1="44" x2="130" y2="60" stroke="rgba(44,194,125,0.2)" stroke-width="1" stroke-dasharray="3 3"/>
+                <line x1="94" y1="44" x2="82" y2="110" stroke="rgba(44,194,125,0.2)" stroke-width="1" stroke-dasharray="3 3"/>
+              </svg>
+            </div>
           </div>
-          <h3 class="font-bold text-[22px] text-akdo-dark mb-3">Create once. Roll out across everywhere.</h3>
-          <p class="text-[16px] text-akdo-dark/45 leading-relaxed mb-5">
-            One source of truth, adapted for local languages, site rules, and workforce channels.
-          </p>
+          <div style="padding: 28px;">
+            <h3 class="font-bold text-[22px] text-akdo-dark mb-3">Create once. Roll out everywhere.</h3>
+            <p class="text-[16px] text-akdo-dark/45 leading-relaxed">
+              One source of truth, adapted for local languages, site rules, and workforce channels.
+            </p>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
 
 
+  <!-- ========== POSITIONING STRIP ========== -->
+  <section style="display: flex; flex-direction: column; align-items: center; padding: 80px 24px; background: #F5F7F5;">
+    <div style="max-width: 880px; text-align: center;">
+      <p style="font-family: Poppins, sans-serif; font-size: 36px; font-weight: 700; color: #0D2626; line-height: 1.2; letter-spacing: -0.5px; margin: 0 0 20px 0;">
+        Not a video tool. Not a Copilot agent.<br>A purpose-built <span style="color: #2cc27d;">HSE training engine.</span>
+      </p>
+      <p style="font-family: Poppins, sans-serif; font-size: 17px; font-weight: 400; color: #6B7B6B; line-height: 1.6; margin: 0 0 20px 0;">
+        AI avatars still need you to script everything · General AI still needs your team to build from scratch · Agencies still take 9 months
+      </p>
+      <a href="hse-training.html#comparison" class="link-arrow" style="display: inline-flex; align-items: center; gap: 6px; font-family: Poppins, sans-serif; font-size: 15px; font-weight: 600; color: #2cc27d; text-decoration: none;">
+        See how we compare
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+
   <!-- ========== 5. HOW IT WORKS — Visual 4-step flow ========== -->
-  <section id="how" class="py-28 bg-akdo-dark overflow-hidden grain reveal">
-    <div class="site-w">
-      <div class="text-center max-w-[660px] mx-auto mb-20">
-        <div class="accent-line mx-auto mb-6"></div>
-        <h2 class="font-bold text-[36px] md:text-[52px] leading-[1.04] text-white">
-          From incident report to <span class="gradient-text">live training.</span> Four steps.
+  <section id="how" style="display: flex; flex-direction: column; align-items: center; background: radial-gradient(ellipse at 50% 0%, #153d30 0%, #0E2B2B 60%, #091E1E 100%); padding: 112px 24px; overflow: hidden;">
+    <div style="max-width: 1200px; width: 1200px;">
+      <div style="text-align: center; max-width: 660px; margin: 0 auto 80px auto;">
+        <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #83E85A; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 12px 0;">How It Works</p>
+        <h2 style="font-family: Poppins, sans-serif; font-size: 52px; font-weight: 700; line-height: 1.04; color: #FFFFFF; margin: 0;">
+          From incident report to <span style="color: #83E85A;">live training.</span> Four steps.
         </h2>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-[1020px] mx-auto relative">
+      <div style="display: flex; gap: 24px; max-width: 1020px; margin: 0 auto; position: relative; align-items: stretch;">
         <!-- Connector line -->
-        <div class="hidden md:block absolute top-[68px] left-[12.5%] right-[12.5%] h-[2px] bg-gradient-to-r from-akdo-green/30 via-akdo-green/50 to-akdo-green/30"></div>
+        <div style="position: absolute; top: 68px; left: 14%; right: 14%; height: 1px; background: rgba(44,194,125,0.12);"></div>
 
-        <!-- Step 1: Discovery call -->
-        <div class="text-center px-3 relative reveal reveal-delay-1">
-          <div class="relative w-[130px] h-[130px] mx-auto mb-7">
-            <div class="absolute inset-0 rounded-full bg-akdo-green/[0.06]"></div>
-            <div class="absolute inset-3 rounded-full bg-akdo-green/[0.08] flex items-center justify-center">
-              <div class="w-16 h-16 rounded-full bg-akdo-green/15 flex items-center justify-center">
-                <span class="font-bold text-akdo-green text-[24px]">1</span>
+        <!-- Step 1 -->
+        <div class="step-reveal" style="flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 12px; position: relative; gap: 16px; transition-delay: 0.15s;">
+          <div style="position: relative; width: 130px; height: 130px; margin-bottom: 28px;">
+            <div style="position: absolute; inset: 0; border-radius: 100px; background: rgba(44,194,125,0.06);"></div>
+            <div style="position: absolute; inset: 12px; border-radius: 100px; background: rgba(44,194,125,0.08); display: flex; align-items: center; justify-content: center;">
+              <div style="width: 64px; height: 64px; border-radius: 100px; background: rgba(44,194,125,0.15); display: flex; align-items: center; justify-content: center;">
+                <span style="font-family: Poppins, sans-serif; font-size: 24px; font-weight: 700; color: #2cc27d;">1</span>
               </div>
             </div>
           </div>
-          <h3 class="font-bold text-[18px] text-white mb-2">Share your source material</h3>
-          <p class="text-[15px] text-white/40 leading-relaxed">
-          You share incident reports, SOPs, high potential incidents, and the training goals that matter.
+          <h3 style="font-family: Poppins, sans-serif; font-size: 18px; font-weight: 700; color: #FFFFFF; margin: 0 0 8px 0; min-height: 48px;">Share your source material</h3>
+          <p style="font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0;">
+            You share incident reports, SOPs, high potential incidents, and the training goals that matter.
           </p>
-          <div class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-white/[0.04] rounded-full border border-white/[0.06]">
+          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(255,255,255,0.04); border-radius: 100px; border: 1px solid rgba(255,255,255,0.08); margin-top: auto;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2cc27d" stroke-width="1.5"/><polyline points="12 6 12 12 16 14" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="text-[13px] font-semibold text-white/40">30 min</span>
+            <span style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65);">30 min</span>
           </div>
         </div>
 
-        <!-- Step 2: Akdo builds -->
-        <div class="text-center px-3 relative mt-8 md:mt-0 reveal reveal-delay-2">
-          <div class="relative w-[130px] h-[130px] mx-auto mb-7">
-            <div class="absolute inset-0 rounded-full bg-akdo-green/[0.06]"></div>
-            <div class="absolute inset-3 rounded-full bg-akdo-green/[0.08] flex items-center justify-center">
-              <div class="w-16 h-16 rounded-full bg-akdo-green/15 flex items-center justify-center">
-                <span class="font-bold text-akdo-green text-[24px]">2</span>
+        <!-- Step 2 -->
+        <div class="step-reveal" style="flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 12px; position: relative; gap: 16px; transition-delay: 0.35s;">
+          <div style="position: relative; width: 130px; height: 130px; margin-bottom: 28px;">
+            <div style="position: absolute; inset: 0; border-radius: 100px; background: rgba(44,194,125,0.06);"></div>
+            <div style="position: absolute; inset: 12px; border-radius: 100px; background: rgba(44,194,125,0.08); display: flex; align-items: center; justify-content: center;">
+              <div style="width: 64px; height: 64px; border-radius: 100px; background: rgba(44,194,125,0.15); display: flex; align-items: center; justify-content: center;">
+                <span style="font-family: Poppins, sans-serif; font-size: 24px; font-weight: 700; color: #2cc27d;">2</span>
               </div>
             </div>
           </div>
-          <h3 class="font-bold text-[18px] text-white mb-2">Akdo builds the training</h3>
-          <p class="text-[15px] text-white/40 leading-relaxed">
+          <h3 style="font-family: Poppins, sans-serif; font-size: 18px; font-weight: 700; color: #FFFFFF; margin: 0 0 8px 0; min-height: 48px;">Akdo builds the training</h3>
+          <p style="font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0;">
             Akdo turns your documents into an interactive training.
           </p>
-          <div class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-white/[0.04] rounded-full border border-white/[0.06]">
+          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(255,255,255,0.04); border-radius: 100px; border: 1px solid rgba(255,255,255,0.08); margin-top: auto;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="text-[13px] font-semibold text-white/40">Days, not months</span>
+            <span style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65);">Days, not months</span>
           </div>
         </div>
 
-        <!-- Step 3: You review & approve -->
-        <div class="text-center px-3 relative mt-8 md:mt-0 reveal reveal-delay-3">
-          <div class="relative w-[130px] h-[130px] mx-auto mb-7">
-            <div class="absolute inset-0 rounded-full bg-akdo-green/[0.06]"></div>
-            <div class="absolute inset-3 rounded-full bg-akdo-green/[0.08] flex items-center justify-center">
-              <div class="w-16 h-16 rounded-full bg-akdo-green/15 flex items-center justify-center">
-                <span class="font-bold text-akdo-green text-[24px]">3</span>
+        <!-- Step 3 -->
+        <div class="step-reveal" style="flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 12px; position: relative; gap: 16px; transition-delay: 0.55s;">
+          <div style="position: relative; width: 130px; height: 130px; margin-bottom: 28px;">
+            <div style="position: absolute; inset: 0; border-radius: 100px; background: rgba(44,194,125,0.06);"></div>
+            <div style="position: absolute; inset: 12px; border-radius: 100px; background: rgba(44,194,125,0.08); display: flex; align-items: center; justify-content: center;">
+              <div style="width: 64px; height: 64px; border-radius: 100px; background: rgba(44,194,125,0.15); display: flex; align-items: center; justify-content: center;">
+                <span style="font-family: Poppins, sans-serif; font-size: 24px; font-weight: 700; color: #2cc27d;">3</span>
               </div>
             </div>
           </div>
-          <h3 class="font-bold text-[18px] text-white mb-2">Your HSE team reviews</h3>
-          <p class="text-[15px] text-white/40 leading-relaxed">
+          <h3 style="font-family: Poppins, sans-serif; font-size: 18px; font-weight: 700; color: #FFFFFF; margin: 0 0 8px 0; min-height: 48px;">Your HSE team reviews</h3>
+          <p style="font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0;">
             Your HSE team checks every module, and signs off before anything goes live.
           </p>
-          <div class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-white/[0.04] rounded-full border border-white/[0.06]">
+          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(255,255,255,0.04); border-radius: 100px; border: 1px solid rgba(255,255,255,0.08); margin-top: auto;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="text-[13px] font-semibold text-white/40">Human in the loop</span>
+            <span style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65);">Human in the loop</span>
           </div>
         </div>
 
-        <!-- Step 4: Deploy everywhere -->
-        <div class="text-center px-3 relative mt-8 md:mt-0 reveal reveal-delay-4">
-          <div class="relative w-[130px] h-[130px] mx-auto mb-7">
-            <div class="absolute inset-0 rounded-full bg-akdo-green/[0.06]"></div>
-            <div class="absolute inset-3 rounded-full bg-akdo-green/[0.08] flex items-center justify-center">
-              <div class="w-16 h-16 rounded-full bg-akdo-green/15 flex items-center justify-center">
-                <span class="font-bold text-akdo-green text-[24px]">4</span>
+        <!-- Step 4 -->
+        <div class="step-reveal" style="flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 12px; position: relative; gap: 16px; transition-delay: 0.75s;">
+          <div style="position: relative; width: 130px; height: 130px; margin-bottom: 28px;">
+            <div style="position: absolute; inset: 0; border-radius: 100px; background: rgba(44,194,125,0.06);"></div>
+            <div style="position: absolute; inset: 12px; border-radius: 100px; background: rgba(44,194,125,0.08); display: flex; align-items: center; justify-content: center;">
+              <div style="width: 64px; height: 64px; border-radius: 100px; background: rgba(44,194,125,0.15); display: flex; align-items: center; justify-content: center;">
+                <span style="font-family: Poppins, sans-serif; font-size: 24px; font-weight: 700; color: #2cc27d;">4</span>
               </div>
             </div>
           </div>
-          <h3 class="font-bold text-[18px] text-white mb-2">Deploy across sites and systems</h3>
-          <p class="text-[15px] text-white/40 leading-relaxed">
+          <h3 style="font-family: Poppins, sans-serif; font-size: 18px; font-weight: 700; color: #FFFFFF; margin: 0 0 8px 0; min-height: 48px;">Deploy across sites and systems</h3>
+          <p style="font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0;">
             Export as SCORM to your LMS, or let Akdo host it. Your team chooses the setup.
           </p>
-          <div class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-white/[0.04] rounded-full border border-white/[0.06]">
+          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(255,255,255,0.04); border-radius: 100px; border: 1px solid rgba(255,255,255,0.08); margin-top: auto;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2cc27d" stroke-width="1.5"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="#2cc27d" stroke-width="1.5"/></svg>
-            <span class="text-[13px] font-semibold text-white/40">Plug and play</span>
+            <span style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65);">Plug and play</span>
           </div>
         </div>
       </div>
 
-      <!-- Bottom note -->
-      <p class="text-center text-[15px] text-white/30 mt-16"> Full enterprise rollout in weeks, not months. Less than 20 hours of your team's time.</p>
+      <p style="text-align: center; font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.5); margin-top: 64px;">Full enterprise rollout in weeks, not months. Less than 20 hours of your team's time.</p>
     </div>
   </section>
 
@@ -647,145 +791,159 @@
 
 
   <!-- ========== 7. ENTERPRISE ROLLOUT — Proof and buying criteria ========== -->
-  <section class="py-24 bg-akdo-dark grain reveal">
+  <section class="py-24 reveal" style="background: #F5F7F5;">
     <div class="site-w">
-      <div class="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 max-w-[1120px] mx-auto">
-        <div class="bg-white/[0.04] border border-white/[0.06] rounded-3xl p-8 md:p-10">
-          <p class="text-[13px] font-semibold text-akdo-green uppercase tracking-[0.16em] mb-4">Enterprise rollout snapshot</p>
-          <h2 class="font-bold text-[34px] md:text-[46px] leading-[1.06] text-white mb-5">
-            Built for <span class="gradient-text">enterprise rollout</span> from day one.
+      <div style="display: flex; gap: 48px; max-width: 1120px; margin: 0 auto; align-items: stretch;">
+        <div style="flex: 1; display: flex; flex-direction: column;">
+          <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 12px 0;">Enterprise Ready</p>
+          <h2 style="font-family: Poppins, sans-serif; font-size: 46px; font-weight: 700; line-height: 1.06; color: #0D2626; margin: 0 0 32px 0;">
+            Built for <span style="color: #2cc27d;">enterprise rollout</span> from day one.
           </h2>
-          <p class="text-[17px] text-white/35 leading-relaxed max-w-[560px] mb-8"> Here's how it works.</p>
 
-          <div class="grid md:grid-cols-2 gap-4">
-            <div class="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5">
-              <p class="text-[11px] text-white/30 uppercase tracking-wide mb-2">Integration</p>
-              <p class="text-[18px] font-semibold text-white">Plugs into any existing systems, or we host.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 20px; flex: 1;">
+            <div class="feature-card" style="flex: 1; min-width: 45%; background: #FFFFFF; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); padding: 24px; box-shadow: 0 2px 8px rgba(17,51,51,0.06); display: flex; flex-direction: column; justify-content: flex-end; transition-delay: 0.1s;">
+              <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; margin: 0 0 14px 0; font-size: 18px;">🔌</div>
+              <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 8px 0;">Integration</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 17px; font-weight: 500; color: #0D2626; margin: 0; line-height: 1.5;">Plugs into any existing systems, or we host.</p>
             </div>
-            <div class="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5">
-              <p class="text-[11px] text-white/30 uppercase tracking-wide mb-2">Rollout model</p>
-              <p class="text-[18px] font-semibold text-white">Start with one site, scale globally.</p>
+            <div class="feature-card" style="flex: 1; min-width: 45%; background: #FFFFFF; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); padding: 24px; box-shadow: 0 2px 8px rgba(17,51,51,0.06); display: flex; flex-direction: column; justify-content: flex-end; transition-delay: 0.2s;">
+              <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; margin: 0 0 14px 0; font-size: 18px;">🌐</div>
+              <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 8px 0;">Rollout model</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 17px; font-weight: 500; color: #0D2626; margin: 0; line-height: 1.5;">Start with one site, scale globally.</p>
             </div>
-            <div class="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5">
-              <p class="text-[11px] text-white/30 uppercase tracking-wide mb-2">Ongoing updates</p>
-              <p class="text-[18px] font-semibold text-white">Update once, retrain instantly. No new project or budget cycle.</p>
+            <div class="feature-card" style="flex: 1; min-width: 45%; background: #FFFFFF; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); padding: 24px; box-shadow: 0 2px 8px rgba(17,51,51,0.06); display: flex; flex-direction: column; justify-content: flex-end; transition-delay: 0.3s;">
+              <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; margin: 0 0 14px 0; font-size: 18px;">🔄</div>
+              <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 8px 0;">Ongoing updates</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 17px; font-weight: 500; color: #0D2626; margin: 0; line-height: 1.5;">Update once, retrain instantly. No new budget cycle.</p>
             </div>
-            <div class="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-5">
-              <p class="text-[11px] text-white/30 uppercase tracking-wide mb-2">Analytics</p>
-              <p class="text-[18px] font-semibold text-white">Real-time track completion, flag gaps, export audit trails..</p>
+            <div class="feature-card" style="flex: 1; min-width: 45%; background: #FFFFFF; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); padding: 24px; box-shadow: 0 2px 8px rgba(17,51,51,0.06); display: flex; flex-direction: column; justify-content: flex-end; transition-delay: 0.4s;">
+              <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; margin: 0 0 14px 0; font-size: 18px;">📊</div>
+              <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 8px 0;">Analytics</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 17px; font-weight: 500; color: #0D2626; margin: 0; line-height: 1.5;">Track completion, flag gaps, export audit trails.</p>
             </div>
           </div>
 
-          <div class="mt-8">
-            <a href="hse-training.html" class="inline-flex items-center gap-2 text-[15px] font-semibold text-akdo-green hover:gap-3 transition-all">
-              Explore the HSE / EHS page
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
         </div>
 
-        <div class="space-y-5">
-          <div class="bg-akdo-green/10 border border-akdo-green/20 rounded-3xl p-7">
-            <p class="text-[12px] font-semibold text-akdo-green uppercase tracking-[0.15em] mb-3">Global deployment</p>
-            <div class="text-[42px] font-black text-akdo-green leading-none mb-2">200+</div>
-            <p class="text-[16px] text-white/45 leading-relaxed">Languages from one source set, managed centrally. </p>
+        <div style="width: 340px; display: flex; flex-direction: column; gap: 16px; flex-shrink: 0;">
+          <div class="stat-number" style="background: #FFFFFF; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); padding: 28px; box-shadow: 0 2px 8px rgba(17,51,51,0.06); transition-delay: 0.15s;">
+            <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 12px 0;">Global deployment</p>
+            <div style="font-family: Poppins, sans-serif; font-size: 42px; font-weight: 700; color: #0D2626; line-height: 1; margin: 0 0 8px 0;">200+</div>
+            <p style="font-family: Poppins, sans-serif; font-size: 15px; color: #6B7B6B; line-height: 1.5; margin: 0;">Languages from one source set, managed centrally.</p>
           </div>
-          <div class="bg-white/[0.04] border border-white/[0.06] rounded-3xl p-7">
-            <p class="text-[12px] font-semibold text-akdo-green uppercase tracking-[0.15em] mb-3">Time to live</p>
-            <div class="text-[42px] font-black text-white leading-none mb-2">&lt; 12 week</div>
-            <p class="text-[16px] text-white/45 leading-relaxed">From source material upload to live, reviewed training modules.</p>
+          <div class="stat-number" style="background: #FFFFFF; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); padding: 28px; box-shadow: 0 2px 8px rgba(17,51,51,0.06); transition-delay: 0.3s;">
+            <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 12px 0;">Time to live</p>
+            <div style="font-family: Poppins, sans-serif; font-size: 42px; font-weight: 700; color: #0D2626; line-height: 1; margin: 0 0 8px 0;">&lt; 12 week</div>
+            <p style="font-family: Poppins, sans-serif; font-size: 15px; color: #6B7B6B; line-height: 1.5; margin: 0;">From source material upload to live, reviewed training modules.</p>
           </div>
-          <div class="bg-white/[0.04] border border-white/[0.06] rounded-3xl p-7">
-            <p class="text-[12px] font-semibold text-akdo-green uppercase tracking-[0.15em] mb-3">Governance</p>
-            <div class="text-[42px] font-black text-white leading-none mb-2">Traceable</div>
-            <p class="text-[16px] text-white/45 leading-relaxed">Outputs stay tied to source documents and HSE best practices.</p>
+          <div class="stat-number" style="background: #FFFFFF; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); padding: 28px; box-shadow: 0 2px 8px rgba(17,51,51,0.06); transition-delay: 0.45s;">
+            <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 12px 0;">Governance</p>
+            <div style="font-family: Poppins, sans-serif; font-size: 42px; font-weight: 700; color: #0D2626; line-height: 1; margin: 0 0 8px 0;">Traceable</div>
+            <p style="font-family: Poppins, sans-serif; font-size: 15px; color: #6B7B6B; line-height: 1.5; margin: 0;">Outputs stay tied to source documents and HSE best practices.</p>
           </div>
         </div>
+      </div>
+      <div style="max-width: 1120px; margin: 24px auto 0 auto; text-align: right;">
+        <a href="hse-training.html" class="link-arrow" style="display: inline-flex; align-items: center; gap: 8px; font-family: Poppins, sans-serif; font-size: 15px; font-weight: 600; color: #2cc27d; text-decoration: none;">
+          Explore the HSE / EHS page
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
     </div>
   </section>
 
 
   <!-- ========== 8. SECURITY STRIP ========== -->
-  <section class="py-20 reveal">
-    <div class="site-w">
-      <a href="security.html" class="block group">
-        <div class="max-w-[1020px] mx-auto bg-akdo-dark rounded-3xl p-10 md:p-14 relative overflow-hidden grain">
-          <svg class="absolute right-10 top-1/2 -translate-y-1/2 opacity-[0.04]" width="240" height="240" viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" stroke="#fff" stroke-width="0.5"/><path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="0.5"/></svg>
+  <section class="reveal" style="padding: 40px 24px; background: #F5F7F5;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <a href="security.html" class="card-link" style="display: flex; align-items: center; gap: 48px; background: radial-gradient(ellipse at 70% 50%, #153d30 0%, #0E2B2B 60%, #091E1E 100%); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 40px 48px; text-decoration: none; position: relative; overflow: hidden;">
 
-          <div class="relative z-10">
-            <div class="flex flex-col md:flex-row items-start md:items-center gap-10">
-              <div class="flex items-center gap-4">
-                <div class="w-[88px] h-[88px] rounded-2xl bg-white/[0.06] border border-white/[0.08] flex flex-col items-center justify-center group-hover:bg-white/[0.1] transition-colors">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" class="mb-1.5"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" stroke="#2cc27d" stroke-width="1.5"/><path d="M9 12l2 2 4-4" stroke="#2cc27d" stroke-width="1.5"/></svg>
-                  <span class="text-[13px] font-bold text-white/70 leading-tight">ISO 27001</span>
-                </div>
-                <div class="w-[88px] h-[88px] rounded-2xl bg-white/[0.06] border border-white/[0.08] flex flex-col items-center justify-center group-hover:bg-white/[0.1] transition-colors">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" class="mb-1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="#2cc27d" stroke-width="1.5"/><path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="#2cc27d" stroke-width="1.5"/></svg>
-                  <span class="text-[13px] font-bold text-white/70 leading-tight">GDPR</span>
-                </div>
-                <div class="w-[88px] h-[88px] rounded-2xl bg-white/[0.06] border border-white/[0.08] flex flex-col items-center justify-center group-hover:bg-white/[0.1] transition-colors">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" class="mb-1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round"/><polyline points="22 4 12 14.01 9 11.01" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  <span class="text-[13px] font-bold text-white/70 leading-tight">SOC 2</span>
-                </div>
-              </div>
+        <!-- Background shield watermark -->
+        <svg style="position: absolute; right: 80px; bottom: -30px; opacity: 0.08;" width="200" height="200" viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" stroke="#FFFFFF" stroke-width="0.5"/><path d="M9 12l2 2 4-4" stroke="#FFFFFF" stroke-width="0.5"/></svg>
 
-              <div class="flex-1">
-                <h3 class="font-bold text-[26px] text-white mb-3">Enterprise-grade security for your training content and workforce data.</h3>
-                <p class="text-[16px] text-white/40 leading-relaxed max-w-[540px]">ISO 27001 certified. SOC 2 compliant. Your data never trains our models.</p>
-              </div>
+        <div class="security-slide" style="flex: 1; position: relative; z-index: 1;">
+          <h3 style="font-family: Poppins, sans-serif; font-size: 24px; font-weight: 700; color: #FFFFFF; margin: 0 0 8px 0; line-height: 1.2;">Enterprise-grade security for your training content and workforce data.</h3>
+          <p style="font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0; max-width: 480px;">ISO 27001 certified. SOC 2 compliant. Your data never trains our models.</p>
+        </div>
 
-              <div class="flex-shrink-0 w-14 h-14 rounded-full bg-white/[0.06] flex items-center justify-center group-hover:bg-akdo-green/15 transition-colors">
-                <svg width="22" height="22" viewBox="0 0 16 16" fill="none" class="group-hover:translate-x-1 transition-transform"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="#2cc27d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-            </div>
+        <div style="display: flex; align-items: center; gap: 20px; flex-shrink: 0; position: relative; z-index: 1;">
+          <!-- ISO 27001 -->
+          <div style="width: 80px; height: 80px; border-radius: 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+              <circle cx="14" cy="14" r="12" stroke="#2cc27d" stroke-width="1.2"/>
+              <circle cx="14" cy="14" r="8" stroke="#2cc27d" stroke-width="0.8" stroke-dasharray="2 2"/>
+              <path d="M10 14.5l2.5 2.5 5.5-5.5" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.7); letter-spacing: 0.02em; line-height: 1;">ISO 27001</span>
+          </div>
+          <!-- GDPR -->
+          <div style="width: 80px; height: 80px; border-radius: 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+              <circle cx="14" cy="14" r="10" stroke="#2cc27d" stroke-width="1.2"/>
+              <circle cx="14" cy="14" r="4" fill="#2cc27d" opacity="0.3"/>
+              <path d="M14 4v20M4 14h20" stroke="#2cc27d" stroke-width="0.6" opacity="0.4"/>
+              <path d="M6.2 6.2l15.6 15.6M21.8 6.2L6.2 21.8" stroke="#2cc27d" stroke-width="0.6" opacity="0.3"/>
+              <rect x="10" y="11" width="8" height="6" rx="1" stroke="#2cc27d" stroke-width="1.2"/>
+              <path d="M12 11V9a2 2 0 0 1 4 0v2" stroke="#2cc27d" stroke-width="1.2"/>
+            </svg>
+            <span style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.7); letter-spacing: 0.02em; line-height: 1;">GDPR</span>
+          </div>
+          <!-- SOC 2 -->
+          <div style="width: 80px; height: 80px; border-radius: 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+              <path d="M14 3L5 7.5v7c0 5.25 3.84 10.15 9 11.5 5.16-1.35 9-6.25 9-11.5v-7L14 3z" stroke="#2cc27d" stroke-width="1.2" stroke-linejoin="round"/>
+              <path d="M10 14l2.5 2.5 5.5-5.5" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.7); letter-spacing: 0.02em; line-height: 1;">SOC 2</span>
           </div>
         </div>
+
+        <div style="flex-shrink: 0; position: relative; z-index: 1;">
+          <svg class="card-link-arrow" width="48" height="48" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+
       </a>
     </div>
   </section>
 
 
   <!-- ========== 9. CUSTOMER PROOF ========== -->
-  <section class="py-24 reveal">
-    <div class="site-w">
-      <div class="max-w-[1080px] mx-auto">
-        <div class="text-center max-w-[720px] mx-auto mb-12">
-          <div class="accent-line mx-auto mb-6"></div>
-          <h2 class="font-bold text-[36px] md:text-[48px] leading-[1.06] text-akdo-dark">
-            Proof from a <span class="gradient-text">live enterprise rollout.</span>
-          </h2>
-          <p class="text-[17px] text-akdo-dark/40 mt-5">One rollout example shows the model clearly: fast launch, multilingual delivery, and real operational scale.</p>
+  <section class="reveal" style="padding: 80px 24px; background: #F5F7F5;">
+    <div style="max-width: 1080px; margin: 0 auto;">
+      <div style="text-align: center; max-width: 720px; margin: 0 auto 48px auto;">
+        <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 12px 0;">Case Study</p>
+        <h2 style="font-family: Poppins, sans-serif; font-size: 48px; font-weight: 700; line-height: 1.06; color: #0D2626; margin: 0; letter-spacing: -0.5px;">
+          Proof from a <span style="color: #2cc27d;">live enterprise rollout.</span>
+        </h2>
+        <p style="font-family: Poppins, sans-serif; font-size: 17px; color: #6B7B6B; margin: 20px 0 0 0; line-height: 1.6;">One rollout example shows the model clearly: fast launch, multilingual delivery, and real operational scale.</p>
+      </div>
+
+      <div style="background: radial-gradient(ellipse at 50% 0%, #153d30 0%, #0E2B2B 60%, #091E1E 100%); border-radius: 12px; padding: 48px;">
+        <div class="quote-reveal" style="position: relative; margin: 0 0 40px 0;">
+          <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.16em; margin: 0 0 16px 0;">Customer rollout example</p>
+          <span style="font-family: Georgia, serif; font-size: 160px; color: rgba(44,194,125,0.12); line-height: 0.5; display: block; margin: 40px 0 -56px 0; pointer-events: none;">"</span>
+          <p style="font-family: Poppins, sans-serif; font-size: 28px; color: rgba(255,255,255,0.85); line-height: 1.5; font-weight: 300; margin: 0 0 24px 0;">
+            Hazardous materials training across 14 plants in 6 languages. Traditional approach: 9 months, €50K per region. With Akdo: first training live in 1 week, full global rollout in 2 months.
+          </p>
+          <p style="font-family: Poppins, sans-serif; font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0;">The result is faster launch, multilingual delivery, and one rollout model that can scale across plants without rebuilding the program region by region.</p>
         </div>
 
-        <div class="bg-akdo-dark rounded-3xl p-8 md:p-10">
-          <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-start">
-            <div>
-              <p class="text-[12px] font-semibold text-akdo-green uppercase tracking-[0.16em] mb-4">Customer rollout example</p>
-              <p class="text-[24px] md:text-[32px] text-white/80 leading-relaxed font-light mb-6">
-                Hazardous materials training across 14 plants in 6 languages. Traditional approach: 9 months, €50K per region. With Akdo: first training live in <span class="text-akdo-green font-semibold">1 week</span>, full global rollout in <span class="text-akdo-green font-semibold">2 months</span>.
-              </p>
-              <p class="text-[14px] text-white/35 leading-relaxed max-w-[560px]">The result is faster launch, multilingual delivery, and one rollout model that can scale across plants without rebuilding the program region by region.</p>
-            </div>
-
-            <div class="grid grid-cols-2 gap-4">
-              <div class="rounded-2xl border border-white/[0.08] bg-white/[0.04] p-5">
-                <p class="text-[11px] text-white/30 uppercase tracking-wide mb-2">Plants</p>
-                <div class="text-[38px] font-black text-white leading-none">14</div>
-              </div>
-              <div class="rounded-2xl border border-white/[0.08] bg-white/[0.04] p-5">
-                <p class="text-[11px] text-white/30 uppercase tracking-wide mb-2">Languages</p>
-                <div class="text-[38px] font-black text-white leading-none">6</div>
-              </div>
-              <div class="rounded-2xl border border-white/[0.08] bg-white/[0.04] p-5">
-                <p class="text-[11px] text-white/30 uppercase tracking-wide mb-2">Courses created</p>
-                <div class="text-[38px] font-black text-akdo-green leading-none">450+</div>
-              </div>
-              <div class="rounded-2xl border border-white/[0.08] bg-white/[0.04] p-5">
-                <p class="text-[11px] text-white/30 uppercase tracking-wide mb-2">Completion</p>
-                <div class="text-[38px] font-black text-akdo-green leading-none">99.6%</div>
-              </div>
-            </div>
+        <div id="proof-stats" style="display: flex; gap: 12px;">
+          <div class="proof-stat" style="flex: 1; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); padding: 24px; transition-delay: 0.1s;">
+            <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 8px 0;">Plants</p>
+            <div class="count-up" data-target="14" style="font-family: Poppins, sans-serif; font-size: 38px; font-weight: 700; color: #FFFFFF; line-height: 1;">0</div>
+          </div>
+          <div class="proof-stat" style="flex: 1; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); padding: 24px; transition-delay: 0.2s;">
+            <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 8px 0;">Languages</p>
+            <div class="count-up" data-target="6" style="font-family: Poppins, sans-serif; font-size: 38px; font-weight: 700; color: #FFFFFF; line-height: 1;">0</div>
+          </div>
+          <div class="proof-stat" style="flex: 1; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); padding: 24px; transition-delay: 0.3s;">
+            <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 8px 0;">Courses created</p>
+            <div class="count-up" data-target="450" data-suffix="+" style="font-family: Poppins, sans-serif; font-size: 38px; font-weight: 700; color: #FFFFFF; line-height: 1;">0</div>
+          </div>
+          <div class="proof-stat" style="flex: 1; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); padding: 24px; transition-delay: 0.4s;">
+            <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 8px 0;">Completion</p>
+            <div class="count-up" data-target="99.6" data-suffix="%" data-decimals="1" style="font-family: Poppins, sans-serif; font-size: 38px; font-weight: 700; color: #FFFFFF; line-height: 1;">0</div>
           </div>
         </div>
       </div>
@@ -793,122 +951,182 @@
   </section>
 
 
-  <!-- ========== 10. BUSINESS CASE — ROI calculator ========== -->
-  <section class="py-24 bg-akdo-dark grain reveal">
-    <div class="site-w max-w-[1020px] mx-auto">
-      <div class="text-center max-w-[640px] mx-auto mb-14">
-        <div class="accent-line mx-auto mb-6"></div>
-        <h2 class="font-bold text-[36px] md:text-[48px] leading-[1.06] text-white">
-          The business case for <span class="gradient-text">better HSE / EHS training.</span>
+  <!-- ========== 10. BUSINESS CASE — ROI calculator (placeholder) ========== -->
+  <section class="reveal" style="padding: 80px 24px; background: radial-gradient(ellipse at 50% 0%, #153d30 0%, #0E2B2B 60%, #091E1E 100%);">
+    <div style="max-width: 1020px; margin: 0 auto;">
+      <div style="text-align: center; max-width: 640px; margin: 0 auto 56px auto;">
+        <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #83E85A; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 12px 0;">ROI</p>
+        <h2 style="font-family: Poppins, sans-serif; font-size: 48px; font-weight: 700; line-height: 1.06; color: #FFFFFF; margin: 0; letter-spacing: -0.5px;">
+          The business case for <span style="color: #83E85A;">better HSE / EHS training.</span>
         </h2>
       </div>
 
-      <div class="bg-white/[0.04] border border-white/[0.06] rounded-3xl p-6 md:p-8 mb-8">
-        <div class="grid md:grid-cols-[1fr_1fr] gap-5 items-stretch">
-          <div class="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6">
-            <p class="text-[13px] font-semibold text-white/30 tracking-wide uppercase mb-5">Calculator Inputs</p>
-            <div class="space-y-4">
+      <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 32px;">
+        <div style="display: flex; gap: 20px; align-items: stretch;">
+          <!-- Calculator Inputs -->
+          <div class="roi-left" style="flex: 1; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 28px;">
+            <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 24px 0;">Calculator Inputs</p>
+            <div style="display: flex; flex-direction: column; gap: 16px;">
               <div>
-                <label class="block text-[12px] font-semibold text-white/35 mb-2">Employees</label>
-                <div class="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-[15px] text-white/70">10,000</div>
+                <label style="display: block; font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.65); margin: 0 0 8px 0;">Employees</label>
+                <div style="border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); padding: 12px 16px; font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.85);">10,000</div>
               </div>
               <div>
-                <label class="block text-[12px] font-semibold text-white/35 mb-2">Annual incidents</label>
-                <div class="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-[15px] text-white/70">240</div>
+                <label style="display: block; font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.65); margin: 0 0 8px 0;">Annual incidents</label>
+                <div style="border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); padding: 12px 16px; font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.85);">240</div>
               </div>
               <div>
-                <label class="block text-[12px] font-semibold text-white/35 mb-2">Average cost per incident</label>
-                <div class="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-[15px] text-white/70">$43,000</div>
+                <label style="display: block; font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.65); margin: 0 0 8px 0;">Average cost per incident</label>
+                <div style="border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); padding: 12px 16px; font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.85);">$43,000</div>
               </div>
               <div>
-                <label class="block text-[12px] font-semibold text-white/35 mb-2">Rollout scope</label>
-                <div class="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3 text-[15px] text-white/70">15 sites / 8 languages</div>
+                <label style="display: block; font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.65); margin: 0 0 8px 0;">Rollout scope</label>
+                <div style="border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); padding: 12px 16px; font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.85);">15 sites / 8 languages</div>
               </div>
             </div>
           </div>
 
-          <div class="bg-akdo-green/10 border border-akdo-green/20 rounded-2xl p-6">
-            <div class="flex items-center justify-between mb-5">
-              <p class="text-[13px] font-semibold text-akdo-green tracking-wide uppercase">Projected Output</p>
-              <span class="text-[11px] text-white/30 border border-white/[0.08] rounded-full px-3 py-1">Static mockup</span>
+          <!-- Projected Output -->
+          <div class="roi-right" style="flex: 1; background: rgba(44,194,125,0.06); border: 1px solid rgba(44,194,125,0.15); border-radius: 12px; padding: 28px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin: 0 0 24px 0;">
+              <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.15em; margin: 0;">Projected Output</p>
+              <span style="font-family: Poppins, sans-serif; font-size: 11px; color: rgba(255,255,255,0.65); border: 1px solid rgba(255,255,255,0.08); border-radius: 100px; padding: 4px 12px;">Static mockup</span>
             </div>
-            <div class="rounded-2xl border border-akdo-green/15 bg-white/[0.03] p-5 mb-5">
-              <p class="text-[11px] text-white/30 uppercase tracking-wide mb-2">Estimated annual impact</p>
-              <div class="text-[42px] font-black text-akdo-green leading-none mb-2">$3.1M</div>
-              <p class="text-[14px] text-white/40">illustrative savings range for enterprise rollout</p>
+            <div style="border-radius: 12px; border: 1px solid rgba(44,194,125,0.12); background: rgba(255,255,255,0.03); padding: 24px; margin: 0 0 24px 0;">
+              <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 8px 0;">Estimated annual impact</p>
+              <div style="font-family: Poppins, sans-serif; font-size: 42px; font-weight: 700; color: #2cc27d; line-height: 1; margin: 0 0 8px 0;">$3.1M</div>
+              <p style="font-family: Poppins, sans-serif; font-size: 14px; color: rgba(255,255,255,0.65); margin: 0;">illustrative savings range for enterprise rollout</p>
             </div>
-            <div class="space-y-3">
-              <div class="flex items-baseline justify-between border-b border-white/[0.06] pb-3">
-                <span class="text-[14px] text-white/40">Estimated incidents avoided</span>
-                <span class="text-[16px] font-bold text-akdo-green">72</span>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div style="display: flex; align-items: baseline; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 0 0 12px 0;">
+                <span style="font-family: Poppins, sans-serif; font-size: 14px; color: rgba(255,255,255,0.65);">Estimated incidents avoided</span>
+                <span style="font-family: Poppins, sans-serif; font-size: 16px; font-weight: 700; color: #2cc27d;">72</span>
               </div>
-              <div class="flex items-baseline justify-between border-b border-white/[0.06] pb-3">
-                <span class="text-[14px] text-white/40">Return per $1</span>
-                <span class="text-[16px] font-bold text-akdo-green">6x</span>
+              <div style="display: flex; align-items: baseline; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 0 0 12px 0;">
+                <span style="font-family: Poppins, sans-serif; font-size: 14px; color: rgba(255,255,255,0.65);">Return per $1</span>
+                <span style="font-family: Poppins, sans-serif; font-size: 16px; font-weight: 700; color: #2cc27d;">6x</span>
               </div>
-              <div class="flex items-baseline justify-between pb-1">
-                <span class="text-[14px] text-white/40">Payback window</span>
-                <span class="text-[16px] font-bold text-akdo-green">&lt; 12 months</span>
+              <div style="display: flex; align-items: baseline; justify-content: space-between;">
+                <span style="font-family: Poppins, sans-serif; font-size: 14px; color: rgba(255,255,255,0.65);">Payback window</span>
+                <span style="font-family: Poppins, sans-serif; font-size: 16px; font-weight: 700; color: #2cc27d;">&lt; 12 months</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
 
   <!-- ========== CTA — Bold and clean ========== -->
-  <section class="py-36 relative overflow-hidden">
-    <!-- Background texture -->
-    <div class="absolute inset-0 bg-akdo-cream/50"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-akdo-green/[0.05] rounded-full blur-[140px]"></div>
-    <div class="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-akdo-peach/[0.04] rounded-full blur-[120px]"></div>
-
-    <div class="site-w text-center relative z-10">
-      <h2 class="font-bold text-[40px] md:text-[64px] leading-[1.02] tracking-tight text-akdo-dark mb-7 max-w-[760px] mx-auto">
-        Share an incident report. <span class="gradient-text">We’ll show you the training it becomes.</span>
+  <section style="padding: 120px 24px; background: #F5F7F5;">
+    <div class="cta-reveal" style="max-width: 760px; margin: 0 auto; text-align: center;">
+      <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 12px 0;">Get Started</p>
+      <h2 style="font-family: Poppins, sans-serif; font-size: 56px; font-weight: 700; line-height: 1.06; letter-spacing: -0.5px; color: #0D2626; margin: 0 0 24px 0;">
+        Share an incident report. We’ll show you the <span style="color: #2cc27d;">training</span> it becomes.
       </h2>
-      <p class="text-[18px] text-akdo-dark/40 max-w-[540px] mx-auto mb-12 leading-relaxed">
+      <p style="font-family: Poppins, sans-serif; font-size: 18px; color: #6B7B6B; max-width: 540px; margin: 0 auto 48px auto; line-height: 1.6;">
         Bring a real incident report, HPI, or SOP. We’ll show you the training it becomes.
       </p>
-      <a href="book-demo.html" class="btn-primary !text-[18px] !py-5 !px-14">
+      <a href="book-demo.html" class="btn-inline-gradient" style="display: inline-flex; align-items: center; gap: 8px; background: #83E85A; color: #113333; font-family: Poppins, sans-serif; font-size: 18px; font-weight: 500; padding: 18px 40px; border-radius: 8px; text-decoration: none;">
         Book a Demo
         <svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <p class="text-[14px] text-akdo-dark/30 mt-8">See the workflow in 30 minutes. Launch first modules in weeks.</p>
+      <p style="font-family: Poppins, sans-serif; font-size: 14px; color: #6B7B6B; margin: 32px 0 0 0;">See the workflow in 30 minutes. Launch first modules in weeks.</p>
     </div>
   </section>
 
 
   <!-- FOOTER -->
-  <footer class="py-12 bg-akdo-dark border-t border-white/[0.05]">
-    <div class="site-w">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-        <img src="assets/logo.png" alt="Akdo" class="h-6 brightness-0 invert">
-        <div class="flex items-center gap-8">
-          <a href="careers.html" class="text-[15px] text-white/60 hover:text-white transition-colors">Careers</a>
-          <a href="contact.html" class="text-[15px] text-white/60 hover:text-white transition-colors">Contact</a>
-          <a href="legal-notice.html" class="text-[15px] text-white/60 hover:text-white transition-colors">Legal Notice</a>
-          <a href="privacy-policy.html" class="text-[15px] text-white/60 hover:text-white transition-colors">Privacy Policy</a>
-        </div>
-        <p class="text-[14px] text-white/40">&copy; 2026 Akdo. All rights reserved.</p>
+  <footer style="padding: 48px 24px; background: #0E2B2B; border-top: 1px solid rgba(255,255,255,0.06);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
+      <img src="assets/logo.png" alt="Akdo" width="80" height="24" style="filter: brightness(0) invert(1);">
+      <div style="display: flex; align-items: center; gap: 32px;">
+        <a href="careers.html" style="font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.65); text-decoration: none;">Careers</a>
+        <a href="contact.html" style="font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.65); text-decoration: none;">Contact</a>
+        <a href="legal-notice.html" style="font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.65); text-decoration: none;">Legal Notice</a>
+        <a href="privacy-policy.html" style="font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.65); text-decoration: none;">Privacy Policy</a>
       </div>
+      <p style="font-family: Poppins, sans-serif; font-size: 14px; color: rgba(255,255,255,0.65); margin: 0;">&copy; 2026 Akdo. All rights reserved.</p>
     </div>
   </footer>
 
   <!-- Scroll reveal -->
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.08 });
+    (function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.08 });
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      // Observe all animated elements
+      var selectors = '.reveal, .step-reveal, .connector-line, .stat-number, .logo-pill, .security-slide, .pillar-card, .feature-card, .quote-reveal, .proof-stat, .roi-left, .roi-right, .cta-reveal, .banner-reveal';
+      document.querySelectorAll(selectors).forEach(function(el) {
+        observer.observe(el);
+      });
+
+      // Stagger logo pills on scroll
+      var logoObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var pills = entry.target.querySelectorAll('.logo-pill');
+            pills.forEach(function(pill, i) {
+              pill.style.transitionDelay = (i * 0.08) + 's';
+              pill.classList.add('visible');
+            });
+            logoObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      var logoStrip = document.getElementById('logo-strip');
+      if (logoStrip) logoObserver.observe(logoStrip);
+
+      // Count-up animation for proof stats
+      var countObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var counters = entry.target.querySelectorAll('.count-up');
+            counters.forEach(function(counter) {
+              var target = parseFloat(counter.getAttribute('data-target'));
+              var suffix = counter.getAttribute('data-suffix') || '';
+              var decimals = parseInt(counter.getAttribute('data-decimals')) || 0;
+              var duration = 1800;
+              var start = performance.now();
+              function update(now) {
+                var elapsed = now - start;
+                var progress = Math.min(elapsed / duration, 1);
+                // Ease out cubic
+                var eased = 1 - Math.pow(1 - progress, 3);
+                var current = eased * target;
+                if (decimals > 0) {
+                  counter.textContent = current.toFixed(decimals) + suffix;
+                } else {
+                  counter.textContent = Math.round(current) + suffix;
+                }
+                if (progress < 1) requestAnimationFrame(update);
+              }
+              requestAnimationFrame(update);
+            });
+            countObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      var proofStats = document.getElementById('proof-stats');
+      if (proofStats) countObserver.observe(proofStats);
+
+      // Hero mockup: add gentle float after entrance animation completes
+      var mockup = document.querySelector('.hero-mockup');
+      if (mockup) {
+        setTimeout(function() {
+          mockup.classList.add('hero-mockup-float');
+        }, 2200);
+      }
+    })();
   </script>
 
 </body>

@@ -7,212 +7,219 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'akdo-dark': '#02140d',
-            'akdo-green': '#2cc27d',
-            'akdo-lime': '#83e85a',
-            'akdo-cream': '#f5f6f4',
-            'akdo-peach': '#ffc091',
-            'akdo-yellow': '#fee581',
-          },
-        }
-      }
-    }
-  </script>
   <link rel="stylesheet" href="assets/wireframe-review.css">
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-    body { font-family: 'Poppins', sans-serif; color: #02140d; background: #fff; overflow-x: hidden; }
-
-    .site-w { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
-
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: #2cc27d; color: #02140d; font-family: 'Poppins', sans-serif;
-      font-weight: 600; font-size: 15px; padding: 15px 36px; border-radius: 50px;
-      text-decoration: none; transition: all 0.2s; border: none; cursor: pointer;
-    }
-    .btn-primary:hover { background: #83e85a; transform: translateY(-1px); }
-
-    .btn-ghost {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: transparent; color: #02140d; font-family: 'Poppins', sans-serif;
-      font-weight: 600; font-size: 15px; padding: 15px 36px; border-radius: 50px;
-      text-decoration: none; transition: all 0.2s; border: 2px solid rgba(2,20,13,0.10);
-      cursor: pointer;
-    }
-    .btn-ghost:hover { border-color: rgba(2,20,13,0.25); }
-
-    body.wireframe-mode {
-      --wf-bg: #f5f5f2;
-      --wf-surface: #ecece7;
-      --wf-border: #bdbdb4;
-      --wf-ink: #151515;
-      --wf-muted: #6f6f68;
-      background: var(--wf-bg);
-      color: var(--wf-ink);
-    }
-    body.wireframe-mode,
-    body.wireframe-mode * {
-      animation: none !important;
-      transition: none !important;
-      box-shadow: none !important;
-      text-shadow: none !important;
-      backdrop-filter: none !important;
-      filter: none !important;
-    }
-    body.wireframe-mode section,
-    body.wireframe-mode footer,
-    body.wireframe-mode div[class*="bg-"] {
-      background: transparent !important;
-      border-color: var(--wf-border) !important;
-    }
-    body.wireframe-mode nav {
-      background: var(--wf-bg) !important;
-      border-color: var(--wf-border) !important;
-      border-bottom: 1px solid var(--wf-border) !important;
-    }
-    body.wireframe-mode [class*="bg-"] { background: var(--wf-surface) !important; }
-    body.wireframe-mode [class*="border-"] { border-color: var(--wf-border) !important; }
-    body.wireframe-mode [class*="text-white"],
-    body.wireframe-mode [class*="text-akdo-"],
-    body.wireframe-mode [class*="text-red-"],
-    body.wireframe-mode [class*="text-blue-"],
-    body.wireframe-mode [class*="text-green-"],
-    body.wireframe-mode [class*="text-sky-"],
-    body.wireframe-mode [class*="text-violet-"],
-    body.wireframe-mode [class*="text-amber-"] {
-      color: var(--wf-ink) !important;
-      -webkit-text-fill-color: currentColor !important;
-    }
-    body.wireframe-mode p,
-    body.wireframe-mode span,
-    body.wireframe-mode li,
-    body.wireframe-mode td,
-    body.wireframe-mode th {
-      color: var(--wf-muted) !important;
-    }
-    body.wireframe-mode h1,
-    body.wireframe-mode h2,
-    body.wireframe-mode h3,
-    body.wireframe-mode h4,
-    body.wireframe-mode strong,
-    body.wireframe-mode b,
-    body.wireframe-mode a,
-    body.wireframe-mode button {
-      color: var(--wf-ink) !important;
-    }
-    body.wireframe-mode .btn-primary,
-    body.wireframe-mode .btn-ghost {
-      background: transparent !important;
-      color: var(--wf-ink) !important;
-      border: 1px solid var(--wf-border) !important;
-      border-radius: 12px !important;
-    }
-    body.wireframe-mode img { filter: grayscale(1) contrast(1) !important; }
-    body.wireframe-mode svg { opacity: 0.5; }
-    body.wireframe-mode svg * {
-      stroke: var(--wf-muted) !important;
-      fill: none !important;
-    }
+    body { font-family: 'Poppins', sans-serif; color: #0D2626; background: #fff; overflow-x: hidden; }
   </style>
 </head>
 
-<body class="wireframe-mode">
+<body>
 
   <!-- NAV -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-black/[0.04]">
-    <div class="site-w flex items-center justify-between h-16">
+  <nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: #FFFFFF; border-bottom: 1px solid #E0E5E0; height: 64px;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 64px;">
       <a href="index.html">
-        <img src="assets/logo.png" alt="Akdo" class="h-7">
+        <img src="assets/logo.png" alt="Akdo" style="height: 28px;">
       </a>
-      <div class="hidden md:flex items-center gap-7">
-        <a href="hse-training.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">HSE Training</a>
-        <a href="sustainability.html" class="text-[13px] font-semibold text-akdo-dark transition-colors">Sustainability</a>
-        <a href="training-library.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Training Library</a>
-        <a href="security.html" class="text-[13px] font-medium text-akdo-dark/60 hover:text-akdo-dark transition-colors">Security</a>
+      <div style="display: flex; align-items: center; gap: 28px;">
+        <a href="hse-training.html" style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #6B7B6B; text-decoration: none;">HSE Training</a>
+        <a href="sustainability.html" style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: #0D2626; text-decoration: none;">Sustainability</a>
+        <a href="training-library.html" style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #6B7B6B; text-decoration: none;">Training Library</a>
+        <a href="security.html" style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: #6B7B6B; text-decoration: none;">Security</a>
       </div>
-      <a href="book-demo.html" class="btn-primary !text-[13px] !py-2.5 !px-5">Book a Demo</a>
+      <a href="book-demo.html" style="display: inline-flex; align-items: center; gap: 8px; background: #83E85A; color: #113333; font-family: Poppins, sans-serif; font-weight: 600; font-size: 13px; padding: 10px 20px; border-radius: 8px; text-decoration: none;">Book a Demo</a>
     </div>
   </nav>
 
 
   <!-- ========== 1. HERO ========== -->
-  <section class="pt-36 pb-20">
-    <div class="site-w max-w-[760px] mx-auto text-center">
-      <p class="text-[12px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-4">Sustainability & Compliance</p>
-      <h1 class="font-bold text-[40px] md:text-[52px] leading-[1.06] tracking-tight text-akdo-dark mb-6">
-        Your ESG strategy, translated into<br>training for <span class="text-akdo-green">every role.</span>
-      </h1>
-      <p class="text-[16px] text-akdo-dark/50 leading-relaxed max-w-[540px] mx-auto mb-10">
-        Akdo turns your sustainability reports, policies, and targets into role-specific training your teams, suppliers, and customers engage with.
-      </p>
-      <div class="flex flex-wrap items-center justify-center gap-4">
-        <a href="book-demo.html" class="btn-primary">
-          Book a Demo
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <a href="https://tork.empacto.eco/en/index.html" target="_blank" class="btn-ghost">
-          See a live training
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+  <section style="display: flex; flex-direction: column; align-items: center; padding: 140px 24px 80px 24px; background: #FFFFFF;">
+    <div style="display: flex; align-items: center; max-width: 1200px; width: 1200px; gap: 64px;">
+
+      <!-- Left: Text -->
+      <div style="flex: 1; display: flex; flex-direction: column; align-items: flex-start; max-width: 480px;">
+        <div style="display: inline-flex; align-items: center; gap: 10px; background: #F5F7F5; border: 1px solid #E0E5E0; border-radius: 100px; padding: 8px 20px; margin-bottom: 32px;">
+          <div style="width: 8px; height: 8px; border-radius: 100px; background: #2CC27D;"></div>
+          <span style="font-family: Poppins, sans-serif; font-size: 14px; font-weight: 500; color: #0D2626;">Sustainability & Compliance</span>
+        </div>
+
+        <h1 style="font-family: Poppins, sans-serif; font-size: 64px; font-weight: 700; line-height: 1.15; letter-spacing: -1px; color: #0D2626; margin: 0 0 24px 0; text-align: left;">
+          Turn your ESG strategy into training for <span style="color: #2cc27d;">every role.</span>
+        </h1>
+
+        <p style="font-family: Poppins, sans-serif; font-size: 17px; font-weight: 400; color: #6B7B6B; line-height: 1.6; max-width: 480px; margin: 0 0 40px 0; text-align: left;">
+          Akdo turns your sustainability reports, policies, and targets into role-specific training your teams, suppliers, and customers engage with.
+        </p>
+
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <a href="book-demo.html" style="display: inline-flex; align-items: center; gap: 10px; background: #83E85A; color: #113333; font-family: Poppins, sans-serif; font-weight: 600; font-size: 15px; padding: 14px 28px; border-radius: 8px; text-decoration: none;">
+            Book a Demo
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://tork.empacto.eco/en/index.html" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; background: transparent; color: #0D2626; font-family: Poppins, sans-serif; font-weight: 600; font-size: 15px; padding: 14px 28px; border-radius: 8px; text-decoration: none; border: 1px solid #E0E5E0;">
+            See a live training
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <p style="font-family: Poppins, sans-serif; font-size: 11px; color: #6B7B6B; margin: 16px 0 0 0;">See how Essity's brand Tork trains customers on sustainability with Akdo.</p>
       </div>
-      <p class="text-[11px] text-akdo-dark/25 mt-4">See how Essity's brand Tork trains customers on sustainability with Akdo.</p>
+
+      <!-- Right: Product screenshot — browser window -->
+      <div style="flex: 1.2; display: flex; align-items: center; justify-content: center;">
+        <div style="width: 540px; border-radius: 12px; overflow: hidden; box-shadow: 0 12px 32px rgba(17,51,51,0.16);">
+          <!-- Browser bar -->
+          <div style="background: #f0f0f0; padding: 10px 16px; display: flex; align-items: center; gap: 8px;">
+            <div style="display: flex; gap: 6px;">
+              <div style="width: 10px; height: 10px; border-radius: 100px; background: #e0e0e0;"></div>
+              <div style="width: 10px; height: 10px; border-radius: 100px; background: #e0e0e0;"></div>
+              <div style="width: 10px; height: 10px; border-radius: 100px; background: #e0e0e0;"></div>
+            </div>
+            <div style="flex: 1; background: #fff; border-radius: 6px; padding: 5px 12px; display: flex; align-items: center;">
+              <span style="font-family: Poppins, sans-serif; font-size: 10px; color: #999;">app.akdo.co/esg</span>
+            </div>
+          </div>
+          <!-- App content -->
+          <div style="background: #113333; display: flex; flex-direction: column; height: 340px; overflow: hidden;">
+            <!-- Top bar -->
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; border-bottom: 1px solid rgba(255,255,255,0.08);">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <div style="width: 24px; height: 24px; border-radius: 6px; background: #2CC27D; display: flex; align-items: center; justify-content: center;">
+                  <span style="font-size: 12px; color: #fff; font-weight: 700;">A</span>
+                </div>
+                <span style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #fff;">ESG Dashboard</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 60px; height: 8px; border-radius: 4px; background: rgba(255,255,255,0.08);"></div>
+                <div style="width: 26px; height: 26px; border-radius: 100px; background: rgba(131,232,90,0.2);"></div>
+              </div>
+            </div>
+            <!-- Body -->
+            <div style="display: flex; flex: 1;">
+              <!-- Sidebar -->
+              <div style="width: 120px; border-right: 1px solid rgba(255,255,255,0.06); padding: 14px 10px; display: flex; flex-direction: column; gap: 4px;">
+                <div style="padding: 6px 10px; border-radius: 6px; background: rgba(44,194,125,0.15);">
+                  <span style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 500; color: #83E85A;">Dashboard</span>
+                </div>
+                <div style="padding: 6px 10px;">
+                  <span style="font-family: Poppins, sans-serif; font-size: 10px; color: rgba(255,255,255,0.45);">Programs</span>
+                </div>
+                <div style="padding: 6px 10px;">
+                  <span style="font-family: Poppins, sans-serif; font-size: 10px; color: rgba(255,255,255,0.45);">Teams</span>
+                </div>
+                <div style="padding: 6px 10px;">
+                  <span style="font-family: Poppins, sans-serif; font-size: 10px; color: rgba(255,255,255,0.45);">Suppliers</span>
+                </div>
+                <div style="padding: 6px 10px;">
+                  <span style="font-family: Poppins, sans-serif; font-size: 10px; color: rgba(255,255,255,0.45);">Reports</span>
+                </div>
+              </div>
+              <!-- Main content -->
+              <div style="flex: 1; padding: 14px 16px; display: flex; flex-direction: column; gap: 12px;">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                  <span style="font-family: Poppins, sans-serif; font-size: 11px; font-weight: 600; color: #fff;">Compliance Overview</span>
+                  <span style="font-family: Poppins, sans-serif; font-size: 9px; color: rgba(255,255,255,0.45);">Q1 2026</span>
+                </div>
+                <!-- Stat row -->
+                <div style="display: flex; gap: 8px;">
+                  <div style="flex: 1; background: rgba(255,255,255,0.04); border-radius: 6px; padding: 10px; display: flex; flex-direction: column; gap: 3px;">
+                    <span style="font-family: Poppins, sans-serif; font-size: 18px; font-weight: 700; color: #fff;">87%</span>
+                    <span style="font-family: Poppins, sans-serif; font-size: 8px; color: rgba(255,255,255,0.45);">CSRD Ready</span>
+                  </div>
+                  <div style="flex: 1; background: rgba(255,255,255,0.04); border-radius: 6px; padding: 10px; display: flex; flex-direction: column; gap: 3px;">
+                    <span style="font-family: Poppins, sans-serif; font-size: 18px; font-weight: 700; color: #fff;">1,240</span>
+                    <span style="font-family: Poppins, sans-serif; font-size: 8px; color: rgba(255,255,255,0.45);">Trained This Quarter</span>
+                  </div>
+                  <div style="flex: 1; background: rgba(255,255,255,0.04); border-radius: 6px; padding: 10px; display: flex; flex-direction: column; gap: 3px;">
+                    <span style="font-family: Poppins, sans-serif; font-size: 18px; font-weight: 700; color: #fff;">94%</span>
+                    <span style="font-family: Poppins, sans-serif; font-size: 8px; color: rgba(255,255,255,0.45);">Completion Rate</span>
+                  </div>
+                </div>
+                <!-- Program list -->
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                  <div style="background: rgba(255,255,255,0.04); border-radius: 6px; padding: 8px 12px; display: flex; align-items: center; justify-content: space-between;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <div style="width: 6px; height: 6px; border-radius: 100px; background: #2CC27D;"></div>
+                      <span style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 500; color: rgba(255,255,255,0.85);">CSRD Basics — All Staff</span>
+                    </div>
+                    <span style="font-family: Poppins, sans-serif; font-size: 9px; color: #2CC27D;">92%</span>
+                  </div>
+                  <div style="background: rgba(255,255,255,0.04); border-radius: 6px; padding: 8px 12px; display: flex; align-items: center; justify-content: space-between;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <div style="width: 6px; height: 6px; border-radius: 100px; background: #83E85A;"></div>
+                      <span style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 500; color: rgba(255,255,255,0.85);">Scope 3 — Procurement</span>
+                    </div>
+                    <span style="font-family: Poppins, sans-serif; font-size: 9px; color: #83E85A;">78%</span>
+                  </div>
+                  <div style="background: rgba(255,255,255,0.04); border-radius: 6px; padding: 8px 12px; display: flex; align-items: center; justify-content: space-between;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <div style="width: 6px; height: 6px; border-radius: 100px; background: rgba(255,255,255,0.2);"></div>
+                      <span style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 500; color: rgba(255,255,255,0.85);">Circular Economy — Ops</span>
+                    </div>
+                    <span style="font-family: Poppins, sans-serif; font-size: 9px; color: #83E85A; background: rgba(131,232,90,0.12); padding: 2px 8px; border-radius: 100px;">New</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
 
   <!-- Trusted by -->
-  <div class="pb-16 pt-2">
-    <div class="site-w text-center">
-      <p class="text-[11px] font-semibold text-akdo-dark/20 tracking-[0.12em] uppercase mb-5">Trusted by</p>
-      <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12">
-        <span class="text-[14px] font-semibold text-akdo-dark/20">Henkel</span>
-        <span class="text-[14px] font-semibold text-akdo-dark/20">Huhtamaki</span>
-        <span class="text-[14px] font-semibold text-akdo-dark/20">JTI</span>
-        <span class="text-[14px] font-semibold text-akdo-dark/20">GE Vernova</span>
-        <span class="text-[14px] font-semibold text-akdo-dark/20">Essity</span>
-        <span class="text-[14px] font-semibold text-akdo-dark/20">Harmony Gold</span>
+  <div style="padding: 8px 24px 64px 24px;">
+    <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+      <p style="font-family: Poppins, sans-serif; font-size: 11px; font-weight: 600; color: rgba(13,38,38,0.2); text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 20px 0;">Trusted by</p>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 48px;">
+        <span style="font-family: Poppins, sans-serif; font-size: 14px; font-weight: 600; color: rgba(13,38,38,0.2);">Henkel</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 14px; font-weight: 600; color: rgba(13,38,38,0.2);">Huhtamaki</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 14px; font-weight: 600; color: rgba(13,38,38,0.2);">JTI</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 14px; font-weight: 600; color: rgba(13,38,38,0.2);">GE Vernova</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 14px; font-weight: 600; color: rgba(13,38,38,0.2);">Essity</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 14px; font-weight: 600; color: rgba(13,38,38,0.2);">Harmony Gold</span>
       </div>
     </div>
   </div>
 
 
   <!-- ========== FROM STRATEGY TO ACTION (the pain) ========== -->
-  <section class="py-20 bg-akdo-dark">
-    <div class="site-w max-w-[960px] mx-auto">
+  <section style="padding: 80px 24px; background: radial-gradient(ellipse at 50% 0%, #1a4a3a 0%, #113333 50%, #0E2B2B 100%);">
+    <div style="max-width: 880px; margin: 0 auto;">
 
-      <div class="grid md:grid-cols-3 gap-5 mb-14">
-        <div class="bg-white/[0.04] rounded-2xl p-6 border border-white/[0.06] text-center">
-          <div class="text-[48px] font-bold text-white leading-none mb-2">72%</div>
-          <p class="text-[12px] text-white/30 leading-snug">of employees cannot name their company's ESG targets</p>
-        </div>
-        <div class="bg-white/[0.04] rounded-2xl p-6 border border-white/[0.06] text-center">
-          <div class="text-[48px] font-bold text-white leading-none mb-2">23%</div>
-          <p class="text-[12px] text-white/30 leading-snug">completion rate on traditional compliance e-learning</p>
-        </div>
-        <div class="bg-white/[0.04] rounded-2xl p-6 border border-white/[0.06] text-center">
-          <div class="text-[48px] font-bold text-white leading-none mb-2">70%+</div>
-          <p class="text-[12px] text-white/30 leading-snug">of Scope 3 emissions sit with suppliers who get no training</p>
-        </div>
-      </div>
-
-      <div class="max-w-[700px] mx-auto">
-        <h2 class="font-bold text-[24px] md:text-[30px] leading-[1.15] text-white mb-4">
+      <!-- Lead with the headline -->
+      <div style="text-align: center; max-width: 700px; margin: 0 auto 48px auto;">
+        <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #83E85A; text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 12px 0;">The gap</p>
+        <h2 style="font-family: Poppins, sans-serif; font-size: 36px; font-weight: 700; line-height: 1.1; color: #FFFFFF; margin: 0 0 16px 0;">
           Your sustainability strategy needs to reach every role.
         </h2>
-        <p class="text-[14px] text-white/35 leading-relaxed">
-          Your sustainability targets, carbon data, and policies are written for investors and auditors. Plant operators, procurement teams, sales reps, and suppliers all need to act on them.
+        <p style="font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.6;">
+          Targets, carbon data, and policies are written for investors and auditors. Plant operators, procurement teams, sales reps, and suppliers all need to act on them.
         </p>
+      </div>
+
+      <!-- Stats as clean row with dividers -->
+      <div style="display: flex; align-items: center; justify-content: center;">
+        <div style="flex: 1; text-align: center; padding: 24px 0;">
+          <div style="font-family: Poppins, sans-serif; font-size: 44px; font-weight: 700; color: #FFFFFF; line-height: 1;">72%</div>
+          <p style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5); margin: 8px 0 0 0;">can't name their ESG targets</p>
+        </div>
+        <div style="width: 1px; height: 48px; background: rgba(255,255,255,0.12);"></div>
+        <div style="flex: 1; text-align: center; padding: 24px 0;">
+          <div style="font-family: Poppins, sans-serif; font-size: 44px; font-weight: 700; color: #FFFFFF; line-height: 1;">23%</div>
+          <p style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5); margin: 8px 0 0 0;">compliance e-learning completion</p>
+        </div>
+        <div style="width: 1px; height: 48px; background: rgba(255,255,255,0.12);"></div>
+        <div style="flex: 1; text-align: center; padding: 24px 0;">
+          <div style="font-family: Poppins, sans-serif; font-size: 44px; font-weight: 700; color: #FFFFFF; line-height: 1;">70%+</div>
+          <p style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5); margin: 8px 0 0 0;">of Scope 3 sits with untrained suppliers</p>
+        </div>
       </div>
 
     </div>
@@ -221,171 +228,155 @@
 
   <!-- ========== USE CASES ========== -->
 
-  <!-- Bridge -->
-  <section class="pt-20 pb-4">
-    <div class="site-w max-w-[800px] mx-auto text-center">
-      <p class="text-[12px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">One platform, four use cases</p>
-      <h2 class="font-bold text-[28px] md:text-[36px] leading-[1.1] text-akdo-dark">
-        Akdo translates your strategy into training for everyone who needs to act on it.      </h2>
-    </div>
-  </section>
-
-  <!-- Use Case 1: Employee Engagement (text LEFT, visual RIGHT) — white -->
-  <section class="py-20">
-    <div class="site-w max-w-[960px] mx-auto">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <p class="text-[11px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">Employee Engagement</p>
-          <h2 class="font-bold text-[26px] md:text-[32px] leading-[1.1] text-akdo-dark mb-5">
+  <!-- Use Case 1: Employee Engagement (text LEFT, visual RIGHT) -->
+  <section style="padding: 80px 24px; background: #F5F7F5;">
+    <div style="max-width: 1080px; margin: 0 auto;">
+      <div style="display: flex; gap: 48px; align-items: center;">
+        <div style="flex: 1;">
+          <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 12px 0;">Employee Engagement</p>
+          <h2 style="font-family: Poppins, sans-serif; font-size: 32px; font-weight: 700; line-height: 1.1; letter-spacing: -0.5px; color: #0D2626; margin: 0 0 20px 0;">
             Your 200-page ESG report won't change behavior. Role-specific training will.
           </h2>
-          <p class="text-[14px] text-akdo-dark/45 leading-relaxed mb-7">
-Akdo extracts the targets, maps them to roles, and generates training that shows each team what they own and what to do about it.
+          <p style="font-family: Poppins, sans-serif; font-size: 15px; color: #0D2626; line-height: 1.6; margin: 0 0 28px 0;">
+            Akdo extracts the targets, maps them to roles, and generates training that shows each team what they own and what to do about it.
           </p>
-          <div class="space-y-3">
-            <div class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full bg-akdo-green/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; align-items: flex-start; gap: 12px;">
+              <div style="width: 20px; height: 20px; border-radius: 100px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
                 <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="#2cc27d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
-              <p class="text-[13px] text-akdo-dark/60">Role-specific modules from your own ESG targets</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 15px; color: #0D2626;">Role-specific modules from your own ESG targets</p>
             </div>
-            <div class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full bg-akdo-green/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <div style="display: flex; align-items: flex-start; gap: 12px;">
+              <div style="width: 20px; height: 20px; border-radius: 100px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
                 <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="#2cc27d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
-              <p class="text-[13px] text-akdo-dark/60">Video, quizzes, and interactive scenarios</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 15px; color: #0D2626;">Video, quizzes, and interactive scenarios</p>
             </div>
-            <div class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full bg-akdo-green/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <div style="display: flex; align-items: flex-start; gap: 12px;">
+              <div style="width: 20px; height: 20px; border-radius: 100px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
                 <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="#2cc27d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
-              <p class="text-[13px] text-akdo-dark/60">Completion tracking for auditors and reporting</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 15px; color: #0D2626;">Completion tracking for auditors and reporting</p>
             </div>
           </div>
         </div>
-        <!-- Visual: ESG report → training transformation -->
-        <div class="bg-white rounded-2xl border border-black/[0.04] p-6">
-          <div class="space-y-4">
-            <div class="bg-akdo-cream/60 rounded-xl p-4 border border-black/[0.04]">
-              <p class="text-[10px] font-semibold text-akdo-dark/25 uppercase tracking-wider mb-2">Input: Annual Sustainability Report</p>
-              <div class="space-y-2">
-                <div class="h-2 bg-akdo-dark/[0.06] rounded-full w-full"></div>
-                <div class="h-2 bg-akdo-dark/[0.06] rounded-full w-4/5"></div>
-                <div class="h-2 bg-akdo-dark/[0.06] rounded-full w-full"></div>
-                <div class="h-2 bg-akdo-dark/[0.06] rounded-full w-3/5"></div>
+        <!-- Visual: Generated modules dashboard -->
+        <div style="flex: 1.2; background: #113333; border-radius: 12px; padding: 24px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin: 0 0 16px 0;">
+            <p style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 600; color: #83E85A; text-transform: uppercase; letter-spacing: 0.1em; margin: 0;">Generated from ESG report</p>
+            <span style="font-family: Poppins, sans-serif; font-size: 10px; color: rgba(255,255,255,0.3); margin: 0;">4 programs · 13 modules</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="background: rgba(255,255,255,0.06); border-radius: 8px; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between;">
+              <div>
+                <p style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.85); margin: 0;">Operations: Energy & Emissions</p>
+                <p style="font-family: Poppins, sans-serif; font-size: 11px; color: rgba(255,255,255,0.35); margin: 4px 0 0 0;">6 modules · 25 min · Scope 1 & 2 targets</p>
               </div>
-              <p class="text-[10px] text-akdo-dark/20 mt-3">Pages 1-247 · Uploaded 2 min ago</p>
+              <span style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 600; color: #2cc27d; background: rgba(44,194,125,0.15); border-radius: 100px; padding: 4px 10px;">Ready</span>
             </div>
-            <div class="flex justify-center">
-              <div class="w-8 h-8 rounded-full bg-akdo-green/10 flex items-center justify-center">
-                <span class="text-akdo-green text-sm font-bold">↓</span>
+            <div style="background: rgba(255,255,255,0.06); border-radius: 8px; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between;">
+              <div>
+                <p style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.85); margin: 0;">Procurement: Sustainable Sourcing</p>
+                <p style="font-family: Poppins, sans-serif; font-size: 11px; color: rgba(255,255,255,0.35); margin: 4px 0 0 0;">4 modules · 18 min · Supplier code of conduct</p>
               </div>
+              <span style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 600; color: #2cc27d; background: rgba(44,194,125,0.15); border-radius: 100px; padding: 4px 10px;">Ready</span>
             </div>
-            <div class="space-y-2">
-              <div class="bg-akdo-dark rounded-lg px-4 py-3 flex items-center justify-between">
-                <div>
-                  <p class="text-[11px] font-semibold text-white/80">Operations: Energy & Emissions</p>
-                  <p class="text-[10px] text-white/30">6 modules · 25 min</p>
-                </div>
-                <span class="text-[9px] font-semibold text-akdo-green bg-akdo-green/15 rounded-full px-2 py-0.5">Ready</span>
+            <div style="background: rgba(255,255,255,0.06); border-radius: 8px; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between;">
+              <div>
+                <p style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.85); margin: 0;">Sales: Sustainability Story</p>
+                <p style="font-family: Poppins, sans-serif; font-size: 11px; color: rgba(255,255,255,0.35); margin: 4px 0 0 0;">3 modules · 12 min · Customer-facing claims</p>
               </div>
-              <div class="bg-akdo-dark rounded-lg px-4 py-3 flex items-center justify-between">
-                <div>
-                  <p class="text-[11px] font-semibold text-white/80">Procurement: Sustainable Sourcing</p>
-                  <p class="text-[10px] text-white/30">4 modules · 18 min</p>
-                </div>
-                <span class="text-[9px] font-semibold text-akdo-green bg-akdo-green/15 rounded-full px-2 py-0.5">Ready</span>
+              <span style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 600; color: #d4a843; background: rgba(212,168,67,0.15); border-radius: 100px; padding: 4px 10px;">In review</span>
+            </div>
+            <div style="background: rgba(255,255,255,0.06); border-radius: 8px; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between;">
+              <div>
+                <p style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.85); margin: 0;">HR: DEI & Fair Labor</p>
+                <p style="font-family: Poppins, sans-serif; font-size: 11px; color: rgba(255,255,255,0.35); margin: 4px 0 0 0;">2 modules · 10 min · Social pillar targets</p>
               </div>
-              <div class="bg-akdo-dark rounded-lg px-4 py-3 flex items-center justify-between">
-                <div>
-                  <p class="text-[11px] font-semibold text-white/80">Sales: Sustainability Story</p>
-                  <p class="text-[10px] text-white/30">3 modules · 12 min</p>
-                </div>
-                <span class="text-[9px] font-semibold text-akdo-yellow bg-akdo-yellow/15 rounded-full px-2 py-0.5">In review</span>
-              </div>
+              <span style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 600; color: #2cc27d; background: rgba(44,194,125,0.15); border-radius: 100px; padding: 4px 10px;">Ready</span>
             </div>
           </div>
-          <p class="text-[11px] text-akdo-dark/20 text-center mt-4">[ Product screenshot: AI generating role-specific modules from an uploaded ESG report ]</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Use Case 2: Supplier Engagement (visual LEFT, text RIGHT) — cream -->
-  <section class="py-20 bg-akdo-cream/60">
-    <div class="site-w max-w-[960px] mx-auto">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
+  <!-- Use Case 2: Supplier Engagement (visual LEFT, text RIGHT) -->
+  <section style="padding: 80px 24px; background: #FFFFFF;">
+    <div style="max-width: 1080px; margin: 0 auto;">
+      <div style="display: flex; gap: 48px; align-items: center;">
         <!-- Visual: supplier tier onboarding -->
-        <div class="bg-white rounded-2xl border border-black/[0.04] p-6">
-          <div class="space-y-3">
-            <div class="flex items-center gap-3 bg-akdo-dark rounded-lg px-4 py-3">
-              <div class="w-8 h-8 rounded-lg bg-akdo-green/20 flex items-center justify-center flex-shrink-0">
-                <span class="text-[11px] font-bold text-akdo-green">T1</span>
+        <div style="flex: 1.2; background: #FFFFFF; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); padding: 24px;">
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; align-items: center; gap: 12px; background: #113333; border-radius: 8px; padding: 12px 16px;">
+              <div style="width: 32px; height: 32px; border-radius: 8px; background: rgba(44,194,125,0.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <span style="font-family: Poppins, sans-serif; font-size: 11px; font-weight: 700; color: #2cc27d;">T1</span>
               </div>
-              <div class="flex-1">
-                <p class="text-[11px] font-semibold text-white/80">Tier 1: Strategic suppliers</p>
-                <p class="text-[10px] text-white/35">SBTi alignment · Carbon reporting · LCA basics</p>
+              <div style="flex: 1;">
+                <p style="font-family: Poppins, sans-serif; font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.8); margin: 0;">Tier 1: Strategic suppliers</p>
+                <p style="font-family: Poppins, sans-serif; font-size: 10px; color: rgba(255,255,255,0.35); margin: 0;">SBTi alignment · Carbon reporting · LCA basics</p>
               </div>
-              <div class="text-right">
-                <p class="text-[10px] font-semibold text-akdo-green">84%</p>
-                <p class="text-[9px] text-white/25">completed</p>
-              </div>
-            </div>
-            <div class="flex items-center gap-3 bg-akdo-dark rounded-lg px-4 py-3">
-              <div class="w-8 h-8 rounded-lg bg-akdo-yellow/20 flex items-center justify-center flex-shrink-0">
-                <span class="text-[11px] font-bold text-akdo-yellow">T2</span>
-              </div>
-              <div class="flex-1">
-                <p class="text-[11px] font-semibold text-white/80">Tier 2: Mid-size suppliers</p>
-                <p class="text-[10px] text-white/35">ESG foundations · Waste management · Code of conduct</p>
-              </div>
-              <div class="text-right">
-                <p class="text-[10px] font-semibold text-akdo-yellow">61%</p>
-                <p class="text-[9px] text-white/25">completed</p>
+              <div style="text-align: right;">
+                <p style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 600; color: #2cc27d; margin: 0;">84%</p>
+                <p style="font-family: Poppins, sans-serif; font-size: 9px; color: rgba(255,255,255,0.25); margin: 0;">completed</p>
               </div>
             </div>
-            <div class="flex items-center gap-3 bg-akdo-dark rounded-lg px-4 py-3">
-              <div class="w-8 h-8 rounded-lg bg-akdo-peach/20 flex items-center justify-center flex-shrink-0">
-                <span class="text-[11px] font-bold text-akdo-peach">T3</span>
+            <div style="display: flex; align-items: center; gap: 12px; background: #113333; border-radius: 8px; padding: 12px 16px;">
+              <div style="width: 32px; height: 32px; border-radius: 8px; background: rgba(212,168,67,0.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <span style="font-family: Poppins, sans-serif; font-size: 11px; font-weight: 700; color: #d4a843;">T2</span>
               </div>
-              <div class="flex-1">
-                <p class="text-[11px] font-semibold text-white/80">Tier 3: Small suppliers</p>
-                <p class="text-[10px] text-white/35">Sustainability awareness · Human rights · Basic compliance</p>
+              <div style="flex: 1;">
+                <p style="font-family: Poppins, sans-serif; font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.8); margin: 0;">Tier 2: Mid-size suppliers</p>
+                <p style="font-family: Poppins, sans-serif; font-size: 10px; color: rgba(255,255,255,0.35); margin: 0;">ESG foundations · Waste management · Code of conduct</p>
               </div>
-              <div class="text-right">
-                <p class="text-[10px] font-semibold text-akdo-peach">37%</p>
-                <p class="text-[9px] text-white/25">completed</p>
+              <div style="text-align: right;">
+                <p style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 600; color: #d4a843; margin: 0;">61%</p>
+                <p style="font-family: Poppins, sans-serif; font-size: 9px; color: rgba(255,255,255,0.25); margin: 0;">completed</p>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px; background: #113333; border-radius: 8px; padding: 12px 16px;">
+              <div style="width: 32px; height: 32px; border-radius: 8px; background: rgba(255,192,145,0.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <span style="font-family: Poppins, sans-serif; font-size: 11px; font-weight: 700; color: #ffc091;">T3</span>
+              </div>
+              <div style="flex: 1;">
+                <p style="font-family: Poppins, sans-serif; font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.8); margin: 0;">Tier 3: Small suppliers</p>
+                <p style="font-family: Poppins, sans-serif; font-size: 10px; color: rgba(255,255,255,0.35); margin: 0;">Sustainability awareness · Human rights · Basic compliance</p>
+              </div>
+              <div style="text-align: right;">
+                <p style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 600; color: #ffc091; margin: 0;">37%</p>
+                <p style="font-family: Poppins, sans-serif; font-size: 9px; color: rgba(255,255,255,0.25); margin: 0;">completed</p>
               </div>
             </div>
           </div>
-          <p class="text-[11px] text-akdo-dark/20 text-center mt-4">[ Product screenshot: supplier dashboard with tiered programs and completion tracking ]</p>
+          <p style="font-family: Poppins, sans-serif; font-size: 11px; color: rgba(13,38,38,0.2); text-align: center; margin: 16px 0 0 0;">[ Product screenshot: supplier dashboard with tiered programs and completion tracking ]</p>
         </div>
-        <div>
-          <p class="text-[11px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">Supplier Engagement</p>
-          <h2 class="font-bold text-[26px] md:text-[32px] leading-[1.1] text-akdo-dark mb-5">
+        <div style="flex: 1;">
+          <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 12px 0;">Supplier Engagement</p>
+          <h2 style="font-family: Poppins, sans-serif; font-size: 32px; font-weight: 700; line-height: 1.1; letter-spacing: -0.5px; color: #0D2626; margin: 0 0 20px 0;">
             5,000 suppliers. Three tiers. One platform to train them all.
           </h2>
-          <p class="text-[14px] text-akdo-dark/45 leading-relaxed mb-7">
-Akdo lets you create tiered training programs from your own supplier code of conduct, so every supplier tier gets the right depth of content with built-in completion tracking.
+          <p style="font-family: Poppins, sans-serif; font-size: 15px; color: #0D2626; line-height: 1.6; margin: 0 0 28px 0;">
+            Akdo lets you create tiered training programs from your own supplier code of conduct, so every supplier tier gets the right depth of content with built-in completion tracking.
           </p>
-          <div class="space-y-3">
-            <div class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full bg-akdo-green/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; align-items: flex-start; gap: 12px;">
+              <div style="width: 20px; height: 20px; border-radius: 100px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
                 <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="#2cc27d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
-              <p class="text-[13px] text-akdo-dark/60">Tiered programs based on supplier risk profile</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 15px; color: #0D2626;">Tiered programs based on supplier risk profile</p>
             </div>
-            <div class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full bg-akdo-green/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <div style="display: flex; align-items: flex-start; gap: 12px;">
+              <div style="width: 20px; height: 20px; border-radius: 100px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
                 <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="#2cc27d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
-              <p class="text-[13px] text-akdo-dark/60">Self-service onboarding via hosted link</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 15px; color: #0D2626;">Self-service onboarding via hosted link</p>
             </div>
-            <div class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full bg-akdo-green/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <div style="display: flex; align-items: flex-start; gap: 12px;">
+              <div style="width: 20px; height: 20px; border-radius: 100px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
                 <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="#2cc27d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
-              <p class="text-[13px] text-akdo-dark/60">Audit-ready records for CSRD and due diligence</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 15px; color: #0D2626;">Audit-ready records for CSRD and due diligence</p>
             </div>
           </div>
         </div>
@@ -393,141 +384,98 @@ Akdo lets you create tiered training programs from your own supplier code of con
     </div>
   </section>
 
-  <!-- Use Case 3: Customer Engagement (text LEFT, visual RIGHT) — white -->
-  <section class="py-20">
-    <div class="site-w max-w-[960px] mx-auto">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <p class="text-[11px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">Customer Engagement</p>
-          <h2 class="font-bold text-[26px] md:text-[32px] leading-[1.1] text-akdo-dark mb-5">
+  <!-- Use Case 3: Customer Engagement (text LEFT, visual RIGHT) -->
+  <section style="padding: 80px 24px; background: #F5F7F5;">
+    <div style="max-width: 1080px; margin: 0 auto;">
+      <div style="display: flex; gap: 48px; align-items: center;">
+        <div style="flex: 1;">
+          <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 12px 0;">Customer Engagement</p>
+          <h2 style="font-family: Poppins, sans-serif; font-size: 32px; font-weight: 700; line-height: 1.1; letter-spacing: -0.5px; color: #0D2626; margin: 0 0 20px 0;">
             Turn your sustainability story into a sales advantage.
           </h2>
-          <p class="text-[14px] text-akdo-dark/45 leading-relaxed mb-7">
-Akdo builds branded learning journeys from your materials so customers can see the impact of choosing your products. Interactive, shareable, and trackable.
+          <p style="font-family: Poppins, sans-serif; font-size: 15px; color: #0D2626; line-height: 1.6; margin: 0 0 28px 0;">
+            Akdo builds branded learning journeys from your materials so customers can see the impact of choosing your products. Interactive, shareable, and trackable.
           </p>
-          <div class="space-y-3">
-            <div class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full bg-akdo-green/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; align-items: flex-start; gap: 12px;">
+              <div style="width: 20px; height: 20px; border-radius: 100px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
                 <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="#2cc27d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
-              <p class="text-[13px] text-akdo-dark/60">Branded customer-facing learning pages</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 15px; color: #0D2626;">Branded customer-facing learning pages</p>
             </div>
-            <div class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full bg-akdo-green/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <div style="display: flex; align-items: flex-start; gap: 12px;">
+              <div style="width: 20px; height: 20px; border-radius: 100px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
                 <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="#2cc27d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
-              <p class="text-[13px] text-akdo-dark/60">Product-specific sustainability modules</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 15px; color: #0D2626;">Product-specific sustainability modules</p>
             </div>
-            <div class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full bg-akdo-green/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <div style="display: flex; align-items: flex-start; gap: 12px;">
+              <div style="width: 20px; height: 20px; border-radius: 100px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
                 <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="#2cc27d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
-              <p class="text-[13px] text-akdo-dark/60">Engagement analytics per account</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 15px; color: #0D2626;">Engagement analytics per account</p>
             </div>
           </div>
         </div>
-        <!-- Visual: Tork customer journey (live example) -->
-        <div class="bg-akdo-dark rounded-2xl p-6">
-          <div class="flex items-center justify-between mb-4">
-            <p class="text-[10px] font-semibold text-akdo-green uppercase tracking-wider">Tork × Akdo — Live training</p>
-            <span class="text-[9px] font-semibold text-akdo-green bg-akdo-green/10 rounded-full px-2 py-0.5">Live</span>
+        <!-- Visual: Product screenshot placeholder -->
+        <div style="flex: 1.2; background: #F5F7F5; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); overflow: hidden;">
+          <div style="display: flex; align-items: center; justify-content: center; min-height: 400px;">
+            <p style="font-family: Poppins, sans-serif; font-size: 13px; color: #6B7B6B; text-align: center; margin: 0;">[ Tork training screenshot ]</p>
           </div>
-          <div class="space-y-2">
-            <div class="flex items-center gap-3 bg-white/[0.06] rounded-lg px-4 py-3">
-              <div class="w-6 h-6 rounded-full bg-akdo-green/20 flex items-center justify-center flex-shrink-0">
-                <span class="text-[10px] font-bold text-akdo-green">1</span>
-              </div>
-              <div class="flex-1">
-                <p class="text-[11px] font-semibold text-white/80">Why sustainable hygiene matters</p>
-                <p class="text-[10px] text-white/30">Video · 4 min</p>
-              </div>
-              <div class="w-5 h-5 rounded-full bg-akdo-green/15 flex items-center justify-center">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#2cc27d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-            </div>
-            <div class="flex items-center gap-3 bg-white/[0.06] rounded-lg px-4 py-3">
-              <div class="w-6 h-6 rounded-full bg-akdo-green/20 flex items-center justify-center flex-shrink-0">
-                <span class="text-[10px] font-bold text-akdo-green">2</span>
-              </div>
-              <div class="flex-1">
-                <p class="text-[11px] font-semibold text-white/80">Tork's sustainable product range</p>
-                <p class="text-[10px] text-white/30">Interactive · 6 min</p>
-              </div>
-              <div class="w-5 h-5 rounded-full bg-akdo-green/15 flex items-center justify-center">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#2cc27d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-            </div>
-            <div class="flex items-center gap-3 bg-akdo-green/10 rounded-lg px-4 py-3 border border-akdo-green/20">
-              <div class="w-6 h-6 rounded-full bg-akdo-green/30 flex items-center justify-center flex-shrink-0">
-                <span class="text-[10px] font-bold text-akdo-green">3</span>
-              </div>
-              <div class="flex-1">
-                <p class="text-[11px] font-semibold text-white/90">Switching to Tork — ROI calculator</p>
-                <p class="text-[10px] text-white/40">Scenario · 8 min · in progress</p>
-              </div>
-              <div class="w-5 h-5 rounded-full bg-akdo-dark/20 flex items-center justify-center animate-pulse">
-                <span class="text-[8px] text-white/30">···</span>
-              </div>
-            </div>
-          </div>
-          <a href="https://tork.empacto.eco/en/index.html" target="_blank" class="flex items-center justify-center gap-2 text-[13px] font-semibold text-akdo-dark bg-akdo-green rounded-full px-5 py-2.5 mt-5 hover:bg-akdo-lime transition-colors">
-            Explore the live Tork training
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Use Case 4: Compliance Training (visual LEFT, text RIGHT) — cream -->
-  <section class="py-20 bg-akdo-cream/60">
-    <div class="site-w max-w-[960px] mx-auto">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
+  <!-- Use Case 4: Compliance Training (visual LEFT, text RIGHT) -->
+  <section style="padding: 80px 24px; background: #FFFFFF;">
+    <div style="max-width: 1080px; margin: 0 auto;">
+      <div style="display: flex; gap: 48px; align-items: center;">
         <!-- Visual: Compliance scenario simulation -->
-        <div class="bg-akdo-dark rounded-2xl p-6">
-          <p class="text-[10px] font-semibold text-akdo-green uppercase tracking-wider mb-4">Scenario: Gifts & hospitality</p>
-          <div class="bg-white/[0.04] rounded-xl p-4 mb-3">
-            <p class="text-[12px] text-white/60 leading-relaxed">A supplier invites you to a weekend sports event. They are bidding on a contract your team is evaluating. The tickets are worth €800. What do you do?</p>
+        <div style="flex: 1.2; background: #113333; border-radius: 12px; padding: 24px;">
+          <p style="font-family: Poppins, sans-serif; font-size: 10px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.1em; margin: 0 0 16px 0;">Scenario: Gifts & hospitality</p>
+          <div style="background: rgba(255,255,255,0.04); border-radius: 12px; padding: 16px; margin: 0 0 12px 0;">
+            <p style="font-family: Poppins, sans-serif; font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.6;">A supplier invites you to a weekend sports event. They are bidding on a contract your team is evaluating. The tickets are worth €800. What do you do?</p>
           </div>
-          <div class="space-y-2">
-            <div class="bg-white/[0.06] hover:bg-akdo-green/20 rounded-lg px-4 py-2.5 border border-white/[0.06] cursor-pointer transition-colors">
-              <p class="text-[11px] text-white/70">A. Accept. It is a networking opportunity, not a bribe</p>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="background: rgba(255,255,255,0.06); border-radius: 8px; padding: 10px 16px; border: 1px solid rgba(255,255,255,0.06);">
+              <p style="font-family: Poppins, sans-serif; font-size: 11px; color: rgba(255,255,255,0.7); margin: 0;">A. Accept. It is a networking opportunity, not a bribe</p>
             </div>
-            <div class="bg-akdo-green/15 rounded-lg px-4 py-2.5 border border-akdo-green/30">
-              <p class="text-[11px] text-white/90 font-medium">B. Decline and disclose per the gifts policy ✓</p>
+            <div style="background: rgba(44,194,125,0.15); border-radius: 8px; padding: 10px 16px; border: 1px solid rgba(44,194,125,0.3);">
+              <p style="font-family: Poppins, sans-serif; font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.9); margin: 0;">B. Decline and disclose per the gifts policy ✓</p>
             </div>
-            <div class="bg-white/[0.06] hover:bg-akdo-green/20 rounded-lg px-4 py-2.5 border border-white/[0.06] cursor-pointer transition-colors">
-              <p class="text-[11px] text-white/70">C. Accept but do not mention it. It is personal, not work</p>
+            <div style="background: rgba(255,255,255,0.06); border-radius: 8px; padding: 10px 16px; border: 1px solid rgba(255,255,255,0.06);">
+              <p style="font-family: Poppins, sans-serif; font-size: 11px; color: rgba(255,255,255,0.7); margin: 0;">C. Accept but do not mention it. It is personal, not work</p>
             </div>
           </div>
-          <p class="text-[11px] text-white/10 text-center mt-4">[ Real product screenshot of a compliance scenario simulation ]</p>
+          <p style="font-family: Poppins, sans-serif; font-size: 11px; color: rgba(255,255,255,0.1); text-align: center; margin: 16px 0 0 0;">[ Real product screenshot of a compliance scenario simulation ]</p>
         </div>
-        <div>
-          <p class="text-[11px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">Compliance Training</p>
-          <h2 class="font-bold text-[26px] md:text-[32px] leading-[1.1] text-akdo-dark mb-5">
+        <div style="flex: 1;">
+          <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 12px 0;">Compliance Training</p>
+          <h2 style="font-family: Poppins, sans-serif; font-size: 32px; font-weight: 700; line-height: 1.1; letter-spacing: -0.5px; color: #0D2626; margin: 0 0 20px 0;">
             Regulators want proof that compliance is embedded, not just documented.
           </h2>
-          <p class="text-[14px] text-akdo-dark/45 leading-relaxed mb-7">
-Akdo turns your compliance policies into scenario-based training with completion records that satisfy auditors.
+          <p style="font-family: Poppins, sans-serif; font-size: 15px; color: #0D2626; line-height: 1.6; margin: 0 0 28px 0;">
+            Akdo turns your compliance policies into scenario-based training with completion records that satisfy auditors.
           </p>
-          <div class="space-y-3">
-            <div class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full bg-akdo-green/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; align-items: flex-start; gap: 12px;">
+              <div style="width: 20px; height: 20px; border-radius: 100px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
                 <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="#2cc27d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
-              <p class="text-[13px] text-akdo-dark/60">Scenario-based modules from your policies</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 15px; color: #0D2626;">Scenario-based modules from your policies</p>
             </div>
-            <div class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full bg-akdo-green/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <div style="display: flex; align-items: flex-start; gap: 12px;">
+              <div style="width: 20px; height: 20px; border-radius: 100px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
                 <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="#2cc27d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
-              <p class="text-[13px] text-akdo-dark/60">Anti-bribery, GDPR, code of conduct, whistleblowing</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 15px; color: #0D2626;">Anti-bribery, GDPR, code of conduct, whistleblowing</p>
             </div>
-            <div class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full bg-akdo-green/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <div style="display: flex; align-items: flex-start; gap: 12px;">
+              <div style="width: 20px; height: 20px; border-radius: 100px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
                 <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="#2cc27d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
-              <p class="text-[13px] text-akdo-dark/60">Timestamped completion records per employee</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 15px; color: #0D2626;">Timestamped completion records per employee</p>
             </div>
           </div>
         </div>
@@ -536,132 +484,93 @@ Akdo turns your compliance policies into scenario-based training with completion
   </section>
 
 
-  <!-- ========== GLOBAL DEPLOYMENT — compact strip ========== -->
-  <section class="py-14">
-    <div class="site-w max-w-[800px] mx-auto text-center">
-      <p class="text-[12px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">Global deployment</p>
-      <h2 class="font-bold text-[22px] md:text-[28px] leading-[1.15] text-akdo-dark mb-3">
+  <!-- ========== GLOBAL DEPLOYMENT — dark accent strip ========== -->
+  <section style="padding: 56px 24px; background: radial-gradient(ellipse at 50% 0%, #1a4a3a 0%, #113333 50%, #0E2B2B 100%);">
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+      <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #83E85A; text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 12px 0;">Global deployment</p>
+      <h2 style="font-family: Poppins, sans-serif; font-size: 28px; font-weight: 700; line-height: 1.15; letter-spacing: -0.5px; color: #FFFFFF; margin: 0 0 12px 0;">
         Create once. Deploy in 200+ languages with native AI voice.
       </h2>
-      <p class="text-[13px] text-akdo-dark/40 mb-5">CSRD in French. Supply chain code of conduct in Mandarin. Anti-bribery in Arabic. Same content, locally compliant, ready in hours.</p>
-      <div class="flex flex-wrap items-center justify-center gap-2">
-        <span class="text-[11px] text-akdo-dark/30 bg-white rounded-md px-2.5 py-1 border border-black/[0.04]">English</span>
-        <span class="text-[11px] text-akdo-dark/30 bg-white rounded-md px-2.5 py-1 border border-black/[0.04]">Deutsch</span>
-        <span class="text-[11px] text-akdo-dark/30 bg-white rounded-md px-2.5 py-1 border border-black/[0.04]">Français</span>
-        <span class="text-[11px] text-akdo-dark/30 bg-white rounded-md px-2.5 py-1 border border-black/[0.04]">Português</span>
-        <span class="text-[11px] text-akdo-dark/30 bg-white rounded-md px-2.5 py-1 border border-black/[0.04]">Español</span>
-        <span class="text-[11px] text-akdo-dark/30 bg-white rounded-md px-2.5 py-1 border border-black/[0.04]">中文</span>
-        <span class="text-[11px] text-akdo-dark/30 bg-white rounded-md px-2.5 py-1 border border-black/[0.04]">العربية</span>
-        <span class="text-[11px] text-akdo-dark/30 bg-white rounded-md px-2.5 py-1 border border-black/[0.04]">Polski</span>
-        <span class="text-[11px] text-akdo-dark/30 bg-white rounded-md px-2.5 py-1 border border-black/[0.04]">Bahasa</span>
-        <span class="text-[11px] text-akdo-dark/30 bg-white rounded-md px-2.5 py-1 border border-black/[0.04]">हिन्दी</span>
-        <span class="text-[11px] text-akdo-green bg-akdo-green/[0.08] rounded-md px-2.5 py-1 border border-akdo-green/[0.12]">+190 more</span>
+      <p style="font-family: Poppins, sans-serif; font-size: 13px; color: rgba(255,255,255,0.5); margin: 0 0 20px 0;">CSRD in French. Supply chain code of conduct in Mandarin. Anti-bribery in Arabic. Same content, locally compliant, ready in hours.</p>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px;">
+        <span style="font-family: Poppins, sans-serif; font-size: 11px; color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.06); border-radius: 8px; padding: 4px 10px; border: 1px solid rgba(255,255,255,0.08);">English</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 11px; color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.06); border-radius: 8px; padding: 4px 10px; border: 1px solid rgba(255,255,255,0.08);">Deutsch</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 11px; color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.06); border-radius: 8px; padding: 4px 10px; border: 1px solid rgba(255,255,255,0.08);">Français</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 11px; color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.06); border-radius: 8px; padding: 4px 10px; border: 1px solid rgba(255,255,255,0.08);">Português</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 11px; color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.06); border-radius: 8px; padding: 4px 10px; border: 1px solid rgba(255,255,255,0.08);">Español</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 11px; color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.06); border-radius: 8px; padding: 4px 10px; border: 1px solid rgba(255,255,255,0.08);">中文</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 11px; color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.06); border-radius: 8px; padding: 4px 10px; border: 1px solid rgba(255,255,255,0.08);">العربية</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 11px; color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.06); border-radius: 8px; padding: 4px 10px; border: 1px solid rgba(255,255,255,0.08);">Polski</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 11px; color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.06); border-radius: 8px; padding: 4px 10px; border: 1px solid rgba(255,255,255,0.08);">Bahasa</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 11px; color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.06); border-radius: 8px; padding: 4px 10px; border: 1px solid rgba(255,255,255,0.08);">हिन्दी</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 11px; color: #83E85A; background: rgba(44,194,125,0.1); border-radius: 8px; padding: 4px 10px; border: 1px solid rgba(44,194,125,0.15);">+190 more</span>
       </div>
     </div>
   </section>
 
 
-  <!-- ========== HOW THE AI WORKS + SECURITY (merged) ========== -->
-  <section class="py-20 bg-akdo-dark">
-    <div class="site-w max-w-[960px] mx-auto">
-      <div class="text-center max-w-[640px] mx-auto mb-14">
-        <p class="text-[12px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">How the AI works</p>
-        <h2 class="font-bold text-[28px] md:text-[36px] leading-[1.1] text-white">
-          AI builds the format.<br>Your documents are the <span class="text-akdo-green">source of truth.</span>
+  <!-- ========== HOW THE AI WORKS ========== -->
+  <section style="padding: 80px 24px; background: #F5F7F5;">
+    <div style="max-width: 960px; margin: 0 auto;">
+      <div style="text-align: center; max-width: 640px; margin: 0 auto 56px auto;">
+        <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 12px 0;">How the AI works</p>
+        <h2 style="font-family: Poppins, sans-serif; font-size: 36px; font-weight: 700; line-height: 1.1; color: #0D2626; margin: 0 0 16px 0;">
+          AI builds the format. Your documents are the <span style="color: #2cc27d;">source of truth.</span>
         </h2>
-        <p class="text-[14px] text-white/40 mt-4">Akdo does not generate sustainability content from generic knowledge.</p>
+        <p style="font-family: Poppins, sans-serif; font-size: 15px; font-weight: 400; color: #6B7B6B; line-height: 1.6; margin: 0;">Akdo doesn't generate sustainability content from generic knowledge.</p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-6">
-        <!-- Left: The Pipeline -->
-        <div class="bg-white/[0.04] rounded-2xl p-6 border border-white/[0.06]">
-          <p class="text-[10px] font-semibold text-akdo-green tracking-[0.1em] uppercase mb-5">The pipeline</p>
-          <div class="space-y-5">
-            <div class="flex gap-4">
-              <div class="w-8 h-8 rounded-lg bg-akdo-green/20 flex items-center justify-center flex-shrink-0">
-                <span class="font-bold text-akdo-green text-[13px]">1</span>
-              </div>
-              <div>
-                <p class="text-[13px] font-semibold text-white mb-1">You upload</p>
-                <p class="text-[12px] text-white/35">ESG reports, sustainability strategies, codes of conduct, compliance policies.</p>
-              </div>
-            </div>
-            <div class="border-t border-white/[0.06]"></div>
-            <div class="flex gap-4">
-              <div class="w-8 h-8 rounded-lg bg-akdo-green/20 flex items-center justify-center flex-shrink-0">
-                <span class="font-bold text-akdo-green text-[13px]">2</span>
-              </div>
-              <div>
-                <p class="text-[13px] font-semibold text-white mb-1">Akdo extracts and generates</p>
-                <p class="text-[12px] text-white/35">AI identifies targets, maps them to roles, and generates video, scenarios, and quizzes for each audience.</p>
-              </div>
-            </div>
-            <div class="border-t border-white/[0.06]"></div>
-            <div class="flex gap-4">
-              <div class="w-8 h-8 rounded-lg bg-akdo-green flex items-center justify-center flex-shrink-0">
-                <span class="font-bold text-akdo-dark text-[13px]">3</span>
-              </div>
-              <div>
-                <p class="text-[13px] font-semibold text-white mb-1">Your team reviews and approves</p>
-                <p class="text-[12px] text-white/35">Sustainability reviews every module, requests edits, and signs off. Nothing goes live without human approval.</p>
-              </div>
-            </div>
+      <!-- 3 step cards -->
+      <div style="display: flex; gap: 24px;">
+        <div style="flex: 1; background: #FFFFFF; border-radius: 12px; padding: 32px; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 2px 8px rgba(17,51,51,0.06);">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; margin: 0 0 20px 0;">
+            <span style="font-family: Poppins, sans-serif; font-weight: 700; color: #2cc27d; font-size: 22px;">1</span>
+          </div>
+          <h3 style="font-family: Poppins, sans-serif; font-size: 18px; font-weight: 700; color: #0D2626; margin: 0 0 8px 0;">You upload</h3>
+          <p style="font-family: Poppins, sans-serif; font-size: 14px; font-weight: 400; color: #6B7B6B; line-height: 1.6; margin: 0;">ESG reports, sustainability strategies, codes of conduct, compliance policies — the documents your team already has.</p>
+        </div>
+        <div style="flex: 1; background: #FFFFFF; border-radius: 12px; padding: 32px; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 2px 8px rgba(17,51,51,0.06);">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; margin: 0 0 20px 0;">
+            <span style="font-family: Poppins, sans-serif; font-weight: 700; color: #2cc27d; font-size: 22px;">2</span>
+          </div>
+          <h3 style="font-family: Poppins, sans-serif; font-size: 18px; font-weight: 700; color: #0D2626; margin: 0 0 8px 0;">Akdo extracts &amp; generates</h3>
+          <p style="font-family: Poppins, sans-serif; font-size: 14px; font-weight: 400; color: #6B7B6B; line-height: 1.6; margin: 0;">AI identifies targets, maps them to roles, and generates video, interactive scenarios, and quizzes for each audience.</p>
+        </div>
+        <div style="flex: 1; background: #FFFFFF; border-radius: 12px; padding: 32px; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 2px 8px rgba(17,51,51,0.06);">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(44,194,125,0.1); display: flex; align-items: center; justify-content: center; margin: 0 0 20px 0;">
+            <span style="font-family: Poppins, sans-serif; font-weight: 700; color: #2cc27d; font-size: 22px;">3</span>
+          </div>
+          <h3 style="font-family: Poppins, sans-serif; font-size: 18px; font-weight: 700; color: #0D2626; margin: 0 0 8px 0;">Your team reviews &amp; approves</h3>
+          <p style="font-family: Poppins, sans-serif; font-size: 14px; font-weight: 400; color: #6B7B6B; line-height: 1.6; margin: 0;">Sustainability reviews every module, requests edits, and signs off. Nothing goes live without human approval.</p>
+        </div>
+      </div>
+
+      <!-- Trust bar -->
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 48px; background: #FFFFFF; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; padding: 20px 28px; box-shadow: 0 2px 8px rgba(17,51,51,0.06);">
+        <div style="display: flex; align-items: center; gap: 24px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="#2cc27d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: #0D2626;">Every claim traceable</span>
+          </div>
+          <div style="width: 1px; height: 16px; background: rgba(0,0,0,0.08);"></div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="#2cc27d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: #0D2626;">Data never trains models</span>
+          </div>
+          <div style="width: 1px; height: 16px; background: rgba(0,0,0,0.08);"></div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="#2cc27d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: #0D2626;">Hosted in Europe</span>
           </div>
         </div>
-
-        <!-- Right: The Guardrails (Security + Trust) -->
-        <div class="bg-white/[0.04] rounded-2xl p-6 border border-white/[0.06]">
-          <p class="text-[10px] font-semibold text-akdo-green tracking-[0.1em] uppercase mb-5">The guardrails</p>
-          <div class="space-y-4">
-            <div class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full bg-akdo-green/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="#2cc27d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div>
-                <p class="text-[13px] font-semibold text-white">Every claim traceable to source</p>
-                <p class="text-[11px] text-white/30">No hallucinated data or targets. If it is not in your documents, it is not in the training.</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full bg-akdo-green/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="#2cc27d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div>
-                <p class="text-[13px] font-semibold text-white">Your data never trains our models</p>
-                <p class="text-[11px] text-white/30">Documents are processed, not learned from. Deleted on request.</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <div class="w-5 h-5 rounded-full bg-akdo-green/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="#2cc27d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div>
-                <p class="text-[13px] font-semibold text-white">Hosted in Europe</p>
-                <p class="text-[11px] text-white/30">Infrastructure and data residency within the EU.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Certs -->
-          <div class="border-t border-white/[0.06] mt-5 pt-5">
-            <div class="flex items-center gap-3">
-              <div class="flex items-center gap-2 bg-white/[0.06] rounded-lg px-3 py-2">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" stroke="#2cc27d" stroke-width="1.5"/><path d="M9 12l2 2 4-4" stroke="#2cc27d" stroke-width="1.5"/></svg>
-                <span class="text-[11px] font-bold text-white/60">ISO 27001</span>
-              </div>
-              <div class="flex items-center gap-2 bg-white/[0.06] rounded-lg px-3 py-2">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="#2cc27d" stroke-width="1.5"/><path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="#2cc27d" stroke-width="1.5"/></svg>
-                <span class="text-[11px] font-bold text-white/60">GDPR</span>
-              </div>
-              <div class="flex items-center gap-2 bg-white/[0.06] rounded-lg px-3 py-2">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round"/><polyline points="22 4 12 14.01 9 11.01" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span class="text-[11px] font-bold text-white/60">SOC 2</span>
-              </div>
-            </div>
-            <div class="flex items-right justify-end gap-2 bg-white/[0.06] rounded-lg px-3 py-2 mt-2">
-              <a href="security.html" class="ml-auto text-[11px] font-semibold text-akdo-green hover:text-akdo-lime transition-colors">Full security details →</a>
-            </div>
-          </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-family: Poppins, sans-serif; font-size: 11px; font-weight: 700; color: #6B7B6B; background: #F5F7F5; border-radius: 6px; padding: 5px 10px;">ISO 27001</span>
+          <span style="font-family: Poppins, sans-serif; font-size: 11px; font-weight: 700; color: #6B7B6B; background: #F5F7F5; border-radius: 6px; padding: 5px 10px;">GDPR</span>
+          <span style="font-family: Poppins, sans-serif; font-size: 11px; font-weight: 700; color: #6B7B6B; background: #F5F7F5; border-radius: 6px; padding: 5px 10px;">SOC 2</span>
+          <a href="security.html" style="display: inline-flex; align-items: center; gap: 6px; font-family: Poppins, sans-serif; font-size: 11px; font-weight: 600; color: #2cc27d; text-decoration: none; margin-left: 4px;">
+            Details
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </div>
       </div>
     </div>
@@ -669,246 +578,166 @@ Akdo turns your compliance policies into scenario-based training with completion
 
 
   <!-- ========== TOPICS — E, S, G + Compliance ========== -->
-  <section class="py-14 bg-akdo-dark">
-    <div class="site-w max-w-[960px] mx-auto">
-      <p class="text-[13px] font-semibold text-white/60 tracking-[0.08em] uppercase mb-6 text-center">28+ topics across E, S, G & Compliance</p>
-      <div class="flex flex-wrap items-center justify-center gap-2">
-        <span class="text-[13px] text-white/70 bg-white/[0.08] border border-white/[0.10] rounded-full px-4 py-1.5">Carbon Footprint</span>
-        <span class="text-[13px] text-white/70 bg-white/[0.08] border border-white/[0.10] rounded-full px-4 py-1.5">Energy Management</span>
-        <span class="text-[13px] text-white/70 bg-white/[0.08] border border-white/[0.10] rounded-full px-4 py-1.5">Circular Economy</span>
-        <span class="text-[13px] text-white/70 bg-white/[0.08] border border-white/[0.10] rounded-full px-4 py-1.5">Human Rights</span>
-        <span class="text-[13px] text-white/70 bg-white/[0.08] border border-white/[0.10] rounded-full px-4 py-1.5">DEI</span>
-        <span class="text-[13px] text-white/70 bg-white/[0.08] border border-white/[0.10] rounded-full px-4 py-1.5">Anti-Bribery</span>
-        <span class="text-[13px] text-white/70 bg-white/[0.08] border border-white/[0.10] rounded-full px-4 py-1.5">CSRD</span>
-        <span class="text-[13px] text-white/70 bg-white/[0.08] border border-white/[0.10] rounded-full px-4 py-1.5">GDPR</span>
-        <span class="text-[13px] text-white/70 bg-white/[0.08] border border-white/[0.10] rounded-full px-4 py-1.5">Waste Reduction</span>
-        <span class="text-[13px] text-white/70 bg-white/[0.08] border border-white/[0.10] rounded-full px-4 py-1.5">Water Stewardship</span>
-        <span class="text-[13px] text-white/70 bg-white/[0.08] border border-white/[0.10] rounded-full px-4 py-1.5">Supply Chain Ethics</span>
-        <span class="text-[13px] text-white/70 bg-white/[0.08] border border-white/[0.10] rounded-full px-4 py-1.5">Whistleblowing</span>
-        <span class="text-[13px] text-white/70 bg-white/[0.08] border border-white/[0.10] rounded-full px-4 py-1.5">Code of Conduct</span>
-        <span class="text-[13px] text-white/70 bg-white/[0.08] border border-white/[0.10] rounded-full px-4 py-1.5">Biodiversity</span>
-        <span class="text-[13px] text-white/70 bg-white/[0.08] border border-white/[0.10] rounded-full px-4 py-1.5">Fair Labor</span>
-        <span class="text-[13px] text-white/70 bg-white/[0.08] border border-white/[0.10] rounded-full px-4 py-1.5">Conflict of Interest</span>
-        <span class="text-[13px] text-white/70 bg-white/[0.08] border border-white/[0.10] rounded-full px-4 py-1.5">Sanctions & Export</span>
-        <span class="text-[13px] text-white/70 bg-white/[0.08] border border-white/[0.10] rounded-full px-4 py-1.5">Gifts & Hospitality</span>
-        <a href="training-library.html" class="text-[13px] text-akdo-green bg-akdo-green/[0.10] border border-akdo-green/[0.15] rounded-full px-4 py-1.5 hover:bg-akdo-green/[0.18] transition-colors">+10 more →</a>
+  <section style="padding: 56px 24px; background: #0E2B2B;">
+    <div style="max-width: 960px; margin: 0 auto;">
+      <p style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 24px 0; text-align: center;">28+ topics across E, S, G & Compliance</p>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px;">
+        <span style="font-family: Poppins, sans-serif; font-size: 13px; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.10); border-radius: 100px; padding: 6px 16px;">Carbon Footprint</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 13px; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.10); border-radius: 100px; padding: 6px 16px;">Energy Management</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 13px; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.10); border-radius: 100px; padding: 6px 16px;">Circular Economy</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 13px; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.10); border-radius: 100px; padding: 6px 16px;">Human Rights</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 13px; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.10); border-radius: 100px; padding: 6px 16px;">DEI</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 13px; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.10); border-radius: 100px; padding: 6px 16px;">Anti-Bribery</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 13px; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.10); border-radius: 100px; padding: 6px 16px;">CSRD</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 13px; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.10); border-radius: 100px; padding: 6px 16px;">GDPR</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 13px; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.10); border-radius: 100px; padding: 6px 16px;">Waste Reduction</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 13px; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.10); border-radius: 100px; padding: 6px 16px;">Water Stewardship</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 13px; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.10); border-radius: 100px; padding: 6px 16px;">Supply Chain Ethics</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 13px; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.10); border-radius: 100px; padding: 6px 16px;">Whistleblowing</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 13px; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.10); border-radius: 100px; padding: 6px 16px;">Code of Conduct</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 13px; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.10); border-radius: 100px; padding: 6px 16px;">Biodiversity</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 13px; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.10); border-radius: 100px; padding: 6px 16px;">Fair Labor</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 13px; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.10); border-radius: 100px; padding: 6px 16px;">Conflict of Interest</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 13px; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.10); border-radius: 100px; padding: 6px 16px;">Sanctions & Export</span>
+        <span style="font-family: Poppins, sans-serif; font-size: 13px; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.10); border-radius: 100px; padding: 6px 16px;">Gifts & Hospitality</span>
+        <a href="training-library.html" style="font-family: Poppins, sans-serif; font-size: 13px; color: #2cc27d; background: rgba(44,194,125,0.10); border: 1px solid rgba(44,194,125,0.15); border-radius: 100px; padding: 6px 16px; text-decoration: none;">+10 more →</a>
       </div>
     </div>
   </section>
 
 
   <!-- ========== VS ALTERNATIVES — Comparison table ========== -->
-  <section class="py-16 bg-akdo-cream/60">
-    <div class="site-w max-w-[860px] mx-auto">
-      <div class="text-center max-w-[600px] mx-auto mb-10">
-        <h2 class="font-bold text-[28px] md:text-[36px] leading-[1.1] text-akdo-dark">
-          The only platform combining<br><span class="text-akdo-green">ESG depth</span> with <span class="text-akdo-green">AI speed.</span>
+  <section style="padding: 80px 24px; background: #F5F7F5;">
+    <div style="max-width: 860px; margin: 0 auto;">
+      <div style="text-align: center; max-width: 600px; margin: 0 auto 40px auto;">
+        <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 12px 0;">Why Akdo</p>
+        <h2 style="font-family: Poppins, sans-serif; font-size: 36px; font-weight: 700; line-height: 1.1; letter-spacing: -0.5px; color: #0D2626; margin: 0;">
+          The only platform combining ESG depth with AI speed.
         </h2>
       </div>
 
-      <div class="overflow-x-auto">
-        <table class="w-full text-[13px]">
-          <thead>
-            <tr>
-              <th class="text-left p-3.5 font-semibold text-akdo-dark/30 text-[11px] uppercase tracking-wider"></th>
-              <th class="text-left p-3.5 font-semibold text-akdo-dark/30 text-[11px] uppercase tracking-wider">DIY AI Tools</th>
-              <th class="text-left p-3.5 font-semibold text-akdo-dark/30 text-[11px] uppercase tracking-wider">Agency</th>
-              <th class="text-left p-3.5 font-semibold text-white text-[11px] uppercase tracking-wider bg-akdo-green rounded-t-lg">Akdo</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-t border-black/[0.04]">
-              <td class="p-3.5 font-semibold text-akdo-dark">ESG Depth</td>
-              <td class="p-3.5 text-akdo-dark/35">Generic prompts, no domain knowledge</td>
-              <td class="p-3.5 text-akdo-dark/35">Expert but manual</td>
-              <td class="p-3.5 bg-akdo-green/5 font-semibold text-akdo-dark">28+ sustainability topics built in</td>
-            </tr>
-            <tr class="border-t border-black/[0.04]">
-              <td class="p-3.5 font-semibold text-akdo-dark">Speed</td>
-              <td class="p-3.5 text-akdo-dark/35">Weeks of DIY work</td>
-              <td class="p-3.5 text-akdo-dark/35">9+ months per program</td>
-              <td class="p-3.5 bg-akdo-green/5 font-semibold text-akdo-dark">Hours to days</td>
-            </tr>
-            <tr class="border-t border-black/[0.04]">
-              <td class="p-3.5 font-semibold text-akdo-dark">Cost</td>
-              <td class="p-3.5 text-akdo-dark/35">Cheap tools, expensive labor</td>
-              <td class="p-3.5 text-akdo-dark/35">€50K+ per program</td>
-              <td class="p-3.5 bg-akdo-green/5 font-semibold text-akdo-dark">60% cost reduction</td>
-            </tr>
-            <tr class="border-t border-black/[0.04]">
-              <td class="p-3.5 font-semibold text-akdo-dark">Audiences</td>
-              <td class="p-3.5 text-akdo-dark/35">One-size-fits-all output</td>
-              <td class="p-3.5 text-akdo-dark/35">Separate project per audience</td>
-              <td class="p-3.5 bg-akdo-green/5 font-semibold text-akdo-dark">Employees + suppliers + customers</td>
-            </tr>
-            <tr class="border-t border-black/[0.04]">
-              <td class="p-3.5 font-semibold text-akdo-dark">Global Scale</td>
-              <td class="p-3.5 text-akdo-dark/35">Basic translation</td>
-              <td class="p-3.5 text-akdo-dark/35">Outsourced region by region</td>
-              <td class="p-3.5 bg-akdo-green/5 font-semibold text-akdo-dark">200+ languages, locally compliant</td>
-            </tr>
-            <tr class="border-t border-black/[0.04]">
-              <td class="p-3.5 font-semibold text-akdo-dark">Maintenance</td>
-              <td class="p-3.5 text-akdo-dark/35">Manual rework per change</td>
-              <td class="p-3.5 text-akdo-dark/35">New project per update</td>
-              <td class="p-3.5 bg-akdo-green/5 font-semibold text-akdo-dark rounded-b-lg">Updates in minutes</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <table style="width: 100%; font-family: Poppins, sans-serif; font-size: 13px; border-collapse: collapse;">
+        <thead>
+          <tr>
+            <th style="text-align: left; padding: 14px; font-weight: 600; color: rgba(13,38,38,0.3); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;"></th>
+            <th style="text-align: left; padding: 14px; font-weight: 600; color: rgba(13,38,38,0.3); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;">DIY AI Tools</th>
+            <th style="text-align: left; padding: 14px; font-weight: 600; color: rgba(13,38,38,0.3); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;">Agency</th>
+            <th style="text-align: left; padding: 14px; font-weight: 600; color: #FFFFFF; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; background: #2cc27d; border-radius: 8px 8px 0 0;">Akdo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-top: 1px solid rgba(0,0,0,0.04);">
+            <td style="padding: 14px; font-weight: 600; color: #0D2626;">ESG Depth</td>
+            <td style="padding: 14px; color: #6B7B6B;">Generic prompts, no domain knowledge</td>
+            <td style="padding: 14px; color: #6B7B6B;">Expert but manual</td>
+            <td style="padding: 14px; background: rgba(44,194,125,0.05); font-weight: 600; color: #0D2626;">28+ sustainability topics built in</td>
+          </tr>
+          <tr style="border-top: 1px solid rgba(0,0,0,0.04);">
+            <td style="padding: 14px; font-weight: 600; color: #0D2626;">Speed</td>
+            <td style="padding: 14px; color: #6B7B6B;">Weeks of DIY work</td>
+            <td style="padding: 14px; color: #6B7B6B;">9+ months per program</td>
+            <td style="padding: 14px; background: rgba(44,194,125,0.05); font-weight: 600; color: #0D2626;">Hours to days</td>
+          </tr>
+          <tr style="border-top: 1px solid rgba(0,0,0,0.04);">
+            <td style="padding: 14px; font-weight: 600; color: #0D2626;">Cost</td>
+            <td style="padding: 14px; color: #6B7B6B;">Cheap tools, expensive labor</td>
+            <td style="padding: 14px; color: #6B7B6B;">€50K+ per program</td>
+            <td style="padding: 14px; background: rgba(44,194,125,0.05); font-weight: 600; color: #0D2626;">60% cost reduction</td>
+          </tr>
+          <tr style="border-top: 1px solid rgba(0,0,0,0.04);">
+            <td style="padding: 14px; font-weight: 600; color: #0D2626;">Audiences</td>
+            <td style="padding: 14px; color: #6B7B6B;">One-size-fits-all output</td>
+            <td style="padding: 14px; color: #6B7B6B;">Separate project per audience</td>
+            <td style="padding: 14px; background: rgba(44,194,125,0.05); font-weight: 600; color: #0D2626;">Employees + suppliers + customers</td>
+          </tr>
+          <tr style="border-top: 1px solid rgba(0,0,0,0.04);">
+            <td style="padding: 14px; font-weight: 600; color: #0D2626;">Global Scale</td>
+            <td style="padding: 14px; color: #6B7B6B;">Basic translation</td>
+            <td style="padding: 14px; color: #6B7B6B;">Outsourced region by region</td>
+            <td style="padding: 14px; background: rgba(44,194,125,0.05); font-weight: 600; color: #0D2626;">200+ languages, locally compliant</td>
+          </tr>
+          <tr style="border-top: 1px solid rgba(0,0,0,0.04);">
+            <td style="padding: 14px; font-weight: 600; color: #0D2626;">Maintenance</td>
+            <td style="padding: 14px; color: #6B7B6B;">Manual rework per change</td>
+            <td style="padding: 14px; color: #6B7B6B;">New project per update</td>
+            <td style="padding: 14px; background: rgba(44,194,125,0.05); font-weight: 600; color: #0D2626; border-radius: 0 0 8px 8px;">Updates in minutes</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </section>
 
 
   <!-- ========== HOW WE WORK TOGETHER — 12-Week Rollout ========== -->
-  <section class="py-20">
-    <div class="site-w max-w-[960px] mx-auto">
-      <div class="text-center max-w-[640px] mx-auto mb-14">
-        <p class="text-[12px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">How we work together</p>
-        <h2 class="font-bold text-[28px] md:text-[36px] leading-[1.1] text-akdo-dark">
-          Replace your 9-month cycle<br>with a <span class="text-akdo-green">12-week go-live.</span>
+  <section style="padding: 80px 24px; background: #FFFFFF;">
+    <div style="max-width: 1080px; margin: 0 auto;">
+      <div style="text-align: center; max-width: 640px; margin: 0 auto 56px auto;">
+        <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 12px 0;">How we work together</p>
+        <h2 style="font-family: Poppins, sans-serif; font-size: 36px; font-weight: 700; line-height: 1.1; letter-spacing: -0.5px; color: #0D2626; margin: 0;">
+          Replace your 9-month cycle with a <span style="color: #2cc27d;">12-week go-live.</span>
         </h2>
-        <p class="text-[14px] text-akdo-dark/40 mt-4">This timeline shows a structured enterprise rollout with review, onboarding, and integration.</p>
+        <p style="font-family: Poppins, sans-serif; font-size: 15px; color: #6B7B6B; margin: 16px 0 0 0;">This timeline shows a structured enterprise rollout with review, onboarding, and integration.</p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-8">
-        <!-- Left column: Classical process -->
-        <div class="relative">
-          <div class="flex items-center gap-3 mb-6">
-            <p class="text-[11px] font-semibold text-akdo-dark/30 tracking-[0.12em] uppercase">The classical process</p>
-            <div class="flex-1 h-px bg-akdo-dark/[0.06]"></div>
-          </div>
-
-          <!-- Vertical line -->
-          <div class="absolute left-[7px] top-[52px] bottom-[40px] w-[2px] bg-akdo-dark/[0.06]"></div>
-
-          <div class="space-y-5">
-            <div class="flex gap-4 relative">
-              <div class="flex-shrink-0 w-4 h-4 rounded-full bg-akdo-dark/10 mt-0.5 relative z-10"></div>
-              <div class="flex-1">
-                <p class="text-[12px] font-medium text-akdo-dark/40">Sustainability brief</p>
-                <p class="text-[10px] text-akdo-dark/20">Month 1</p>
-              </div>
+      <div style="display: flex; gap: 32px;">
+        <!-- Left column: Classical process (compact, faded) -->
+        <div style="flex: 0.8; opacity: 0.55;">
+          <div style="background: #F5F7F5; border-radius: 12px; padding: 24px; border: 1px solid rgba(0,0,0,0.08);">
+            <div style="display: flex; align-items: center; gap: 12px; margin: 0 0 20px 0;">
+              <p style="font-family: Poppins, sans-serif; font-size: 11px; font-weight: 600; color: #0D2626; text-transform: uppercase; letter-spacing: 0.12em; margin: 0;">The classical process</p>
             </div>
-            <div class="flex gap-4 relative">
-              <div class="flex-shrink-0 w-4 h-4 rounded-full bg-akdo-dark/10 mt-0.5 relative z-10"></div>
-              <div class="flex-1">
-                <p class="text-[12px] font-medium text-akdo-dark/40">L&D scopes vendor</p>
-                <p class="text-[10px] text-akdo-dark/20">Month 2</p>
-              </div>
+            <div style="font-family: Poppins, sans-serif; font-size: 36px; font-weight: 700; color: #0D2626; line-height: 1; margin: 0 0 4px 0;">9+ months</div>
+            <p style="font-family: Poppins, sans-serif; font-size: 13px; color: #6B7B6B; margin: 0 0 20px 0;">€50K+ per program · 200+ hours · Repeat per audience</p>
+            <div style="height: 1px; background: rgba(0,0,0,0.08); margin: 0 0 16px 0;"></div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <p style="font-family: Poppins, sans-serif; font-size: 12px; color: #0D2626; margin: 0;">— Sustainability brief</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 12px; color: #0D2626; margin: 0;">— L&D scopes vendor</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 12px; color: #0D2626; margin: 0;">— Agency hired</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 12px; color: #6B7B6B; font-style: italic; margin: 0;">— waiting...</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 12px; color: #0D2626; margin: 0;">— Content drafted</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 12px; color: #6B7B6B; font-style: italic; margin: 0;">— waiting...</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 12px; color: #0D2626; margin: 0;">— Translations</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 12px; color: #0D2626; margin: 0;">— LMS upload</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #e05252; margin: 0;">— Already outdated</p>
             </div>
-            <div class="flex gap-4 relative">
-              <div class="flex-shrink-0 w-4 h-4 rounded-full bg-akdo-dark/10 mt-0.5 relative z-10"></div>
-              <div class="flex-1">
-                <p class="text-[12px] font-medium text-akdo-dark/40">Agency hired · €50K+</p>
-                <p class="text-[10px] text-akdo-dark/20">Month 3</p>
-              </div>
-            </div>
-            <!-- Empty gap to show wasted time -->
-            <div class="flex gap-4 relative py-3">
-              <div class="flex-shrink-0 w-4 flex items-center justify-center relative z-10">
-                <div class="text-akdo-dark/10 text-[10px]">⋮</div>
-              </div>
-              <div class="flex-1">
-                <p class="text-[11px] italic text-akdo-dark/15">waiting...</p>
-              </div>
-            </div>
-            <div class="flex gap-4 relative">
-              <div class="flex-shrink-0 w-4 h-4 rounded-full bg-akdo-dark/10 mt-0.5 relative z-10"></div>
-              <div class="flex-1">
-                <p class="text-[12px] font-medium text-akdo-dark/40">Content drafted</p>
-                <p class="text-[10px] text-akdo-dark/20">Month 5</p>
-              </div>
-            </div>
-            <!-- Another gap -->
-            <div class="flex gap-4 relative py-3">
-              <div class="flex-shrink-0 w-4 flex items-center justify-center relative z-10">
-                <div class="text-akdo-dark/10 text-[10px]">⋮</div>
-              </div>
-              <div class="flex-1">
-                <p class="text-[11px] italic text-akdo-dark/15">waiting...</p>
-              </div>
-            </div>
-            <div class="flex gap-4 relative">
-              <div class="flex-shrink-0 w-4 h-4 rounded-full bg-akdo-dark/10 mt-0.5 relative z-10"></div>
-              <div class="flex-1">
-                <p class="text-[12px] font-medium text-akdo-dark/40">Translations</p>
-                <p class="text-[10px] text-akdo-dark/20">Month 7</p>
-              </div>
-            </div>
-            <div class="flex gap-4 relative">
-              <div class="flex-shrink-0 w-4 h-4 rounded-full bg-akdo-dark/10 mt-0.5 relative z-10"></div>
-              <div class="flex-1">
-                <p class="text-[12px] font-medium text-akdo-dark/40">LMS upload</p>
-                <p class="text-[10px] text-akdo-dark/20">Month 8</p>
-              </div>
-            </div>
-            <div class="flex gap-4 relative">
-              <div class="flex-shrink-0 w-4 h-4 rounded-full bg-red-400 mt-0.5 relative z-10"></div>
-              <div class="flex-1">
-                <p class="text-[12px] font-semibold text-red-400">Already outdated</p>
-                <p class="text-[10px] text-akdo-dark/20">Month 9+</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-6 pl-8 text-[11px] text-akdo-dark/25">
-            €50K+ per program · 200+ hours · Repeat per audience
           </div>
         </div>
 
         <!-- Right column: With Akdo -->
-        <div class="relative">
-          <div class="flex items-center gap-3 mb-6">
-            <p class="text-[11px] font-semibold text-akdo-green tracking-[0.12em] uppercase">With Akdo</p>
-            <div class="flex-1 h-px bg-akdo-green/15"></div>
-            <p class="text-[11px] font-semibold text-akdo-green">&lt;20 hrs</p>
-          </div>
+        <div style="flex: 1.2;">
+          <div style="background: #FFFFFF; border-radius: 12px; padding: 32px; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 2px 8px rgba(17,51,51,0.06);">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin: 0 0 24px 0;">
+              <p style="font-family: Poppins, sans-serif; font-size: 11px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.12em; margin: 0;">With Akdo</p>
+              <p style="font-family: Poppins, sans-serif; font-size: 11px; font-weight: 600; color: #2cc27d; margin: 0;">&lt;20 hrs</p>
+            </div>
 
-          <!-- Vertical line -->
-          <div class="absolute left-[7px] top-[52px] w-[2px] bg-akdo-green/15" style="height:260px"></div>
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+              <div>
+                <p style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: #0D2626; margin: 0 0 4px 0;">Discovery + demo + pricing</p>
+                <p style="font-family: Poppins, sans-serif; font-size: 11px; color: #6B7B6B; margin: 0;">Week 1-2 · Sustainability Lead + L&D · ~2 hrs</p>
+              </div>
+              <div>
+                <p style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: #0D2626; margin: 0 0 4px 0;">Executive alignment + onboarding</p>
+                <p style="font-family: Poppins, sans-serif; font-size: 11px; color: #6B7B6B; margin: 0;">Week 3-5 · VP Sustainability + L&D + Procurement · ~4 hrs</p>
+              </div>
+              <div>
+                <p style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: #0D2626; margin: 0 0 4px 0;">Kickoff workshop + data room</p>
+                <p style="font-family: Poppins, sans-serif; font-size: 11px; color: #6B7B6B; margin: 0;">Week 5-6 · Sustainability team · ~4 hrs</p>
+              </div>
+              <div style="background: rgba(44,194,125,0.05); border-radius: 12px; padding: 14px 16px; border: 1px solid rgba(44,194,125,0.1);">
+                <p style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: #0D2626; margin: 0 0 4px 0;">Akdo builds + 2 review cycles</p>
+                <p style="font-family: Poppins, sans-serif; font-size: 11px; color: #6B7B6B; margin: 0;">Week 6-10 · Sustainability review · ~8 hrs — <span style="color: #2cc27d; font-weight: 600;">Akdo does the heavy lifting</span></p>
+              </div>
+              <div>
+                <p style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: #0D2626; margin: 0 0 4px 0;">IT integration + go live</p>
+                <p style="font-family: Poppins, sans-serif; font-size: 11px; color: #6B7B6B; margin: 0;">Week 10-12 · L&D + IT · ~30 min</p>
+              </div>
+            </div>
 
-          <div class="space-y-5">
-            <div class="flex gap-4 relative">
-              <div class="flex-shrink-0 w-4 h-4 rounded-full bg-akdo-green/20 border-2 border-akdo-green mt-0.5 relative z-10"></div>
-              <div class="flex-1">
-                <p class="text-[12px] font-semibold text-akdo-dark">Discovery + demo + pricing</p>
-                <p class="text-[10px] text-akdo-dark/35">Week 1-2 · Sustainability Lead + L&D · ~2 hrs</p>
-              </div>
-            </div>
-            <div class="flex gap-4 relative">
-              <div class="flex-shrink-0 w-4 h-4 rounded-full bg-akdo-green/20 border-2 border-akdo-green mt-0.5 relative z-10"></div>
-              <div class="flex-1">
-                <p class="text-[12px] font-semibold text-akdo-dark">Executive alignment + onboarding</p>
-                <p class="text-[10px] text-akdo-dark/35">Week 3-5 · VP Sustainability + L&D + Procurement · ~4 hrs</p>
-              </div>
-            </div>
-            <div class="flex gap-4 relative">
-              <div class="flex-shrink-0 w-4 h-4 rounded-full bg-akdo-green/20 border-2 border-akdo-green mt-0.5 relative z-10"></div>
-              <div class="flex-1">
-                <p class="text-[12px] font-semibold text-akdo-dark">Kickoff workshop + data room</p>
-                <p class="text-[10px] text-akdo-dark/35">Week 5-6 · Sustainability team · ~4 hrs</p>
-              </div>
-            </div>
-            <div class="flex gap-4 relative">
-              <div class="flex-shrink-0 w-4 h-4 rounded-full bg-akdo-green mt-0.5 relative z-10"></div>
-              <div class="flex-1 bg-akdo-green/[0.05] rounded-xl px-4 py-3 border border-akdo-green/10">
-                <p class="text-[12px] font-semibold text-akdo-dark">Akdo builds + 2 review cycles</p>
-                <p class="text-[10px] text-akdo-dark/35">Week 6-10 · Sustainability review · ~8 hrs <span class="text-akdo-green font-semibold">Akdo does the heavy lifting</span></p>
-              </div>
-            </div>
-            <div class="flex gap-4 relative">
-              <div class="flex-shrink-0 w-4 h-4 rounded-full bg-akdo-green/20 border-2 border-akdo-green mt-0.5 relative z-10"></div>
-              <div class="flex-1">
-                <p class="text-[12px] font-semibold text-akdo-dark">IT integration + go live</p>
-                <p class="text-[10px] text-akdo-dark/35">Week 10-12 · L&D + IT · ~30 min</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-6 pl-8 text-[11px] text-akdo-dark/30">
-            Akdo handles design, build, translations, and hosting.<br>
-            Ongoing: annual updates (4-8 hrs) + expand with further modules.
+            <p style="font-family: Poppins, sans-serif; font-size: 11px; color: #6B7B6B; margin: 24px 0 0 0;">
+              Akdo handles design, build, translations, and hosting.<br>
+              Ongoing: annual updates (4-8 hrs) + expand with further modules.
+            </p>
           </div>
         </div>
       </div>
@@ -917,85 +746,76 @@ Akdo turns your compliance policies into scenario-based training with completion
 
 
   <!-- ========== RESULTS — Proof ========== -->
-  <section class="py-20 bg-akdo-cream/60">
-    <div class="site-w">
-      <div class="text-center max-w-[640px] mx-auto mb-14">
-        <p class="text-[12px] font-semibold text-akdo-green tracking-[0.12em] uppercase mb-3">Proven performance</p>
-        <h2 class="font-bold text-[28px] md:text-[36px] leading-[1.1] text-akdo-dark">
+  <section style="padding: 80px 24px; background: radial-gradient(ellipse at 50% 0%, #1a4a3a 0%, #113333 50%, #0E2B2B 100%);">
+    <div style="max-width: 880px; margin: 0 auto;">
+      <div style="text-align: center; margin: 0 auto 56px auto;">
+        <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #83E85A; text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 12px 0;">Proven performance</p>
+        <h2 style="font-family: Poppins, sans-serif; font-size: 36px; font-weight: 700; line-height: 1.1; color: #FFFFFF; margin: 0;">
           Trusted by global sustainability leaders.
         </h2>
       </div>
 
-      <!-- Stats -->
-      <div class="grid md:grid-cols-3 gap-5 max-w-[800px] mx-auto mb-12">
-        <div class="text-center bg-akdo-cream/60 rounded-2xl p-8 border border-black/[0.04]">
-          <div class="text-[42px] font-bold text-akdo-dark leading-none">70-80%</div>
-          <p class="text-[13px] text-akdo-dark/45 mt-2 font-medium">Faster Creation</p>
-          <p class="text-[11px] text-akdo-dark/25 mt-1">From months to days per training.</p>
+      <!-- Stats row -->
+      <div style="display: flex; align-items: center; justify-content: center; margin: 0 auto 48px auto;">
+        <div style="flex: 1; text-align: center; padding: 24px 0;">
+          <div style="font-family: Poppins, sans-serif; font-size: 44px; font-weight: 700; color: #FFFFFF; line-height: 1;">70-80%</div>
+          <p style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5); margin: 8px 0 0 0;">Faster Creation</p>
         </div>
-        <div class="text-center bg-akdo-cream/60 rounded-2xl p-8 border border-black/[0.04]">
-          <div class="text-[42px] font-bold text-akdo-dark leading-none">99.6%</div>
-          <p class="text-[13px] text-akdo-dark/45 mt-2 font-medium">Completion Rate</p>
-          <p class="text-[11px] text-akdo-dark/25 mt-1">vs. ~20% industry average for traditional LMS.</p>
+        <div style="width: 1px; height: 48px; background: rgba(255,255,255,0.12);"></div>
+        <div style="flex: 1; text-align: center; padding: 24px 0;">
+          <div style="font-family: Poppins, sans-serif; font-size: 44px; font-weight: 700; color: #FFFFFF; line-height: 1;">99.6%</div>
+          <p style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5); margin: 8px 0 0 0;">Completion</p>
         </div>
-        <div class="text-center bg-akdo-cream/60 rounded-2xl p-8 border border-black/[0.04]">
-          <div class="text-[42px] font-bold text-akdo-dark leading-none">450+</div>
-          <p class="text-[13px] text-akdo-dark/45 mt-2 font-medium">Courses Created</p>
-          <p class="text-[11px] text-akdo-dark/25 mt-1">Across safety, sustainability, and compliance.</p>
+        <div style="width: 1px; height: 48px; background: rgba(255,255,255,0.12);"></div>
+        <div style="flex: 1; text-align: center; padding: 24px 0;">
+          <div style="font-family: Poppins, sans-serif; font-size: 44px; font-weight: 700; color: #FFFFFF; line-height: 1;">450+</div>
+          <p style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5); margin: 8px 0 0 0;">Courses</p>
         </div>
       </div>
 
-      <!-- Customer proof -->
-      <div class="max-w-[700px] mx-auto">
-        <div class="bg-akdo-dark rounded-2xl p-7 md:p-9">
-          <div class="flex items-start gap-5">
-            <div class="w-12 h-12 rounded-full bg-white/[0.06] flex items-center justify-center flex-shrink-0 mt-1">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" stroke="#2cc27d" stroke-width="1.5"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" stroke="#2cc27d" stroke-width="1.5"/></svg>
-            </div>
-            <div>
-              <p class="text-[14px] text-white/70 leading-relaxed mb-4">
-                Sustainability training across 14 plants in 6 languages. Traditional approach: 9 months, €50K per region. With Akdo: first training live in 1 week, full global rollout in 2 months. 450+ courses created, 99.6% completion.
-              </p>
-              <p class="text-[12px] text-white/30">Director Sustainability Communications, Global CPG Enterprise</p>
-            </div>
-          </div>
-        </div>
+      <!-- Divider -->
+      <div style="width: 100%; height: 1px; background: rgba(255,255,255,0.08); margin: 0 auto 40px auto;"></div>
+
+      <!-- Quote -->
+      <div style="max-width: 680px; margin: 0 auto; text-align: center;">
+        <p style="font-family: Poppins, sans-serif; font-size: 17px; color: rgba(255,255,255,0.85); line-height: 1.7; margin: 0 0 20px 0; font-style: italic;">
+          "Sustainability training across 14 plants in 6 languages. Traditional approach: 9 months, €50K per region. With Akdo: first training live in 1 week, full global rollout in 2 months."
+        </p>
+        <p style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.4); margin: 0;">— Global enterprise rollout</p>
       </div>
     </div>
   </section>
 
 
   <!-- ========== CTA ========== -->
-  <section class="py-20">
-    <div class="site-w text-center max-w-[640px] mx-auto">
-      <h2 class="font-bold text-[32px] md:text-[44px] leading-[1.08] text-akdo-dark mb-5">
-        Share your ESG report.<br>We will turn it into <span class="text-akdo-green">training.</span>
+  <section style="padding: 80px 24px; background: #FFFFFF;">
+    <div style="max-width: 640px; margin: 0 auto; text-align: center;">
+      <h2 style="font-family: Poppins, sans-serif; font-size: 44px; font-weight: 700; line-height: 1.08; letter-spacing: -0.5px; color: #0D2626; margin: 0 0 20px 0;">
+        Share your ESG report. We will turn it into <span style="color: #2cc27d;">training.</span>
       </h2>
-      <p class="text-[15px] text-akdo-dark/45 leading-relaxed mb-10">
+      <p style="font-family: Poppins, sans-serif; font-size: 15px; color: #6B7B6B; line-height: 1.6; margin: 0 0 40px 0;">
         30-minute demo. Bring your sustainability report or framework. We will build a training module from it on the call. No slides, no pitch.
       </p>
-      <a href="book-demo.html" class="btn-primary !text-base !py-4 !px-10">
+      <a href="book-demo.html" style="display: inline-flex; align-items: center; gap: 10px; background: #83E85A; color: #113333; font-family: Poppins, sans-serif; font-weight: 600; font-size: 16px; padding: 16px 40px; border-radius: 8px; text-decoration: none;">
         Book a Demo
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <p class="text-[11px] text-akdo-dark/30 mt-6">Go live in 12 weeks. Less than 20 hours of your team's time.</p>
+      <p style="font-family: Poppins, sans-serif; font-size: 11px; color: #6B7B6B; margin: 24px 0 0 0;">Go live in 12 weeks. Less than 20 hours of your team's time.</p>
     </div>
   </section>
 
 
   <!-- FOOTER -->
-  <footer class="py-10 bg-akdo-dark border-t border-white/[0.05]">
-    <div class="site-w">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-5">
-        <img src="assets/logo.png" alt="Akdo" class="h-5 brightness-0 invert">
-        <div class="flex items-center gap-6">
-          <a href="careers.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Careers</a>
-          <a href="contact.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Contact</a>
-          <a href="legal-notice.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Legal Notice</a>
-          <a href="privacy-policy.html" class="text-[13px] text-white/60 hover:text-white transition-colors">Privacy Policy</a>
-        </div>
-        <p class="text-[12px] text-white/40">&copy; 2026 Akdo. All rights reserved.</p>
+  <footer style="padding: 40px 24px; background: #0E2B2B; border-top: 1px solid rgba(255,255,255,0.05);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
+      <img src="assets/logo.png" alt="Akdo" style="height: 20px; filter: brightness(0) invert(1);">
+      <div style="display: flex; align-items: center; gap: 24px;">
+        <a href="careers.html" style="font-family: Poppins, sans-serif; font-size: 13px; color: rgba(255,255,255,0.65); text-decoration: none;">Careers</a>
+        <a href="contact.html" style="font-family: Poppins, sans-serif; font-size: 13px; color: rgba(255,255,255,0.65); text-decoration: none;">Contact</a>
+        <a href="legal-notice.html" style="font-family: Poppins, sans-serif; font-size: 13px; color: rgba(255,255,255,0.65); text-decoration: none;">Legal Notice</a>
+        <a href="privacy-policy.html" style="font-family: Poppins, sans-serif; font-size: 13px; color: rgba(255,255,255,0.65); text-decoration: none;">Privacy Policy</a>
       </div>
+      <p style="font-family: Poppins, sans-serif; font-size: 12px; color: rgba(255,255,255,0.65); margin: 0;">&copy; 2026 Akdo. All rights reserved.</p>
     </div>
   </footer>
 
