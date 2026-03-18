@@ -33,6 +33,18 @@
     html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
     body { font-family: 'Poppins', sans-serif; color: #02140d; background: #fff; overflow-x: hidden; }
 
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.6); }
+    }
+    .hero-pill-dot {
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    .hero-cta:hover .hero-cta-chevron { opacity: 1 !important; transform: translateX(0) !important; }
+    .escape-link { text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s ease; padding-bottom: 2px; }
+    .escape-link:hover { border-bottom-color: #2cc27d; }
+
     .site-w { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
     .site-wide { max-width: 1360px; margin: 0 auto; padding: 0 32px; }
 
@@ -395,7 +407,7 @@
         <a href="training-library.html" class="nav-link" style="font-family: Poppins, sans-serif; font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.3s ease;">Training Library</a>
         <a href="security.html" class="nav-link" style="font-family: Poppins, sans-serif; font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.3s ease;">Security</a>
       </div>
-      <a href="book-demo.html" class="btn-inline-gradient" style="display: inline-flex; align-items: center; background: #83E85A; color: #113333; font-family: Poppins, sans-serif; font-size: 14px; font-weight: 600; padding: 10px 24px; border-radius: 8px; text-decoration: none;">Book a Demo</a>
+      <a href="book-demo.html" id="nav-cta" class="btn-inline-gradient" style="display: inline-flex; align-items: center; background: transparent; color: #FFFFFF; border: 1px solid rgba(255,255,255,0.3); font-family: Poppins, sans-serif; font-size: 14px; font-weight: 600; padding: 10px 24px; border-radius: 8px; text-decoration: none; transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;">Book a Demo</a>
     </div>
   </nav>
 
@@ -403,22 +415,40 @@
     (function() {
       var nav = document.getElementById('main-nav');
       var logo = document.getElementById('nav-logo');
+      var cta = document.getElementById('nav-cta');
       var links = document.querySelectorAll('.nav-link');
+      var ctaSection = document.getElementById('cta-section');
       var scrolled = false;
+      var ctaHidden = false;
+      cta.style.transition = 'background 0.3s ease, color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease';
       window.addEventListener('scroll', function() {
         var shouldBeWhite = window.scrollY > 60;
-        if (shouldBeWhite === scrolled) return;
-        scrolled = shouldBeWhite;
-        if (shouldBeWhite) {
-          nav.style.background = '#FFFFFF';
-          nav.style.borderBottomColor = '#E0E5E0';
-          logo.style.filter = 'none';
-          for (var i = 0; i < links.length; i++) { links[i].style.color = '#6B7B6B'; }
-        } else {
-          nav.style.background = 'transparent';
-          nav.style.borderBottomColor = 'transparent';
-          logo.style.filter = 'brightness(0) invert(1)';
-          for (var i = 0; i < links.length; i++) { links[i].style.color = 'rgba(255,255,255,0.85)'; }
+        if (shouldBeWhite !== scrolled) {
+          scrolled = shouldBeWhite;
+          if (shouldBeWhite) {
+            nav.style.background = '#FFFFFF';
+            nav.style.borderBottomColor = '#E0E5E0';
+            logo.style.filter = 'none';
+            for (var i = 0; i < links.length; i++) { links[i].style.color = '#6B7B6B'; }
+            cta.style.background = '#83E85A';
+            cta.style.color = '#113333';
+            cta.style.borderColor = '#83E85A';
+          } else {
+            nav.style.background = 'transparent';
+            nav.style.borderBottomColor = 'transparent';
+            logo.style.filter = 'brightness(0) invert(1)';
+            for (var i = 0; i < links.length; i++) { links[i].style.color = 'rgba(255,255,255,0.85)'; }
+            cta.style.background = 'transparent';
+            cta.style.color = '#FFFFFF';
+            cta.style.borderColor = 'rgba(255,255,255,0.3)';
+          }
+        }
+        var rect = ctaSection.getBoundingClientRect();
+        var inView = rect.top < window.innerHeight && rect.bottom > 0;
+        if (inView !== ctaHidden) {
+          ctaHidden = inView;
+          cta.style.opacity = inView ? '0' : '1';
+          cta.style.pointerEvents = inView ? 'none' : 'auto';
         }
       });
     })();
@@ -431,8 +461,8 @@
 
       <!-- Top: text content -->
       <div style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 48px;">
-        <div class="hero-pill" style="display: inline-flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.12); border-radius: 100px; padding: 8px 20px; margin-bottom: 32px;">
-          <div style="width: 8px; height: 8px; border-radius: 100px; background: #2CC27D;"></div>
+        <div class="hero-pill" style="display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 100px; padding: 8px 20px; margin-bottom: 32px;">
+          <div class="hero-pill-dot" style="width: 8px; height: 8px; border-radius: 100px; background: #2CC27D;"></div>
           <span style="font-family: Poppins, sans-serif; font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.85);">AI-powered HSE and sustainability training</span>
         </div>
 
@@ -445,8 +475,9 @@
         </p>
 
         <div class="hero-buttons" style="display: flex; align-items: center; gap: 16px;">
-          <a href="book-demo.html" class="btn-inline-gradient" style="display: inline-flex; align-items: center; background: #83E85A; color: #113333; font-family: Poppins, sans-serif; font-size: 17px; font-weight: 600; padding: 16px 32px; border-radius: 8px; text-decoration: none;">
+          <a href="book-demo.html" class="btn-inline-gradient hero-cta" style="display: inline-flex; align-items: center; gap: 8px; background: #83E85A; color: #113333; font-family: Poppins, sans-serif; font-size: 17px; font-weight: 600; padding: 16px 32px; border-radius: 8px; text-decoration: none;">
             Book a Demo
+            <svg class="hero-cta-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" style="opacity: 0; transform: translateX(-4px); transition: opacity 0.2s ease, transform 0.2s ease;"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
           <a href="#how" class="btn-inline-ghost-light" style="display: inline-flex; align-items: center; background: transparent; color: rgba(255,255,255,0.85); font-family: Poppins, sans-serif; font-size: 17px; font-weight: 500; padding: 16px 32px; border-radius: 8px; text-decoration: none; border: 1px solid rgba(255,255,255,0.2);">
             How It Works
@@ -488,17 +519,13 @@
   <section style="display: flex; flex-direction: column; align-items: center; padding: 40px 24px;">
     <div class="banner-reveal" style="max-width: 1200px; width: 1200px;">
       <a href="sustainability.html" style="text-decoration: none;">
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 48px; background: radial-gradient(ellipse at 70% 50%, #153d30 0%, #0E2B2B 60%, #091E1E 100%); border-radius: 12px; padding: 32px 40px; border: 1px solid rgba(255,255,255,0.08);">
-          <div style="flex: 1;">
-            <h3 style="font-family: Poppins, sans-serif; font-size: 22px; font-weight: 700; color: #FFFFFF; line-height: 1.2; margin: 0 0 8px 0;">
-              Interested in sustainability? Head this way.
-            </h3>
-            <p style="font-family: Poppins, sans-serif; font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.85); max-width: 440px; line-height: 1.6; margin: 0;">
-              Turn your ESG policies and CSRD frameworks into multilingual courses your workforce completes.
-            </p>
-          </div>
-          <div class="btn-inline-ghost-green" style="display: inline-flex; align-items: center; background: transparent; border: 1px solid rgba(44,194,125,0.3); border-radius: 8px; padding: 14px 28px;">
-            <span style="font-family: Poppins, sans-serif; font-size: 15px; font-weight: 500; color: #2cc27d;">Explore sustainability</span>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 24px; background: radial-gradient(ellipse at 70% 50%, #153d30 0%, #0E2B2B 60%, #091E1E 100%); border-radius: 12px; padding: 48px 40px; border: 1px solid rgba(255,255,255,0.08);">
+          <h3 style="font-family: Poppins, sans-serif; font-size: 28px; font-weight: 700; color: #FFFFFF; line-height: 1.2; margin: 0; text-align: center;">
+            Interested in sustainability? <span style="color: #83E85A;">Head this way.</span>
+          </h3>
+          <div class="btn-inline-ghost-light" style="display: inline-flex; align-items: center; gap: 8px; background: transparent; border: 1px solid rgba(255,255,255,0.25); border-radius: 8px; padding: 14px 28px;">
+            <span style="font-family: Poppins, sans-serif; font-size: 15px; font-weight: 500; color: #FFFFFF;">Sustainability Training</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
         </div>
       </a>
@@ -716,7 +743,7 @@
           <p style="font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0;">
             You share incident reports, SOPs, high potential incidents, and the training goals that matter.
           </p>
-          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(255,255,255,0.04); border-radius: 100px; border: 1px solid rgba(255,255,255,0.08); margin-top: auto;">
+          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(255,255,255,0.1); border-radius: 100px; border: 1px solid rgba(255,255,255,0.15); margin-top: auto;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2cc27d" stroke-width="1.5"/><polyline points="12 6 12 12 16 14" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65);">30 min</span>
           </div>
@@ -736,7 +763,7 @@
           <p style="font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0;">
             Akdo turns your documents into an interactive training.
           </p>
-          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(255,255,255,0.04); border-radius: 100px; border: 1px solid rgba(255,255,255,0.08); margin-top: auto;">
+          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(255,255,255,0.1); border-radius: 100px; border: 1px solid rgba(255,255,255,0.15); margin-top: auto;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65);">Days, not months</span>
           </div>
@@ -756,7 +783,7 @@
           <p style="font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0;">
             Your HSE team checks every module, and signs off before anything goes live.
           </p>
-          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(255,255,255,0.04); border-radius: 100px; border: 1px solid rgba(255,255,255,0.08); margin-top: auto;">
+          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(255,255,255,0.1); border-radius: 100px; border: 1px solid rgba(255,255,255,0.15); margin-top: auto;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#2cc27d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65);">Human in the loop</span>
           </div>
@@ -776,7 +803,7 @@
           <p style="font-family: Poppins, sans-serif; font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0;">
             Export as SCORM to your LMS, or let Akdo host it. Your team chooses the setup.
           </p>
-          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(255,255,255,0.04); border-radius: 100px; border: 1px solid rgba(255,255,255,0.08); margin-top: auto;">
+          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(255,255,255,0.1); border-radius: 100px; border: 1px solid rgba(255,255,255,0.15); margin-top: auto;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#2cc27d" stroke-width="1.5"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="#2cc27d" stroke-width="1.5"/></svg>
             <span style="font-family: Poppins, sans-serif; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65);">Plug and play</span>
           </div>
@@ -843,9 +870,9 @@
           </div>
         </div>
       </div>
-      <div style="max-width: 1120px; margin: 24px auto 0 auto; text-align: right;">
-        <a href="hse-training.html" class="link-arrow" style="display: inline-flex; align-items: center; gap: 8px; font-family: Poppins, sans-serif; font-size: 15px; font-weight: 600; color: #2cc27d; text-decoration: none;">
-          Explore the HSE / EHS page
+      <div style="max-width: 1120px; margin: 24px auto 0 auto; text-align: left;">
+        <a href="hse-training.html" class="link-arrow escape-link" style="display: inline-flex; align-items: center; gap: 8px; font-family: Poppins, sans-serif; font-size: 15px; font-weight: 600; color: #2cc27d; text-decoration: none;">
+          Learn more about HSE training
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
@@ -1018,21 +1045,31 @@
   </section>
 
 
-  <!-- ========== CTA — Bold and clean ========== -->
-  <section style="padding: 120px 24px; background: #F5F7F5;">
-    <div class="cta-reveal" style="max-width: 760px; margin: 0 auto; text-align: center;">
-      <p style="font-family: Poppins, sans-serif; font-size: 12px; font-weight: 600; color: #2cc27d; text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 12px 0;">Get Started</p>
-      <h2 style="font-family: Poppins, sans-serif; font-size: 56px; font-weight: 700; line-height: 1.06; letter-spacing: -0.5px; color: #0D2626; margin: 0 0 24px 0;">
-        Share an incident report. We’ll show you the <span style="color: #2cc27d;">training</span> it becomes.
-      </h2>
-      <p style="font-family: Poppins, sans-serif; font-size: 18px; color: #6B7B6B; max-width: 540px; margin: 0 auto 48px auto; line-height: 1.6;">
-        Bring a real incident report, HPI, or SOP. We’ll show you the training it becomes.
-      </p>
-      <a href="book-demo.html" class="btn-inline-gradient" style="display: inline-flex; align-items: center; gap: 8px; background: #83E85A; color: #113333; font-family: Poppins, sans-serif; font-size: 18px; font-weight: 500; padding: 18px 40px; border-radius: 8px; text-decoration: none;">
-        Book a Demo
-        <svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <p style="font-family: Poppins, sans-serif; font-size: 14px; color: #6B7B6B; margin: 32px 0 0 0;">See the workflow in 30 minutes. Launch first modules in weeks.</p>
+  <!-- ========== CTA — Dark bookend with browser window ========== -->
+  <section id="cta-section" style="padding: 80px 24px; background: radial-gradient(ellipse at 50% 100%, #153d30 0%, #0E2B2B 60%, #091E1E 100%);">
+    <div style="max-width: 960px; margin: 0 auto;">
+      <!-- Browser window frame -->
+      <div style="background: rgba(255,255,255,0.05); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
+        <!-- Window chrome -->
+        <div style="display: flex; align-items: center; gap: 6px; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.06);">
+          <div style="width: 8px; height: 8px; border-radius: 100px; background: rgba(255,255,255,0.15);"></div>
+          <div style="width: 8px; height: 8px; border-radius: 100px; background: rgba(255,255,255,0.15);"></div>
+          <div style="width: 8px; height: 8px; border-radius: 100px; background: rgba(255,255,255,0.15);"></div>
+        </div>
+        <!-- Window content -->
+        <div class="cta-reveal" style="padding: 80px 64px 64px 64px; text-align: center;">
+          <h2 style="font-family: Poppins, sans-serif; font-size: 48px; font-weight: 700; line-height: 1.1; letter-spacing: -0.5px; color: #FFFFFF; margin: 0 0 20px 0;">
+            See your incidents become training in <span style="color: #83E85A;">30 minutes.</span>
+          </h2>
+          <p style="font-family: Poppins, sans-serif; font-size: 17px; color: rgba(255,255,255,0.65); max-width: 480px; margin: 0 auto 40px auto; line-height: 1.6;">
+            We’ll walk you through the platform, then map a rollout plan to your sites.
+          </p>
+          <a href="book-demo.html" class="btn-inline-gradient" style="display: inline-flex; align-items: center; gap: 8px; background: #83E85A; color: #113333; font-family: Poppins, sans-serif; font-size: 17px; font-weight: 600; padding: 16px 36px; border-radius: 8px; text-decoration: none;">
+            Book a Demo
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
